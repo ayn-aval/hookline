@@ -49,7 +49,7 @@ def _uploaded_pairs(files) -> list[tuple[str, str]]:
     return pairs
 
 
-def _run_in_background(show, llm, progress_bar) -> RunResult:
+def _run_in_background(show, llm, judge_llm, progress_bar) -> RunResult:
     """Run the pipeline off the script thread and poll its progress (Streamlit calls must stay on this thread)."""
     state = {"message": "Starting", "fraction": 0.0, "result": None, "error": None}
 
@@ -58,7 +58,7 @@ def _run_in_background(show, llm, progress_bar) -> RunResult:
 
     def work() -> None:
         try:
-            state["result"] = run_pipeline(show, llm, progress=report)
+            state["result"] = run_pipeline(show, llm, judge_llm=judge_llm, progress=report)
         except Exception as exc:  # noqa: BLE001 - surfaced to the user below
             state["error"] = exc
 
@@ -91,13 +91,15 @@ def new_show(choice: ModelChoice) -> None:
     if not choice.config.api_key:
         st.info("Add an API key in the sidebar to run.")
     elif blocked:
-        st.warning("The shared demo key's limit for this session is reached. Add your own key in the sidebar.")
+        st.warning(f"The shared demo key allows {DEMO_RUNS_PER_SESSION} runs of up to {DEMO_MAX_EPISODES} episodes "
+                   "per session. Add your own key in the sidebar for more.")
     elif show.episodes and st.button("Find promos", type="primary"):
         if choice.using_demo_key:
             st.session_state["demo_runs"] = runs + 1
         cache = Path(tempfile.mkdtemp(prefix="hookline-"))
         try:
-            result = _run_in_background(show, LLM(choice.config, cache_dir=cache), st.progress(0.0))
+            result = _run_in_background(show, LLM(choice.config, cache_dir=cache),
+                                        LLM(choice.judge_config, cache_dir=cache), st.progress(0.0))
         except Exception as exc:  # noqa: BLE001
             st.error(f"Run failed: {exc}")
             return
