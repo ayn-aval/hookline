@@ -39,6 +39,7 @@ class LLM:
     usage: dict = field(default_factory=_empty_usage)
 
     def __post_init__(self) -> None:
+        self._quota_error: Optional[str] = None
         if self.client is None:
             from openai import OpenAI
 
@@ -99,6 +100,8 @@ class LLM:
                 self.usage[k] = self.usage.get(k, 0) + v
 
     def _complete(self, messages: list[dict]) -> tuple[str, dict]:
+        if self._quota_error:
+            raise LLMError(self._quota_error)
         delay = 2.0
         json_mode = True
         for attempt in range(self.max_retries + 1):
@@ -113,8 +116,9 @@ class LLM:
                     json_mode = False  # provider lacks JSON mode; the prompt still asks for JSON
                     continue
                 if status == 429 and any(m in str(exc).lower() for m in DAILY_QUOTA_MARKERS):
-                    raise LLMError(f"{self.cfg.provider}/{self.cfg.model}: daily quota exhausted; "
-                                   "switch model or provider, or wait for the quota to reset") from exc
+                    self._quota_error = (f"{self.cfg.provider}/{self.cfg.model}: daily quota exhausted; "
+                                         "switch model or provider, or wait for the quota to reset")
+                    raise LLMError(self._quota_error) from exc
                 retryable = status in RETRYABLE_STATUS or status is None
                 if not retryable or attempt == self.max_retries:
                     raise LLMError(f"{self.cfg.provider}/{self.cfg.model} failed: {str(exc)[:300]}") from exc
