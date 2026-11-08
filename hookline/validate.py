@@ -11,7 +11,8 @@ from __future__ import annotations
 
 from collections import defaultdict
 
-from .rules import CLIFF_TOLERANCE, DEDUPE_IOU, HOOK_WINDOW, MAX_DURATION, MIN_DURATION
+from .rules import (CLIFF_TOLERANCE, CONDENSE_HEAD, CONDENSE_TAIL, DEDUPE_IOU, HOOK_WINDOW, MAX_DURATION,
+                    MIN_DURATION)
 from .schemas import Beat, Candidate, Promo, Segment
 
 
@@ -21,6 +22,51 @@ def dialogue_by_episode(index: dict[str, Beat]) -> dict[int, list[Beat]]:
         if b.kind == "DIALOGUE":
             by_ep[b.ep].append(b)
     return by_ep
+
+
+def beats_by_episode(index: dict[str, Beat]) -> dict[int, list[Beat]]:
+    by_ep: dict[int, list[Beat]] = defaultdict(list)
+    for b in index.values():
+        by_ep[b.ep].append(b)
+    for beats in by_ep.values():
+        beats.sort(key=lambda b: (b.start, b.id))
+    return by_ep
+
+
+def _total(spans: list[list]) -> float:
+    return round(sum(sp[2] - sp[1] for sp in spans), 2)
+
+
+def _extend_before_hook(span: list, hook: Beat, ep_beats: list[Beat], ep_dialogue: list[Beat]) -> bool:
+    """Open up to HOOK_WINDOW seconds before the hook to reach the minimum length."""
+    earlier = [b.start for b in ep_beats if hook.start - HOOK_WINDOW <= b.start < span[1]]
+    if not earlier:
+        return False
+    start, _ = _snap(ep_dialogue, min(earlier), span[2])
+    if hook.start - start > HOOK_WINDOW:
+        return False
+    span[1] = start
+    return True
+
+
+def _condense(span: list, ep_beats: list[Beat], ep_dialogue: list[Beat]) -> list[list] | None:
+    """Split an over-long window into [hook + CONDENSE_HEAD s] and [last CONDENSE_TAIL s up to the cliffhanger]."""
+    ep, start, end = span[0], span[1], span[2]
+    head_ends = [b.end for b in ep_beats if b.end >= start + CONDENSE_HEAD]
+    tail_starts = [b.start for b in ep_beats if b.start <= end - CONDENSE_TAIL]
+    if not head_ends or not tail_starts:
+        return None
+    s1, e1 = _snap(ep_dialogue, start, min(head_ends))
+    s2, e2 = _snap(ep_dialogue, max(tail_starts), end)
+    if e1 >= s2 or (e1 - s1) + (e2 - s2) > MAX_DURATION:
+        return None
+    return [[ep, s1, e1], [ep, s2, e2]]
+
+
+def _edge_ids(ep_beats: list[Beat], start: float, end: float) -> tuple[str, str]:
+    first = min(ep_beats, key=lambda b: (abs(b.start - start), b.start))
+    last = min(ep_beats, key=lambda b: (abs(b.end - end), -b.start))
+    return first.id, last.id
 
 
 def _snap(ep_dialogue: list[Beat], start: float, end: float) -> tuple[float, float]:
@@ -37,11 +83,14 @@ def _snap(ep_dialogue: list[Beat], start: float, end: float) -> tuple[float, flo
 
 
 def validate_candidate(c: Candidate, index: dict[str, Beat],
-                       dialogue_by_ep: dict[int, list[Beat]] | None = None) -> tuple[Promo | None, list[str]]:
+                       dialogue_by_ep: dict[int, list[Beat]] | None = None,
+                       beats_by_ep: dict[int, list[Beat]] | None = None) -> tuple[Promo | None, list[str]]:
     """Return (promo, notes). promo is None if the candidate cannot be made valid; notes say why."""
     notes: list[str] = []
     repairs: list[str] = []
+    kind = c.kind
     dialogue_by_ep = dialogue_by_ep if dialogue_by_ep is not None else dialogue_by_episode(index)
+    beats_by_ep = beats_by_ep if beats_by_ep is not None else beats_by_episode(index)
 
     ids = [x for s in c.segments for x in (s.start_beat, s.end_beat)] + [c.hook_beat, c.cliff_beat]
     unknown = [i for i in ids if i not in index]
@@ -95,15 +144,27 @@ def validate_candidate(c: Candidate, index: dict[str, Beat],
             if spans[i][0] == spans[j][0] and spans[i][1] < spans[j][2] and spans[j][1] < spans[i][2]:
                 return None, [f"{c.id}: segments {i + 1} and {j + 1} overlap in ep{spans[i][0]}"]
 
-    total = round(sum(sp[2] - sp[1] for sp in spans), 2)
+    total = _total(spans)
+    if total < MIN_DURATION and _extend_before_hook(spans[0], hook, beats_by_ep[spans[0][0]],
+                                                     dialogue_by_ep.get(spans[0][0], [])):
+        repairs.append(f"start moved to {spans[0][1]:.1f}s, up to 3s before the hook, to reach {MIN_DURATION:.0f}s")
+    elif total > MAX_DURATION and len(spans) == 1:
+        condensed = _condense(spans[0], beats_by_ep[spans[0][0]], dialogue_by_ep.get(spans[0][0], []))
+        if condensed:
+            spans, kind = condensed, "stitched"
+            repairs.append(f"{total:.0f}s window condensed to the hook opening plus the run-up to the cliffhanger")
+    total = _total(spans)
     if total < MIN_DURATION:
         return None, [f"{c.id}: too short ({total:.1f}s < {MIN_DURATION:.0f}s)"]
     if total > MAX_DURATION:
         return None, [f"{c.id}: too long ({total:.1f}s > {MAX_DURATION:.0f}s)"]
 
+    segments = []
+    for ep, start, end, *_ in spans:
+        first_id, last_id = _edge_ids(beats_by_ep[ep], start, end)
+        segments.append(Segment(ep=ep, start=start, end=end, start_beat=first_id, end_beat=last_id))
     promo = Promo(
-        id=c.id, kind=c.kind, title=c.title,
-        segments=[Segment(ep=sp[0], start=sp[1], end=sp[2], start_beat=sp[3], end_beat=sp[4]) for sp in spans],
+        id=c.id, kind=kind, title=c.title, segments=segments,
         duration=total, hook=c.hook, cliffhanger=c.cliffhanger, why=c.why,
         hook_beat=c.hook_beat, cliff_beat=c.cliff_beat, repaired=bool(repairs), repairs=repairs,
     )

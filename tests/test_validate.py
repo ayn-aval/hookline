@@ -53,9 +53,7 @@ def test_validate_rejects_reversed_segment():
 def test_validate_duration_bounds():
     short, notes = validate_candidate(cand("E01-B002", "E01-B004", "E01-B002", "E01-B004"), IDX)  # 15 s
     assert short is None and any("short" in n for n in notes)
-    # 65 s with hook at the very start -> cannot trim -> rejected
-    long_, notes = validate_candidate(cand("E01-B001", "E01-B013", "E01-B001", "E01-B013"), IDX)
-    assert long_ is None and any("long" in n for n in notes)
+    # 15 s with no beat boundary within 3 s before the hook -> cannot extend -> rejected (checked above)
 
 
 def test_hook_within_3s():
@@ -109,3 +107,29 @@ def P(pid, ep, start, end):
 def test_dedupe_iou():
     keep = dedupe([P("a", 1, 0, 40), P("b", 1, 5, 42), P("c", 1, 50, 90), P("d", 2, 0, 40)])
     assert [p.id for p in keep] == ["a", "c", "d"]
+
+
+SECONDS = {f"E01-B{i:03d}": B(i, i - 1.0, float(i)) for i in range(1, 121)}  # one beat per second, 120 s
+
+
+def test_short_window_starts_up_to_3s_before_hook():
+    p, notes = validate_candidate(cand("E01-B011", "E01-B028", "E01-B011", "E01-B028"), SECONDS)  # 18 s
+    assert p is not None, notes
+    assert p.segments[0].start == 7.0 and p.duration == 21.0
+    assert any("before the hook" in r for r in p.repairs)
+
+
+def test_long_window_condensed_into_hook_and_run_up_to_cliffhanger():
+    p, notes = validate_candidate(cand("E01-B001", "E01-B090", "E01-B001", "E01-B090"), SECONDS)  # 90 s
+    assert p is not None, notes
+    assert p.kind == "stitched" and len(p.segments) == 2
+    first, last = p.segments
+    assert first.start == 0.0 and last.end == 90.0 and first.end < last.start
+    assert 20 <= p.duration <= 60
+    assert any("condensed" in r for r in p.repairs)
+
+
+def test_long_window_from_65s_condensed_not_rejected():
+    p, notes = validate_candidate(cand("E01-B001", "E01-B013", "E01-B001", "E01-B013"), IDX)
+    assert p is not None, notes
+    assert len(p.segments) == 2 and p.duration <= 60

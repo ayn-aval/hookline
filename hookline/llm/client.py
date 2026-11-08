@@ -54,8 +54,11 @@ class LLM:
         messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
         path = self._cache_path(tag, self._cache_key(messages))
         if path and path.exists():
-            self._bump(cached=1)
-            return json.loads(path.read_text())["parsed"]
+            record = json.loads(path.read_text())
+            usage = record.get("usage") or {}
+            self._bump(cached=1, prompt_tokens=usage.get("prompt_tokens", 0),
+                       completion_tokens=usage.get("completion_tokens", 0))
+            return record["parsed"]
 
         text, usage = self._complete(messages)
         try:

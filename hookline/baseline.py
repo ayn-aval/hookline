@@ -6,14 +6,14 @@ It ignores the hook rule, which is exactly what the LLM is meant to add.
 from __future__ import annotations
 
 from .schemas import Candidate, ParseResult, Promo, SegmentRef
-from .validate import dialogue_by_episode, validate_candidate
+from .validate import beats_by_episode, dialogue_by_episode, validate_candidate
 
 TAIL = 45.0
 
 
 def baseline_promos(show: ParseResult, tail: float = TAIL) -> list[Promo]:
     index = show.beat_index()
-    dialogue = dialogue_by_episode(index)
+    dialogue, ep_beats = dialogue_by_episode(index), beats_by_episode(index)
     out = []
     for ep in show.episodes:
         if not ep.beats:
@@ -27,7 +27,7 @@ def baseline_promos(show: ParseResult, tail: float = TAIL) -> list[Promo]:
                       segments=[SegmentRef(start_beat=first.id, end_beat=last.id)],
                       hook_beat=hook.id, cliff_beat=last.id, hook=hook.text[:80], cliffhanger=last.text[:80],
                       why="baseline: episode ending")
-        p, _ = validate_candidate(c, index, dialogue)
+        p, _ = validate_candidate(c, index, dialogue, ep_beats)
         if p:
             p.kind = "baseline"
             out.append(p)

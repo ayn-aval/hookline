@@ -5,6 +5,9 @@ MAX_DURATION = 60.0
 HOOK_WINDOW = 3.0
 CLIFF_TOLERANCE = 1.0
 DEDUPE_IOU = 0.5
+# A window longer than MAX_DURATION is condensed to the opening after the hook plus the run-up to the cliffhanger.
+CONDENSE_HEAD = 20.0
+CONDENSE_TAIL = 25.0
 
 JUDGE_WEIGHTS = {"hook": 0.30, "cliff": 0.25, "standalone": 0.25, "emotion": 0.20}
 SWEET_SPOT = (30.0, 45.0)

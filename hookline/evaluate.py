@@ -19,7 +19,7 @@ from .rules import JUDGE_WEIGHTS
 from .schemas import ParseResult, Promo
 from .pipeline import DEFAULT_EPISODES_PER_CALL
 from .stages import judge_promos, mine_episodes, mined_candidates
-from .validate import dedupe, dialogue_by_episode, overlap, validate_candidate
+from .validate import beats_by_episode, dedupe, dialogue_by_episode, overlap, validate_candidate
 
 TOP_N = 15
 STABILITY_TOP = 10
@@ -53,14 +53,14 @@ def remine(show: ParseResult, bible: dict, llm, episodes: Optional[list[int]], w
     selected = [e for e in show.episodes if not episodes or e.num in set(episodes)]
     batches = [selected[i:i + episodes_per_call] for i in range(0, len(selected), episodes_per_call)]
     index = show.beat_index()
-    dialogue = dialogue_by_episode(index)
+    dialogue, ep_beats = dialogue_by_episode(index), beats_by_episode(index)
 
     def mine(batch) -> list[Promo]:
         try:
             mined = mine_episodes(batch, bible, llm)
         except Exception:  # noqa: BLE001 - a failed batch simply contributes nothing
             return []
-        promos = [validate_candidate(c, index, dialogue)[0]
+        promos = [validate_candidate(c, index, dialogue, ep_beats)[0]
                   for n, raw in mined.items() for c in mined_candidates(n, raw)]
         return [p for p in promos if p]
 

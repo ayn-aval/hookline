@@ -93,3 +93,12 @@ def test_daily_quota_fails_fast_without_retrying(tmp_path):
     with pytest.raises(LLMError, match="daily quota"):
         llm.json("s", "u", tag="t")
     assert len(fake.calls) == 1
+
+
+def test_cached_calls_still_count_tokens_for_cost(tmp_path):
+    fake = FakeClient(['{"a": 1}'])
+    LLM(cfg(), cache_dir=tmp_path, client=fake).json("s", "u", tag="t")
+    again = LLM(cfg(), cache_dir=tmp_path, client=fake)
+    again.json("s", "u", tag="t")
+    assert again.usage["calls"] == 0 and again.usage["cached"] == 1
+    assert again.usage["prompt_tokens"] == 10 and again.usage["completion_tokens"] == 5

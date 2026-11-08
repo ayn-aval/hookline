@@ -11,7 +11,7 @@ from .rank import rank_promos
 from .rules import PRICE_PER_M_INPUT, PRICE_PER_M_OUTPUT
 from .schemas import Candidate, ParseResult, Promo
 from .stages import judge_promos, make_bible, mine_episodes, mined_candidates, spoiler_level, stitch
-from .validate import dedupe, dialogue_by_episode, validate_candidate
+from .validate import beats_by_episode, dedupe, dialogue_by_episode, validate_candidate
 
 Progress = Optional[Callable[[str, float], None]]
 
@@ -46,10 +46,10 @@ def _mine_all(show: ParseResult, bible: dict, llm, max_workers: int, episodes_pe
 
 def _validate_all(candidates: list[Candidate], show: ParseResult) -> tuple[list[Promo], list[str], int]:
     index = show.beat_index()
-    dialogue = dialogue_by_episode(index)
+    dialogue, ep_beats = dialogue_by_episode(index), beats_by_episode(index)
     valid, rejections, repaired = [], [], 0
     for c in candidates:
-        promo, notes = validate_candidate(c, index, dialogue)
+        promo, notes = validate_candidate(c, index, dialogue, ep_beats)
         if promo is None:
             rejections.extend(notes)
         else:
