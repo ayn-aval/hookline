@@ -93,7 +93,7 @@ def _log(message: str) -> None:
 
 def cmd_run(args, show) -> int:
     from .pipeline import run_pipeline
-    from .report import write_outputs
+    from .report import run_failed, write_outputs
 
     out = Path(args.out)
     llm, judge = _llm(args, out / "raw"), _judge_llm(args, out / "raw")
@@ -101,7 +101,12 @@ def cmd_run(args, show) -> int:
     result = run_pipeline(show, llm, judge_llm=judge, max_workers=args.workers,
                           episodes=parse_episodes(args.episodes), episodes_per_call=args.episodes_per_call,
                           progress=lambda m, f: _log(f"[{f:4.0%}] {m}"))
-    write_outputs(result, show, out)
+    for name, error in result.meta["errors"].items():
+        _log(f"[error] {name}: {error}")
+    if run_failed(result.meta):
+        _log(f"Run produced no promos; {out} was left unchanged.")
+        return 1
+    write_outputs(result, out)
     c = result.meta["candidates"]
     print(f"{c['final']} promos -> {out / 'report.md'} (proposed {c['proposed']}, rejected {c['rejected']}, "
           f"LLM calls {result.meta['llm_usage']['calls']}, est. paid-tier cost ${result.meta['est_cost_usd_paid_tier']})")
@@ -112,10 +117,10 @@ def cmd_eval(args, show) -> int:
     from .evaluate import evaluate
 
     out = Path(args.out)
-    llm, judge = _llm(args, out / "raw"), _judge_llm(args, out / "raw")
+    judge = _judge_llm(args, out / "raw")
     alt = (_llm(args, out / "raw_alt", model=args.alt_model) if args.alt_model
            else _llm(args, out / "raw_alt", temperature=0.9))
-    report = evaluate(out, show, llm, alt_llm=alt, judge_llm=judge,
+    report = evaluate(out, show, judge, alt_llm=alt,
                       eval_dir=Path(args.eval_dir) if args.eval_dir else None, workers=args.workers,
                       stability_episodes=parse_episodes(args.episodes), episodes_per_call=args.episodes_per_call)
     print(report["markdown"])

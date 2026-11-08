@@ -80,7 +80,7 @@ def test_pipeline_end_to_end_fake_llm(tmp_path):
     # judge saw only the clip text: no bible/premise leaked into its prompt
     judge_prompt = next(v for k, v in llm.seen.items() if k.startswith("04_judge"))
     assert "jilted bride" not in judge_prompt
-    write_outputs(result, show, tmp_path)
+    write_outputs(result, tmp_path)
     for f in ["promos.json", "promos.csv", "report.md", "run_meta.json"]:
         assert (tmp_path / f).exists()
     data = json.loads((tmp_path / "promos.json").read_text())

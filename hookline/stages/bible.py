@@ -4,13 +4,14 @@ from __future__ import annotations
 import json
 from collections import Counter
 
+from ..llm import JSONModel
 from ..prompts import load_prompt
 from ..schemas import ParseResult
 
 MAX_SPEAKER_LABELS = 80
 
 
-def make_bible(show: ParseResult, llm) -> dict:
+def make_bible(show: ParseResult, llm: JSONModel) -> dict:
     speakers = Counter(b.speaker for e in show.episodes for b in e.beats if b.speaker)
     episodes = "\n".join(f"Episode {e.num}: {e.logline}\n  Continuity: {e.continuity}" for e in show.episodes)
     labels = ", ".join(f"{s} ({n})" for s, n in speakers.most_common(MAX_SPEAKER_LABELS))

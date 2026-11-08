@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 
 from .parse import fmt_ts
-from .schemas import ParseResult, Promo
+from .schemas import Promo, RunResult
 
 CSV_COLS = ["rank", "promo_id", "kind", "title", "total_seconds", "segment", "episode", "start", "end",
             "segment_seconds", "hook", "cliffhanger", "why_it_works", "why_post_at_rank", "final_score",
@@ -40,10 +40,6 @@ def promos_csv(promos: list[Promo]) -> str:
     return buffer.getvalue()
 
 
-def write_csv(promos: list[Promo], path: Path) -> None:
-    path.write_text(promos_csv(promos))
-
-
 def promo_markdown(p: Promo) -> str:
     segs = "\n".join(f"  {n}. Ep {s.ep} · {fmt_ts(s.start)} → {fmt_ts(s.end)} ({s.end - s.start:.1f}s)"
                      for n, s in enumerate(p.segments, 1))
@@ -64,50 +60,58 @@ def promo_markdown(p: Promo) -> str:
     return "\n".join(out)
 
 
-def write_report(promos: list[Promo], bible: dict, meta: dict, path: Path, title: str = "Hookline promo report") -> None:
+def report_markdown(promos: list[Promo], bible: dict, meta: dict, title: str = "Hookline promo report") -> str:
     c = meta.get("candidates", {})
+    usage = meta.get("llm_usage", {})
     eps = meta.get("show_episodes") or []
-    head = [
+    lines = [
         f"# {title}",
         "",
         f"**Show premise (from series bible):** {bible.get('show_premise', '')}",
         "",
-        f"Episodes {min(eps) if eps else '?'}–{max(eps) if eps else '?'} · model `{meta.get('provider')}/{meta.get('model')}`"
-        f" · prompts `{meta.get('prompts_sha')}` · {meta.get('seconds')}s · "
-        f"LLM calls {meta.get('llm_usage', {}).get('calls')} (cached {meta.get('llm_usage', {}).get('cached')})",
+        f"Episodes {min(eps) if eps else '?'}–{max(eps) if eps else '?'} · model "
+        f"`{meta.get('provider')}/{meta.get('model')}`, judge `{meta.get('judge_model')}` · prompts "
+        f"`{meta.get('prompts_sha')}` · LLM calls {usage.get('calls', 0) + usage.get('cached', 0)} "
+        f"({usage.get('cached', 0)} served from cache)",
         "",
         f"Candidates proposed {c.get('proposed')} ({c.get('continuous_proposed')} continuous, "
         f"{c.get('stitched_proposed')} stitched) → valid {c.get('valid')} (auto-repaired {c.get('repaired')}, "
         f"rejected {c.get('rejected')}) → after de-duplication **{c.get('final')} promos**.",
         "",
         "Every timestamp below comes from the screenplay itself (the model only points at beat IDs). "
-        "Rules enforced in code: 20–60 s total, hook starts ≤ 3 s in, ends on the cliffhanger beat, never cuts a line mid-sentence.",
+        "Rules enforced in code: 20–60 s total, hook starts ≤ 3 s in, ends on the cliffhanger beat, "
+        "never cuts a line mid-sentence.",
         "",
-        "## Posting order",
-        "",
-        "| # | Promo | Type | Length | Episodes | Score |",
-        "|---|---|---|---|---|---|",
     ]
-    for p in promos:
-        head.append(f"| {p.rank} | {p.title or p.id} | {p.kind} | {p.duration:.0f}s | "
-                    f"{', '.join(str(e) for e in p.episodes)} | {p.final_score} |")
-    body = ["", "## Promos", ""] + [promo_markdown(p) + "\n" for p in promos]
+    if meta.get("errors"):
+        lines += ["## Errors during the run", ""] + [f"- {k}: {v}" for k, v in meta["errors"].items()] + [""]
+    lines += ["## Posting order", "", "| # | Promo | Type | Length | Episodes | Score |", "|---|---|---|---|---|---|"]
+    lines += [f"| {p.rank} | {p.title or p.id} | {p.kind} | {p.duration:.0f}s | "
+              f"{', '.join(str(e) for e in p.episodes)} | {p.final_score} |" for p in promos]
+    lines += ["", "## Promos", ""] + [promo_markdown(p) + "\n" for p in promos]
     if meta.get("rejections"):
-        body += ["## Rejected candidates (why the validator refused them)", ""]
-        body += [f"- {r}" for r in meta["rejections"]]
-    path.write_text("\n".join(head + body) + "\n")
+        lines += ["## Rejected candidates (why the validator refused them)", ""]
+        lines += [f"- {r}" for r in meta["rejections"]]
+    return "\n".join(lines) + "\n"
 
 
-def write_outputs(result, show: ParseResult, out_dir: Path) -> None:
+def promos_payload(result: RunResult) -> dict:
+    return {"bible": result.bible, "meta": result.meta, "promos": [promo_dict(p) for p in result.promos]}
+
+
+def run_failed(meta: dict) -> bool:
+    """A run that produced nothing and recorded errors should not replace a previous good run."""
+    return not meta.get("candidates", {}).get("final") and bool(meta.get("errors"))
+
+
+def write_outputs(result: RunResult, out_dir: Path) -> None:
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "promos.json").write_text(json.dumps(
-        {"bible": result.bible, "meta": result.meta, "promos": [promo_dict(p) for p in result.promos]},
-        indent=1, ensure_ascii=False))
+    (out_dir / "promos.json").write_text(json.dumps(promos_payload(result), indent=1, ensure_ascii=False))
     (out_dir / "bible.json").write_text(json.dumps(result.bible, indent=1, ensure_ascii=False))
     (out_dir / "run_meta.json").write_text(json.dumps(result.meta, indent=1, ensure_ascii=False))
-    write_csv(result.promos, out_dir / "promos.csv")
-    write_report(result.promos, result.bible, result.meta, out_dir / "report.md")
+    (out_dir / "promos.csv").write_text(promos_csv(result.promos))
+    (out_dir / "report.md").write_text(report_markdown(result.promos, result.bible, result.meta))
 
 
 def load_run(out_dir: Path) -> tuple[list[Promo], dict, dict]:

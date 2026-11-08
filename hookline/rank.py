@@ -13,19 +13,20 @@ REASON_LABELS = {
 }
 
 
-def _judged(p: Promo) -> bool:
-    return p.scores.get("judged", True) is not False
+def judge_score(p: Promo) -> float:
+    """Weighted mean of the judge's 1-5 scores."""
+    return sum(w * float(p.scores.get(k) or 0) for k, w in JUDGE_WEIGHTS.items())
 
 
 def score_promo(p: Promo, n_episodes: int) -> float:
-    judge = sum(w * float(p.scores.get(k) or 0) for k, w in JUDGE_WEIGHTS.items())
+    judge = judge_score(p)
     bonus = SWEET_SPOT_BONUS if SWEET_SPOT[0] <= p.duration <= SWEET_SPOT[1] else 0.0
     funnel = FUNNEL_PENALTY * (min(p.episodes) - 1) / max(1, n_episodes - 1)
     return round(judge + bonus - SPOILER_PENALTY * p.spoiler - funnel, 3)
 
 
 def _reason(p: Promo, n_episodes: int) -> str:
-    if not _judged(p):
+    if not p.judged:
         return "not scored by the judge; review manually"
     best = max(JUDGE_WEIGHTS, key=lambda k: float(p.scores.get(k) or 0))
     parts = [f"{REASON_LABELS[best]} ({p.scores.get(best)}/5)"]
@@ -46,7 +47,7 @@ def rank_promos(promos: list[Promo], n_episodes: int) -> list[Promo]:
     """
     for p in promos:
         p.final_score = score_promo(p, n_episodes)
-    pool = sorted((p for p in promos if _judged(p)), key=lambda p: -p.final_score)
+    pool = sorted((p for p in promos if p.judged), key=lambda p: -p.final_score)
     order: list[Promo] = []
     while pool:
         pick = pool[0]
@@ -55,7 +56,7 @@ def rank_promos(promos: list[Promo], n_episodes: int) -> list[Promo]:
                          and pick.final_score - q.final_score <= DIVERSITY_WINDOW), pick)
         pool.remove(pick)
         order.append(pick)
-    order += [p for p in promos if not _judged(p)]
+    order += [p for p in promos if not p.judged]
     for i, p in enumerate(order, 1):
         p.rank = i
         p.post_reason = _reason(p, n_episodes)

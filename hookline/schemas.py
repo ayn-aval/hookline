@@ -1,6 +1,7 @@
 """Data shapes shared by every stage of the pipeline."""
 from __future__ import annotations
 
+from dataclasses import dataclass, field
 from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
@@ -63,7 +64,6 @@ class Candidate(BaseModel):
     hook: str = ""
     cliffhanger: str = ""
     why: str = ""
-    context_needed: str = ""
 
 
 class Segment(BaseModel):
@@ -100,3 +100,14 @@ class Promo(BaseModel):
     @property
     def episodes(self) -> list[int]:
         return sorted({s.ep for s in self.segments})
+
+    @property
+    def judged(self) -> bool:
+        return self.scores.get("judged", True) is not False
+
+
+@dataclass
+class RunResult:
+    promos: list[Promo]
+    bible: dict
+    meta: dict = field(default_factory=dict)

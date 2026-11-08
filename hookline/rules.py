@@ -10,6 +10,7 @@ CONDENSE_HEAD = 20.0
 CONDENSE_TAIL = 25.0
 
 JUDGE_WEIGHTS = {"hook": 0.30, "cliff": 0.25, "standalone": 0.25, "emotion": 0.20}
+SCORE_KEYS = tuple(JUDGE_WEIGHTS)
 SWEET_SPOT = (30.0, 45.0)
 SWEET_SPOT_BONUS = 0.3
 SPOILER_PENALTY = 0.6

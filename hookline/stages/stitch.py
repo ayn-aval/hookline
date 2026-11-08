@@ -1,6 +1,7 @@
 """Stage 3: stitched promos built from the catalogue of moments mined in every episode."""
 from __future__ import annotations
 
+from ..llm import JSONModel
 from ..prompts import load_prompt
 from ..render import beat_line
 from ..schemas import Candidate, ParseResult, SegmentRef
@@ -41,14 +42,17 @@ def moment_catalogue(show: ParseResult, mined: dict[int, dict]) -> str:
     return "\n\n".join(blocks)
 
 
-def stitch(show: ParseResult, bible: dict, mined: dict[int, dict], llm) -> list[Candidate]:
+def stitch(show: ParseResult, bible: dict, mined: dict[int, dict],
+           llm: JSONModel) -> tuple[list[Candidate], list[str]]:
+    """Stitched candidates plus a note for each malformed proposal."""
     catalogue = moment_catalogue(show, mined)
     if not catalogue:
-        return []
+        return [], []
     user = f"SERIES BIBLE:\n{bible_text(bible)}\n\nMOMENT CATALOGUE:\n{catalogue}"
     out = llm.json(load_prompt("stitch"), user, tag="03_stitch")
-    candidates = []
-    for i, c in enumerate((out or {}).get("promos") or [], 1):
+    candidates, notes = [], []
+    proposals = out.get("promos") if isinstance(out, dict) else None
+    for i, c in enumerate(proposals or [], 1):
         try:
             segments = [SegmentRef(start_beat=str(s["start_beat"]), end_beat=str(s["end_beat"]))
                         for s in c["segments"]]
@@ -59,5 +63,5 @@ def stitch(show: ParseResult, bible: dict, mined: dict[int, dict], llm) -> list[
                 hook=str(c.get("hook", "")), cliffhanger=str(c.get("cliffhanger", "")),
                 why=str(c.get("why", ""))))
         except (AttributeError, KeyError, TypeError, ValueError, IndexError):
-            continue
-    return candidates
+            notes.append(f"S{i:02d}: malformed stitched promo from the model")
+    return candidates, notes

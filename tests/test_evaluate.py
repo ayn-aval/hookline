@@ -24,7 +24,7 @@ def test_top_overlap_counts_refound_promos():
 def test_evaluate_writes_results(tmp_path):
     show = load_show([("1.txt", make_ep(1)), ("2.txt", make_ep(2))])
     llm = FakeLLM()
-    write_outputs(run_pipeline(show, llm, max_workers=1), show, tmp_path)
+    write_outputs(run_pipeline(show, llm, max_workers=1), tmp_path)
     report = evaluate(tmp_path, show, llm, alt_llm=FakeLLM(), eval_dir=tmp_path / "eval", workers=1)
     data = json.loads((tmp_path / "eval" / "results.json").read_text())
     assert data["baseline"]["n"] == 2
