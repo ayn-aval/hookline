@@ -1,4 +1,4 @@
-"""Reusable rendering pieces: promo cards, run summary, approve/export controls."""
+"""Reusable rendering pieces: run summary, promo cards, approve-and-export controls."""
 from __future__ import annotations
 
 from typing import Optional
@@ -21,10 +21,12 @@ def run_summary(meta: dict) -> None:
     cols[0].metric("Promos", c.get("final", "-"))
     cols[1].metric("Episodes", len(meta.get("show_episodes", [])))
     cols[2].metric("Rejected by rules", c.get("rejected", "-"))
-    cols[3].metric("LLM calls", usage.get("calls", "-"))
+    cols[3].metric("LLM calls", usage.get("calls", 0) + usage.get("cached", 0))
     cols[4].metric("Est. paid-tier cost", f"${meta.get('est_cost_usd_paid_tier', 0):.2f}")
-    st.caption(f"Model `{meta.get('provider')}/{meta.get('model')}` · prompts `{meta.get('prompts_sha')}` · "
-               f"{meta.get('seconds', 0):.0f}s")
+    st.caption(f"Model `{meta.get('provider')}/{meta.get('model')}` · judge `{meta.get('judge_model')}` · "
+               f"prompts `{meta.get('prompts_sha')}`")
+    for name, error in (meta.get("errors") or {}).items():
+        st.warning(f"{name}: {error}")
 
 
 def filter_promos(promos: list[Promo], key: str) -> list[Promo]:
@@ -41,19 +43,22 @@ def _segments_table(p: Promo) -> pd.DataFrame:
                           "Seconds": round(s.end - s.start, 1)} for n, s in enumerate(p.segments, 1)])
 
 
+def _approve_key(key: str, p: Promo) -> str:
+    return f"{key}-ok-{p.id}"
+
+
 def promo_card(p: Promo, key: str, show: Optional[ParseResult] = None) -> None:
     with st.container(border=True):
         head, decision = st.columns([5, 1])
         head.markdown(f"**#{p.rank} · {p.title or p.id}**  \n"
                       f"{p.kind} · {p.duration:.1f}s · episodes {', '.join(map(str, p.episodes))} · "
                       f"score {p.final_score}")
-        decision.checkbox("Approve", key=f"{key}-ok-{p.id}")
+        decision.checkbox("Approve", key=_approve_key(key, p))
         st.dataframe(_segments_table(p), hide_index=True, use_container_width=True)
         st.markdown(f"**Hook:** {p.hook}  \n**Cliffhanger:** {p.cliffhanger}  \n**Why it works:** {p.why}  \n"
                     f"**Why post at #{p.rank}:** {p.post_reason}")
         scores = " · ".join(f"{label} {p.scores.get(k, '-')}/5" for k, label in SCORE_LABELS.items())
-        summary = p.scores.get("cold_viewer_summary")
-        weakness = p.scores.get("weakness")
+        summary, weakness = p.scores.get("cold_viewer_summary"), p.scores.get("weakness")
         st.caption(f"Cold-viewer judge: {scores} · spoiler risk {p.spoiler}/2"
                    + (f"  \nA stranger sees: {summary}" if summary else "")
                    + (f"  \nWeakness: {weakness}" if weakness else "")
@@ -64,6 +69,6 @@ def promo_card(p: Promo, key: str, show: Optional[ParseResult] = None) -> None:
 
 
 def approved_export(promos: list[Promo], key: str, file_name: str) -> None:
-    approved = [p for p in promos if st.session_state.get(f"{key}-ok-{p.id}")]
+    approved = [p for p in promos if st.session_state.get(_approve_key(key, p))]
     st.download_button(f"Download {len(approved)} approved promos (CSV)", promos_csv(approved),
                        file_name=file_name, mime="text/csv", disabled=not approved, key=f"{key}-approved")
