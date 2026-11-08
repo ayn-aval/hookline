@@ -1,0 +1,15 @@
+# Confidential Kuku input pack - never commit
+data/
+*.zip
+# local env / secrets
+.env
+.env.*
+.streamlit/secrets.toml
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.superpowers/
+outputs/smoke*/
+outputs/_*/
+.DS_Store
