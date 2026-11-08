@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hookline: finding promos in microdrama screenplays</title>
+<style>
+  @page { size: A4; margin: 10mm 13mm 9mm 13mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 8.9pt; line-height: 1.3;
+         color: #1a1a1a; margin: 0; }
+  h1 { font-size: 15pt; margin: 0 0 1mm; }
+  h2 { font-size: 10pt; margin: 2.6mm 0 1mm; color: #9a3412; border-bottom: 0.6pt solid #e7d3c6; padding-bottom: 0.6mm; }
+  p { margin: 0 0 1.6mm; }
+  ul { margin: 0 0 1.6mm; padding-left: 4.2mm; }
+  li { margin: 0 0 0.7mm; }
+  .meta { color: #555; font-size: 8.6pt; margin-bottom: 2mm; }
+  .meta a { color: #9a3412; text-decoration: none; }
+  table { border-collapse: collapse; width: 100%; margin: 1mm 0 2mm; font-size: 8.4pt; }
+  th, td { border: 0.5pt solid #d8d2cc; padding: 0.9mm 1.4mm; text-align: left; vertical-align: top; }
+  th { background: #f6efe9; font-weight: 600; }
+  td.n { text-align: right; white-space: nowrap; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 8pt; background: #f4f1ee; padding: 0 0.6mm; }
+  .pipe { font-family: Menlo, Consolas, monospace; font-size: 7.9pt; background: #faf7f4; border: 0.5pt solid #e7ded6;
+          padding: 1.4mm 2mm; margin: 0.6mm 0 1.8mm; white-space: pre; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .page-break { break-before: page; }
+  b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>Hookline: finding promos in microdrama screenplays</h1>
+<div class="meta">Lavanya L Nair · Kuku AI Generalist assignment · Problem 1, "Find the Promos" ·
+  App <a href="https://hookline-promos.streamlit.app">hookline-promos.streamlit.app</a> ·
+  Code <a href="https://github.com/ayn-aval/hookline">github.com/ayn-aval/hookline</a> ·
+  Raw outputs <a href="https://github.com/ayn-aval/hookline/tree/main/outputs/i-married-a-broken-soldier">outputs/i-married-a-broken-soldier</a></div>
+
+<h2>The problem I picked, and why</h2>
+<p>Today an editor watches every episode to pick promo moments, one show at a time, while new shows ship every week. I chose Problem 1 for three reasons:</p>
+<ul>
+  <li>It is a real, recurring cost.</li>
+  <li>Kuku gave real data.</li>
+  <li>The output can be checked: every promo is a set of timestamps anyone can verify against the script.</li>
+</ul>
+<p>Hookline reads a show's timestamped screenplays and returns a ranked list of ready-to-cut 20–60 s promos. For each promo it gives the episode and exact start/end of every segment, the hook, the cliffhanger, why it works, and why it sits at that rank. The editor's job shrinks from watching 50 episodes to reviewing about 20 suggestions.</p>
+
+<h2>Assumptions (where the brief was silent)</h2>
+<ul>
+  <li><b>Script timestamps ≈ the final cut.</b> If the edit drifts, the timestamps shift with it.</li>
+  <li><b>The hook must be in the clip.</b> "First 3 seconds" means the hook beat starts ≤ 3.0 s after the promo starts.</li>
+  <li><b>Clip boundaries.</b> A cut may never split a spoken line. The cliffhanger is the promo's last beat.</li>
+  <li><b>Where viewers land.</b> A viewer who taps a promo starts at Episode 1. So, all else equal, a promo from Episode 3 converts better than one from Episode 40, whose payoff is 39 episodes away.</li>
+  <li><b>Spoilers.</b> Twists the show title already gives away ("He was a Duke") are fair game for ads. Later twists are penalised.</li>
+  <li><b>Budget.</b> Free tiers only. The model must be swappable, because Kuku may plug in stronger APIs.</li>
+</ul>
+
+<h2>How it works: what is AI, what is code, where the human is</h2>
+<div class="pipe">screenplays → 1 Parse [code] → 2 Series bible [LLM ×1] → 3 Mine 5 episodes per call [LLM ×10]
+            → 4 Stitch across moments [LLM ×1] → 5 Validate + repair [code] → 6 Cold-viewer judge [LLM ×3]
+            → 7 Rank [code] → editor approves and exports [human]</div>
+<ul>
+  <li><b>Parse (code).</b> Every camera note, action, line and sound cue becomes a <i>beat</i> with an ID (<code>E07-B031</code>) and real timestamps. The pack has 50 episodes, 3,727 beats and 0 parse warnings.</li>
+  <li><b>LLM steps answer only with beat IDs, never timestamps,</b> so a model cannot invent a time. The <b>bible</b> maps aliases (e.g. "LADY IN GOLD GOWN" is Clarissa) and lists which reveals are ad-safe; <b>mining</b> proposes 2–4 windows per episode plus standout hook and cliffhanger moments; <b>stitch</b> joins 2–3 moments into one promo.</li>
+  <li><b>Validate (code) enforces the brief.</b> Unknown IDs are rejected, cuts are widened to whole lines, the start moves onto the hook and the end onto the cliffhanger. Windows over 60 s are condensed to the hook opening plus the run-up to the cliffhanger; short stitched promos get a longer run-up. Every repair and rejection is logged.</li>
+  <li><b>Judge (LLM, a different model).</b> It sees only the clip's own lines, with no series context, and scores hook, cliffhanger, standalone clarity and emotion from 1 to 5. This <i>tests</i> "makes sense on its own" instead of assuming it.</li>
+  <li><b>Rank (code).</b> Weighted judge score, +0.3 for 30–45 s, −0.6 per spoiler level, an early-episode preference, and no two promos from one episode back to back.</li>
+  <li><b>Human.</b> The editor reviews the ranked cards in the app, ticks Approve, and exports a CSV with one row per segment, ready to cut.</li>
+</ul>
+<p><b>Models used for the committed run.</b> <code>gemini-3.5-flash-lite</code> finds the promos and <code>gemini-3.1-flash-lite</code> judges them, both through Gemini's OpenAI-compatible API. Any OpenAI-compatible model is one flag away (<code>--provider/--model/--base-url</code>, or the app sidebar). I planned to use <code>gemini-3.5-flash</code>, but the free tier allows 20 requests per model per day, and my first per-episode design used them up while testing (see "AI tools" below).</p>
+
+<h2>Results on the input pack (50 episodes)</h2>
+<p>71 proposals were reduced to <b>56 promos</b> (35 continuous, 21 stitched): 41 were auto-repaired, 14 rejected (mostly too short), and 1 duplicate dropped. They cover 42 of the 50 episodes, with lengths of 20–60 s (median 43 s). The first three to post:</p>
+<table>
+  <tr><th>#</th><th>Segments</th><th>Hook (first 3 s)</th><th>Cliffhanger</th><th>Why it works</th></tr>
+  <tr><td>1</td><td>Ep 12 00:44.00–01:27.21</td><td>"I want to see you crawl, sister."</td><td>Juliana agrees to dig through frozen thorns to save her husband from the gallows</td><td>Cruel ultimatum, stakes spelled out in 40 s</td></tr>
+  <tr><td>2</td><td>Ep 13 01:20.80–01:58.88</td><td>"Stop!", then a scream in the briars</td><td>Bloodied hand closes on the ring</td><td>Raw physical sacrifice</td></tr>
+  <tr><td>3</td><td>Ep 1 00:11.00–01:05.60</td><td>"You should turn around, Juliana."</td><td>"You swore you loved me!"</td><td>Jilted at the altar for her sister; lands viewers on Ep 1</td></tr>
+</table>
+
+<h2 class="page-break">How I know it is good, and where it fails</h2>
+<p>I used three checks. The first two are judge scores (generator and judge are different models, and the judge is blind to which tool made a clip). The third is a manual read of the top 10.</p>
+<table>
+  <tr><th>Blind judge, mean 1–5</th><th class="n">n</th><th class="n">Hook</th><th class="n">Cliff</th><th class="n">Standalone</th><th class="n">Weighted</th></tr>
+  <tr><td>Baseline: last 45 s of every episode</td><td class="n">48</td><td class="n">3.75</td><td class="n">4.08</td><td class="n">3.79</td><td class="n">3.94</td></tr>
+  <tr><td>Baseline: best 15 by judge score</td><td class="n">15</td><td class="n">4.73</td><td class="n">4.60</td><td class="n">4.40</td><td class="n">4.66</td></tr>
+  <tr><td>Hookline: all promos</td><td class="n">56</td><td class="n">3.80</td><td class="n">3.70</td><td class="n">3.66</td><td class="n">3.80</td></tr>
+  <tr><td>Hookline: best 15 by judge score</td><td class="n">15</td><td class="n">4.87</td><td class="n">4.53</td><td class="n">4.07</td><td class="n">4.60</td></tr>
+  <tr><td>Hookline: top 15 in posting order</td><td class="n">15</td><td class="n">4.73</td><td class="n">4.33</td><td class="n">4.07</td><td class="n">4.51</td></tr>
+</table>
+<p><b>What I read from this.</b> The honest result is that the judge cannot separate Hookline's best from "cut the last 45 s".</p>
+<ul>
+  <li>This show's episodes are <i>written</i> to end on cliffhangers, so the baseline wins on cliffhanger.</li>
+  <li>Where Hookline measurably wins is the opening. <b>98% of Hookline promos have a spoken line in the first 3 s, against 79% of baseline cuts.</b> This check is objective; it needs no judge.</li>
+  <li>Hookline also does things the baseline cannot: several promos per episode, stitched promos, a posting order, and spoiler control.</li>
+  <li><b>Stability:</b> a second model re-mining episodes 1–25 re-found 60% of the top-10 promos from those episodes.</li>
+</ul>
+<p><b>Manual spot-check of the top 10</b> (script lines read against the brief, in <code>eval/spot_check.md</code>): <b>7 pass, 2 weak, 1 fail.</b> Every hook lands in the first 3 s, because code guarantees it. The failures are all things the model decides:</p>
+<ul>
+  <li><b>"Cliffhangers" that resolve.</b> #9 ends on "I've got you." and #2 ends as she finds the ring.</li>
+  <li><b>A lenient judge.</b> The lite judge gave 4–5 to almost everything, including those two clips.</li>
+  <li><b>Context-dependent clips.</b> #8 is a frame-up that needs the previous episode to make sense.</li>
+  <li><b>A spoiler paraphrase the keyword check missed.</b> #4, from Ep 39, shows the "dead" Duke returning.</li>
+  <li><b>Text only.</b> The tool never sees acting or footage, so a "hook" that is a camera move may not land.</li>
+</ul>
+
+<h2>Scale and cost</h2>
+<ul>
+  <li><b>Per show (50 episodes):</b> 15 LLM calls, about 316K input and 26K output tokens, about 2 minutes. That is about <b>$0.16 per show</b> at paid Flash-Lite-class prices ($0.30 / $2.50 per 1M tokens, my assumption), and $0 on the free tier. 100 shows a week would cost about $16.</li>
+  <li><b>Re-runs and recovery:</b> every reply is cached in <code>raw/</code>, so re-runs and crash recovery are free. Changing a rule or weight in code re-ranks without calling any model.</li>
+  <li><b>On a paid tier:</b> mine one episode per call (<code>--episodes-per-call 1</code>) for the model's full attention, and use a stronger judge (<code>--judge-model</code>).</li>
+  <li><b>At Kuku's volume:</b> run each show as a batch job when its scripts land. Log editor approvals and rejections, and use them to tune the weights and prompts.</li>
+</ul>
+
+<h2>AI tools I used, and where they got it wrong</h2>
+<ul>
+  <li><b>Claude Code</b> (Anthropic, Opus) to build: design, code, tests, deployment and drafting this doc. <b>Gemini</b> (Flash-Lite models) inside the tool. ChatGPT and Gemini chat were not used.</li>
+  <li><b>Wrong #1: the model can't add up timestamps.</b> Gemini Flash-Lite picked good moments but gave windows from 6 to 114 s, and 35 of 71 broke the 20–60 s rule. I moved all arithmetic into code (repair, condense, lengthen run-up), which brought rejections down to 14. Lesson: let the model judge drama and let code do the maths.</li>
+  <li><b>Wrong #2: the build plan didn't check rate limits.</b> Claude's first design made one LLM call per episode and never checked free-tier limits, so it used up the day's quota for <code>gemini-3.5-flash</code> mid-run. The fixes: batched calls, a separate judge model, and failing fast on a daily-quota error.</li>
+</ul>
+
+<h2>Next steps</h2>
+<p>A stronger judge, or pairwise "which would you post?" comparisons. A rule that flags endings whose last line resolves the tension. Editor-set ad-safe reveals per show. Audio and video signals (music stings, slaps) once footage is available.</p>
+</body>
+</html>
