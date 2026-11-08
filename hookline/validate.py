@@ -49,6 +49,21 @@ def _extend_before_hook(span: list, hook: Beat, ep_beats: list[Beat], ep_dialogu
     return True
 
 
+def _lengthen_run_up(spans: list[list], ep_beats: list[Beat], ep_dialogue: list[Beat]) -> bool:
+    """Start the last segment earlier until the promo reaches MIN_DURATION, without overlapping earlier segments."""
+    last = spans[-1]
+    floor = max([sp[2] for sp in spans[:-1] if sp[0] == last[0] and sp[2] <= last[1]], default=0.0)
+    needed = MIN_DURATION - _total(spans)
+    options = [b.start for b in ep_beats if floor <= b.start <= last[1] - needed]
+    if not options:
+        return False
+    start, _ = _snap(ep_dialogue, max(options), last[2])
+    if start < floor:
+        return False
+    last[1] = start
+    return True
+
+
 def _condense(span: list, ep_beats: list[Beat], ep_dialogue: list[Beat]) -> list[list] | None:
     """Split an over-long window into [hook + CONDENSE_HEAD s] and [last CONDENSE_TAIL s up to the cliffhanger]."""
     ep, start, end = span[0], span[1], span[2]
@@ -145,7 +160,10 @@ def validate_candidate(c: Candidate, index: dict[str, Beat],
                 return None, [f"{c.id}: segments {i + 1} and {j + 1} overlap in ep{spans[i][0]}"]
 
     total = _total(spans)
-    if total < MIN_DURATION and _extend_before_hook(spans[0], hook, beats_by_ep[spans[0][0]],
+    if total < MIN_DURATION and len(spans) > 1 and _lengthen_run_up(
+            spans, beats_by_ep[spans[-1][0]], dialogue_by_ep.get(spans[-1][0], [])):
+        repairs.append(f"last segment starts earlier ({spans[-1][1]:.1f}s) for a longer run-up to the cliffhanger")
+    elif total < MIN_DURATION and _extend_before_hook(spans[0], hook, beats_by_ep[spans[0][0]],
                                                      dialogue_by_ep.get(spans[0][0], [])):
         repairs.append(f"start moved to {spans[0][1]:.1f}s, up to 3s before the hook, to reach {MIN_DURATION:.0f}s")
     elif total > MAX_DURATION and len(spans) == 1:

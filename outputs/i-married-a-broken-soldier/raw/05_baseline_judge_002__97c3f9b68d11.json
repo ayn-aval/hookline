@@ -1,0 +1,91 @@
+{
+ "tag": "05_baseline_judge_002",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146465.1727202,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 17663,
+ "user_sha256": "2c6aeb72814250891d8a6c92275b958b3a6c53b7aa70a8f30889132607d642b6",
+ "response_text": "{\"scores\": [\n  {\"id\": \"BASE-E42\", \"hook\": 3, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A long-lost Duke returns to reclaim his title and confront the man who stole his life.\", \"weakness\": \"Too much dialogue and slow pacing for a high-retention social ad.\"},\n  {\"id\": \"BASE-E43\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A Duke exposes a conspiracy, leading to a dramatic arrest of his rival at the altar.\", \"weakness\": \"The middle section with the Crown Official is a bit dry and slow.\"},\n  {\"id\": \"BASE-E45\", \"hook\": 4, \"cliff\": 4, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"A Duke's marriage is declared invalid by a priest, delighting his scorned rival.\", \"weakness\": \"Requires context about the marriage to fully land the emotional impact.\"},\n  {\"id\": \"BASE-E46\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A Duke challenges a priest's authority to annul his marriage, leading to a tense standoff.\", \"weakness\": \"Lacks a clear, punchy visual hook at the start.\"},\n  {\"id\": \"BASE-E47\", \"hook\": 5, \"cliff\": 3, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"A fallen noblewoman is forced to become a servant to her rival to stay in the house.\", \"weakness\": \"The resolution is a bit long; could have cut sooner after the humiliation.\"},\n  {\"id\": \"BASE-E48\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A disgraced woman plots to infiltrate the Duke's household using a corrupt priest.\", \"weakness\": \"Too much exposition; lacks immediate visual conflict.\"},\n  {\"id\": \"BASE-E49\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A woman manipulates a priest into spying on the Duke for her own gain.\", \"weakness\": \"Dialogue-heavy and lacks a strong visual payoff.\"},\n  {\"id\": \"BASE-E50\", \"hook\": 4, \"cliff\": 5, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"A woman and a priest engage in a forbidden affair, only to be discovered by a servant.\", \"weakness\": \"The buildup is slow, though the ending cliffhanger is effective.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "BASE-E42",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A long-lost Duke returns to reclaim his title and confront the man who stole his life.",
+    "weakness": "Too much dialogue and slow pacing for a high-retention social ad."
+   },
+   {
+    "id": "BASE-E43",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A Duke exposes a conspiracy, leading to a dramatic arrest of his rival at the altar.",
+    "weakness": "The middle section with the Crown Official is a bit dry and slow."
+   },
+   {
+    "id": "BASE-E45",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "A Duke's marriage is declared invalid by a priest, delighting his scorned rival.",
+    "weakness": "Requires context about the marriage to fully land the emotional impact."
+   },
+   {
+    "id": "BASE-E46",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A Duke challenges a priest's authority to annul his marriage, leading to a tense standoff.",
+    "weakness": "Lacks a clear, punchy visual hook at the start."
+   },
+   {
+    "id": "BASE-E47",
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "A fallen noblewoman is forced to become a servant to her rival to stay in the house.",
+    "weakness": "The resolution is a bit long; could have cut sooner after the humiliation."
+   },
+   {
+    "id": "BASE-E48",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A disgraced woman plots to infiltrate the Duke's household using a corrupt priest.",
+    "weakness": "Too much exposition; lacks immediate visual conflict."
+   },
+   {
+    "id": "BASE-E49",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman manipulates a priest into spying on the Duke for her own gain.",
+    "weakness": "Dialogue-heavy and lacks a strong visual payoff."
+   },
+   {
+    "id": "BASE-E50",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman and a priest engage in a forbidden affair, only to be discovered by a servant.",
+    "weakness": "The buildup is slow, though the ending cliffhanger is effective."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 5246,
+  "completion_tokens": 645
+ }
+}

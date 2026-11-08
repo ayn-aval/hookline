@@ -1,0 +1,218 @@
+{
+ "tag": "02_mine_eps16-20",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146480.123619,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 45329,
+ "user_sha256": "92c0acf92615de94550f600c26b1eac849fd9acbb4f770d127bb41b0ba75ace9",
+ "response_text": "{\"episodes\": [\n  {\"episode\": 16,\n   \"candidates\": [\n     {\"title\": \"The Mastermind Revealed\", \"start_beat\": \"E16-B041\", \"end_beat\": \"E16-B046\", \"hook_beat\": \"E16-B041\", \"cliff_beat\": \"E16-B046\", \"hook\": \"Alexander tightens his grip, demanding to know who sent the thugs.\", \"cliffhanger\": \"The thug reveals Gerald Harrington is the mastermind behind the attack.\", \"why\": \"The audience discovers the villain's identity alongside the heroine, creating instant emotional stakes.\", \"context_needed\": \"\", \"title\": \"The Mastermind Revealed\"},\n     {\"title\": \"Unmatched Combat Skills\", \"start_beat\": \"E16-B012\", \"end_beat\": \"E16-B019\", \"hook_beat\": \"E16-B014\", \"cliff_beat\": \"E16-B019\", \"hook\": \"Alexander catches a heavy club mid-air with his bare hand.\", \"cliffhanger\": \"Juliana watches in breathless astonishment as Alexander overpowers the attacker.\", \"why\": \"Showcases the hero's hidden power, making viewers curious about his mysterious past.\", \"context_needed\": \"\", \"title\": \"Unmatched Combat Skills\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E16-B014\", \"type\": \"hook\", \"note\": \"Alexander catches a weapon mid-air with his bare hand.\"},\n     {\"beat\": \"E16-B044\", \"type\": \"cliff\", \"note\": \"The thug confesses Gerald Harrington paid them to destroy the garden.\"},\n     {\"beat\": \"E16-B055\", \"type\": \"cliff\", \"note\": \"Juliana questions how Alexander fought like a seasoned soldier.\"}\n   ]},\n  {\"episode\": 17,\n   \"candidates\": [\n     {\"title\": \"A Vow of Protection\", \"start_beat\": \"E17-B021\", \"end_beat\": \"E17-B029\", \"hook_beat\": \"E17-B023\", \"cliff_beat\": \"E17-B029\", \"hook\": \"Alexander kneels and vows that no one will ever hurt Juliana again.\", \"cliffhanger\": \"Alexander squeezes Juliana's hands as she rests her fingertips against his skin.\", \"why\": \"The intense emotional intimacy and protective vow pull viewers into their developing romance.\", \"context_needed\": \"\", \"title\": \"A Vow of Protection\"},\n     {\"title\": \"The Secret Between Them\", \"start_beat\": \"E17-B069\", \"end_beat\": \"E17-B075\", \"hook_beat\": \"E17-B072\", \"cliff_beat\": \"E17-B075\", \"hook\": \"Juliana admits she knows almost nothing about the man she married.\", \"cliffhanger\": \"Juliana reflects on her trust in him as the music swells.\", \"why\": \"Highlights the central mystery of the hero's identity while emphasizing their growing bond.\", \"context_needed\": \"\", \"title\": \"The Secret Between Them\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E17-B023\", \"type\": \"hook\", \"note\": \"Alexander vows that no one will hurt Juliana again.\"},\n     {\"beat\": \"E17-B072\", \"type\": \"cliff\", \"note\": \"Juliana admits she knows almost nothing about her husband.\"}\n   ]},\n  {\"episode\": 18,\n   \"candidates\": [\n     {\"title\": \"Trapped in the Inferno\", \"start_beat\": \"E18-B039\", \"end_beat\": \"E18-B049\", \"hook_beat\": \"E18-B046\", \"cliff_beat\": \"E18-B049\", \"hook\": \"Juliana screams as a burning rafter splits apart directly above her.\", \"cliffhanger\": \"Alexander tackles her to the floor just as the ceiling collapses.\", \"why\": \"High-stakes life-or-death action sequence that immediately grabs attention.\", \"context_needed\": \"\", \"title\": \"Trapped in the Inferno\"},\n     {\"title\": \"Vow of Vengeance\", \"start_beat\": \"E18-B074\", \"end_beat\": \"E18-B081\", \"hook_beat\": \"E18-B078\", \"cliff_beat\": \"E18-B081\", \"hook\": \"Alexander's face hardens into a mask of lethal, cold fury.\", \"cliffhanger\": \"Alexander stares into the inferno with unshakeable resolve to find the arsonist.\", \"why\": \"The shift from victim to avenger promises a satisfying revenge arc.\", \"context_needed\": \"\", \"title\": \"Vow of Vengeance\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E18-B046\", \"type\": \"hook\", \"note\": \"Juliana screams as the ceiling collapses above her.\"},\n     {\"beat\": \"E18-B061\", \"type\": \"hook\", \"note\": \"Alexander shatters through a burning window with Juliana in his arms.\"},\n     {\"beat\": \"E18-B081\", \"type\": \"cliff\", \"note\": \"Alexander vows vengeance as he stares at his burning home.\"}\n   ]},\n  {\"episode\": 19,\n   \"candidates\": [\n     {\"title\": \"The Usurper's Secret\", \"start_beat\": \"E19-B043\", \"end_beat\": \"E19-B050\", \"hook_beat\": \"E19-B043\", \"cliff_beat\": \"E19-B050\", \"hook\": \"Alexander learns his mother is a prisoner in her own home.\", \"cliffhanger\": \"Alexander vows that Ashburg will remember who the throne belongs to.\", \"why\": \"Reveals the hero's true status and the stakes of his reclamation mission.\", \"context_needed\": \"\", \"title\": \"The Usurper's Secret\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E19-B043\", \"type\": \"hook\", \"note\": \"Alexander learns his mother is a prisoner in her own home.\"},\n     {\"beat\": \"E19-B050\", \"type\": \"cliff\", \"note\": \"Alexander vows to reclaim his stolen ducal throne.\"}\n   ]},\n  {\"episode\": 20,\n   \"candidates\": [\n     {\"title\": \"The Poison Plot\", \"start_beat\": \"E20-B020\", \"end_beat\": \"E20-B027\", \"hook_beat\": \"E20-B021\", \"cliff_beat\": \"E20-B027\", \"hook\": \"Rupert reveals the Dowager Duchess is being slowly poisoned.\", \"cliffhanger\": \"Rupert boasts that he has ensured her quiet comfort until she dies.\", \"why\": \"The villain's cold-blooded confession creates immediate hatred and tension.\", \"context_needed\": \"\", \"title\": \"The Poison Plot\"},\n     {\"title\": \"Defiant Healer\", \"start_beat\": \"E20-B040\", \"end_beat\": \"E20-B049\", \"hook_beat\": \"E20-B041\", \"cliff_beat\": \"E20-B049\", \"hook\": \"Juliana refuses to stop working, despite her raw, burned hands.\", \"cliffhanger\": \"Juliana declares she is the only healer left and will not yield.\", \"why\": \"Highlights the heroine's resilience and moral strength against her oppressors.\", \"context_needed\": \"\", \"title\": \"Defiant Healer\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E20-B021\", \"type\": \"hook\", \"note\": \"Rupert discusses the slow poisoning of the Dowager Duchess.\"},\n     {\"beat\": \"E20-B041\", \"type\": \"hook\", \"note\": \"Juliana refuses to stop healing despite her injuries.\"},\n     {\"beat\": \"E20-B067\", \"type\": \"cliff\", \"note\": \"Catherine vows that the house will only bow to her.\"}\n   ]}\n]}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 16,
+    "candidates": [
+     {
+      "title": "The Mastermind Revealed",
+      "start_beat": "E16-B041",
+      "end_beat": "E16-B046",
+      "hook_beat": "E16-B041",
+      "cliff_beat": "E16-B046",
+      "hook": "Alexander tightens his grip, demanding to know who sent the thugs.",
+      "cliffhanger": "The thug reveals Gerald Harrington is the mastermind behind the attack.",
+      "why": "The audience discovers the villain's identity alongside the heroine, creating instant emotional stakes.",
+      "context_needed": ""
+     },
+     {
+      "title": "Unmatched Combat Skills",
+      "start_beat": "E16-B012",
+      "end_beat": "E16-B019",
+      "hook_beat": "E16-B014",
+      "cliff_beat": "E16-B019",
+      "hook": "Alexander catches a heavy club mid-air with his bare hand.",
+      "cliffhanger": "Juliana watches in breathless astonishment as Alexander overpowers the attacker.",
+      "why": "Showcases the hero's hidden power, making viewers curious about his mysterious past.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E16-B014",
+      "type": "hook",
+      "note": "Alexander catches a weapon mid-air with his bare hand."
+     },
+     {
+      "beat": "E16-B044",
+      "type": "cliff",
+      "note": "The thug confesses Gerald Harrington paid them to destroy the garden."
+     },
+     {
+      "beat": "E16-B055",
+      "type": "cliff",
+      "note": "Juliana questions how Alexander fought like a seasoned soldier."
+     }
+    ]
+   },
+   {
+    "episode": 17,
+    "candidates": [
+     {
+      "title": "A Vow of Protection",
+      "start_beat": "E17-B021",
+      "end_beat": "E17-B029",
+      "hook_beat": "E17-B023",
+      "cliff_beat": "E17-B029",
+      "hook": "Alexander kneels and vows that no one will ever hurt Juliana again.",
+      "cliffhanger": "Alexander squeezes Juliana's hands as she rests her fingertips against his skin.",
+      "why": "The intense emotional intimacy and protective vow pull viewers into their developing romance.",
+      "context_needed": ""
+     },
+     {
+      "title": "The Secret Between Them",
+      "start_beat": "E17-B069",
+      "end_beat": "E17-B075",
+      "hook_beat": "E17-B072",
+      "cliff_beat": "E17-B075",
+      "hook": "Juliana admits she knows almost nothing about the man she married.",
+      "cliffhanger": "Juliana reflects on her trust in him as the music swells.",
+      "why": "Highlights the central mystery of the hero's identity while emphasizing their growing bond.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E17-B023",
+      "type": "hook",
+      "note": "Alexander vows that no one will hurt Juliana again."
+     },
+     {
+      "beat": "E17-B072",
+      "type": "cliff",
+      "note": "Juliana admits she knows almost nothing about her husband."
+     }
+    ]
+   },
+   {
+    "episode": 18,
+    "candidates": [
+     {
+      "title": "Trapped in the Inferno",
+      "start_beat": "E18-B039",
+      "end_beat": "E18-B049",
+      "hook_beat": "E18-B046",
+      "cliff_beat": "E18-B049",
+      "hook": "Juliana screams as a burning rafter splits apart directly above her.",
+      "cliffhanger": "Alexander tackles her to the floor just as the ceiling collapses.",
+      "why": "High-stakes life-or-death action sequence that immediately grabs attention.",
+      "context_needed": ""
+     },
+     {
+      "title": "Vow of Vengeance",
+      "start_beat": "E18-B074",
+      "end_beat": "E18-B081",
+      "hook_beat": "E18-B078",
+      "cliff_beat": "E18-B081",
+      "hook": "Alexander's face hardens into a mask of lethal, cold fury.",
+      "cliffhanger": "Alexander stares into the inferno with unshakeable resolve to find the arsonist.",
+      "why": "The shift from victim to avenger promises a satisfying revenge arc.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E18-B046",
+      "type": "hook",
+      "note": "Juliana screams as the ceiling collapses above her."
+     },
+     {
+      "beat": "E18-B061",
+      "type": "hook",
+      "note": "Alexander shatters through a burning window with Juliana in his arms."
+     },
+     {
+      "beat": "E18-B081",
+      "type": "cliff",
+      "note": "Alexander vows vengeance as he stares at his burning home."
+     }
+    ]
+   },
+   {
+    "episode": 19,
+    "candidates": [
+     {
+      "title": "The Usurper's Secret",
+      "start_beat": "E19-B043",
+      "end_beat": "E19-B050",
+      "hook_beat": "E19-B043",
+      "cliff_beat": "E19-B050",
+      "hook": "Alexander learns his mother is a prisoner in her own home.",
+      "cliffhanger": "Alexander vows that Ashburg will remember who the throne belongs to.",
+      "why": "Reveals the hero's true status and the stakes of his reclamation mission.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E19-B043",
+      "type": "hook",
+      "note": "Alexander learns his mother is a prisoner in her own home."
+     },
+     {
+      "beat": "E19-B050",
+      "type": "cliff",
+      "note": "Alexander vows to reclaim his stolen ducal throne."
+     }
+    ]
+   },
+   {
+    "episode": 20,
+    "candidates": [
+     {
+      "title": "The Poison Plot",
+      "start_beat": "E20-B020",
+      "end_beat": "E20-B027",
+      "hook_beat": "E20-B021",
+      "cliff_beat": "E20-B027",
+      "hook": "Rupert reveals the Dowager Duchess is being slowly poisoned.",
+      "cliffhanger": "Rupert boasts that he has ensured her quiet comfort until she dies.",
+      "why": "The villain's cold-blooded confession creates immediate hatred and tension.",
+      "context_needed": ""
+     },
+     {
+      "title": "Defiant Healer",
+      "start_beat": "E20-B040",
+      "end_beat": "E20-B049",
+      "hook_beat": "E20-B041",
+      "cliff_beat": "E20-B049",
+      "hook": "Juliana refuses to stop working, despite her raw, burned hands.",
+      "cliffhanger": "Juliana declares she is the only healer left and will not yield.",
+      "why": "Highlights the heroine's resilience and moral strength against her oppressors.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E20-B021",
+      "type": "hook",
+      "note": "Rupert discusses the slow poisoning of the Dowager Duchess."
+     },
+     {
+      "beat": "E20-B041",
+      "type": "hook",
+      "note": "Juliana refuses to stop healing despite her injuries."
+     },
+     {
+      "beat": "E20-B067",
+      "type": "cliff",
+      "note": "Catherine vows that the house will only bow to her."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 18326,
+  "completion_tokens": 1906
+ }
+}

@@ -61,11 +61,11 @@
   "proposed": 71,
   "continuous_proposed": 64,
   "stitched_proposed": 7,
-  "valid": 52,
-  "repaired": 36,
-  "rejected": 19,
+  "valid": 57,
+  "repaired": 41,
+  "rejected": 14,
   "duplicates_removed": 1,
-  "final": 51,
+  "final": 56,
   "unjudged": 0
  },
  "rejections": [
@@ -82,26 +82,21 @@
   "E27-C1: too short (11.4s < 20s)",
   "E29-C1: too short (19.4s < 20s)",
   "E50-C1: too short (6.5s < 20s)",
-  "S01: too short (14.4s < 20s)",
-  "S03: too short (13.7s < 20s)",
-  "S04: too short (14.0s < 20s)",
-  "S05: too short (19.4s < 20s)",
-  "S06: too short (16.2s < 20s)",
-  "S07: too short (7.4s < 20s)"
+  "S05: too short (19.4s < 20s)"
  ],
  "errors": {},
  "llm_usage": {
-  "calls": 0,
-  "cached": 15,
-  "prompt_tokens": 314286,
-  "completion_tokens": 25433,
+  "calls": 1,
+  "cached": 14,
+  "prompt_tokens": 316468,
+  "completion_tokens": 25770,
   "retries": 0
  },
- "est_cost_usd_paid_tier": 0.1579,
+ "est_cost_usd_paid_tier": 0.1594,
  "price_assumption_per_1m_tokens": {
   "input": 0.3,
   "output": 2.5
  },
- "seconds": 0.0,
+ "seconds": 4.8,
  "parse_warnings": []
 }

@@ -598,38 +598,38 @@
   }
  ],
  "hookline_all": {
-  "n": 51,
+  "n": 56,
   "mean": {
-   "hook": 3.9,
-   "cliff": 3.8,
-   "standalone": 3.76,
-   "emotion": 4.2,
-   "weighted": 3.9
+   "hook": 3.8,
+   "cliff": 3.7,
+   "standalone": 3.66,
+   "emotion": 4.09,
+   "weighted": 3.8
   }
  },
  "hookline_top": {
   "n": 15,
   "mean": {
-   "hook": 4.67,
-   "cliff": 4.4,
+   "hook": 4.73,
+   "cliff": 4.33,
    "standalone": 4.07,
-   "emotion": 4.87,
-   "weighted": 4.49
+   "emotion": 4.93,
+   "weighted": 4.51
   }
  },
  "hookline_best": {
   "n": 15,
   "mean": {
-   "hook": 4.8,
-   "cliff": 4.6,
-   "standalone": 4.2,
+   "hook": 4.87,
+   "cliff": 4.53,
+   "standalone": 4.07,
    "emotion": 4.93,
-   "weighted": 4.63
+   "weighted": 4.6
   }
  },
  "opens_on_line": {
   "baseline": 0.792,
-  "hookline": 0.98
+  "hookline": 0.982
  },
  "stability": {
   "alt_model": "gemini-3.1-flash-lite (temperature 0.4)",
@@ -641,11 +641,11 @@
   "proposed": 71,
   "continuous_proposed": 64,
   "stitched_proposed": 7,
-  "valid": 52,
-  "repaired": 36,
-  "rejected": 19,
+  "valid": 57,
+  "repaired": 41,
+  "rejected": 14,
   "duplicates_removed": 1,
-  "final": 51,
+  "final": 56,
   "unjudged": 0
  },
  "judge_model": "gemini-3.1-flash-lite",

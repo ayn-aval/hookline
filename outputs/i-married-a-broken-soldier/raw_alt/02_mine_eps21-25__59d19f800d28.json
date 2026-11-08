@@ -1,0 +1,259 @@
+{
+ "tag": "02_mine_eps21-25",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146498.554545,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 48922,
+ "user_sha256": "65a0db00f37da2a4d5a8c99d8308f90a268601850f5ad18148e18fe7d603a77a",
+ "response_text": "{\"episodes\": [\n  {\"episode\": 21,\n   \"candidates\": [\n     {\"title\": \"The Dying Boy's Hope\", \"start_beat\": \"E21-B003\", \"end_beat\": \"E21-B022\", \"hook_beat\": \"E21-B005\", \"cliff_beat\": \"E21-B022\", \"hook\": \"Lady Juliana! Please! You have to help me, Toby is dying!\", \"cliffhanger\": \"If you do not come, he will die! You are his only hope!\", \"why\": \"The stakes are immediately established: a child is dying and the local authorities refuse to help.\", \"context_needed\": \"\"},\n     {\"title\": \"The Duchess is Dying\", \"start_beat\": \"E21-B063\", \"end_beat\": \"E21-B076\", \"hook_beat\": \"E21-B065\", \"cliff_beat\": \"E21-B076\", \"hook\": \"But their gold cannot buy them health.\", \"cliffhanger\": \"She is fading to nothing, and no one can stop it.\", \"why\": \"It pivots from a personal victory to a high-stakes mystery involving the Dowager Duchess.\", \"context_needed\": \"\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E21-B005\", \"type\": \"hook\", \"note\": \"Desperate plea for help from a village girl.\"},\n     {\"beat\": \"E21-B022\", \"type\": \"cliff\", \"note\": \"High-stakes ultimatum: save the boy or he dies.\"},\n     {\"beat\": \"E21-B073\", \"type\": \"hook\", \"note\": \"Ominous description of the Dowager Duchess's mysterious illness.\"},\n     {\"beat\": \"E21-B076\", \"type\": \"cliff\", \"note\": \"Juliana realizes the dire truth about the Duchess.\"}\n   ]},\n  {\"episode\": 22,\n   \"candidates\": [\n     {\"title\": \"Infiltrating the Manor\", \"start_beat\": \"E22-B004\", \"end_beat\": \"E22-B021\", \"hook_beat\": \"E22-B005\", \"cliff_beat\": \"E22-B021\", \"hook\": \"Keep your head down. If anyone recognizes you, everything is over.\", \"cliffhanger\": \"Today, I am only a maid.\", \"why\": \"The tension of a secret infiltration is palpable and relatable.\", \"context_needed\": \"Juliana is a noblewoman in disguise.\"},\n     {\"title\": \"The Poisoned Duchess\", \"start_beat\": \"E22-B067\", \"end_beat\": \"E22-B081\", \"hook_beat\": \"E22-B076\", \"cliff_beat\": \"E22-B081\", \"hook\": \"This isn't ordinary fever.\", \"cliffhanger\": \"The Dowager Duchess's terrified eyes as she chokes for air.\", \"why\": \"It confirms the poisoning plot and shows the victim in immediate danger.\", \"context_needed\": \"\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E22-B005\", \"type\": \"hook\", \"note\": \"Warning about the danger of being recognized.\"},\n     {\"beat\": \"E22-B021\", \"type\": \"cliff\", \"note\": \"Juliana fully commits to her dangerous disguise.\"},\n     {\"beat\": \"E22-B076\", \"type\": \"hook\", \"note\": \"Juliana realizes the illness is not natural.\"},\n     {\"beat\": \"E22-B081\", \"type\": \"cliff\", \"note\": \"The Duchess gasps for air while Juliana realizes the truth.\"}\n   ]},\n  {\"episode\": 23,\n   \"candidates\": [\n     {\"title\": \"The Arsenic Reveal\", \"start_beat\": \"E23-B038\", \"end_beat\": \"E23-B045\", \"hook_beat\": \"E23-B040\", \"cliff_beat\": \"E23-B045\", \"hook\": \"Someone is poisoning her.\", \"cliffhanger\": \"Arsenic.\", \"why\": \"The reveal of the specific poison raises the stakes to a murder investigation.\", \"context_needed\": \"\"},\n     {\"title\": \"Trapped with the Cure\", \"start_beat\": \"E23-B058\", \"end_beat\": \"E23-B067\", \"hook_beat\": \"E23-B058\", \"cliff_beat\": \"E23-B067\", \"hook\": \"Sudden muffled thump and heavy footsteps echoing from the hallway!\", \"cliffhanger\": \"The door latch turns and the door cracks open.\", \"why\": \"It creates a classic 'caught in the act' cliffhanger.\", \"context_needed\": \"\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E23-B040\", \"type\": \"hook\", \"note\": \"Juliana declares the Duchess is being poisoned.\"},\n     {\"beat\": \"E23-B045\", \"type\": \"cliff\", \"note\": \"The word 'Arsenic' confirms the murder plot.\"},\n     {\"beat\": \"E23-B058\", \"type\": \"hook\", \"note\": \"Footsteps approach while Juliana is preparing the antidote.\"},\n     {\"beat\": \"E23-B067\", \"type\": \"cliff\", \"note\": \"The door begins to open while Juliana is trapped.\"}\n   ]},\n  {\"episode\": 24,\n   \"candidates\": [\n     {\"title\": \"The Cruel Punishment\", \"start_beat\": \"E24-B024\", \"end_beat\": \"E24-B046\", \"hook_beat\": \"E24-B024\", \"cliff_beat\": \"E24-B046\", \"hook\": \"The noblewoman strikes Juliana with a riding crop.\", \"cliffhanger\": \"Every stone. Perhaps when your hands are black enough, you will remember.\", \"why\": \"The visceral physical abuse and humiliation make the viewer want to see the noblewoman get her comeuppance.\", \"context_needed\": \"\"},\n     {\"title\": \"The Healer's Resolve\", \"start_beat\": \"E24-B064\", \"end_beat\": \"E24-B069\", \"hook_beat\": \"E24-B068\", \"cliff_beat\": \"E24-B069\", \"hook\": \"Juliana's piercing blue eyes burn with unwavering defiance.\", \"cliffhanger\": \"I will return. You cannot stop the healer.\", \"why\": \"It shows the protagonist's inner strength and promise of revenge/justice.\", \"context_needed\": \"\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E24-B024\", \"type\": \"hook\", \"note\": \"The noblewoman strikes Juliana with a riding crop.\"},\n     {\"beat\": \"E24-B046\", \"type\": \"cliff\", \"note\": \"The noblewoman forces Juliana to scrub the hearth.\"},\n     {\"beat\": \"E24-B069\", \"type\": \"cliff\", \"note\": \"Juliana vows to return and save the Duchess.\"}\n   ]},\n  {\"episode\": 25,\n   \"candidates\": [\n     {\"title\": \"Alexander's Fury\", \"start_beat\": \"E25-B014\", \"end_beat\": \"E25-B025\", \"hook_beat\": \"E25-B016\", \"cliff_beat\": \"E25-B025\", \"hook\": \"Alexander's scarred face darkens with volatile fury.\", \"cliffhanger\": \"Who did this?\", \"why\": \"The protective rage of a powerful man is a classic hook for this genre.\", \"context_needed\": \"\"},\n     {\"title\": \"The Poisoned Duchess\", \"start_beat\": \"E25-B046\", \"end_beat\": \"E25-B053\", \"hook_beat\": \"E25-B049\", \"cliff_beat\": \"E25-B053\", \"hook\": \"Poison.\", \"cliffhanger\": \"Alexander's fist clenches tightly in fury.\", \"why\": \"The combination of the poisoning reveal and the hero's reaction creates high emotional stakes.\", \"context_needed\": \"\"}\n   ],\n   \"moments\": [\n     {\"beat\": \"E25-B016\", \"type\": \"hook\", \"note\": \"Alexander's face darkens with fury upon seeing the wound.\"},\n     {\"beat\": \"E25-B025\", \"type\": \"cliff\", \"note\": \"Alexander demands to know who hurt Juliana.\"},\n     {\"beat\": \"E25-B049\", \"type\": \"hook\", \"note\": \"Juliana reveals the Duchess is being poisoned.\"},\n     {\"beat\": \"E25-B053\", \"type\": \"cliff\", \"note\": \"Alexander's fist clenches in fury at the news.\"}\n   ]}\n]}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 21,
+    "candidates": [
+     {
+      "title": "The Dying Boy's Hope",
+      "start_beat": "E21-B003",
+      "end_beat": "E21-B022",
+      "hook_beat": "E21-B005",
+      "cliff_beat": "E21-B022",
+      "hook": "Lady Juliana! Please! You have to help me, Toby is dying!",
+      "cliffhanger": "If you do not come, he will die! You are his only hope!",
+      "why": "The stakes are immediately established: a child is dying and the local authorities refuse to help.",
+      "context_needed": ""
+     },
+     {
+      "title": "The Duchess is Dying",
+      "start_beat": "E21-B063",
+      "end_beat": "E21-B076",
+      "hook_beat": "E21-B065",
+      "cliff_beat": "E21-B076",
+      "hook": "But their gold cannot buy them health.",
+      "cliffhanger": "She is fading to nothing, and no one can stop it.",
+      "why": "It pivots from a personal victory to a high-stakes mystery involving the Dowager Duchess.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E21-B005",
+      "type": "hook",
+      "note": "Desperate plea for help from a village girl."
+     },
+     {
+      "beat": "E21-B022",
+      "type": "cliff",
+      "note": "High-stakes ultimatum: save the boy or he dies."
+     },
+     {
+      "beat": "E21-B073",
+      "type": "hook",
+      "note": "Ominous description of the Dowager Duchess's mysterious illness."
+     },
+     {
+      "beat": "E21-B076",
+      "type": "cliff",
+      "note": "Juliana realizes the dire truth about the Duchess."
+     }
+    ]
+   },
+   {
+    "episode": 22,
+    "candidates": [
+     {
+      "title": "Infiltrating the Manor",
+      "start_beat": "E22-B004",
+      "end_beat": "E22-B021",
+      "hook_beat": "E22-B005",
+      "cliff_beat": "E22-B021",
+      "hook": "Keep your head down. If anyone recognizes you, everything is over.",
+      "cliffhanger": "Today, I am only a maid.",
+      "why": "The tension of a secret infiltration is palpable and relatable.",
+      "context_needed": "Juliana is a noblewoman in disguise."
+     },
+     {
+      "title": "The Poisoned Duchess",
+      "start_beat": "E22-B067",
+      "end_beat": "E22-B081",
+      "hook_beat": "E22-B076",
+      "cliff_beat": "E22-B081",
+      "hook": "This isn't ordinary fever.",
+      "cliffhanger": "The Dowager Duchess's terrified eyes as she chokes for air.",
+      "why": "It confirms the poisoning plot and shows the victim in immediate danger.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E22-B005",
+      "type": "hook",
+      "note": "Warning about the danger of being recognized."
+     },
+     {
+      "beat": "E22-B021",
+      "type": "cliff",
+      "note": "Juliana fully commits to her dangerous disguise."
+     },
+     {
+      "beat": "E22-B076",
+      "type": "hook",
+      "note": "Juliana realizes the illness is not natural."
+     },
+     {
+      "beat": "E22-B081",
+      "type": "cliff",
+      "note": "The Duchess gasps for air while Juliana realizes the truth."
+     }
+    ]
+   },
+   {
+    "episode": 23,
+    "candidates": [
+     {
+      "title": "The Arsenic Reveal",
+      "start_beat": "E23-B038",
+      "end_beat": "E23-B045",
+      "hook_beat": "E23-B040",
+      "cliff_beat": "E23-B045",
+      "hook": "Someone is poisoning her.",
+      "cliffhanger": "Arsenic.",
+      "why": "The reveal of the specific poison raises the stakes to a murder investigation.",
+      "context_needed": ""
+     },
+     {
+      "title": "Trapped with the Cure",
+      "start_beat": "E23-B058",
+      "end_beat": "E23-B067",
+      "hook_beat": "E23-B058",
+      "cliff_beat": "E23-B067",
+      "hook": "Sudden muffled thump and heavy footsteps echoing from the hallway!",
+      "cliffhanger": "The door latch turns and the door cracks open.",
+      "why": "It creates a classic 'caught in the act' cliffhanger.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E23-B040",
+      "type": "hook",
+      "note": "Juliana declares the Duchess is being poisoned."
+     },
+     {
+      "beat": "E23-B045",
+      "type": "cliff",
+      "note": "The word 'Arsenic' confirms the murder plot."
+     },
+     {
+      "beat": "E23-B058",
+      "type": "hook",
+      "note": "Footsteps approach while Juliana is preparing the antidote."
+     },
+     {
+      "beat": "E23-B067",
+      "type": "cliff",
+      "note": "The door begins to open while Juliana is trapped."
+     }
+    ]
+   },
+   {
+    "episode": 24,
+    "candidates": [
+     {
+      "title": "The Cruel Punishment",
+      "start_beat": "E24-B024",
+      "end_beat": "E24-B046",
+      "hook_beat": "E24-B024",
+      "cliff_beat": "E24-B046",
+      "hook": "The noblewoman strikes Juliana with a riding crop.",
+      "cliffhanger": "Every stone. Perhaps when your hands are black enough, you will remember.",
+      "why": "The visceral physical abuse and humiliation make the viewer want to see the noblewoman get her comeuppance.",
+      "context_needed": ""
+     },
+     {
+      "title": "The Healer's Resolve",
+      "start_beat": "E24-B064",
+      "end_beat": "E24-B069",
+      "hook_beat": "E24-B068",
+      "cliff_beat": "E24-B069",
+      "hook": "Juliana's piercing blue eyes burn with unwavering defiance.",
+      "cliffhanger": "I will return. You cannot stop the healer.",
+      "why": "It shows the protagonist's inner strength and promise of revenge/justice.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E24-B024",
+      "type": "hook",
+      "note": "The noblewoman strikes Juliana with a riding crop."
+     },
+     {
+      "beat": "E24-B046",
+      "type": "cliff",
+      "note": "The noblewoman forces Juliana to scrub the hearth."
+     },
+     {
+      "beat": "E24-B069",
+      "type": "cliff",
+      "note": "Juliana vows to return and save the Duchess."
+     }
+    ]
+   },
+   {
+    "episode": 25,
+    "candidates": [
+     {
+      "title": "Alexander's Fury",
+      "start_beat": "E25-B014",
+      "end_beat": "E25-B025",
+      "hook_beat": "E25-B016",
+      "cliff_beat": "E25-B025",
+      "hook": "Alexander's scarred face darkens with volatile fury.",
+      "cliffhanger": "Who did this?",
+      "why": "The protective rage of a powerful man is a classic hook for this genre.",
+      "context_needed": ""
+     },
+     {
+      "title": "The Poisoned Duchess",
+      "start_beat": "E25-B046",
+      "end_beat": "E25-B053",
+      "hook_beat": "E25-B049",
+      "cliff_beat": "E25-B053",
+      "hook": "Poison.",
+      "cliffhanger": "Alexander's fist clenches tightly in fury.",
+      "why": "The combination of the poisoning reveal and the hero's reaction creates high emotional stakes.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E25-B016",
+      "type": "hook",
+      "note": "Alexander's face darkens with fury upon seeing the wound."
+     },
+     {
+      "beat": "E25-B025",
+      "type": "cliff",
+      "note": "Alexander demands to know who hurt Juliana."
+     },
+     {
+      "beat": "E25-B049",
+      "type": "hook",
+      "note": "Juliana reveals the Duchess is being poisoned."
+     },
+     {
+      "beat": "E25-B053",
+      "type": "cliff",
+      "note": "Alexander's fist clenches in fury at the news."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 20049,
+  "completion_tokens": 2100
+ }
+}

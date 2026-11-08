@@ -1,0 +1,163 @@
+{
+ "tag": "04_judge_002",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146647.9393868,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 33436,
+ "user_sha256": "cc9cef71fea1f2dbdb87041d40c95850b3a188f3f412b5718c8b2fc266cb6a13",
+ "response_text": "{\"scores\": [\n  {\"id\": \"E40-C1\", \"hook\": 2, \"cliff\": 2, \"standalone\": 3, \"emotion\": 2, \"cold_viewer_summary\": \"A bride and groom exchange smug, triumphant looks at their wedding altar.\", \"weakness\": \"Lacks immediate conflict or stakes to justify a scroll-stop.\"},\n  {\"id\": \"E41-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A disgraced woman is mocked at a wedding, which is then interrupted by a massive explosion.\", \"weakness\": \"The buildup is slightly long before the high-impact explosion.\"},\n  {\"id\": \"E42-C1\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A man thought dead returns to interrupt a wedding, revealing himself as the rightful Duke.\", \"weakness\": \"The dialogue-heavy middle section slows the momentum of the reveal.\"},\n  {\"id\": \"E43-C1\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 3, \"cold_viewer_summary\": \"A returning Duke challenges a usurper at an altar, leading to a dramatic arrest.\", \"weakness\": \"The transition between the confrontation and the arrest feels a bit disjointed.\"},\n  {\"id\": \"E44-C1\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A usurper is arrested while his bride realizes the returning Duke prefers another woman.\", \"weakness\": \"The emotional pivot to the love triangle is slightly abrupt.\"},\n  {\"id\": \"E45-C1\", \"hook\": 3, \"cliff\": 5, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A Duke frees his lover, but a priest declares their marriage invalid, delighting the rival.\", \"weakness\": \"The priest's sudden legal intervention feels like a convenient plot device.\"},\n  {\"id\": \"E46-C1\", \"hook\": 2, \"cliff\": 3, \"standalone\": 3, \"emotion\": 2, \"cold_viewer_summary\": \"A priest uses bureaucracy to invalidate a Duke's marriage to a former beggar.\", \"weakness\": \"Too much exposition on legal/clerical technicalities kills the tension.\"},\n  {\"id\": \"E46-C2\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A woman defiantly challenges a priest who claims her marriage is invalid.\", \"weakness\": \"The emotional payoff is strong but lacks a concrete physical cliffhanger.\"},\n  {\"id\": \"E47-C1\", \"hook\": 4, \"cliff\": 2, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A former bride is forced to become a servant to the woman she once humiliated.\", \"weakness\": \"The resolution of the scene is too tidy and lacks a lingering threat.\"},\n  {\"id\": \"E48-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A defeated villainess plots her revenge against a Duke and his lover.\", \"weakness\": \"Static monologue format is less engaging than active confrontation.\"},\n  {\"id\": \"E49-C1\", \"hook\": 3, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A villainess meets a priest in secret to conspire against the Duke.\", \"weakness\": \"The dialogue is overly explanatory and lacks immediate physical stakes.\"},\n  {\"id\": \"S01\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A bride is humiliated at her wedding when her groom rejects her publicly.\", \"weakness\": \"The transition to the groom's rejection is a bit sudden.\"},\n  {\"id\": \"S03\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A humiliated bride is rescued by a mysterious stranger who offers her a ring.\", \"weakness\": \"The stranger's sudden appearance is a classic but predictable trope.\"},\n  {\"id\": \"S04\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A mysterious man comforts a woman whose family heirloom was destroyed by her rivals.\", \"weakness\": \"The villain's dialogue feels a bit cartoonishly evil.\"},\n  {\"id\": \"S06\", \"hook\": 5, \"cliff\": 3, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"A woman endures physical pain to retrieve a valuable ring from a briar patch.\", \"weakness\": \"The context of why she is in the briar patch is missing.\"},\n  {\"id\": \"S07\", \"hook\": 4, \"cliff\": 5, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A wedding is interrupted by a massive explosion, throwing the ceremony into chaos.\", \"weakness\": \"The clip ends abruptly without showing the aftermath of the blast.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "E40-C1",
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 2,
+    "cold_viewer_summary": "A bride and groom exchange smug, triumphant looks at their wedding altar.",
+    "weakness": "Lacks immediate conflict or stakes to justify a scroll-stop."
+   },
+   {
+    "id": "E41-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A disgraced woman is mocked at a wedding, which is then interrupted by a massive explosion.",
+    "weakness": "The buildup is slightly long before the high-impact explosion."
+   },
+   {
+    "id": "E42-C1",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A man thought dead returns to interrupt a wedding, revealing himself as the rightful Duke.",
+    "weakness": "The dialogue-heavy middle section slows the momentum of the reveal."
+   },
+   {
+    "id": "E43-C1",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 3,
+    "cold_viewer_summary": "A returning Duke challenges a usurper at an altar, leading to a dramatic arrest.",
+    "weakness": "The transition between the confrontation and the arrest feels a bit disjointed."
+   },
+   {
+    "id": "E44-C1",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A usurper is arrested while his bride realizes the returning Duke prefers another woman.",
+    "weakness": "The emotional pivot to the love triangle is slightly abrupt."
+   },
+   {
+    "id": "E45-C1",
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A Duke frees his lover, but a priest declares their marriage invalid, delighting the rival.",
+    "weakness": "The priest's sudden legal intervention feels like a convenient plot device."
+   },
+   {
+    "id": "E46-C1",
+    "hook": 2,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 2,
+    "cold_viewer_summary": "A priest uses bureaucracy to invalidate a Duke's marriage to a former beggar.",
+    "weakness": "Too much exposition on legal/clerical technicalities kills the tension."
+   },
+   {
+    "id": "E46-C2",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman defiantly challenges a priest who claims her marriage is invalid.",
+    "weakness": "The emotional payoff is strong but lacks a concrete physical cliffhanger."
+   },
+   {
+    "id": "E47-C1",
+    "hook": 4,
+    "cliff": 2,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A former bride is forced to become a servant to the woman she once humiliated.",
+    "weakness": "The resolution of the scene is too tidy and lacks a lingering threat."
+   },
+   {
+    "id": "E48-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A defeated villainess plots her revenge against a Duke and his lover.",
+    "weakness": "Static monologue format is less engaging than active confrontation."
+   },
+   {
+    "id": "E49-C1",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A villainess meets a priest in secret to conspire against the Duke.",
+    "weakness": "The dialogue is overly explanatory and lacks immediate physical stakes."
+   },
+   {
+    "id": "S01",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A bride is humiliated at her wedding when her groom rejects her publicly.",
+    "weakness": "The transition to the groom's rejection is a bit sudden."
+   },
+   {
+    "id": "S03",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A humiliated bride is rescued by a mysterious stranger who offers her a ring.",
+    "weakness": "The stranger's sudden appearance is a classic but predictable trope."
+   },
+   {
+    "id": "S04",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A mysterious man comforts a woman whose family heirloom was destroyed by her rivals.",
+    "weakness": "The villain's dialogue feels a bit cartoonishly evil."
+   },
+   {
+    "id": "S06",
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman endures physical pain to retrieve a valuable ring from a briar patch.",
+    "weakness": "The context of why she is in the briar patch is missing."
+   },
+   {
+    "id": "S07",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A wedding is interrupted by a massive explosion, throwing the ceremony into chaos.",
+    "weakness": "The clip ends abruptly without showing the aftermath of the blast."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 9796,
+  "completion_tokens": 1248
+ }
+}

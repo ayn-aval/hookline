@@ -133,3 +133,14 @@ def test_long_window_from_65s_condensed_not_rejected():
     p, notes = validate_candidate(cand("E01-B001", "E01-B013", "E01-B001", "E01-B013"), IDX)
     assert p is not None, notes
     assert len(p.segments) == 2 and p.duration <= 60
+
+
+def test_short_stitched_promo_gets_longer_run_up_to_cliffhanger():
+    c = cand(None, None, "E01-B011", "E01-B060", segs=[("E01-B011", "E01-B015"), ("E01-B056", "E01-B060")],
+             kind="stitched")  # 5 s + 5 s
+    p, notes = validate_candidate(c, SECONDS)
+    assert p is not None, notes
+    first, last = p.segments
+    assert (first.start, first.end) == (10.0, 15.0)
+    assert last.end == 60.0 and p.duration >= 20.0 and last.start > first.end
+    assert any("run-up" in r for r in p.repairs)

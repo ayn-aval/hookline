@@ -1,0 +1,234 @@
+{
+ "tag": "02_mine_eps06-10",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146474.292782,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 45299,
+ "user_sha256": "e50762e15d8b7c274c2018f934a127424dc94189027e167565da71e51dbcb5d3",
+ "response_text": "{\n  \"episodes\": [\n    {\n      \"episode\": 6,\n      \"candidates\": [\n        {\n          \"title\": \"A Cold Night's Shelter\",\n          \"start_beat\": \"E06-B028\",\n          \"end_beat\": \"E06-B056\",\n          \"hook_beat\": \"E06-B029\",\n          \"cliff_beat\": \"E06-B056\",\n          \"hook\": \"At least no one there will be waiting to humiliate me.\",\n          \"cliffhanger\": \"I am... but not because of you.\",\n          \"why\": \"The contrast between her public betrayal and the intimate, vulnerable start of a new life creates immediate emotional stakes.\",\n          \"context_needed\": \"Juliana was recently abandoned at the altar.\",\n          \"title\": \"A Cold Night's Shelter\"\n        },\n        {\n          \"title\": \"The First Night Together\",\n          \"start_beat\": \"E06-B061\",\n          \"end_beat\": \"E06-B096\",\n          \"hook_beat\": \"E06-B063\",\n          \"cliff_beat\": \"E06-B096\",\n          \"hook\": \"If I stop now, I will think about everything I lost.\",\n          \"cliffhanger\": \"Sitting here with him, I don't feel afraid.\",\n          \"why\": \"It captures the raw vulnerability of a fallen noblewoman finding unexpected comfort in a mysterious stranger.\",\n          \"context_needed\": \"Juliana has lost her status and family.\",\n          \"title\": \"The First Night Together\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E06-B029\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana's defiant declaration about avoiding further humiliation.\"\n        },\n        {\n          \"beat\": \"E06-B063\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana admits her vulnerability while scrubbing the floor.\"\n        },\n        {\n          \"beat\": \"E06-B096\",\n          \"type\": \"cliff\",\n          \"note\": \"The fire fades, leaving a lingering sense of intimacy and mystery.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 7,\n      \"candidates\": [\n        {\n          \"title\": \"Public Humiliation Attempt\",\n          \"start_beat\": \"E07-B009\",\n          \"end_beat\": \"E07-B033\",\n          \"hook_beat\": \"E07-B017\",\n          \"cliff_beat\": \"E07-B033\",\n          \"hook\": \"You look like a servant.\",\n          \"cliffhanger\": \"I have enough influence to make a beggar disappear. And your husband?\",\n          \"why\": \"The classic 'arrogant villain vs. fallen heroine' trope is a high-performing hook for microdramas.\",\n          \"context_needed\": \"Gerald is the ex-fiancé who abandoned Juliana.\",\n          \"title\": \"Public Humiliation Attempt\"\n        },\n        {\n          \"title\": \"The Silent Protector\",\n          \"start_beat\": \"E07-B034\",\n          \"end_beat\": \"E07-B052\",\n          \"hook_beat\": \"E07-B035\",\n          \"cliff_beat\": \"E07-B052\",\n          \"hook\": \"Where is that beggar husband?\",\n          \"cliffhanger\": \"Gerald flees in terror as the husband returns.\",\n          \"why\": \"Viewers love seeing a powerful, arrogant antagonist get put in their place by a 'nobody' who is actually dangerous.\",\n          \"context_needed\": \"Gerald is threatening Juliana; Alexander is her mysterious, scarred husband.\",\n          \"title\": \"The Silent Protector\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E07-B017\",\n          \"type\": \"hook\",\n          \"note\": \"Cruel insult from the antagonist to the heroine.\"\n        },\n        {\n          \"beat\": \"E07-B035\",\n          \"type\": \"hook\",\n          \"note\": \"Gerald's arrogant demand for the husband's location.\"\n        },\n        {\n          \"beat\": \"E07-B052\",\n          \"type\": \"cliff\",\n          \"note\": \"The antagonist flees in fear, leaving the audience wanting to know why.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 8,\n      \"candidates\": [\n        {\n          \"title\": \"The Hidden Healer\",\n          \"start_beat\": \"E08-B010\",\n          \"end_beat\": \"E08-B029\",\n          \"hook_beat\": \"E08-B013\",\n          \"cliff_beat\": \"E08-B029\",\n          \"hook\": \"Good for wounds. Fever, too.\",\n          \"cliffhanger\": \"Alexander grabs Juliana's wrist, refusing to let her trim his beard.\",\n          \"why\": \"The chemistry and the mystery of Alexander's true identity keep the audience engaged.\",\n          \"context_needed\": \"Alexander is a mysterious warrior living in hiding.\",\n          \"title\": \"The Hidden Healer\"\n        },\n        {\n          \"title\": \"A Different Kind of Wealth\",\n          \"start_beat\": \"E08-B051\",\n          \"end_beat\": \"E08-B063\",\n          \"hook_beat\": \"E08-B051\",\n          \"cliff_beat\": \"E08-B063\",\n          \"hook\": \"And the scars... were they from the war?\",\n          \"cliffhanger\": \"Perhaps I was wrong about losing everything.\",\n          \"why\": \"Emotional growth and intimacy are key to building long-term viewer retention.\",\n          \"context_needed\": \"Juliana lost her noble status.\",\n          \"title\": \"A Different Kind of Wealth\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E08-B013\",\n          \"type\": \"hook\",\n          \"note\": \"Alexander displays knowledge beyond a common soldier.\"\n        },\n        {\n          \"beat\": \"E08-B029\",\n          \"type\": \"cliff\",\n          \"note\": \"Alexander's intense, mysterious reaction to Juliana's touch.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 9,\n      \"candidates\": [\n        {\n          \"title\": \"Dangerous Rumors\",\n          \"start_beat\": \"E09-B003\",\n          \"end_beat\": \"E09-B028\",\n          \"hook_beat\": \"E09-B009\",\n          \"cliff_beat\": \"E09-B028\",\n          \"hook\": \"Please! My boy is burning with fever!\",\n          \"cliffhanger\": \"I have to be certain.\",\n          \"why\": \"High-stakes medical drama combined with the threat of being discovered.\",\n          \"context_needed\": \"Juliana is hiding her identity.\",\n          \"title\": \"Dangerous Rumors\"\n        },\n        {\n          \"title\": \"The Duke's Ghost\",\n          \"start_beat\": \"E09-B071\",\n          \"end_beat\": \"E09-B089\",\n          \"hook_beat\": \"E09-B075\",\n          \"cliff_beat\": \"E09-B089\",\n          \"hook\": \"Some say he resembles the late Duke.\",\n          \"cliffhanger\": \"The Blond Nobleman stares into the fire, terrified: 'Impossible.'\",\n          \"why\": \"The reveal that the 'beggar' is actually a high-ranking target of the villain is the ultimate hook.\",\n          \"context_needed\": \"The Blond Nobleman is the antagonist who usurped the throne.\",\n          \"title\": \"The Duke's Ghost\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E09-B009\",\n          \"type\": \"hook\",\n          \"note\": \"Desperate mother begs for help, raising the stakes.\"\n        },\n        {\n          \"beat\": \"E09-B075\",\n          \"type\": \"hook\",\n          \"note\": \"The rumor that the husband is the late Duke.\"\n        },\n        {\n          \"beat\": \"E09-B089\",\n          \"type\": \"cliff\",\n          \"note\": \"The villain realizes his secret might be exposed.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 10,\n      \"candidates\": [\n        {\n          \"title\": \"Wounded Warrior\",\n          \"start_beat\": \"E10-B003\",\n          \"end_beat\": \"E10-B030\",\n          \"hook_beat\": \"E10-B007\",\n          \"cliff_beat\": \"E10-B030\",\n          \"hook\": \"Alexander!\",\n          \"cliffhanger\": \"Dear God.\",\n          \"why\": \"The visceral shock of seeing a hero wounded and the reveal of his scars is a powerful visual hook.\",\n          \"context_needed\": \"Alexander is a mysterious warrior.\",\n          \"title\": \"Wounded Warrior\"\n        },\n        {\n          \"title\": \"Intimate Confrontation\",\n          \"start_beat\": \"E10-B047\",\n          \"end_beat\": \"E10-B060\",\n          \"hook_beat\": \"E10-B048\",\n          \"cliff_beat\": \"E10-B060\",\n          \"hook\": \"Why do you look at me like that?\",\n          \"cliffhanger\": \"Your touch is the only medicine that has ever eased my pain.\",\n          \"why\": \"Romantic tension is the glue that keeps viewers coming back for the next episode.\",\n          \"context_needed\": \"They are husband and wife in a marriage of convenience.\",\n          \"title\": \"Intimate Confrontation\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E10-B007\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana discovers Alexander bleeding at her door.\"\n        },\n        {\n          \"beat\": \"E10-B030\",\n          \"type\": \"cliff\",\n          \"note\": \"Juliana sees the extent of Alexander's horrific scars.\"\n        },\n        {\n          \"beat\": \"E10-B060\",\n          \"type\": \"cliff\",\n          \"note\": \"Alexander confesses his deep emotional connection to Juliana.\"\n        }\n      ]\n    }\n  ]\n}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 6,
+    "candidates": [
+     {
+      "title": "A Cold Night's Shelter",
+      "start_beat": "E06-B028",
+      "end_beat": "E06-B056",
+      "hook_beat": "E06-B029",
+      "cliff_beat": "E06-B056",
+      "hook": "At least no one there will be waiting to humiliate me.",
+      "cliffhanger": "I am... but not because of you.",
+      "why": "The contrast between her public betrayal and the intimate, vulnerable start of a new life creates immediate emotional stakes.",
+      "context_needed": "Juliana was recently abandoned at the altar."
+     },
+     {
+      "title": "The First Night Together",
+      "start_beat": "E06-B061",
+      "end_beat": "E06-B096",
+      "hook_beat": "E06-B063",
+      "cliff_beat": "E06-B096",
+      "hook": "If I stop now, I will think about everything I lost.",
+      "cliffhanger": "Sitting here with him, I don't feel afraid.",
+      "why": "It captures the raw vulnerability of a fallen noblewoman finding unexpected comfort in a mysterious stranger.",
+      "context_needed": "Juliana has lost her status and family."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E06-B029",
+      "type": "hook",
+      "note": "Juliana's defiant declaration about avoiding further humiliation."
+     },
+     {
+      "beat": "E06-B063",
+      "type": "hook",
+      "note": "Juliana admits her vulnerability while scrubbing the floor."
+     },
+     {
+      "beat": "E06-B096",
+      "type": "cliff",
+      "note": "The fire fades, leaving a lingering sense of intimacy and mystery."
+     }
+    ]
+   },
+   {
+    "episode": 7,
+    "candidates": [
+     {
+      "title": "Public Humiliation Attempt",
+      "start_beat": "E07-B009",
+      "end_beat": "E07-B033",
+      "hook_beat": "E07-B017",
+      "cliff_beat": "E07-B033",
+      "hook": "You look like a servant.",
+      "cliffhanger": "I have enough influence to make a beggar disappear. And your husband?",
+      "why": "The classic 'arrogant villain vs. fallen heroine' trope is a high-performing hook for microdramas.",
+      "context_needed": "Gerald is the ex-fiancé who abandoned Juliana."
+     },
+     {
+      "title": "The Silent Protector",
+      "start_beat": "E07-B034",
+      "end_beat": "E07-B052",
+      "hook_beat": "E07-B035",
+      "cliff_beat": "E07-B052",
+      "hook": "Where is that beggar husband?",
+      "cliffhanger": "Gerald flees in terror as the husband returns.",
+      "why": "Viewers love seeing a powerful, arrogant antagonist get put in their place by a 'nobody' who is actually dangerous.",
+      "context_needed": "Gerald is threatening Juliana; Alexander is her mysterious, scarred husband."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E07-B017",
+      "type": "hook",
+      "note": "Cruel insult from the antagonist to the heroine."
+     },
+     {
+      "beat": "E07-B035",
+      "type": "hook",
+      "note": "Gerald's arrogant demand for the husband's location."
+     },
+     {
+      "beat": "E07-B052",
+      "type": "cliff",
+      "note": "The antagonist flees in fear, leaving the audience wanting to know why."
+     }
+    ]
+   },
+   {
+    "episode": 8,
+    "candidates": [
+     {
+      "title": "The Hidden Healer",
+      "start_beat": "E08-B010",
+      "end_beat": "E08-B029",
+      "hook_beat": "E08-B013",
+      "cliff_beat": "E08-B029",
+      "hook": "Good for wounds. Fever, too.",
+      "cliffhanger": "Alexander grabs Juliana's wrist, refusing to let her trim his beard.",
+      "why": "The chemistry and the mystery of Alexander's true identity keep the audience engaged.",
+      "context_needed": "Alexander is a mysterious warrior living in hiding."
+     },
+     {
+      "title": "A Different Kind of Wealth",
+      "start_beat": "E08-B051",
+      "end_beat": "E08-B063",
+      "hook_beat": "E08-B051",
+      "cliff_beat": "E08-B063",
+      "hook": "And the scars... were they from the war?",
+      "cliffhanger": "Perhaps I was wrong about losing everything.",
+      "why": "Emotional growth and intimacy are key to building long-term viewer retention.",
+      "context_needed": "Juliana lost her noble status."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E08-B013",
+      "type": "hook",
+      "note": "Alexander displays knowledge beyond a common soldier."
+     },
+     {
+      "beat": "E08-B029",
+      "type": "cliff",
+      "note": "Alexander's intense, mysterious reaction to Juliana's touch."
+     }
+    ]
+   },
+   {
+    "episode": 9,
+    "candidates": [
+     {
+      "title": "Dangerous Rumors",
+      "start_beat": "E09-B003",
+      "end_beat": "E09-B028",
+      "hook_beat": "E09-B009",
+      "cliff_beat": "E09-B028",
+      "hook": "Please! My boy is burning with fever!",
+      "cliffhanger": "I have to be certain.",
+      "why": "High-stakes medical drama combined with the threat of being discovered.",
+      "context_needed": "Juliana is hiding her identity."
+     },
+     {
+      "title": "The Duke's Ghost",
+      "start_beat": "E09-B071",
+      "end_beat": "E09-B089",
+      "hook_beat": "E09-B075",
+      "cliff_beat": "E09-B089",
+      "hook": "Some say he resembles the late Duke.",
+      "cliffhanger": "The Blond Nobleman stares into the fire, terrified: 'Impossible.'",
+      "why": "The reveal that the 'beggar' is actually a high-ranking target of the villain is the ultimate hook.",
+      "context_needed": "The Blond Nobleman is the antagonist who usurped the throne."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E09-B009",
+      "type": "hook",
+      "note": "Desperate mother begs for help, raising the stakes."
+     },
+     {
+      "beat": "E09-B075",
+      "type": "hook",
+      "note": "The rumor that the husband is the late Duke."
+     },
+     {
+      "beat": "E09-B089",
+      "type": "cliff",
+      "note": "The villain realizes his secret might be exposed."
+     }
+    ]
+   },
+   {
+    "episode": 10,
+    "candidates": [
+     {
+      "title": "Wounded Warrior",
+      "start_beat": "E10-B003",
+      "end_beat": "E10-B030",
+      "hook_beat": "E10-B007",
+      "cliff_beat": "E10-B030",
+      "hook": "Alexander!",
+      "cliffhanger": "Dear God.",
+      "why": "The visceral shock of seeing a hero wounded and the reveal of his scars is a powerful visual hook.",
+      "context_needed": "Alexander is a mysterious warrior."
+     },
+     {
+      "title": "Intimate Confrontation",
+      "start_beat": "E10-B047",
+      "end_beat": "E10-B060",
+      "hook_beat": "E10-B048",
+      "cliff_beat": "E10-B060",
+      "hook": "Why do you look at me like that?",
+      "cliffhanger": "Your touch is the only medicine that has ever eased my pain.",
+      "why": "Romantic tension is the glue that keeps viewers coming back for the next episode.",
+      "context_needed": "They are husband and wife in a marriage of convenience."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E10-B007",
+      "type": "hook",
+      "note": "Juliana discovers Alexander bleeding at her door."
+     },
+     {
+      "beat": "E10-B030",
+      "type": "cliff",
+      "note": "Juliana sees the extent of Alexander's horrific scars."
+     },
+     {
+      "beat": "E10-B060",
+      "type": "cliff",
+      "note": "Alexander confesses his deep emotional connection to Juliana."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 18652,
+  "completion_tokens": 2526
+ }
+}

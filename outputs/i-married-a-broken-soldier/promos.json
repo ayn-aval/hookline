@@ -207,11 +207,11 @@
    "proposed": 71,
    "continuous_proposed": 64,
    "stitched_proposed": 7,
-   "valid": 52,
-   "repaired": 36,
-   "rejected": 19,
+   "valid": 57,
+   "repaired": 41,
+   "rejected": 14,
    "duplicates_removed": 1,
-   "final": 51,
+   "final": 56,
    "unjudged": 0
   },
   "rejections": [
@@ -228,27 +228,22 @@
    "E27-C1: too short (11.4s < 20s)",
    "E29-C1: too short (19.4s < 20s)",
    "E50-C1: too short (6.5s < 20s)",
-   "S01: too short (14.4s < 20s)",
-   "S03: too short (13.7s < 20s)",
-   "S04: too short (14.0s < 20s)",
-   "S05: too short (19.4s < 20s)",
-   "S06: too short (16.2s < 20s)",
-   "S07: too short (7.4s < 20s)"
+   "S05: too short (19.4s < 20s)"
   ],
   "errors": {},
   "llm_usage": {
-   "calls": 0,
-   "cached": 15,
-   "prompt_tokens": 314286,
-   "completion_tokens": 25433,
+   "calls": 1,
+   "cached": 14,
+   "prompt_tokens": 316468,
+   "completion_tokens": 25770,
    "retries": 0
   },
-  "est_cost_usd_paid_tier": 0.1579,
+  "est_cost_usd_paid_tier": 0.1594,
   "price_assumption_per_1m_tokens": {
    "input": 0.3,
    "output": 2.5
   },
-  "seconds": 0.0,
+  "seconds": 4.8,
   "parse_warnings": []
  },
  "promos": [
@@ -573,6 +568,62 @@
    ]
   },
   {
+   "id": "S01",
+   "kind": "stitched",
+   "title": "Left at the Altar",
+   "segments": [
+    {
+     "ep": 1,
+     "start": 11.3,
+     "end": 19.4,
+     "start_beat": "E01-B008",
+     "end_beat": "E01-B013",
+     "start_ts": "00:11.30",
+     "end_ts": "00:19.40",
+     "seconds": 8.1
+    },
+    {
+     "ep": 1,
+     "start": 46.8,
+     "end": 61.8,
+     "start_beat": "E01-B031",
+     "end_beat": "E01-B041",
+     "start_ts": "00:46.80",
+     "end_ts": "01:01.80",
+     "seconds": 15.0
+    }
+   ],
+   "duration": 23.1,
+   "hook": "You should turn around, Juliana.",
+   "cliffhanger": "I changed my mind.",
+   "why": "Opens with the chilling altar warning and ends on the brutal rejection.",
+   "hook_beat": "E01-B008",
+   "cliff_beat": "E01-B041",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 11.3s to open on the hook",
+    "end moved 65.6s -> 61.8s to cut on the cliffhanger",
+    "ep1 cut widened to 57.0-61.8s so no line is cut mid-sentence",
+    "last segment starts earlier (46.8s) for a longer run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A bride is humiliated at her wedding when her groom rejects her publicly.",
+    "weakness": "The transition to the groom's rejection is a bit sudden."
+   },
+   "spoiler": 0,
+   "final_score": 4.5,
+   "rank": 8,
+   "post_reason": "scroll-stopping hook (5/5); starts in Ep 1, so a new viewer who clicks reaches the payoff quickly",
+   "episodes": [
+    1
+   ]
+  },
+  {
    "id": "E11-C1",
    "kind": "continuous",
    "title": "Planted Evidence Frame-Up",
@@ -607,7 +658,7 @@
    },
    "spoiler": 0,
    "final_score": 4.418,
-   "rank": 8,
+   "rank": 9,
    "post_reason": "scroll-stopping hook (5/5)",
    "episodes": [
     11
@@ -648,7 +699,7 @@
    },
    "spoiler": 0,
    "final_score": 4.361,
-   "rank": 9,
+   "rank": 10,
    "post_reason": "scroll-stopping hook (5/5)",
    "episodes": [
     18
@@ -689,7 +740,7 @@
    },
    "spoiler": 0,
    "final_score": 4.312,
-   "rank": 10,
+   "rank": 11,
    "post_reason": "scroll-stopping hook (5/5)",
    "episodes": [
     24
@@ -732,7 +783,7 @@
    },
    "spoiler": 0,
    "final_score": 4.242,
-   "rank": 11,
+   "rank": 12,
    "post_reason": "high emotional pull (5/5); starts in Ep 2, so a new viewer who clicks reaches the payoff quickly; 36s is in the 30-45s sweet spot",
    "episodes": [
     2
@@ -773,7 +824,7 @@
    },
    "spoiler": 0,
    "final_score": 4.177,
-   "rank": 12,
+   "rank": 13,
    "post_reason": "scroll-stopping hook (5/5)",
    "episodes": [
     10
@@ -827,7 +878,7 @@
    },
    "spoiler": 0,
    "final_score": 4.094,
-   "rank": 13,
+   "rank": 14,
    "post_reason": "high emotional pull (5/5)",
    "episodes": [
     14
@@ -870,7 +921,7 @@
    },
    "spoiler": 0,
    "final_score": 4.07,
-   "rank": 14,
+   "rank": 15,
    "post_reason": "strong cliffhanger (5/5)",
    "episodes": [
     23
@@ -911,7 +962,7 @@
    },
    "spoiler": 0,
    "final_score": 4.038,
-   "rank": 15,
+   "rank": 16,
    "post_reason": "strong cliffhanger (5/5)",
    "episodes": [
     27
@@ -952,7 +1003,7 @@
    },
    "spoiler": 0,
    "final_score": 4.026,
-   "rank": 16,
+   "rank": 17,
    "post_reason": "scroll-stopping hook (4/5); starts in Ep 4, so a new viewer who clicks reaches the payoff quickly; 39s is in the 30-45s sweet spot",
    "episodes": [
     4
@@ -995,8 +1046,105 @@
    },
    "spoiler": 0,
    "final_score": 4.001,
-   "rank": 17,
+   "rank": 18,
    "post_reason": "scroll-stopping hook (4/5); 35s is in the 30-45s sweet spot",
+   "episodes": [
+    7
+   ]
+  },
+  {
+   "id": "S03",
+   "kind": "stitched",
+   "title": "The Stranger's Proposal",
+   "segments": [
+    {
+     "ep": 3,
+     "start": 58.2,
+     "end": 62.3,
+     "start_beat": "E03-B046",
+     "end_beat": "E03-B050",
+     "start_ts": "00:58.20",
+     "end_ts": "01:02.30",
+     "seconds": 4.1
+    },
+    {
+     "ep": 3,
+     "start": 122.5,
+     "end": 140.3,
+     "start_beat": "E03-B103",
+     "end_beat": "E03-B116",
+     "start_ts": "02:02.50",
+     "end_ts": "02:20.30",
+     "seconds": 17.8
+    }
+   ],
+   "duration": 21.9,
+   "hook": "Guards! Remove her!",
+   "cliffhanger": "Lady Juliana... accept my hand.",
+   "why": "Combines her ruthless ejection by guards with a shocking society-shattering proposal.",
+   "hook_beat": "E03-B047",
+   "cliff_beat": "E03-B116",
+   "repaired": true,
+   "repairs": [
+    "end moved 145.8s -> 140.3s to cut on the cliffhanger",
+    "last segment starts earlier (122.5s) for a longer run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A humiliated bride is rescued by a mysterious stranger who offers her a ring.",
+    "weakness": "The stranger's sudden appearance is a classic but predictable trope."
+   },
+   "spoiler": 0,
+   "final_score": 3.984,
+   "rank": 19,
+   "post_reason": "scroll-stopping hook (4/5); starts in Ep 3, so a new viewer who clicks reaches the payoff quickly",
+   "episodes": [
+    3
+   ]
+  },
+  {
+   "id": "E07-C1",
+   "kind": "continuous",
+   "title": "Gerald Mocks Fallen Juliana",
+   "segments": [
+    {
+     "ep": 7,
+     "start": 22.0,
+     "end": 69.5,
+     "start_beat": "E07-B009",
+     "end_beat": "E07-B033",
+     "start_ts": "00:22.00",
+     "end_ts": "01:09.50",
+     "seconds": 47.5
+    }
+   ],
+   "duration": 47.5,
+   "hook": "This is where you live now?",
+   "cliffhanger": "Gerald threatens Juliana, asking where her beggar husband is.",
+   "why": "The audience roots for Juliana against her cruel ex-fiancé and wants to see him get what's coming to him.",
+   "hook_beat": "E07-B009",
+   "cliff_beat": "E07-B033",
+   "repaired": true,
+   "repairs": [
+    "start moved 4.8s -> 22.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana's ex-groom visits her new humble home to mock her, but she stands her ground.",
+    "weakness": "The dialogue feels repetitive, re-treading the same 'you're poor now' insults."
+   },
+   "spoiler": 0,
+   "final_score": 3.951,
+   "rank": 20,
+   "post_reason": "scroll-stopping hook (4/5)",
    "episodes": [
     7
    ]
@@ -1049,96 +1197,64 @@
    },
    "spoiler": 0,
    "final_score": 3.935,
-   "rank": 18,
+   "rank": 21,
    "post_reason": "scroll-stopping hook (4/5)",
    "episodes": [
     9
    ]
   },
   {
-   "id": "E07-C1",
-   "kind": "continuous",
-   "title": "Gerald Mocks Fallen Juliana",
+   "id": "S06",
+   "kind": "stitched",
+   "title": "Crawling Through Thorns",
    "segments": [
     {
-     "ep": 7,
-     "start": 22.0,
-     "end": 69.5,
-     "start_beat": "E07-B009",
-     "end_beat": "E07-B033",
-     "start_ts": "00:22.00",
-     "end_ts": "01:09.50",
-     "seconds": 47.5
-    }
-   ],
-   "duration": 47.5,
-   "hook": "This is where you live now?",
-   "cliffhanger": "Gerald threatens Juliana, asking where her beggar husband is.",
-   "why": "The audience roots for Juliana against her cruel ex-fiancé and wants to see him get what's coming to him.",
-   "hook_beat": "E07-B009",
-   "cliff_beat": "E07-B033",
-   "repaired": true,
-   "repairs": [
-    "start moved 4.8s -> 22.0s to open on the hook"
-   ],
-   "scores": {
-    "judged": true,
-    "hook": 4,
-    "cliff": 4,
-    "standalone": 4,
-    "emotion": 4,
-    "cold_viewer_summary": "Juliana's ex-groom visits her new humble home to mock her, but she stands her ground.",
-    "weakness": "The dialogue feels repetitive, re-treading the same 'you're poor now' insults."
-   },
-   "spoiler": 0,
-   "final_score": 3.951,
-   "rank": 19,
-   "post_reason": "scroll-stopping hook (4/5)",
-   "episodes": [
-    7
-   ]
-  },
-  {
-   "id": "E47-C1",
-   "kind": "continuous",
-   "title": "Scullery Maid Punishment",
-   "segments": [
+     "ep": 13,
+     "start": 68.5,
+     "end": 73.8,
+     "start_beat": "E13-B046",
+     "end_beat": "E13-B048",
+     "start_ts": "01:08.50",
+     "end_ts": "01:13.80",
+     "seconds": 5.3
+    },
     {
-     "ep": 47,
-     "start": 99.2,
-     "end": 134.0,
-     "start_beat": "E47-B053",
-     "end_beat": "E47-B070",
-     "start_ts": "01:39.20",
-     "end_ts": "02:14.00",
-     "seconds": 34.8
+     "ep": 13,
+     "start": 103.0,
+     "end": 118.88,
+     "start_beat": "E13-B067",
+     "end_beat": "E13-B075",
+     "start_ts": "01:43.00",
+     "end_ts": "01:58.88",
+     "seconds": 15.88
     }
    ],
-   "duration": 34.8,
-   "hook": "As a scullery maid.",
-   "cliffhanger": "Catherine prostrates herself entirely upon the floor in total defeat.",
-   "why": "Watching the villainous, arrogant noblewoman forced to beg for scraps and scrub floors as a servant is peak satisfying retribution.",
-   "hook_beat": "E47-B053",
-   "cliff_beat": "E47-B070",
+   "duration": 21.18,
+   "hook": "Sickening crunch and scrape of thorns slicing through flesh.",
+   "cliffhanger": "Juliana grasps the signet ring with bloody hands.",
+   "why": "Captures extreme physical sacrifice and emotional torment for her husband's freedom.",
+   "hook_beat": "E13-B046",
+   "cliff_beat": "E13-B075",
    "repaired": true,
    "repairs": [
-    "start moved 95.5s -> 99.2s to open on the hook"
+    "start moved 62.0s -> 68.5s to open on the hook",
+    "last segment starts earlier (103.0s) for a longer run-up to the cliffhanger"
    ],
    "scores": {
     "judged": true,
     "hook": 5,
     "cliff": 3,
-    "standalone": 5,
+    "standalone": 3,
     "emotion": 5,
-    "cold_viewer_summary": "The former villain is forced to accept a life of servitude by the woman she wronged.",
-    "weakness": "The shift to the maid role happens very quickly without much resistance."
+    "cold_viewer_summary": "A woman endures physical pain to retrieve a valuable ring from a briar patch.",
+    "weakness": "The context of why she is in the briar patch is missing."
    },
-   "spoiler": 1,
-   "final_score": 3.824,
-   "rank": 20,
-   "post_reason": "scroll-stopping hook (5/5); some spoiler risk, so held back; 35s is in the 30-45s sweet spot",
+   "spoiler": 0,
+   "final_score": 3.902,
+   "rank": 22,
+   "post_reason": "scroll-stopping hook (5/5)",
    "episodes": [
-    47
+    13
    ]
   },
   {
@@ -1176,10 +1292,64 @@
    },
    "spoiler": 0,
    "final_score": 3.731,
-   "rank": 21,
+   "rank": 23,
    "post_reason": "scroll-stopping hook (4/5)",
    "episodes": [
     34
+   ]
+  },
+  {
+   "id": "S04",
+   "kind": "stitched",
+   "title": "The Mud-Slinging Cruelty",
+   "segments": [
+    {
+     "ep": 5,
+     "start": 54.0,
+     "end": 58.2,
+     "start_beat": "E05-B031",
+     "end_beat": "E05-B034",
+     "start_ts": "00:54.00",
+     "end_ts": "00:58.20",
+     "seconds": 4.2
+    },
+    {
+     "ep": 5,
+     "start": 82.5,
+     "end": 100.8,
+     "start_beat": "E05-B048",
+     "end_beat": "E05-B058",
+     "start_ts": "01:22.50",
+     "end_ts": "01:40.80",
+     "seconds": 18.3
+    }
+   ],
+   "duration": 22.5,
+   "hook": "Barbara, don't!",
+   "cliffhanger": "Choose your next words carefully.",
+   "why": "Pairs her family's vicious destruction of her mother's ledger with a lethal warning from her new husband.",
+   "hook_beat": "E05-B033",
+   "cliff_beat": "E05-B058",
+   "repaired": true,
+   "repairs": [
+    "end moved 105.5s -> 100.8s to cut on the cliffhanger",
+    "last segment starts earlier (82.5s) for a longer run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A mysterious man comforts a woman whose family heirloom was destroyed by her rivals.",
+    "weakness": "The villain's dialogue feels a bit cartoonishly evil."
+   },
+   "spoiler": 0,
+   "final_score": 3.717,
+   "rank": 24,
+   "post_reason": "scroll-stopping hook (4/5); starts in Ep 5, so a new viewer who clicks reaches the payoff quickly",
+   "episodes": [
+    5
    ]
   },
   {
@@ -1229,7 +1399,7 @@
    },
    "spoiler": 0,
    "final_score": 3.7,
-   "rank": 22,
+   "rank": 25,
    "post_reason": "strong cliffhanger (4/5); starts in Ep 1, so a new viewer who clicks reaches the payoff quickly",
    "episodes": [
     1
@@ -1272,64 +1442,10 @@
    },
    "spoiler": 0,
    "final_score": 3.627,
-   "rank": 23,
+   "rank": 26,
    "post_reason": "high emotional pull (5/5)",
    "episodes": [
     10
-   ]
-  },
-  {
-   "id": "E44-C1",
-   "kind": "stitched",
-   "title": "Choosing the True Bride",
-   "segments": [
-    {
-     "ep": 44,
-     "start": 3.3,
-     "end": 24.4,
-     "start_beat": "E44-B004",
-     "end_beat": "E44-B016",
-     "start_ts": "00:03.30",
-     "end_ts": "00:24.40",
-     "seconds": 21.1
-    },
-    {
-     "ep": 44,
-     "start": 44.2,
-     "end": 70.4,
-     "start_beat": "E44-B033",
-     "end_beat": "E44-B054",
-     "start_ts": "00:44.20",
-     "end_ts": "01:10.40",
-     "seconds": 26.2
-    }
-   ],
-   "duration": 47.3,
-   "hook": "Lord Henry Sterling, you are under arrest by order of the Crown.",
-   "cliffhanger": "Catherine gasps in utter disbelief as Alexander walks past her to Juliana.",
-   "why": "The sheer humiliation of the scheming villainess being rejected for the true heroine is intensely satisfying.",
-   "hook_beat": "E44-B004",
-   "cliff_beat": "E44-B054",
-   "repaired": true,
-   "repairs": [
-    "start moved 0.0s -> 3.3s to open on the hook",
-    "67s window condensed to the hook opening plus the run-up to the cliffhanger"
-   ],
-   "scores": {
-    "judged": true,
-    "hook": 4,
-    "cliff": 5,
-    "standalone": 4,
-    "emotion": 5,
-    "cold_viewer_summary": "The usurper is arrested, and the hero rejects his former lover for the woman he truly loves.",
-    "weakness": "Catherine's sudden shift from villain to pleading lover feels slightly rushed."
-   },
-   "spoiler": 1,
-   "final_score": 3.499,
-   "rank": 24,
-   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
-   "episodes": [
-    44
    ]
   },
   {
@@ -1367,7 +1483,7 @@
    },
    "spoiler": 2,
    "final_score": 3.305,
-   "rank": 25,
+   "rank": 27,
    "post_reason": "scroll-stopping hook (5/5); some spoiler risk, so held back",
    "episodes": [
     31
@@ -1420,7 +1536,7 @@
    },
    "spoiler": 2,
    "final_score": 3.264,
-   "rank": 26,
+   "rank": 28,
    "post_reason": "scroll-stopping hook (5/5); some spoiler risk, so held back",
    "episodes": [
     36
@@ -1463,7 +1579,7 @@
    },
    "spoiler": 0,
    "final_score": 3.222,
-   "rank": 27,
+   "rank": 29,
    "post_reason": "scroll-stopping hook (4/5)",
    "episodes": [
     35
@@ -1506,7 +1622,7 @@
    },
    "spoiler": 0,
    "final_score": 3.143,
-   "rank": 28,
+   "rank": 30,
    "post_reason": "high emotional pull (4/5)",
    "episodes": [
     8
@@ -1549,51 +1665,53 @@
    },
    "spoiler": 0,
    "final_score": 3.061,
-   "rank": 29,
+   "rank": 31,
    "post_reason": "high emotional pull (4/5)",
    "episodes": [
     18
    ]
   },
   {
-   "id": "E48-C1",
+   "id": "E47-C1",
    "kind": "continuous",
-   "title": "Ten Days is a Door",
+   "title": "Scullery Maid Punishment",
    "segments": [
     {
-     "ep": 48,
-     "start": 0.0,
-     "end": 26.5,
-     "start_beat": "E48-B001",
-     "end_beat": "E48-B014",
-     "start_ts": "00:00.00",
-     "end_ts": "00:26.50",
-     "seconds": 26.5
+     "ep": 47,
+     "start": 99.2,
+     "end": 134.0,
+     "start_beat": "E47-B053",
+     "end_beat": "E47-B070",
+     "start_ts": "01:39.20",
+     "end_ts": "02:14.00",
+     "seconds": 34.8
     }
    ],
-   "duration": 26.5,
-   "hook": "Two words, and that healer's crown rolls right back into the gutter.",
-   "cliffhanger": "Ten days is not a wall, Alexander. It's a door, and doors can be closed.",
-   "why": "The villain vows bloody revenge and plots behind the scenes, creating instant suspense for what she will do next.",
-   "hook_beat": "E48-B003",
-   "cliff_beat": "E48-B014",
-   "repaired": false,
-   "repairs": [],
+   "duration": 34.8,
+   "hook": "As a scullery maid.",
+   "cliffhanger": "Catherine prostrates herself entirely upon the floor in total defeat.",
+   "why": "Watching the villainous, arrogant noblewoman forced to beg for scraps and scrub floors as a servant is peak satisfying retribution.",
+   "hook_beat": "E47-B053",
+   "cliff_beat": "E47-B070",
+   "repaired": true,
+   "repairs": [
+    "start moved 95.5s -> 99.2s to open on the hook"
+   ],
    "scores": {
     "judged": true,
     "hook": 4,
-    "cliff": 4,
+    "cliff": 2,
     "standalone": 4,
-    "emotion": 4,
-    "cold_viewer_summary": "The defeated villain plots a dark, ten-day scheme to reclaim her lost status and power.",
-    "weakness": "The monologue is slightly static and relies heavily on the viewer knowing the stakes."
+    "emotion": 5,
+    "cold_viewer_summary": "A former bride is forced to become a servant to the woman she once humiliated.",
+    "weakness": "The resolution of the scene is too tidy and lacks a lingering threat."
    },
    "spoiler": 1,
-   "final_score": 3.016,
-   "rank": 30,
-   "post_reason": "scroll-stopping hook (4/5); some spoiler risk, so held back",
+   "final_score": 3.024,
+   "rank": 32,
+   "post_reason": "high emotional pull (5/5); some spoiler risk, so held back; 35s is in the 30-45s sweet spot",
    "episodes": [
-    48
+    47
    ]
   },
   {
@@ -1631,7 +1749,7 @@
    },
    "spoiler": 0,
    "final_score": 3.014,
-   "rank": 31,
+   "rank": 33,
    "post_reason": "scroll-stopping hook (3/5); 39s is in the 30-45s sweet spot",
    "episodes": [
     36
@@ -1684,7 +1802,7 @@
    },
    "spoiler": 0,
    "final_score": 2.989,
-   "rank": 32,
+   "rank": 34,
    "post_reason": "strong cliffhanger (4/5)",
    "episodes": [
     33
@@ -1720,112 +1838,15 @@
     "cliff": 3,
     "standalone": 4,
     "emotion": 5,
-    "cold_viewer_summary": "A woman defiantly tells a priest that her love is valid despite his legalistic condemnation.",
-    "weakness": "The monologue is a bit repetitive in its defiance."
+    "cold_viewer_summary": "A woman defiantly challenges a priest who claims her marriage is invalid.",
+    "weakness": "The emotional payoff is strong but lacks a concrete physical cliffhanger."
    },
    "spoiler": 1,
    "final_score": 2.983,
-   "rank": 33,
+   "rank": 35,
    "post_reason": "high emotional pull (5/5); some spoiler risk, so held back",
    "episodes": [
     46
-   ]
-  },
-  {
-   "id": "E41-C1",
-   "kind": "continuous",
-   "title": "Explosive Wedding Interruption",
-   "segments": [
-    {
-     "ep": 41,
-     "start": 26.8,
-     "end": 85.5,
-     "start_beat": "E41-B017",
-     "end_beat": "E41-B047",
-     "start_ts": "00:26.80",
-     "end_ts": "01:25.50",
-     "seconds": 58.7
-    }
-   ],
-   "duration": 58.7,
-   "hook": "There she is.",
-   "cliffhanger": "Ear-splitting detonation, shattering stone, wood splintering violently into kindling, followed by terrified screams of the congregation.",
-   "why": "Viewers will want to see who caused the explosive rescue at the ruined wedding.",
-   "hook_beat": "E41-B017",
-   "cliff_beat": "E41-B047",
-   "repaired": true,
-   "repairs": [
-    "start moved 15.5s -> 26.8s to open on the hook"
-   ],
-   "scores": {
-    "judged": true,
-    "hook": 4,
-    "cliff": 5,
-    "standalone": 5,
-    "emotion": 4,
-    "cold_viewer_summary": "A disgraced woman in chains is mocked by her rival at a wedding, then the building explodes.",
-    "weakness": "The explosion is a bit jarring and lacks immediate context for the cause."
-   },
-   "spoiler": 2,
-   "final_score": 2.973,
-   "rank": 34,
-   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
-   "episodes": [
-    41
-   ]
-  },
-  {
-   "id": "E45-C1",
-   "kind": "stitched",
-   "title": "The High Priest's Decree",
-   "segments": [
-    {
-     "ep": 45,
-     "start": 7.4,
-     "end": 27.4,
-     "start_beat": "E45-B007",
-     "end_beat": "E45-B021",
-     "start_ts": "00:07.40",
-     "end_ts": "00:27.40",
-     "seconds": 20.0
-    },
-    {
-     "ep": 45,
-     "start": 93.2,
-     "end": 121.75,
-     "start_beat": "E45-B063",
-     "end_beat": "E45-B074",
-     "start_ts": "01:33.20",
-     "end_ts": "02:01.75",
-     "seconds": 28.55
-    }
-   ],
-   "duration": 48.55,
-   "hook": "Look at me.",
-   "cliffhanger": "Catherine smiles triumphantly as the High Priest invalidates Alexander and Juliana's marriage.",
-   "why": "Just when the heroes unite, a devastating ecclesiastical twist tears their victory away.",
-   "hook_beat": "E45-B007",
-   "cliff_beat": "E45-B074",
-   "repaired": true,
-   "repairs": [
-    "start moved 0.0s -> 7.4s to open on the hook",
-    "114s window condensed to the hook opening plus the run-up to the cliffhanger"
-   ],
-   "scores": {
-    "judged": true,
-    "hook": 4,
-    "cliff": 5,
-    "standalone": 4,
-    "emotion": 5,
-    "cold_viewer_summary": "The hero frees his love, but a priest declares their marriage invalid, delighting the villainous rival.",
-    "weakness": "The High Priest's sudden appearance and authority feel like a convenient plot device."
-   },
-   "spoiler": 2,
-   "final_score": 2.891,
-   "rank": 35,
-   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
-   "episodes": [
-    45
    ]
   },
   {
@@ -1883,6 +1904,60 @@
    ]
   },
   {
+   "id": "E44-C1",
+   "kind": "stitched",
+   "title": "Choosing the True Bride",
+   "segments": [
+    {
+     "ep": 44,
+     "start": 3.3,
+     "end": 24.4,
+     "start_beat": "E44-B004",
+     "end_beat": "E44-B016",
+     "start_ts": "00:03.30",
+     "end_ts": "00:24.40",
+     "seconds": 21.1
+    },
+    {
+     "ep": 44,
+     "start": 44.2,
+     "end": 70.4,
+     "start_beat": "E44-B033",
+     "end_beat": "E44-B054",
+     "start_ts": "00:44.20",
+     "end_ts": "01:10.40",
+     "seconds": 26.2
+    }
+   ],
+   "duration": 47.3,
+   "hook": "Lord Henry Sterling, you are under arrest by order of the Crown.",
+   "cliffhanger": "Catherine gasps in utter disbelief as Alexander walks past her to Juliana.",
+   "why": "The sheer humiliation of the scheming villainess being rejected for the true heroine is intensely satisfying.",
+   "hook_beat": "E44-B004",
+   "cliff_beat": "E44-B054",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 3.3s to open on the hook",
+    "67s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A usurper is arrested while his bride realizes the returning Duke prefers another woman.",
+    "weakness": "The emotional pivot to the love triangle is slightly abrupt."
+   },
+   "spoiler": 1,
+   "final_score": 2.749,
+   "rank": 37,
+   "post_reason": "strong cliffhanger (4/5); some spoiler risk, so held back",
+   "episodes": [
+    44
+   ]
+  },
+  {
    "id": "E38-C1",
    "kind": "continuous",
    "title": "I Will Not Betray Him",
@@ -1919,47 +1994,37 @@
    },
    "spoiler": 2,
    "final_score": 2.748,
-   "rank": 37,
+   "rank": 38,
    "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
    "episodes": [
     38
    ]
   },
   {
-   "id": "E43-C1",
-   "kind": "stitched",
-   "title": "Exposing the Traitors",
+   "id": "E41-C1",
+   "kind": "continuous",
+   "title": "Explosive Wedding Interruption",
    "segments": [
     {
-     "ep": 43,
-     "start": 8.0,
-     "end": 28.0,
-     "start_beat": "E43-B006",
-     "end_beat": "E43-B025",
-     "start_ts": "00:08.00",
-     "end_ts": "00:28.00",
-     "seconds": 20.0
-    },
-    {
-     "ep": 43,
-     "start": 88.6,
-     "end": 114.96,
-     "start_beat": "E43-B072",
-     "end_beat": "E43-B087",
-     "start_ts": "01:28.60",
-     "end_ts": "01:54.96",
-     "seconds": 26.36
+     "ep": 41,
+     "start": 26.8,
+     "end": 85.5,
+     "start_beat": "E41-B017",
+     "end_beat": "E41-B047",
+     "start_ts": "00:26.80",
+     "end_ts": "01:25.50",
+     "seconds": 58.7
     }
    ],
-   "duration": 46.36,
-   "hook": "I said arrest him!",
-   "cliffhanger": "Sterling's escape is completely cut off by a stern British Police Constable.",
-   "why": "The public reading of top-secret treason documents exposes the villains in real time.",
-   "hook_beat": "E43-B009",
-   "cliff_beat": "E43-B087",
+   "duration": 58.7,
+   "hook": "There she is.",
+   "cliffhanger": "Ear-splitting detonation, shattering stone, wood splintering violently into kindling, followed by terrified screams of the congregation.",
+   "why": "Viewers will want to see who caused the explosive rescue at the ruined wedding.",
+   "hook_beat": "E41-B017",
+   "cliff_beat": "E41-B047",
    "repaired": true,
    "repairs": [
-    "107s window condensed to the hook opening plus the run-up to the cliffhanger"
+    "start moved 15.5s -> 26.8s to open on the hook"
    ],
    "scores": {
     "judged": true,
@@ -1967,15 +2032,15 @@
     "cliff": 5,
     "standalone": 4,
     "emotion": 4,
-    "cold_viewer_summary": "The rightful Duke returns to confront his usurper, leading to the arrest of a co-conspirator.",
-    "weakness": "The dialogue is a bit exposition-heavy regarding the legal status of the title."
+    "cold_viewer_summary": "A disgraced woman is mocked at a wedding, which is then interrupted by a massive explosion.",
+    "weakness": "The buildup is slightly long before the high-impact explosion."
    },
    "spoiler": 2,
-   "final_score": 2.707,
-   "rank": 38,
+   "final_score": 2.723,
+   "rank": 39,
    "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
    "episodes": [
-    43
+    41
    ]
   },
   {
@@ -2026,7 +2091,7 @@
    },
    "spoiler": 0,
    "final_score": 2.706,
-   "rank": 39,
+   "rank": 40,
    "post_reason": "scroll-stopping hook (3/5)",
    "episodes": [
     37
@@ -2067,64 +2132,10 @@
    },
    "spoiler": 0,
    "final_score": 2.693,
-   "rank": 40,
+   "rank": 41,
    "post_reason": "scroll-stopping hook (3/5)",
    "episodes": [
     8
-   ]
-  },
-  {
-   "id": "E42-C1",
-   "kind": "stitched",
-   "title": "The Scarred Duke Returns",
-   "segments": [
-    {
-     "ep": 42,
-     "start": 12.8,
-     "end": 33.8,
-     "start_beat": "E42-B004",
-     "end_beat": "E42-B021",
-     "start_ts": "00:12.80",
-     "end_ts": "00:33.80",
-     "seconds": 21.0
-    },
-    {
-     "ep": 42,
-     "start": 49.2,
-     "end": 77.5,
-     "start_beat": "E42-B029",
-     "end_beat": "E42-B037",
-     "start_ts": "00:49.20",
-     "end_ts": "01:17.50",
-     "seconds": 28.3
-    }
-   ],
-   "duration": 49.3,
-   "hook": "You already know.",
-   "cliffhanger": "And now, Rupert... we settle what you stole.",
-   "why": "The presumed dead scarred warrior returns in full ducal regalia to reclaim his stolen throne.",
-   "hook_beat": "E42-B004",
-   "cliff_beat": "E42-B037",
-   "repaired": true,
-   "repairs": [
-    "start moved 0.0s -> 12.8s to open on the hook",
-    "65s window condensed to the hook opening plus the run-up to the cliffhanger"
-   ],
-   "scores": {
-    "judged": true,
-    "hook": 4,
-    "cliff": 4,
-    "standalone": 4,
-    "emotion": 5,
-    "cold_viewer_summary": "A man thought dead returns to reclaim his title, leaving the current usurper in terror.",
-    "weakness": "The transition between the confrontation and the mother's speech feels slightly disjointed."
-   },
-   "spoiler": 2,
-   "final_score": 2.665,
-   "rank": 41,
-   "post_reason": "high emotional pull (5/5); some spoiler risk, so held back",
-   "episodes": [
-    42
    ]
   },
   {
@@ -2181,6 +2192,61 @@
    ]
   },
   {
+   "id": "S07",
+   "kind": "stitched",
+   "title": "The Exploding Cathedral",
+   "segments": [
+    {
+     "ep": 41,
+     "start": 26.8,
+     "end": 28.4,
+     "start_beat": "E41-B017",
+     "end_beat": "E41-B017",
+     "start_ts": "00:26.80",
+     "end_ts": "00:28.40",
+     "seconds": 1.6
+    },
+    {
+     "ep": 41,
+     "start": 64.5,
+     "end": 85.5,
+     "start_beat": "E41-B038",
+     "end_beat": "E41-B047",
+     "start_ts": "01:04.50",
+     "end_ts": "01:25.50",
+     "seconds": 21.0
+    }
+   ],
+   "duration": 22.6,
+   "hook": "There she is.",
+   "cliffhanger": "Ear-splitting detonation, shattering stone, wood splintering violently into kindling.",
+   "why": "Juxstaposes her public shaming in chains with a massive, explosive rescue assault.",
+   "hook_beat": "E41-B017",
+   "cliff_beat": "E41-B047",
+   "repaired": true,
+   "repairs": [
+    "start moved 15.5s -> 26.8s to open on the hook",
+    "end moved 84.0s -> 85.5s to cut on the cliffhanger",
+    "last segment starts earlier (64.5s) for a longer run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A wedding is interrupted by a massive explosion, throwing the ceremony into chaos.",
+    "weakness": "The clip ends abruptly without showing the aftermath of the blast."
+   },
+   "spoiler": 2,
+   "final_score": 2.473,
+   "rank": 43,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    41
+   ]
+  },
+  {
    "id": "E06-C2",
    "kind": "continuous",
    "title": "Finding Peace In The Storm",
@@ -2217,51 +2283,10 @@
    },
    "spoiler": 0,
    "final_score": 2.409,
-   "rank": 43,
+   "rank": 44,
    "post_reason": "clear to a first-time viewer (3/5)",
    "episodes": [
     6
-   ]
-  },
-  {
-   "id": "E49-C1",
-   "kind": "continuous",
-   "title": "Conspiracy in the Dark",
-   "segments": [
-    {
-     "ep": 49,
-     "start": 5.2,
-     "end": 46.5,
-     "start_beat": "E49-B004",
-     "end_beat": "E49-B020",
-     "start_ts": "00:05.20",
-     "end_ts": "00:46.50",
-     "seconds": 41.3
-    }
-   ],
-   "duration": 41.3,
-   "hook": "You took your time.",
-   "cliffhanger": "No one in this house so much as suspects your face belongs to that morning.",
-   "why": "A disgraced bride and a corrupt priest meeting secretly in a derelict wing oozes scandalous forbidden tension.",
-   "hook_beat": "E49-B005",
-   "cliff_beat": "E49-B020",
-   "repaired": false,
-   "repairs": [],
-   "scores": {
-    "judged": true,
-    "hook": 3,
-    "cliff": 3,
-    "standalone": 3,
-    "emotion": 3,
-    "cold_viewer_summary": "A disgraced bride meets a priest secretly to discuss their ongoing, dangerous conspiracy.",
-    "weakness": "Lacks a clear immediate threat or action to maintain high tension."
-   },
-   "spoiler": 1,
-   "final_score": 2.308,
-   "rank": 44,
-   "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back; 41s is in the 30-45s sweet spot",
-   "episodes": [
-    49
    ]
   },
   {
@@ -2359,89 +2384,193 @@
    ]
   },
   {
-   "id": "E46-C1",
-   "kind": "continuous",
+   "id": "E42-C1",
+   "kind": "stitched",
+   "title": "The Scarred Duke Returns",
+   "segments": [
+    {
+     "ep": 42,
+     "start": 12.8,
+     "end": 33.8,
+     "start_beat": "E42-B004",
+     "end_beat": "E42-B021",
+     "start_ts": "00:12.80",
+     "end_ts": "00:33.80",
+     "seconds": 21.0
+    },
+    {
+     "ep": 42,
+     "start": 49.2,
+     "end": 77.5,
+     "start_beat": "E42-B029",
+     "end_beat": "E42-B037",
+     "start_ts": "00:49.20",
+     "end_ts": "01:17.50",
+     "seconds": 28.3
+    }
+   ],
+   "duration": 49.3,
+   "hook": "You already know.",
+   "cliffhanger": "And now, Rupert... we settle what you stole.",
+   "why": "The presumed dead scarred warrior returns in full ducal regalia to reclaim his stolen throne.",
+   "hook_beat": "E42-B004",
+   "cliff_beat": "E42-B037",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 12.8s to open on the hook",
+    "65s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A man thought dead returns to interrupt a wedding, revealing himself as the rightful Duke.",
+    "weakness": "The dialogue-heavy middle section slows the momentum of the reveal."
+   },
+   "spoiler": 2,
+   "final_score": 2.165,
+   "rank": 47,
+   "post_reason": "strong cliffhanger (4/5); some spoiler risk, so held back",
+   "episodes": [
+    42
+   ]
+  },
+  {
+   "id": "E45-C1",
+   "kind": "stitched",
    "title": "The High Priest's Decree",
    "segments": [
     {
-     "ep": 46,
-     "start": 11.5,
-     "end": 58.0,
-     "start_beat": "E46-B008",
-     "end_beat": "E46-B032",
-     "start_ts": "00:11.50",
-     "end_ts": "00:58.00",
-     "seconds": 46.5
+     "ep": 45,
+     "start": 7.4,
+     "end": 27.4,
+     "start_beat": "E45-B007",
+     "end_beat": "E45-B021",
+     "start_ts": "00:07.40",
+     "end_ts": "00:27.40",
+     "seconds": 20.0
+    },
+    {
+     "ep": 45,
+     "start": 93.2,
+     "end": 121.75,
+     "start_beat": "E45-B063",
+     "end_beat": "E45-B074",
+     "start_ts": "01:33.20",
+     "end_ts": "02:01.75",
+     "seconds": 28.55
     }
    ],
-   "duration": 46.5,
-   "hook": "By Royal command, this sanctuary is placed under immediate Crown scesion.",
-   "cliffhanger": "Alexander Ashburton was already dead.",
-   "why": "A stranger gets dropped into high-stakes medieval legal warfare where a powerful church official invalidates a marriage by declaring the groom legally dead.",
-   "hook_beat": "E46-B008",
-   "cliff_beat": "E46-B032",
+   "duration": 48.55,
+   "hook": "Look at me.",
+   "cliffhanger": "Catherine smiles triumphantly as the High Priest invalidates Alexander and Juliana's marriage.",
+   "why": "Just when the heroes unite, a devastating ecclesiastical twist tears their victory away.",
+   "hook_beat": "E45-B007",
+   "cliff_beat": "E45-B074",
    "repaired": true,
    "repairs": [
-    "start moved 7.1s -> 11.5s to open on the hook"
+    "start moved 0.0s -> 7.4s to open on the hook",
+    "114s window condensed to the hook opening plus the run-up to the cliffhanger"
    ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A Duke frees his lover, but a priest declares their marriage invalid, delighting the rival.",
+    "weakness": "The priest's sudden legal intervention feels like a convenient plot device."
+   },
+   "spoiler": 2,
+   "final_score": 2.141,
+   "rank": 48,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    45
+   ]
+  },
+  {
+   "id": "E49-C1",
+   "kind": "continuous",
+   "title": "Conspiracy in the Dark",
+   "segments": [
+    {
+     "ep": 49,
+     "start": 5.2,
+     "end": 46.5,
+     "start_beat": "E49-B004",
+     "end_beat": "E49-B020",
+     "start_ts": "00:05.20",
+     "end_ts": "00:46.50",
+     "seconds": 41.3
+    }
+   ],
+   "duration": 41.3,
+   "hook": "You took your time.",
+   "cliffhanger": "No one in this house so much as suspects your face belongs to that morning.",
+   "why": "A disgraced bride and a corrupt priest meeting secretly in a derelict wing oozes scandalous forbidden tension.",
+   "hook_beat": "E49-B005",
+   "cliff_beat": "E49-B020",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A villainess meets a priest in secret to conspire against the Duke.",
+    "weakness": "The dialogue is overly explanatory and lacks immediate physical stakes."
+   },
+   "spoiler": 1,
+   "final_score": 2.058,
+   "rank": 49,
+   "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back; 41s is in the 30-45s sweet spot",
+   "episodes": [
+    49
+   ]
+  },
+  {
+   "id": "E48-C1",
+   "kind": "continuous",
+   "title": "Ten Days is a Door",
+   "segments": [
+    {
+     "ep": 48,
+     "start": 0.0,
+     "end": 26.5,
+     "start_beat": "E48-B001",
+     "end_beat": "E48-B014",
+     "start_ts": "00:00.00",
+     "end_ts": "00:26.50",
+     "seconds": 26.5
+    }
+   ],
+   "duration": 26.5,
+   "hook": "Two words, and that healer's crown rolls right back into the gutter.",
+   "cliffhanger": "Ten days is not a wall, Alexander. It's a door, and doors can be closed.",
+   "why": "The villain vows bloody revenge and plots behind the scenes, creating instant suspense for what she will do next.",
+   "hook_beat": "E48-B003",
+   "cliff_beat": "E48-B014",
+   "repaired": false,
+   "repairs": [],
    "scores": {
     "judged": true,
     "hook": 3,
     "cliff": 3,
     "standalone": 3,
     "emotion": 3,
-    "cold_viewer_summary": "A High Priest uses legal technicalities to invalidate a Duke's marriage to a commoner.",
-    "weakness": "Too much legalistic dialogue slows down the emotional momentum."
+    "cold_viewer_summary": "A defeated villainess plots her revenge against a Duke and his lover.",
+    "weakness": "Static monologue format is less engaging than active confrontation."
    },
    "spoiler": 1,
-   "final_score": 2.033,
-   "rank": 47,
+   "final_score": 2.016,
+   "rank": 50,
    "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back",
    "episodes": [
-    46
-   ]
-  },
-  {
-   "id": "E40-C1",
-   "kind": "continuous",
-   "title": "By Sunset Our Witch Will Be Dead",
-   "segments": [
-    {
-     "ep": 40,
-     "start": 74.8,
-     "end": 110.08,
-     "start_beat": "E40-B038",
-     "end_beat": "E40-B051",
-     "start_ts": "01:14.80",
-     "end_ts": "01:50.08",
-     "seconds": 35.28
-    }
-   ],
-   "duration": 35.28,
-   "hook": "\"By sunset, Ashburgh will have its new Duke and Duchess. And its witch will be dead.\"",
-   "cliffhanger": "Rupert and Catherine exchange triumphant smiles at the altar.",
-   "why": "The villains feel completely untouchable just moments before their world comes crashing down.",
-   "hook_beat": "E40-B038",
-   "cliff_beat": "E40-B051",
-   "repaired": true,
-   "repairs": [
-    "start moved 58.2s -> 74.8s to open on the hook"
-   ],
-   "scores": {
-    "judged": true,
-    "hook": 3,
-    "cliff": 3,
-    "standalone": 4,
-    "emotion": 3,
-    "cold_viewer_summary": "A wedding ceremony between an aristocratic couple is interrupted by a mysterious, smug exchange.",
-    "weakness": "Lacks a clear conflict or stakes to hook a casual viewer."
-   },
-   "spoiler": 2,
-   "final_score": 2.032,
-   "rank": 48,
-   "post_reason": "clear to a first-time viewer (4/5); some spoiler risk, so held back; 35s is in the 30-45s sweet spot",
-   "episodes": [
-    40
+    48
    ]
   },
   {
@@ -2481,7 +2610,7 @@
    },
    "spoiler": 2,
    "final_score": 2.006,
-   "rank": 49,
+   "rank": 51,
    "post_reason": "scroll-stopping hook (4/5); some spoiler risk, so held back",
    "episodes": [
     37
@@ -2535,10 +2664,63 @@
    },
    "spoiler": 2,
    "final_score": 1.997,
-   "rank": 50,
+   "rank": 52,
    "post_reason": "clear to a first-time viewer (4/5); some spoiler risk, so held back",
    "episodes": [
     32
+   ]
+  },
+  {
+   "id": "E43-C1",
+   "kind": "stitched",
+   "title": "Exposing the Traitors",
+   "segments": [
+    {
+     "ep": 43,
+     "start": 8.0,
+     "end": 28.0,
+     "start_beat": "E43-B006",
+     "end_beat": "E43-B025",
+     "start_ts": "00:08.00",
+     "end_ts": "00:28.00",
+     "seconds": 20.0
+    },
+    {
+     "ep": 43,
+     "start": 88.6,
+     "end": 114.96,
+     "start_beat": "E43-B072",
+     "end_beat": "E43-B087",
+     "start_ts": "01:28.60",
+     "end_ts": "01:54.96",
+     "seconds": 26.36
+    }
+   ],
+   "duration": 46.36,
+   "hook": "I said arrest him!",
+   "cliffhanger": "Sterling's escape is completely cut off by a stern British Police Constable.",
+   "why": "The public reading of top-secret treason documents exposes the villains in real time.",
+   "hook_beat": "E43-B009",
+   "cliff_beat": "E43-B087",
+   "repaired": true,
+   "repairs": [
+    "107s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 3,
+    "cold_viewer_summary": "A returning Duke challenges a usurper at an altar, leading to a dramatic arrest.",
+    "weakness": "The transition between the confrontation and the arrest feels a bit disjointed."
+   },
+   "spoiler": 2,
+   "final_score": 1.957,
+   "rank": 53,
+   "post_reason": "strong cliffhanger (4/5); some spoiler risk, so held back",
+   "episodes": [
+    43
    ]
   },
   {
@@ -2578,10 +2760,96 @@
    },
    "spoiler": 2,
    "final_score": 1.563,
-   "rank": 51,
+   "rank": 54,
    "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back",
    "episodes": [
     30
+   ]
+  },
+  {
+   "id": "E46-C1",
+   "kind": "continuous",
+   "title": "The High Priest's Decree",
+   "segments": [
+    {
+     "ep": 46,
+     "start": 11.5,
+     "end": 58.0,
+     "start_beat": "E46-B008",
+     "end_beat": "E46-B032",
+     "start_ts": "00:11.50",
+     "end_ts": "00:58.00",
+     "seconds": 46.5
+    }
+   ],
+   "duration": 46.5,
+   "hook": "By Royal command, this sanctuary is placed under immediate Crown scesion.",
+   "cliffhanger": "Alexander Ashburton was already dead.",
+   "why": "A stranger gets dropped into high-stakes medieval legal warfare where a powerful church official invalidates a marriage by declaring the groom legally dead.",
+   "hook_beat": "E46-B008",
+   "cliff_beat": "E46-B032",
+   "repaired": true,
+   "repairs": [
+    "start moved 7.1s -> 11.5s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 2,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 2,
+    "cold_viewer_summary": "A priest uses bureaucracy to invalidate a Duke's marriage to a former beggar.",
+    "weakness": "Too much exposition on legal/clerical technicalities kills the tension."
+   },
+   "spoiler": 1,
+   "final_score": 1.533,
+   "rank": 55,
+   "post_reason": "strong cliffhanger (3/5); some spoiler risk, so held back",
+   "episodes": [
+    46
+   ]
+  },
+  {
+   "id": "E40-C1",
+   "kind": "continuous",
+   "title": "By Sunset Our Witch Will Be Dead",
+   "segments": [
+    {
+     "ep": 40,
+     "start": 74.8,
+     "end": 110.08,
+     "start_beat": "E40-B038",
+     "end_beat": "E40-B051",
+     "start_ts": "01:14.80",
+     "end_ts": "01:50.08",
+     "seconds": 35.28
+    }
+   ],
+   "duration": 35.28,
+   "hook": "\"By sunset, Ashburgh will have its new Duke and Duchess. And its witch will be dead.\"",
+   "cliffhanger": "Rupert and Catherine exchange triumphant smiles at the altar.",
+   "why": "The villains feel completely untouchable just moments before their world comes crashing down.",
+   "hook_beat": "E40-B038",
+   "cliff_beat": "E40-B051",
+   "repaired": true,
+   "repairs": [
+    "start moved 58.2s -> 74.8s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 2,
+    "cold_viewer_summary": "A bride and groom exchange smug, triumphant looks at their wedding altar.",
+    "weakness": "Lacks immediate conflict or stakes to justify a scroll-stop."
+   },
+   "spoiler": 2,
+   "final_score": 1.032,
+   "rank": 56,
+   "post_reason": "clear to a first-time viewer (3/5); some spoiler risk, so held back; 35s is in the 30-45s sweet spot",
+   "episodes": [
+    40
    ]
   }
  ]

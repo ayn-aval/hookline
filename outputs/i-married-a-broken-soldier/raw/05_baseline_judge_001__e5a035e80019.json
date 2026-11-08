@@ -1,0 +1,199 @@
+{
+ "tag": "05_baseline_judge_001",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146462.201802,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 48092,
+ "user_sha256": "6d40fa1c05bb87e408a2dc0e0546a898c4a19f8960bb9f81ccd7233244647a8e",
+ "response_text": "{\"scores\": [\n  {\"id\": \"BASE-E22\", \"hook\": 3, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A servant discovers a poisoned noblewoman and suspects foul play in a dangerous, opulent manor.\", \"weakness\": \"The pacing is a bit slow for a vertical ad hook.\"},\n  {\"id\": \"BASE-E23\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A healer frantically tries to save a poisoned Duchess while intruders approach the locked door.\", \"weakness\": \"The tension is good but the dialogue is slightly generic.\"},\n  {\"id\": \"BASE-E24\", \"hook\": 4, \"cliff\": 4, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"A noblewoman forces a disgraced lady to scrub floors, unaware she is a skilled healer.\", \"weakness\": \"The transition to the 'healer' reveal is a bit exposition-heavy.\"},\n  {\"id\": \"BASE-E25\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A protective man confronts his partner about the dangers she faces in a hostile house.\", \"weakness\": \"Lacks the high-stakes action of other clips; feels like a filler scene.\"},\n  {\"id\": \"BASE-E26\", \"hook\": 3, \"cliff\": 5, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A dying Duchess recognizes a ring on a servant's hand, hinting at a hidden identity.\", \"weakness\": \"Requires too much context about the ring to be fully impactful.\"},\n  {\"id\": \"BASE-E27\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A servant is framed for poisoning a noblewoman and dragged away by guards.\", \"weakness\": \"The villain's dialogue is a bit too cartoonishly evil.\"},\n  {\"id\": \"BASE-E28\", \"hook\": 5, \"cliff\": 5, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"A cruel noblewoman exposes a servant's true identity as a disgraced lady before ordering her arrest.\", \"weakness\": \"The villain's monologue is slightly too long for a fast-paced ad.\"},\n  {\"id\": \"BASE-E29\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A woman is thrown into a dungeon but vows to protect her husband and honor.\", \"weakness\": \"The emotional shift from sobbing to resolve is a bit abrupt.\"},\n  {\"id\": \"BASE-E30\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Villains conspire to frame a woman as a witch to ensure she is executed.\", \"weakness\": \"Too much exposition, lacks a strong visual hook.\"},\n  {\"id\": \"BASE-E31\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A villain burns a precious book to torture a chained woman, threatening her with a hot poker.\", \"weakness\": \"The cruelty is effective but borders on excessive for some platforms.\"},\n  {\"id\": \"BASE-E32\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A chained woman defies her captor, mocking her lack of love despite her power.\", \"weakness\": \"The dialogue is a bit repetitive regarding the 'power' theme.\"},\n  {\"id\": \"BASE-E33\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A lord forces a maid to provide false testimony against a woman to save her brother.\", \"weakness\": \"Low visual stakes compared to the dungeon scenes.\"},\n  {\"id\": \"BASE-E34\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A woman refuses to plead guilty to witchcraft, accepting her fate with dignity in court.\", \"weakness\": \"The judge's reaction is a bit predictable.\"},\n  {\"id\": \"BASE-E35\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A survivor reveals his ambush was a conspiracy by those now ruling his home.\", \"weakness\": \"Too much talking-head exposition without enough visual change.\"},\n  {\"id\": \"BASE-E36\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A scarred survivor vows to return and reclaim his home and wife from his enemies.\", \"weakness\": \"The transition to the 'Duke' reveal is a bit melodramatic.\"},\n  {\"id\": \"BASE-E37\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Villains toast to the upcoming execution of a woman who dared to challenge them.\", \"weakness\": \"Very static; lacks the urgency of the dungeon scenes.\"},\n  {\"id\": \"BASE-E38\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A prisoner hears wedding bells and realizes her execution is imminent, but remains defiant.\", \"weakness\": \"The pacing of the bell realization is slightly slow.\"},\n  {\"id\": \"BASE-E39\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A man sheds his disguise and prepares to reclaim his title and rescue his wife.\", \"weakness\": \"The grooming montage is slightly cheesy.\"},\n  {\"id\": \"BASE-E40\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Villains prepare for a wedding, smugly anticipating the death of their rival.\", \"weakness\": \"Too much setup, lacks a strong immediate conflict.\"},\n  {\"id\": \"BASE-E41\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A wedding is interrupted by an explosion as a hero returns to save his wife.\", \"weakness\": \"The explosion effect might look low-budget depending on the production quality.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "BASE-E22",
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A servant discovers a poisoned noblewoman and suspects foul play in a dangerous, opulent manor.",
+    "weakness": "The pacing is a bit slow for a vertical ad hook."
+   },
+   {
+    "id": "BASE-E23",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A healer frantically tries to save a poisoned Duchess while intruders approach the locked door.",
+    "weakness": "The tension is good but the dialogue is slightly generic."
+   },
+   {
+    "id": "BASE-E24",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "A noblewoman forces a disgraced lady to scrub floors, unaware she is a skilled healer.",
+    "weakness": "The transition to the 'healer' reveal is a bit exposition-heavy."
+   },
+   {
+    "id": "BASE-E25",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A protective man confronts his partner about the dangers she faces in a hostile house.",
+    "weakness": "Lacks the high-stakes action of other clips; feels like a filler scene."
+   },
+   {
+    "id": "BASE-E26",
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A dying Duchess recognizes a ring on a servant's hand, hinting at a hidden identity.",
+    "weakness": "Requires too much context about the ring to be fully impactful."
+   },
+   {
+    "id": "BASE-E27",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A servant is framed for poisoning a noblewoman and dragged away by guards.",
+    "weakness": "The villain's dialogue is a bit too cartoonishly evil."
+   },
+   {
+    "id": "BASE-E28",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel noblewoman exposes a servant's true identity as a disgraced lady before ordering her arrest.",
+    "weakness": "The villain's monologue is slightly too long for a fast-paced ad."
+   },
+   {
+    "id": "BASE-E29",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman is thrown into a dungeon but vows to protect her husband and honor.",
+    "weakness": "The emotional shift from sobbing to resolve is a bit abrupt."
+   },
+   {
+    "id": "BASE-E30",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains conspire to frame a woman as a witch to ensure she is executed.",
+    "weakness": "Too much exposition, lacks a strong visual hook."
+   },
+   {
+    "id": "BASE-E31",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A villain burns a precious book to torture a chained woman, threatening her with a hot poker.",
+    "weakness": "The cruelty is effective but borders on excessive for some platforms."
+   },
+   {
+    "id": "BASE-E32",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A chained woman defies her captor, mocking her lack of love despite her power.",
+    "weakness": "The dialogue is a bit repetitive regarding the 'power' theme."
+   },
+   {
+    "id": "BASE-E33",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A lord forces a maid to provide false testimony against a woman to save her brother.",
+    "weakness": "Low visual stakes compared to the dungeon scenes."
+   },
+   {
+    "id": "BASE-E34",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman refuses to plead guilty to witchcraft, accepting her fate with dignity in court.",
+    "weakness": "The judge's reaction is a bit predictable."
+   },
+   {
+    "id": "BASE-E35",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A survivor reveals his ambush was a conspiracy by those now ruling his home.",
+    "weakness": "Too much talking-head exposition without enough visual change."
+   },
+   {
+    "id": "BASE-E36",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A scarred survivor vows to return and reclaim his home and wife from his enemies.",
+    "weakness": "The transition to the 'Duke' reveal is a bit melodramatic."
+   },
+   {
+    "id": "BASE-E37",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains toast to the upcoming execution of a woman who dared to challenge them.",
+    "weakness": "Very static; lacks the urgency of the dungeon scenes."
+   },
+   {
+    "id": "BASE-E38",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A prisoner hears wedding bells and realizes her execution is imminent, but remains defiant.",
+    "weakness": "The pacing of the bell realization is slightly slow."
+   },
+   {
+    "id": "BASE-E39",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A man sheds his disguise and prepares to reclaim his title and rescue his wife.",
+    "weakness": "The grooming montage is slightly cheesy."
+   },
+   {
+    "id": "BASE-E40",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains prepare for a wedding, smugly anticipating the death of their rival.",
+    "weakness": "Too much setup, lacks a strong immediate conflict."
+   },
+   {
+    "id": "BASE-E41",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A wedding is interrupted by an explosion as a hero returns to save his wife.",
+    "weakness": "The explosion effect might look low-budget depending on the production quality."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 13804,
+  "completion_tokens": 1563
+ }
+}

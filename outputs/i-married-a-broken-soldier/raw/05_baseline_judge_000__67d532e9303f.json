@@ -1,0 +1,199 @@
+{
+ "tag": "05_baseline_judge_000",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146461.892822,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 52696,
+ "user_sha256": "f6de83c0825ba6201227e7d48eb786020040be4ee801aaba32a20bf0f9697b36",
+ "response_text": "{\"scores\": [{\"id\": \"BASE-E01\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A humiliated noble daughter is cruelly rejected by her fiancé and family for being 'plain'.\", \"weakness\": \"Too much dialogue, could benefit from more visual reaction shots.\"}, {\"id\": \"BASE-E02\", \"hook\": 3, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana stands up to her ex-fiancé at the altar, reclaiming her dignity in front of guests.\", \"weakness\": \"The monologue is a bit long for a fast-paced ad.\"}, {\"id\": \"BASE-E03\", \"hook\": 5, \"cliff\": 5, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"A mysterious stranger interrupts a wedding to propose to the jilted bride, shocking the congregation.\", \"weakness\": \"The transition to the proposal feels slightly rushed.\"}, {\"id\": \"BASE-E04\", \"hook\": 5, \"cliff\": 4, \"standalone\": 5, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana marries a mysterious stranger, getting disowned by her family in the process.\", \"weakness\": \"The pacing of the wedding ceremony is a bit too quick.\"}, {\"id\": \"BASE-E05\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A rugged man comforts a fallen noblewoman, protecting her from her ex-fiancé's mockery.\", \"weakness\": \"The dialogue about the ledger is a bit repetitive.\"}, {\"id\": \"BASE-E06\", \"hook\": 2, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Juliana and her protector share a quiet, intimate moment in a modest cottage.\", \"weakness\": \"Lacks a strong conflict or hook for a new viewer.\"}, {\"id\": \"BASE-E07\", \"hook\": 4, \"cliff\": 2, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A rugged man intimidates the ex-fiancé without saying a word, impressing Juliana.\", \"weakness\": \"The payoff is too subtle for a high-impact ad.\"}, {\"id\": \"BASE-E08\", \"hook\": 3, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Juliana and her protector bond over books and past trauma in a quiet room.\", \"weakness\": \"Lacks the high-stakes tension required for a microdrama ad.\"}, {\"id\": \"BASE-E09\", \"hook\": 3, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Rumors spread about a mysterious veteran who looks like the late Duke, causing panic.\", \"weakness\": \"The scene shift between the cottage and the manor is slightly jarring.\"}, {\"id\": \"BASE-E10\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana tends to her protector's wounds, leading to a moment of intense emotional connection.\", \"weakness\": \"The romantic tension is high but lacks external stakes.\"}, {\"id\": \"BASE-E12\", \"hook\": 5, \"cliff\": 5, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"Clarissa forces Juliana to retrieve a ring from thorns to save her husband from hanging.\", \"weakness\": \"The villain's dialogue is a bit cliché.\"}, {\"id\": \"BASE-E13\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana suffers through a brutal thorn patch to retrieve a ring and save her husband.\", \"weakness\": \"The gore/pain focus might be too intense for some platforms.\"}, {\"id\": \"BASE-E14\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"After her sacrifice, Juliana and her husband share a tender, protective moment.\", \"weakness\": \"Lacks the immediate conflict needed to stop a scroll.\"}, {\"id\": \"BASE-E15\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Thugs destroy Juliana's garden until her mysterious protector arrives to intervene.\", \"weakness\": \"The thugs' dialogue is very generic.\"}, {\"id\": \"BASE-E16\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"The protector forces a confession from a thug, revealing Juliana's ex-fiancé orchestrated the attack.\", \"weakness\": \"The interrogation scene is a bit standard.\"}, {\"id\": \"BASE-E17\", \"hook\": 2, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Juliana and her husband share a sweet, domestic moment by the fire.\", \"weakness\": \"Too slow and lacks any sense of urgency.\"}, {\"id\": \"BASE-E18\", \"hook\": 4, \"cliff\": 4, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"After losing their home, the couple vows revenge against those who wronged them.\", \"weakness\": \"The dialogue is a bit melodramatic.\"}, {\"id\": \"BASE-E19\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Alexander plots to reclaim his identity and home while comforting his wife.\", \"weakness\": \"The transition between the informant and the barn is confusing.\"}, {\"id\": \"BASE-E20\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana refuses to abandon her duty as a healer, while her rival plots her downfall.\", \"weakness\": \"The rival's monologue feels disconnected from Juliana's struggle.\"}, {\"id\": \"BASE-E21\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana saves a child, learning that the Duchess is dying of a mysterious illness.\", \"weakness\": \"The reveal of the Duchess's illness feels a bit tacked on.\"}]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "BASE-E01",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A humiliated noble daughter is cruelly rejected by her fiancé and family for being 'plain'.",
+    "weakness": "Too much dialogue, could benefit from more visual reaction shots."
+   },
+   {
+    "id": "BASE-E02",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana stands up to her ex-fiancé at the altar, reclaiming her dignity in front of guests.",
+    "weakness": "The monologue is a bit long for a fast-paced ad."
+   },
+   {
+    "id": "BASE-E03",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "A mysterious stranger interrupts a wedding to propose to the jilted bride, shocking the congregation.",
+    "weakness": "The transition to the proposal feels slightly rushed."
+   },
+   {
+    "id": "BASE-E04",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 5,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana marries a mysterious stranger, getting disowned by her family in the process.",
+    "weakness": "The pacing of the wedding ceremony is a bit too quick."
+   },
+   {
+    "id": "BASE-E05",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A rugged man comforts a fallen noblewoman, protecting her from her ex-fiancé's mockery.",
+    "weakness": "The dialogue about the ledger is a bit repetitive."
+   },
+   {
+    "id": "BASE-E06",
+    "hook": 2,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana and her protector share a quiet, intimate moment in a modest cottage.",
+    "weakness": "Lacks a strong conflict or hook for a new viewer."
+   },
+   {
+    "id": "BASE-E07",
+    "hook": 4,
+    "cliff": 2,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A rugged man intimidates the ex-fiancé without saying a word, impressing Juliana.",
+    "weakness": "The payoff is too subtle for a high-impact ad."
+   },
+   {
+    "id": "BASE-E08",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana and her protector bond over books and past trauma in a quiet room.",
+    "weakness": "Lacks the high-stakes tension required for a microdrama ad."
+   },
+   {
+    "id": "BASE-E09",
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Rumors spread about a mysterious veteran who looks like the late Duke, causing panic.",
+    "weakness": "The scene shift between the cottage and the manor is slightly jarring."
+   },
+   {
+    "id": "BASE-E10",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana tends to her protector's wounds, leading to a moment of intense emotional connection.",
+    "weakness": "The romantic tension is high but lacks external stakes."
+   },
+   {
+    "id": "BASE-E12",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "Clarissa forces Juliana to retrieve a ring from thorns to save her husband from hanging.",
+    "weakness": "The villain's dialogue is a bit cliché."
+   },
+   {
+    "id": "BASE-E13",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana suffers through a brutal thorn patch to retrieve a ring and save her husband.",
+    "weakness": "The gore/pain focus might be too intense for some platforms."
+   },
+   {
+    "id": "BASE-E14",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "After her sacrifice, Juliana and her husband share a tender, protective moment.",
+    "weakness": "Lacks the immediate conflict needed to stop a scroll."
+   },
+   {
+    "id": "BASE-E15",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Thugs destroy Juliana's garden until her mysterious protector arrives to intervene.",
+    "weakness": "The thugs' dialogue is very generic."
+   },
+   {
+    "id": "BASE-E16",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The protector forces a confession from a thug, revealing Juliana's ex-fiancé orchestrated the attack.",
+    "weakness": "The interrogation scene is a bit standard."
+   },
+   {
+    "id": "BASE-E17",
+    "hook": 2,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana and her husband share a sweet, domestic moment by the fire.",
+    "weakness": "Too slow and lacks any sense of urgency."
+   },
+   {
+    "id": "BASE-E18",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "After losing their home, the couple vows revenge against those who wronged them.",
+    "weakness": "The dialogue is a bit melodramatic."
+   },
+   {
+    "id": "BASE-E19",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Alexander plots to reclaim his identity and home while comforting his wife.",
+    "weakness": "The transition between the informant and the barn is confusing."
+   },
+   {
+    "id": "BASE-E20",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana refuses to abandon her duty as a healer, while her rival plots her downfall.",
+    "weakness": "The rival's monologue feels disconnected from Juliana's struggle."
+   },
+   {
+    "id": "BASE-E21",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana saves a child, learning that the Duchess is dying of a mysterious illness.",
+    "weakness": "The reveal of the Duchess's illness feels a bit tacked on."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 15118,
+  "completion_tokens": 1516
+ }
+}

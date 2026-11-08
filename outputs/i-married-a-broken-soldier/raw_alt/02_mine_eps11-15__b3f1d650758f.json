@@ -1,0 +1,179 @@
+{
+ "tag": "02_mine_eps11-15",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146480.223868,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 41927,
+ "user_sha256": "2f9ef4cc4ee10d9790449bd1e39b561d1d089864a195fd2f33e3ca689cd9c2c2",
+ "response_text": "{\n  \"episodes\": [\n    {\n      \"episode\": 11,\n      \"candidates\": [\n        {\n          \"title\": \"The False Theft Accusation\",\n          \"start_beat\": \"E11-B005\",\n          \"end_beat\": \"E11-B085\",\n          \"hook_beat\": \"E11-B016\",\n          \"cliff_beat\": \"E11-B085\",\n          \"hook\": \"Your husband stole my gold pocket watch!\",\n          \"cliffhanger\": \"The gold watch is revealed in Alexander's coat.\",\n          \"why\": \"The audience is immediately drawn into a high-stakes frame-up where the hero is being set up by a villain.\",\n          \"context_needed\": \"\",\n          \"start_beat_id\": \"E11-B005\",\n          \"end_beat_id\": \"E11-B085\",\n          \"hook_beat_id\": \"E11-B016\",\n          \"cliff_beat_id\": \"E11-B085\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E11-B016\",\n          \"type\": \"hook\",\n          \"note\": \"Gerald accuses Alexander of theft.\"\n        },\n        {\n          \"beat\": \"E11-B085\",\n          \"type\": \"cliff\",\n          \"note\": \"The stolen watch is found in Alexander's coat.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 12,\n      \"candidates\": [\n        {\n          \"title\": \"The Sadistic Ultimatum\",\n          \"start_beat\": \"E12-B001\",\n          \"end_beat\": \"E12-B055\",\n          \"hook_beat\": \"E12-B045\",\n          \"cliff_beat\": \"E12-B055\",\n          \"hook\": \"Fail, or refuse, and your husband hangs from the gallows.\",\n          \"cliffhanger\": \"Juliana agrees to the impossible, dangerous task.\",\n          \"why\": \"It presents an immediate, visceral choice: sacrifice your safety or lose your loved one.\",\n          \"context_needed\": \"Juliana's husband has been framed for theft.\",\n          \"start_beat_id\": \"E12-B001\",\n          \"end_beat_id\": \"E12-B055\",\n          \"hook_beat_id\": \"E12-B045\",\n          \"cliff_beat_id\": \"E12-B055\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E12-B045\",\n          \"type\": \"hook\",\n          \"note\": \"Clarissa gives Juliana the cruel ultimatum.\"\n        },\n        {\n          \"beat\": \"E12-B055\",\n          \"type\": \"cliff\",\n          \"note\": \"Juliana accepts the challenge to save her husband.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 13,\n      \"candidates\": [\n        {\n          \"title\": \"Crawling Through Thorns\",\n          \"start_beat\": \"E13-B026\",\n          \"end_beat\": \"E13-B075\",\n          \"hook_beat\": \"E13-B045\",\n          \"cliff_beat\": \"E13-B075\",\n          \"hook\": \"A massive blackthorn needle stabbing deep into the back of Juliana's bleeding hand.\",\n          \"cliffhanger\": \"Juliana finds the ring while severely injured.\",\n          \"why\": \"The extreme physical suffering and devotion make for a compelling, high-tension sequence.\",\n          \"context_needed\": \"Juliana must retrieve a ring to save her husband from hanging.\",\n          \"start_beat_id\": \"E13-B026\",\n          \"end_beat_id\": \"E13-B075\",\n          \"hook_beat_id\": \"E13-B045\",\n          \"cliff_beat_id\": \"E13-B075\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E13-B045\",\n          \"type\": \"hook\",\n          \"note\": \"Thorns pierce Juliana's hand.\"\n        },\n        {\n          \"beat\": \"E13-B075\",\n          \"type\": \"cliff\",\n          \"note\": \"Juliana grips the ring, bloodied and exhausted.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 14,\n      \"candidates\": [\n        {\n          \"title\": \"A Vow of Vengeance\",\n          \"start_beat\": \"E14-B001\",\n          \"end_beat\": \"E14-B051\",\n          \"hook_beat\": \"E14-B002\",\n          \"cliff_beat\": \"E14-B051\",\n          \"hook\": \"Juliana reveals the ring from her blood-soaked hand.\",\n          \"cliffhanger\": \"Alexander clenches his fist in silent, deadly vengeance.\",\n          \"why\": \"The transition from victimhood to the promise of retribution is a classic hook.\",\n          \"context_needed\": \"Juliana just endured torture to save her husband.\",\n          \"start_beat_id\": \"E14-B001\",\n          \"end_beat_id\": \"E14-B051\",\n          \"hook_beat_id\": \"E14-B002\",\n          \"cliff_beat_id\": \"E14-B051\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E14-B002\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana reveals the ring.\"\n        },\n        {\n          \"beat\": \"E14-B051\",\n          \"type\": \"cliff\",\n          \"note\": \"Alexander vows vengeance.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 15,\n      \"candidates\": [\n        {\n          \"title\": \"Defending the Garden\",\n          \"start_beat\": \"E15-B001\",\n          \"end_beat\": \"E15-B055\",\n          \"hook_beat\": \"E15-B004\",\n          \"cliff_beat\": \"E15-B055\",\n          \"hook\": \"Thugs smash the planter box, destroying Juliana's medicinal herbs.\",\n          \"cliffhanger\": \"Alexander arrives to confront the thugs.\",\n          \"why\": \"The destruction of the heroine's livelihood followed by the hero's arrival creates immediate conflict.\",\n          \"context_needed\": \"\",\n          \"start_beat_id\": \"E15-B001\",\n          \"end_beat_id\": \"E15-B055\",\n          \"hook_beat_id\": \"E15-B004\",\n          \"cliff_beat_id\": \"E15-B055\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E15-B004\",\n          \"type\": \"hook\",\n          \"note\": \"Thugs destroy the garden.\"\n        },\n        {\n          \"beat\": \"E15-B055\",\n          \"type\": \"cliff\",\n          \"note\": \"Alexander confronts the thugs.\"\n        }\n      ]\n    }\n  ]\n}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 11,
+    "candidates": [
+     {
+      "title": "The False Theft Accusation",
+      "start_beat": "E11-B005",
+      "end_beat": "E11-B085",
+      "hook_beat": "E11-B016",
+      "cliff_beat": "E11-B085",
+      "hook": "Your husband stole my gold pocket watch!",
+      "cliffhanger": "The gold watch is revealed in Alexander's coat.",
+      "why": "The audience is immediately drawn into a high-stakes frame-up where the hero is being set up by a villain.",
+      "context_needed": "",
+      "start_beat_id": "E11-B005",
+      "end_beat_id": "E11-B085",
+      "hook_beat_id": "E11-B016",
+      "cliff_beat_id": "E11-B085"
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E11-B016",
+      "type": "hook",
+      "note": "Gerald accuses Alexander of theft."
+     },
+     {
+      "beat": "E11-B085",
+      "type": "cliff",
+      "note": "The stolen watch is found in Alexander's coat."
+     }
+    ]
+   },
+   {
+    "episode": 12,
+    "candidates": [
+     {
+      "title": "The Sadistic Ultimatum",
+      "start_beat": "E12-B001",
+      "end_beat": "E12-B055",
+      "hook_beat": "E12-B045",
+      "cliff_beat": "E12-B055",
+      "hook": "Fail, or refuse, and your husband hangs from the gallows.",
+      "cliffhanger": "Juliana agrees to the impossible, dangerous task.",
+      "why": "It presents an immediate, visceral choice: sacrifice your safety or lose your loved one.",
+      "context_needed": "Juliana's husband has been framed for theft.",
+      "start_beat_id": "E12-B001",
+      "end_beat_id": "E12-B055",
+      "hook_beat_id": "E12-B045",
+      "cliff_beat_id": "E12-B055"
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E12-B045",
+      "type": "hook",
+      "note": "Clarissa gives Juliana the cruel ultimatum."
+     },
+     {
+      "beat": "E12-B055",
+      "type": "cliff",
+      "note": "Juliana accepts the challenge to save her husband."
+     }
+    ]
+   },
+   {
+    "episode": 13,
+    "candidates": [
+     {
+      "title": "Crawling Through Thorns",
+      "start_beat": "E13-B026",
+      "end_beat": "E13-B075",
+      "hook_beat": "E13-B045",
+      "cliff_beat": "E13-B075",
+      "hook": "A massive blackthorn needle stabbing deep into the back of Juliana's bleeding hand.",
+      "cliffhanger": "Juliana finds the ring while severely injured.",
+      "why": "The extreme physical suffering and devotion make for a compelling, high-tension sequence.",
+      "context_needed": "Juliana must retrieve a ring to save her husband from hanging.",
+      "start_beat_id": "E13-B026",
+      "end_beat_id": "E13-B075",
+      "hook_beat_id": "E13-B045",
+      "cliff_beat_id": "E13-B075"
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E13-B045",
+      "type": "hook",
+      "note": "Thorns pierce Juliana's hand."
+     },
+     {
+      "beat": "E13-B075",
+      "type": "cliff",
+      "note": "Juliana grips the ring, bloodied and exhausted."
+     }
+    ]
+   },
+   {
+    "episode": 14,
+    "candidates": [
+     {
+      "title": "A Vow of Vengeance",
+      "start_beat": "E14-B001",
+      "end_beat": "E14-B051",
+      "hook_beat": "E14-B002",
+      "cliff_beat": "E14-B051",
+      "hook": "Juliana reveals the ring from her blood-soaked hand.",
+      "cliffhanger": "Alexander clenches his fist in silent, deadly vengeance.",
+      "why": "The transition from victimhood to the promise of retribution is a classic hook.",
+      "context_needed": "Juliana just endured torture to save her husband.",
+      "start_beat_id": "E14-B001",
+      "end_beat_id": "E14-B051",
+      "hook_beat_id": "E14-B002",
+      "cliff_beat_id": "E14-B051"
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E14-B002",
+      "type": "hook",
+      "note": "Juliana reveals the ring."
+     },
+     {
+      "beat": "E14-B051",
+      "type": "cliff",
+      "note": "Alexander vows vengeance."
+     }
+    ]
+   },
+   {
+    "episode": 15,
+    "candidates": [
+     {
+      "title": "Defending the Garden",
+      "start_beat": "E15-B001",
+      "end_beat": "E15-B055",
+      "hook_beat": "E15-B004",
+      "cliff_beat": "E15-B055",
+      "hook": "Thugs smash the planter box, destroying Juliana's medicinal herbs.",
+      "cliffhanger": "Alexander arrives to confront the thugs.",
+      "why": "The destruction of the heroine's livelihood followed by the hero's arrival creates immediate conflict.",
+      "context_needed": "",
+      "start_beat_id": "E15-B001",
+      "end_beat_id": "E15-B055",
+      "hook_beat_id": "E15-B004",
+      "cliff_beat_id": "E15-B055"
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E15-B004",
+      "type": "hook",
+      "note": "Thugs destroy the garden."
+     },
+     {
+      "beat": "E15-B055",
+      "type": "cliff",
+      "note": "Alexander confronts the thugs."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 16945,
+  "completion_tokens": 1793
+ }
+}
