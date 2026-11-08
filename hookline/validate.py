@@ -11,14 +11,11 @@ from __future__ import annotations
 
 from collections import defaultdict
 
+from .rules import CLIFF_TOLERANCE, DEDUPE_IOU, HOOK_WINDOW, MAX_DURATION, MIN_DURATION
 from .schemas import Beat, Candidate, Promo, Segment
 
-MIN_DUR, MAX_DUR = 20.0, 60.0
-HOOK_WINDOW = 3.0
-CLIFF_TOL = 1.0
 
-
-def _episode_dialogue(index: dict[str, Beat]) -> dict[int, list[Beat]]:
+def dialogue_by_episode(index: dict[str, Beat]) -> dict[int, list[Beat]]:
     by_ep: dict[int, list[Beat]] = defaultdict(list)
     for b in index.values():
         if b.kind == "DIALOGUE":
@@ -44,7 +41,7 @@ def validate_candidate(c: Candidate, index: dict[str, Beat],
     """Return (promo, notes). promo is None if the candidate cannot be made valid; notes say why."""
     notes: list[str] = []
     repairs: list[str] = []
-    dialogue_by_ep = dialogue_by_ep if dialogue_by_ep is not None else _episode_dialogue(index)
+    dialogue_by_ep = dialogue_by_ep if dialogue_by_ep is not None else dialogue_by_episode(index)
 
     ids = [x for s in c.segments for x in (s.start_beat, s.end_beat)] + [c.hook_beat, c.cliff_beat]
     unknown = [i for i in ids if i not in index]
@@ -76,7 +73,7 @@ def validate_candidate(c: Candidate, index: dict[str, Beat],
     last = spans[-1]
     if cliff.ep != last[0] or cliff.end < last[1]:
         return None, [f"{c.id}: cliffhanger beat {c.cliff_beat} is not inside the last segment"]
-    if abs(last[2] - cliff.end) > CLIFF_TOL:
+    if abs(last[2] - cliff.end) > CLIFF_TOLERANCE:
         repairs.append(f"end moved {last[2]:.1f}s -> {cliff.end:.1f}s to cut on the cliffhanger")
         last[2] = cliff.end
 
@@ -99,10 +96,10 @@ def validate_candidate(c: Candidate, index: dict[str, Beat],
                 return None, [f"{c.id}: segments {i + 1} and {j + 1} overlap in ep{spans[i][0]}"]
 
     total = round(sum(sp[2] - sp[1] for sp in spans), 2)
-    if total < MIN_DUR:
-        return None, [f"{c.id}: too short ({total:.1f}s < {MIN_DUR:.0f}s)"]
-    if total > MAX_DUR:
-        return None, [f"{c.id}: too long ({total:.1f}s > {MAX_DUR:.0f}s)"]
+    if total < MIN_DURATION:
+        return None, [f"{c.id}: too short ({total:.1f}s < {MIN_DURATION:.0f}s)"]
+    if total > MAX_DURATION:
+        return None, [f"{c.id}: too long ({total:.1f}s > {MAX_DURATION:.0f}s)"]
 
     promo = Promo(
         id=c.id, kind=c.kind, title=c.title,
@@ -123,7 +120,7 @@ def _overlap(a: Promo, b: Promo) -> float:
     return inter / union if union > 0 else 0.0
 
 
-def dedupe(promos: list[Promo], iou: float = 0.5) -> list[Promo]:
+def dedupe(promos: list[Promo], iou: float = DEDUPE_IOU) -> list[Promo]:
     """Drop promos that mostly repeat an earlier one (list order = priority)."""
     kept: list[Promo] = []
     for p in promos:

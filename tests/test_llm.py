@@ -61,3 +61,13 @@ def test_from_env(monkeypatch):
     c = LLMConfig.from_env()
     assert (c.provider, c.model, c.api_key) == ("groq", "llama-x", "abc")
     assert c.resolved_base_url() == PROVIDERS["groq"]["base_url"]
+
+
+def test_cache_file_never_stores_user_content(tmp_path):
+    """raw/ is published as 'raw outputs'; it must not leak the confidential screenplay we sent."""
+    fake = FakeClient(['{"a": 1}'])
+    llm = LLM(cfg(), cache_dir=tmp_path, client=fake)
+    llm.json("system prompt", "SECRET SCREENPLAY LINE", tag="t")
+    blob = next(tmp_path.glob("t__*.json")).read_text()
+    assert "SECRET SCREENPLAY LINE" not in blob
+    assert '"response_text"' in blob
