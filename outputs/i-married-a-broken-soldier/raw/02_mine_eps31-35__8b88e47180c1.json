@@ -1,0 +1,175 @@
+{
+ "tag": "02_mine_eps31-35",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146092.5357382,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 56380,
+ "user_sha256": "6f9a86c0e7886f90d8c75e5edc989aa9f3d86b14e7942cb9ca4efbbb34b9f466",
+ "response_text": "{\n  \"episodes\": [\n    {\n      \"episode\": 31,\n      \"candidates\": [\n        {\n          \"title\": \"Chained But Unbroken\",\n          \"start_beat\": \"E31-B005\",\n          \"end_beat\": \"E31-B036\",\n          \"hook_beat\": \"E31-B006\",\n          \"cliff_beat\": \"E31-B036\",\n          \"hook\": \"Look at you.\",\n          \"cliffhanger\": \"I chose myself.\",\n          \"why\": \"Juliana's unyielding dignity while chained in a dungeon against her cruel tormentor makes viewers instantly root for her survival.\",\n          \"context_needed\": \"Juliana has been framed for witchcraft and imprisoned by her rival Catherine.\"\n        },\n        {\n          \"title\": \"The Branding Iron Threat\",\n          \"start_beat\": \"E31-B070\",\n          \"end_beat\": \"E31-B087\",\n          \"hook_beat\": \"E31-B071\",\n          \"cliff_beat\": \"E31-B087\",\n          \"hook\": \"Enough!\",\n          \"cliffhanger\": \"The red-hot iron stops inches from Juliana's weeping eye.\",\n          \"why\": \"The extreme physical danger and sadistic torture create immediate, heart-pounding suspense.\",\n          \"context_needed\": \"Catherine is trying to break Juliana's spirit in the dungeon.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E31-B006\",\n          \"type\": \"hook\",\n          \"note\": \"Catherine mocks Juliana in the dungeon.\"\n        },\n        {\n          \"beat\": \"E31-B036\",\n          \"type\": \"cliff\",\n          \"note\": \"Juliana asserts her pride over her abusers.\"\n        },\n        {\n          \"beat\": \"E31-B087\",\n          \"type\": \"cliff\",\n          \"note\": \"Hot iron hovers over Juliana's eye.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 32,\n      \"candidates\": [\n        {\n          \"title\": \"Burn The Ledger\",\n          \"start_beat\": \"E32-B014\",\n          \"end_beat\": \"E32-B062\",\n          \"hook_beat\": \"E32-B017\",\n          \"cliff_beat\": \"E32-B062\",\n          \"hook\": \"Burn it.\",\n          \"cliffhanger\": \"My husband.\",\n          \"why\": \"Juliana completely turns the tables psychologically on her torturer with fierce emotional resilience.\",\n          \"context_needed\": \"Catherine is threatening Juliana's mother's botanical book.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E32-B017\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana tells Catherine to burn the book.\"\n        },\n        {\n          \"beat\": \"E32-B117\",\n          \"type\": \"cliff\",\n          \"note\": \"Hot iron inches from Juliana's eye.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 33,\n      \"candidates\": [\n        {\n          \"title\": \"The Coerced Maid\",\n          \"start_beat\": \"E33-B001\",\n          \"end_beat\": \"E33-B043\",\n          \"hook_beat\": \"E33-B002\",\n          \"cliff_beat\": \"E33-B043\",\n          \"hook\": \"Your brother is breathing again.\",\n          \"cliffhanger\": \"Please, my Lord... he is only seven!\",\n          \"why\": \"The ruthless emotional blackmail forces an innocent maid to betray the woman who saved her brother.\",\n          \"context_needed\": \"A corrupt lord is manufacturing false witness testimony against Juliana.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E33-B002\",\n          \"type\": \"hook\",\n          \"note\": \"Lord leverages the maid's sick brother.\"\n        },\n        {\n          \"beat\": \"E33-B092\",\n          \"type\": \"cliff\",\n          \"note\": \"The maid breaks down and collapses.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 34,\n      \"candidates\": [\n        {\n          \"title\": \"Trial of the Healer\",\n          \"start_beat\": \"E34-B001\",\n          \"end_beat\": \"E34-B032\",\n          \"hook_beat\": \"E34-B002\",\n          \"cliff_beat\": \"E34-B032\",\n          \"hook\": \"Lady Juliana Ashcroft, you are accused of witchcraft.\",\n          \"cliffhanger\": \"Prudence breaks down sobbing and confirms the false accusation.\",\n          \"why\": \"Watching a noble heroine railroaded by a rigged court and a broken promise creates fierce injustice.\",\n          \"context_needed\": \"Juliana is on trial for using herbal medicine to save lives.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E34-B002\",\n          \"type\": \"hook\",\n          \"note\": \"Judge reads the witchcraft charges.\"\n        },\n        {\n          \"beat\": \"E34-B116\",\n          \"type\": \"cliff\",\n          \"note\": \"Judge raises his hand to deliver the verdict.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 35,\n      \"candidates\": [\n        {\n          \"title\": \"Return of the Dead Duke\",\n          \"start_beat\": \"E35-B015\",\n          \"end_beat\": \"E35-B044\",\n          \"hook_beat\": \"E35-B020\",\n          \"cliff_beat\": \"E35-B044\",\n          \"hook\": \"Alexander!\",\n          \"cliffhanger\": \"We were close to finding him... Then came the ambush.\",\n          \"why\": \"The emotional shock of a mother finding her presumed-dead son alive is instantly gripping.\",\n          \"context_needed\": \"Alexander survived a battlefield assassination attempt and went into hiding.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E35-B020\",\n          \"type\": \"hook\",\n          \"note\": \"Mother discovers her son is alive.\"\n        },\n        {\n          \"beat\": \"E35-B072\",\n          \"type\": \"cliff\",\n          \"note\": \"Horrifying realization of the royal betrayal.\"\n        }\n      ]\n    }\n  ]\n}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 31,
+    "candidates": [
+     {
+      "title": "Chained But Unbroken",
+      "start_beat": "E31-B005",
+      "end_beat": "E31-B036",
+      "hook_beat": "E31-B006",
+      "cliff_beat": "E31-B036",
+      "hook": "Look at you.",
+      "cliffhanger": "I chose myself.",
+      "why": "Juliana's unyielding dignity while chained in a dungeon against her cruel tormentor makes viewers instantly root for her survival.",
+      "context_needed": "Juliana has been framed for witchcraft and imprisoned by her rival Catherine."
+     },
+     {
+      "title": "The Branding Iron Threat",
+      "start_beat": "E31-B070",
+      "end_beat": "E31-B087",
+      "hook_beat": "E31-B071",
+      "cliff_beat": "E31-B087",
+      "hook": "Enough!",
+      "cliffhanger": "The red-hot iron stops inches from Juliana's weeping eye.",
+      "why": "The extreme physical danger and sadistic torture create immediate, heart-pounding suspense.",
+      "context_needed": "Catherine is trying to break Juliana's spirit in the dungeon."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E31-B006",
+      "type": "hook",
+      "note": "Catherine mocks Juliana in the dungeon."
+     },
+     {
+      "beat": "E31-B036",
+      "type": "cliff",
+      "note": "Juliana asserts her pride over her abusers."
+     },
+     {
+      "beat": "E31-B087",
+      "type": "cliff",
+      "note": "Hot iron hovers over Juliana's eye."
+     }
+    ]
+   },
+   {
+    "episode": 32,
+    "candidates": [
+     {
+      "title": "Burn The Ledger",
+      "start_beat": "E32-B014",
+      "end_beat": "E32-B062",
+      "hook_beat": "E32-B017",
+      "cliff_beat": "E32-B062",
+      "hook": "Burn it.",
+      "cliffhanger": "My husband.",
+      "why": "Juliana completely turns the tables psychologically on her torturer with fierce emotional resilience.",
+      "context_needed": "Catherine is threatening Juliana's mother's botanical book."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E32-B017",
+      "type": "hook",
+      "note": "Juliana tells Catherine to burn the book."
+     },
+     {
+      "beat": "E32-B117",
+      "type": "cliff",
+      "note": "Hot iron inches from Juliana's eye."
+     }
+    ]
+   },
+   {
+    "episode": 33,
+    "candidates": [
+     {
+      "title": "The Coerced Maid",
+      "start_beat": "E33-B001",
+      "end_beat": "E33-B043",
+      "hook_beat": "E33-B002",
+      "cliff_beat": "E33-B043",
+      "hook": "Your brother is breathing again.",
+      "cliffhanger": "Please, my Lord... he is only seven!",
+      "why": "The ruthless emotional blackmail forces an innocent maid to betray the woman who saved her brother.",
+      "context_needed": "A corrupt lord is manufacturing false witness testimony against Juliana."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E33-B002",
+      "type": "hook",
+      "note": "Lord leverages the maid's sick brother."
+     },
+     {
+      "beat": "E33-B092",
+      "type": "cliff",
+      "note": "The maid breaks down and collapses."
+     }
+    ]
+   },
+   {
+    "episode": 34,
+    "candidates": [
+     {
+      "title": "Trial of the Healer",
+      "start_beat": "E34-B001",
+      "end_beat": "E34-B032",
+      "hook_beat": "E34-B002",
+      "cliff_beat": "E34-B032",
+      "hook": "Lady Juliana Ashcroft, you are accused of witchcraft.",
+      "cliffhanger": "Prudence breaks down sobbing and confirms the false accusation.",
+      "why": "Watching a noble heroine railroaded by a rigged court and a broken promise creates fierce injustice.",
+      "context_needed": "Juliana is on trial for using herbal medicine to save lives."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E34-B002",
+      "type": "hook",
+      "note": "Judge reads the witchcraft charges."
+     },
+     {
+      "beat": "E34-B116",
+      "type": "cliff",
+      "note": "Judge raises his hand to deliver the verdict."
+     }
+    ]
+   },
+   {
+    "episode": 35,
+    "candidates": [
+     {
+      "title": "Return of the Dead Duke",
+      "start_beat": "E35-B015",
+      "end_beat": "E35-B044",
+      "hook_beat": "E35-B020",
+      "cliff_beat": "E35-B044",
+      "hook": "Alexander!",
+      "cliffhanger": "We were close to finding him... Then came the ambush.",
+      "why": "The emotional shock of a mother finding her presumed-dead son alive is instantly gripping.",
+      "context_needed": "Alexander survived a battlefield assassination attempt and went into hiding."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E35-B020",
+      "type": "hook",
+      "note": "Mother discovers her son is alive."
+     },
+     {
+      "beat": "E35-B072",
+      "type": "cliff",
+      "note": "Horrifying realization of the royal betrayal."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 23962,
+  "completion_tokens": 1599
+ }
+}

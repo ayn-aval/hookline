@@ -1,0 +1,2588 @@
+{
+ "bible": {
+  "show_premise": "After being abandoned at the altar by her fiancé, a humiliated noblewoman marries a mysterious scarred warrior who is secretly the rightful Duke reclaiming his stolen throne.",
+  "characters": [
+   {
+    "name": "Lady Juliana",
+    "aliases": [
+     "JULIANA",
+     "LADY JULIANA",
+     "LADY IN GOLD GOWN"
+    ],
+    "role": "The resilient heroine abandoned at the altar who fights for justice using her late mother's herbal remedies."
+   },
+   {
+    "name": "Alexander",
+    "aliases": [
+     "ALEXANDER",
+     "MYSTERIOUS BEARDED MAN",
+     "THE BEARDED STRANGER",
+     "SCARRED BEARDED MAN"
+    ],
+    "role": "The scarred, rugged warrior and rightful Duke who marries Juliana and reclaims his birthright."
+   },
+   {
+    "name": "Gerald",
+    "aliases": [
+     "GERALD",
+     "THE FORMER GROOM",
+     "BLOND NOBLEMAN"
+    ],
+    "role": "Juliana's cruel ex-fiancé who abandons her for her sister Clarissa and conspires against her."
+   },
+   {
+    "name": "Clarissa",
+    "aliases": [
+     "CLARISSA",
+     "LADY CLARISSA"
+    ],
+    "role": "Juliana's spiteful sister who marries Gerald and torments Juliana."
+   },
+   {
+    "name": "Catherine",
+    "aliases": [
+     "CATHERINE",
+     "LADY CATHERINE"
+    ],
+    "role": "The treacherous noblewoman who conspires to poison the Dowager Duchess and steal the ducal seat."
+   },
+   {
+    "name": "Rupert",
+    "aliases": [
+     "RUPERT"
+    ],
+    "role": "Catherine's co-conspirator in usurping the ducal throne and framing Juliana."
+   },
+   {
+    "name": "Dowager Duchess",
+    "aliases": [
+     "DOWAGER DUCHESS",
+     "ALEXANDER'S MOTHER",
+     "NOBLE MATRIARCH",
+     "MATRIARCH"
+    ],
+    "role": "Alexander's poisoned mother whose life Juliana secretly tries to save."
+   }
+  ],
+  "arcs": [
+   "Juliana is abandoned at the altar by Gerald and Clarissa, then rescued and married by a mysterious scarred stranger.",
+   "Juliana and Alexander build a peaceful life in a woodland cottage while facing repeated harassment and arson from Gerald and his thugs.",
+   "Juliana infiltrates Ashbury Manor to treat the poisoned Dowager Duchess, only to be framed for witchcraft and poisoning by Rupert and Catherine.",
+   "Alexander discovers his mother and learns of the treasonous coup, returning from the dead to storm Catherine and Rupert's wedding.",
+   "Alexander reclaims his ducal title and exposes the conspirators, though an ecclesiastical challenge briefly threatens his marriage to Juliana."
+  ],
+  "reveals": [
+   {
+    "reveal": "Juliana is abandoned at the altar by her fiancé Gerald for her sister Clarissa.",
+    "episode": 1,
+    "ad_safe": true,
+    "keywords": [
+     "abandoned at the altar",
+     "fiancé gerald",
+     "sister clarissa"
+    ]
+   },
+   {
+    "reveal": "The mysterious scarred warrior Alexander marries Juliana in exile.",
+    "episode": 4,
+    "ad_safe": true,
+    "keywords": [
+     "solemn proposal",
+     "officially wed",
+     "scarred warrior"
+    ]
+   },
+   {
+    "reveal": "Gerald Harrington is behind the violent thugs attacking Juliana's medicinal garden.",
+    "episode": 16,
+    "ad_safe": false,
+    "keywords": [
+     "gerald harrington",
+     "mastermind",
+     "hired thugs"
+    ]
+   },
+   {
+    "reveal": "Rupert and Catherine are systematically poisoning the Dowager Duchess with arsenic to seize the ducal seat.",
+    "episode": 23,
+    "ad_safe": false,
+    "keywords": [
+     "poisoned with arsenic",
+     "dowager duchess",
+     "rupert and catherine"
+    ]
+   },
+   {
+    "reveal": "Rupert and Catherine frame Juliana for witchcraft and send her to the dungeon.",
+    "episode": 28,
+    "ad_safe": false,
+    "keywords": [
+     "witchcraft charge",
+     "dungeon",
+     "frame juliana"
+    ]
+   },
+   {
+    "reveal": "Alexander is revealed to be the true Duke of Ashburn whose throne was usurped.",
+    "episode": 42,
+    "ad_safe": false,
+    "keywords": [
+     "ducal regalia",
+     "rightful duke",
+     "ashburn"
+    ]
+   },
+   {
+    "reveal": "The High Priest invalidates Alexander and Juliana's wedding due to a lack of a royal license.",
+    "episode": 46,
+    "ad_safe": false,
+    "keywords": [
+     "ecclesiastical authority",
+     "invalidates marriage",
+     "royal license"
+    ]
+   }
+  ]
+ },
+ "meta": {
+  "show_episodes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50
+  ],
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-flash-lite",
+  "episodes_per_call": 5,
+  "temperature": 0.4,
+  "prompts_sha": "5bd0239b49",
+  "candidates": {
+   "proposed": 71,
+   "continuous_proposed": 64,
+   "stitched_proposed": 7,
+   "valid": 52,
+   "repaired": 36,
+   "rejected": 19,
+   "duplicates_removed": 1,
+   "final": 51,
+   "unjudged": 0
+  },
+  "rejections": [
+   "E05-C1: unknown beat id(s) ['E05-B102']",
+   "E06-C1: too short (12.5s < 20s)",
+   "E09-C2: unknown beat id(s) ['E09-B090']",
+   "E11-C2: too short (9.9s < 20s)",
+   "E16-C1: too short (13.6s < 20s)",
+   "E16-C2: too short (17.9s < 20s)",
+   "E17-C1: too short (13.0s < 20s)",
+   "E19-C1: too short (19.8s < 20s)",
+   "E21-C1: too short (19.4s < 20s)",
+   "E22-C1: too short (17.2s < 20s)",
+   "E27-C1: too short (11.4s < 20s)",
+   "E29-C1: too short (19.4s < 20s)",
+   "E50-C1: too short (6.5s < 20s)",
+   "S01: too short (14.4s < 20s)",
+   "S03: too short (13.7s < 20s)",
+   "S04: too short (14.0s < 20s)",
+   "S05: too short (19.4s < 20s)",
+   "S06: too short (16.2s < 20s)",
+   "S07: too short (7.4s < 20s)"
+  ],
+  "errors": {},
+  "llm_usage": {
+   "calls": 0,
+   "cached": 15,
+   "prompt_tokens": 314286,
+   "completion_tokens": 25433,
+   "retries": 0
+  },
+  "est_cost_usd_paid_tier": 0.1579,
+  "price_assumption_per_1m_tokens": {
+   "input": 0.3,
+   "output": 2.5
+  },
+  "seconds": 0.0,
+  "parse_warnings": []
+ },
+ "promos": [
+  {
+   "id": "E12-C1",
+   "kind": "continuous",
+   "title": "The Sadistic Ultimatum",
+   "segments": [
+    {
+     "ep": 12,
+     "start": 44.0,
+     "end": 87.21,
+     "start_beat": "E12-B032",
+     "end_beat": "E12-B055",
+     "start_ts": "00:44.00",
+     "end_ts": "01:27.21",
+     "seconds": 43.21
+    }
+   ],
+   "duration": 43.21,
+   "hook": "I want to see you crawl, sister.",
+   "cliffhanger": "Juliana agrees to shred her bare hands in the frozen briars to save her husband.",
+   "why": "The cruelty of the sister's demand is heartbreaking, and Juliana's fierce resolve is instantly compelling.",
+   "hook_beat": "E12-B032",
+   "cliff_beat": "E12-B055",
+   "repaired": true,
+   "repairs": [
+    "start moved 32.4s -> 44.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Clarissa forces Juliana to retrieve a ring from thorns or her husband will hang.",
+    "weakness": "The villain's motivation is cartoonishly evil, bordering on parody."
+   },
+   "spoiler": 0,
+   "final_score": 4.96,
+   "rank": 1,
+   "post_reason": "scroll-stopping hook (5/5); 43s is in the 30-45s sweet spot",
+   "episodes": [
+    12
+   ]
+  },
+  {
+   "id": "E13-C1",
+   "kind": "continuous",
+   "title": "Crawling Through Razor Thorns",
+   "segments": [
+    {
+     "ep": 13,
+     "start": 80.8,
+     "end": 118.88,
+     "start_beat": "E13-B055",
+     "end_beat": "E13-B075",
+     "start_ts": "01:20.80",
+     "end_ts": "01:58.88",
+     "seconds": 38.08
+    }
+   ],
+   "duration": 38.08,
+   "hook": "Stop!",
+   "cliffhanger": "Juliana grips the bloody emerald ring in the dirt as Alexander watches in agony.",
+   "why": "The physical sacrifice and emotional stakes make it impossible to look away.",
+   "hook_beat": "E13-B055",
+   "cliff_beat": "E13-B075",
+   "repaired": true,
+   "repairs": [
+    "start moved 71.2s -> 80.8s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana suffers through thorns to retrieve a ring and save her husband.",
+    "weakness": "The gore is a bit excessive and might alienate some viewers."
+   },
+   "spoiler": 0,
+   "final_score": 4.952,
+   "rank": 2,
+   "post_reason": "scroll-stopping hook (5/5); 38s is in the 30-45s sweet spot",
+   "episodes": [
+    13
+   ]
+  },
+  {
+   "id": "E01-C1",
+   "kind": "continuous",
+   "title": "Gerald Abandons Juliana at Altar",
+   "segments": [
+    {
+     "ep": 1,
+     "start": 11.0,
+     "end": 65.6,
+     "start_beat": "E01-B007",
+     "end_beat": "E01-B043",
+     "start_ts": "00:11.00",
+     "end_ts": "01:05.60",
+     "seconds": 54.6
+    }
+   ],
+   "duration": 54.6,
+   "hook": "\"You should turn around, Juliana.\"",
+   "cliffhanger": "\"You swore you loved me!\"",
+   "why": "The public humiliation of walking down the aisle only to find your fiancé marrying your sister is a masterclass in instant heartbreak and outrage.",
+   "hook_beat": "E01-B008",
+   "cliff_beat": "E01-B043",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "A bride is humiliated at the altar when her groom chooses her sister instead.",
+    "weakness": "The dialogue is a bit too melodramatic and cliché for a modern audience."
+   },
+   "spoiler": 0,
+   "final_score": 4.75,
+   "rank": 3,
+   "post_reason": "scroll-stopping hook (5/5); starts in Ep 1, so a new viewer who clicks reaches the payoff quickly",
+   "episodes": [
+    1
+   ]
+  },
+  {
+   "id": "E39-C1",
+   "kind": "continuous",
+   "title": "Today He Comes Home",
+   "segments": [
+    {
+     "ep": 39,
+     "start": 63.0,
+     "end": 98.41,
+     "start_beat": "E39-B041",
+     "end_beat": "E39-B059",
+     "start_ts": "01:03.00",
+     "end_ts": "01:38.41",
+     "seconds": 35.41
+    }
+   ],
+   "duration": 35.41,
+   "hook": "\"They buried Alexander Ashwin three years ago. Today, he comes home.\"",
+   "cliffhanger": "\"No more hiding. I am taking back my house and bringing my wife home.\"",
+   "why": "The ultimate glow-up and character transformation as the rugged hero puts on his ducal uniform for war.",
+   "hook_beat": "E39-B041",
+   "cliff_beat": "E39-B059",
+   "repaired": true,
+   "repairs": [
+    "start moved 50.0s -> 63.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "The Duke returns in full regalia to reclaim his home and save his wife.",
+    "weakness": "The military salute feels a bit out of place in this period setting."
+   },
+   "spoiler": 0,
+   "final_score": 4.74,
+   "rank": 4,
+   "post_reason": "scroll-stopping hook (5/5); 35s is in the 30-45s sweet spot",
+   "episodes": [
+    39
+   ]
+  },
+  {
+   "id": "E03-C1",
+   "kind": "stitched",
+   "title": "The Scarred Stranger's Proposal",
+   "segments": [
+    {
+     "ep": 3,
+     "start": 69.9,
+     "end": 91.6,
+     "start_beat": "E03-B059",
+     "end_beat": "E03-B077",
+     "start_ts": "01:09.90",
+     "end_ts": "01:31.60",
+     "seconds": 21.7
+    },
+    {
+     "ep": 3,
+     "start": 119.8,
+     "end": 145.75,
+     "start_beat": "E03-B101",
+     "end_beat": "E03-B117",
+     "start_ts": "01:59.80",
+     "end_ts": "02:25.75",
+     "seconds": 25.95
+    }
+   ],
+   "duration": 47.65,
+   "hook": "\"Take your hands off her.\"",
+   "cliffhanger": "The mysterious scarred warrior drops to one knee with a ring.",
+   "why": "A powerful stranger stepping out of the crowd to violently defend the outcast bride and offer a wedding ring is peak vertical microdrama wish-fulfillment.",
+   "hook_beat": "E03-B059",
+   "cliff_beat": "E03-B118",
+   "repaired": true,
+   "repairs": [
+    "start moved 60.0s -> 69.9s to open on the hook",
+    "76s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A mysterious stranger interrupts a wedding, defeats guards, and proposes to the humiliated bride.",
+    "weakness": "The transition from fighting to a proposal is jarring and lacks narrative buildup."
+   },
+   "spoiler": 0,
+   "final_score": 4.734,
+   "rank": 5,
+   "post_reason": "scroll-stopping hook (5/5); starts in Ep 3, so a new viewer who clicks reaches the payoff quickly",
+   "episodes": [
+    3
+   ]
+  },
+  {
+   "id": "E15-C1",
+   "kind": "stitched",
+   "title": "Defending the Ruined Garden",
+   "segments": [
+    {
+     "ep": 15,
+     "start": 7.5,
+     "end": 31.2,
+     "start_beat": "E15-B008",
+     "end_beat": "E15-B022",
+     "start_ts": "00:07.50",
+     "end_ts": "00:31.20",
+     "seconds": 23.7
+    },
+    {
+     "ep": 15,
+     "start": 60.0,
+     "end": 86.0,
+     "start_beat": "E15-B042",
+     "end_beat": "E15-B055",
+     "start_ts": "01:00.00",
+     "end_ts": "01:26.00",
+     "seconds": 26.0
+    }
+   ],
+   "duration": 49.7,
+   "hook": "Stop! What are you doing?!",
+   "cliffhanger": "Alexander steps out of the mist to confront the thugs destroying Juliana's garden.",
+   "why": "Watching ruthless thugs crush her late mother's herbs makes the viewer desperately crave Alexander's intervention.",
+   "hook_beat": "E15-B010",
+   "cliff_beat": "E15-B055",
+   "repaired": true,
+   "repairs": [
+    "78s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Thugs destroy Juliana's herbs, but Alexander arrives to confront them.",
+    "weakness": "The thugs are generic 'bad guy' archetypes with no depth."
+   },
+   "spoiler": 0,
+   "final_score": 4.636,
+   "rank": 6,
+   "post_reason": "scroll-stopping hook (5/5)",
+   "episodes": [
+    15
+   ]
+  },
+  {
+   "id": "E28-C1",
+   "kind": "continuous",
+   "title": "Unmasked as Lady Juliana Ashcroft",
+   "segments": [
+    {
+     "ep": 28,
+     "start": 98.2,
+     "end": 138.5,
+     "start_beat": "E28-B073",
+     "end_beat": "E28-B096",
+     "start_ts": "01:38.20",
+     "end_ts": "02:18.50",
+     "seconds": 40.3
+    }
+   ],
+   "duration": 40.3,
+   "hook": "Lady Juliana Ashcroft.",
+   "cliffhanger": "Juliana's eyes widen in horror as she is dragged off to the gallows.",
+   "why": "Juliana's secret noble identity and mother's botanical book are exposed to her worst enemy right before her imprisonment.",
+   "hook_beat": "E28-B073",
+   "cliff_beat": "E28-B096",
+   "repaired": true,
+   "repairs": [
+    "start moved 95.0s -> 98.2s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel noblewoman mocks a disgraced Lady, threatening her with the gallows.",
+    "weakness": "The villain's monologue is overly long, reducing the tension of the physical threat."
+   },
+   "spoiler": 0,
+   "final_score": 4.53,
+   "rank": 7,
+   "post_reason": "strong cliffhanger (5/5); 40s is in the 30-45s sweet spot",
+   "episodes": [
+    28
+   ]
+  },
+  {
+   "id": "E11-C1",
+   "kind": "continuous",
+   "title": "Planted Evidence Frame-Up",
+   "segments": [
+    {
+     "ep": 11,
+     "start": 92.1,
+     "end": 112.75,
+     "start_beat": "E11-B077",
+     "end_beat": "E11-B085",
+     "start_ts": "01:32.10",
+     "end_ts": "01:52.75",
+     "seconds": 20.65
+    }
+   ],
+   "duration": 20.65,
+   "hook": "That is his coat!",
+   "cliffhanger": "A stolen gold watch is pulled from Alexander's coat, framing him for a crime.",
+   "why": "The audience feels the injustice of the setup and needs to see if Alexander and Juliana can escape this trap.",
+   "hook_beat": "E11-B078",
+   "cliff_beat": "E11-B085",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana is framed for theft when a watch is found in her husband's coat.",
+    "weakness": "The setup of the frame-up is too convenient and lacks subtlety."
+   },
+   "spoiler": 0,
+   "final_score": 4.418,
+   "rank": 8,
+   "post_reason": "scroll-stopping hook (5/5)",
+   "episodes": [
+    11
+   ]
+  },
+  {
+   "id": "E18-C1",
+   "kind": "continuous",
+   "title": "Trapped in the Inferno",
+   "segments": [
+    {
+     "ep": 18,
+     "start": 73.5,
+     "end": 98.2,
+     "start_beat": "E18-B041",
+     "end_beat": "E18-B052",
+     "start_ts": "01:13.50",
+     "end_ts": "01:38.20",
+     "seconds": 24.7
+    }
+   ],
+   "duration": 24.7,
+   "hook": "Juliana!",
+   "cliffhanger": "I've got you.",
+   "why": "A high-stakes life-or-death rescue from a burning home grabs instant attention.",
+   "hook_beat": "E18-B041",
+   "cliff_beat": "E18-B052",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Alexander saves Juliana from a collapsing, burning building.",
+    "weakness": "The action is a bit chaotic and hard to follow in short form."
+   },
+   "spoiler": 0,
+   "final_score": 4.361,
+   "rank": 9,
+   "post_reason": "scroll-stopping hook (5/5)",
+   "episodes": [
+    18
+   ]
+  },
+  {
+   "id": "E24-C1",
+   "kind": "continuous",
+   "title": "Humiliated by the Noblewoman",
+   "segments": [
+    {
+     "ep": 24,
+     "start": 31.0,
+     "end": 89.8,
+     "start_beat": "E24-B023",
+     "end_beat": "E24-B069",
+     "start_ts": "00:31.00",
+     "end_ts": "01:29.80",
+     "seconds": 58.8
+    }
+   ],
+   "duration": 58.8,
+   "hook": "A sharp, stinging whip crack as the riding crop makes harsh contact.",
+   "cliffhanger": "Juliana vows she will return, her eyes burning with defiance despite her brutal punishment.",
+   "why": "A proud noblewoman cruelly whips the disguised heroine and forces her to scrub soot, but can't break her spirit.",
+   "hook_beat": "E24-B025",
+   "cliff_beat": "E24-B069",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A noblewoman brutally humiliates a maid, but the maid secretly plots her revenge.",
+    "weakness": "The scene is slightly too long; the middle section drags before the defiant payoff."
+   },
+   "spoiler": 0,
+   "final_score": 4.312,
+   "rank": 10,
+   "post_reason": "scroll-stopping hook (5/5)",
+   "episodes": [
+    24
+   ]
+  },
+  {
+   "id": "E02-C1",
+   "kind": "continuous",
+   "title": "Juliana Turns the Tables",
+   "segments": [
+    {
+     "ep": 2,
+     "start": 74.4,
+     "end": 110.0,
+     "start_beat": "E02-B055",
+     "end_beat": "E02-B074",
+     "start_ts": "01:14.40",
+     "end_ts": "01:50.00",
+     "seconds": 35.6
+    }
+   ],
+   "duration": 35.6,
+   "hook": "\"Dignity? You abandoned a woman who trusted you...\"",
+   "cliffhanger": "Juliana proclaims her triumphant spirit as the score swells.",
+   "why": "Watching a humiliated protagonist find her voice and publicly flay her abusers gives an incredible rush of empowerment.",
+   "hook_beat": "E02-B055",
+   "cliff_beat": "E02-B074",
+   "repaired": true,
+   "repairs": [
+    "start moved 69.3s -> 74.4s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana regains her dignity and rebukes her ex-groom in front of the wedding guests.",
+    "weakness": "The monologue is overly long and feels more like a stage play than a drama."
+   },
+   "spoiler": 0,
+   "final_score": 4.242,
+   "rank": 11,
+   "post_reason": "high emotional pull (5/5); starts in Ep 2, so a new viewer who clicks reaches the payoff quickly; 36s is in the 30-45s sweet spot",
+   "episodes": [
+    2
+   ]
+  },
+  {
+   "id": "E10-C1",
+   "kind": "continuous",
+   "title": "The Wounded Warrior's Scars",
+   "segments": [
+    {
+     "ep": 10,
+     "start": 2.1,
+     "end": 53.3,
+     "start_beat": "E10-B003",
+     "end_beat": "E10-B040",
+     "start_ts": "00:02.10",
+     "end_ts": "00:53.30",
+     "seconds": 51.2
+    }
+   ],
+   "duration": 51.2,
+   "hook": "Alexander!",
+   "cliffhanger": "Juliana uncovers his shirt to reveal a torso covered in jagged battle scars, whispering 'Dear God.'",
+   "why": "The visual shock of the brutal scars combined with raw emotional intimacy hooks viewers instantly.",
+   "hook_beat": "E10-B007",
+   "cliff_beat": "E10-B040",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana discovers her husband's horrific battle scars while tending to his wounds.",
+    "weakness": "The scene is a bit too long; the reveal of the scars takes too long."
+   },
+   "spoiler": 0,
+   "final_score": 4.177,
+   "rank": 12,
+   "post_reason": "scroll-stopping hook (5/5)",
+   "episodes": [
+    10
+   ]
+  },
+  {
+   "id": "E14-C1",
+   "kind": "stitched",
+   "title": "A Deadly Vow of Vengeance",
+   "segments": [
+    {
+     "ep": 14,
+     "start": 23.1,
+     "end": 43.5,
+     "start_beat": "E14-B017",
+     "end_beat": "E14-B026",
+     "start_ts": "00:23.10",
+     "end_ts": "00:43.50",
+     "seconds": 20.4
+    },
+    {
+     "ep": 14,
+     "start": 60.5,
+     "end": 87.63,
+     "start_beat": "E14-B038",
+     "end_beat": "E14-B051",
+     "start_ts": "01:00.50",
+     "end_ts": "01:27.63",
+     "seconds": 27.13
+    }
+   ],
+   "duration": 47.53,
+   "hook": "What have they done to you?",
+   "cliffhanger": "Alexander clenches his scarred fist in a silent vow of bloody vengeance.",
+   "why": "The transition from agonizing sacrifice to quiet, lethal protection gives viewers immense emotional payoff.",
+   "hook_beat": "E14-B017",
+   "cliff_beat": "E14-B051",
+   "repaired": true,
+   "repairs": [
+    "start moved 15.6s -> 23.1s to open on the hook",
+    "65s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Alexander rescues a wounded Juliana, vowing to protect her after her sacrifice.",
+    "weakness": "The pacing is a bit slow after the high intensity of the previous scene."
+   },
+   "spoiler": 0,
+   "final_score": 4.094,
+   "rank": 13,
+   "post_reason": "high emotional pull (5/5)",
+   "episodes": [
+    14
+   ]
+  },
+  {
+   "id": "E23-C1",
+   "kind": "continuous",
+   "title": "The Arsenic Poisoning Discovery",
+   "segments": [
+    {
+     "ep": 23,
+     "start": 86.0,
+     "end": 131.5,
+     "start_beat": "E23-B045",
+     "end_beat": "E23-B067",
+     "start_ts": "01:26.00",
+     "end_ts": "02:11.50",
+     "seconds": 45.5
+    }
+   ],
+   "duration": 45.5,
+   "hook": "Arsenic.",
+   "cliffhanger": "The door handle slowly rotates and the heavy door cracks open while Juliana is trapped.",
+   "why": "A life-saving medical deduction is brutally interrupted by an unseen intruder at the door.",
+   "hook_beat": "E23-B045",
+   "cliff_beat": "E23-B067",
+   "repaired": true,
+   "repairs": [
+    "start moved 76.0s -> 86.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman tries to save a poisoned Duchess, but is interrupted by approaching enemies.",
+    "weakness": "The pacing slows down too much during the apothecary preparation sequence."
+   },
+   "spoiler": 0,
+   "final_score": 4.07,
+   "rank": 14,
+   "post_reason": "strong cliffhanger (5/5)",
+   "episodes": [
+    23
+   ]
+  },
+  {
+   "id": "E27-C2",
+   "kind": "continuous",
+   "title": "Dragged Away to the Dungeon",
+   "segments": [
+    {
+     "ep": 27,
+     "start": 122.8,
+     "end": 150.5,
+     "start_beat": "E27-B078",
+     "end_beat": "E27-B095",
+     "start_ts": "02:02.80",
+     "end_ts": "02:30.50",
+     "seconds": 27.7
+    }
+   ],
+   "duration": 27.7,
+   "hook": "She admits she has been giving the Duchess poison in secret!",
+   "cliffhanger": "Juliana's wide eyes show sheer terror as the deadly trap closes around her.",
+   "why": "The villains twist Juliana's life-saving medicine into a confession of poisoning, dragging her away while she is helpless.",
+   "hook_beat": "E27-B081",
+   "cliff_beat": "E27-B095",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A maid is framed for poisoning the Duchess and dragged away by guards.",
+    "weakness": "The villain's dialogue is a bit cliché and lacks subtlety."
+   },
+   "spoiler": 0,
+   "final_score": 4.038,
+   "rank": 15,
+   "post_reason": "strong cliffhanger (5/5)",
+   "episodes": [
+    27
+   ]
+  },
+  {
+   "id": "E04-C1",
+   "kind": "continuous",
+   "title": "A Royal Wedding in Exile",
+   "segments": [
+    {
+     "ep": 4,
+     "start": 110.0,
+     "end": 149.0,
+     "start_beat": "E04-B081",
+     "end_beat": "E04-B110",
+     "start_ts": "01:50.00",
+     "end_ts": "02:29.00",
+     "seconds": 39.0
+    }
+   ],
+   "duration": 39.0,
+   "hook": "\"By the authority entrusted to me, I now pronounce you... husband and wife!\"",
+   "cliffhanger": "Juliana and her scarred husband walk hand-in-hand through the doors into the sunlight.",
+   "why": "The ultimate middle finger to the toxic family as the underdog gets legally married on the spot to a mysterious protector.",
+   "hook_beat": "E04-B084",
+   "cliff_beat": "E04-B110",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana marries a mysterious stranger and is disowned by her family.",
+    "weakness": "The emotional stakes of being disowned are undermined by the quick pacing."
+   },
+   "spoiler": 0,
+   "final_score": 4.026,
+   "rank": 16,
+   "post_reason": "scroll-stopping hook (4/5); starts in Ep 4, so a new viewer who clicks reaches the payoff quickly; 39s is in the 30-45s sweet spot",
+   "episodes": [
+    4
+   ]
+  },
+  {
+   "id": "E07-C2",
+   "kind": "continuous",
+   "title": "The Scarred Husband Appears",
+   "segments": [
+    {
+     "ep": 7,
+     "start": 81.0,
+     "end": 116.0,
+     "start_beat": "E07-B041",
+     "end_beat": "E07-B058",
+     "start_ts": "01:21.00",
+     "end_ts": "01:56.00",
+     "seconds": 35.0
+    }
+   ],
+   "duration": 35.0,
+   "hook": "The towering scarred warrior silently towers over a terrified Gerald.",
+   "cliffhanger": "Gerald flees in sheer terror as the husband stands tall.",
+   "why": "Seeing the arrogant ex-fiancé instantly cower before the silent, intimidating warrior is extremely satisfying.",
+   "hook_beat": "E07-B041",
+   "cliff_beat": "E07-B058",
+   "repaired": true,
+   "repairs": [
+    "start moved 69.5s -> 81.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The mysterious husband intimidates the ex-groom into fleeing, showing his silent power.",
+    "weakness": "The ex-groom's sudden cowardice feels unearned and cartoonish."
+   },
+   "spoiler": 0,
+   "final_score": 4.001,
+   "rank": 17,
+   "post_reason": "scroll-stopping hook (4/5); 35s is in the 30-45s sweet spot",
+   "episodes": [
+    7
+   ]
+  },
+  {
+   "id": "E09-C1",
+   "kind": "stitched",
+   "title": "Saving The Sick Child",
+   "segments": [
+    {
+     "ep": 9,
+     "start": 6.3,
+     "end": 27.5,
+     "start_beat": "E09-B009",
+     "end_beat": "E09-B019",
+     "start_ts": "00:06.30",
+     "end_ts": "00:27.50",
+     "seconds": 21.2
+    },
+    {
+     "ep": 9,
+     "start": 58.8,
+     "end": 83.8,
+     "start_beat": "E09-B047",
+     "end_beat": "E09-B065",
+     "start_ts": "00:58.80",
+     "end_ts": "01:23.80",
+     "seconds": 25.0
+    }
+   ],
+   "duration": 46.2,
+   "hook": "Please! My boy is burning with fever!",
+   "cliffhanger": "Alexander warns Juliana that villagers talking about her healing skills is dangerous.",
+   "why": "High stakes medical drama mixed with rising danger that connects back to the villains.",
+   "hook_beat": "E09-B009",
+   "cliff_beat": "E09-B065",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 6.3s to open on the hook",
+    "78s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana saves a sick child, but her husband warns that her fame is dangerous.",
+    "weakness": "The threat of 'gossip' feels weak compared to the previous physical conflicts."
+   },
+   "spoiler": 0,
+   "final_score": 3.935,
+   "rank": 18,
+   "post_reason": "scroll-stopping hook (4/5)",
+   "episodes": [
+    9
+   ]
+  },
+  {
+   "id": "E07-C1",
+   "kind": "continuous",
+   "title": "Gerald Mocks Fallen Juliana",
+   "segments": [
+    {
+     "ep": 7,
+     "start": 22.0,
+     "end": 69.5,
+     "start_beat": "E07-B009",
+     "end_beat": "E07-B033",
+     "start_ts": "00:22.00",
+     "end_ts": "01:09.50",
+     "seconds": 47.5
+    }
+   ],
+   "duration": 47.5,
+   "hook": "This is where you live now?",
+   "cliffhanger": "Gerald threatens Juliana, asking where her beggar husband is.",
+   "why": "The audience roots for Juliana against her cruel ex-fiancé and wants to see him get what's coming to him.",
+   "hook_beat": "E07-B009",
+   "cliff_beat": "E07-B033",
+   "repaired": true,
+   "repairs": [
+    "start moved 4.8s -> 22.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana's ex-groom visits her new humble home to mock her, but she stands her ground.",
+    "weakness": "The dialogue feels repetitive, re-treading the same 'you're poor now' insults."
+   },
+   "spoiler": 0,
+   "final_score": 3.951,
+   "rank": 19,
+   "post_reason": "scroll-stopping hook (4/5)",
+   "episodes": [
+    7
+   ]
+  },
+  {
+   "id": "E47-C1",
+   "kind": "continuous",
+   "title": "Scullery Maid Punishment",
+   "segments": [
+    {
+     "ep": 47,
+     "start": 99.2,
+     "end": 134.0,
+     "start_beat": "E47-B053",
+     "end_beat": "E47-B070",
+     "start_ts": "01:39.20",
+     "end_ts": "02:14.00",
+     "seconds": 34.8
+    }
+   ],
+   "duration": 34.8,
+   "hook": "As a scullery maid.",
+   "cliffhanger": "Catherine prostrates herself entirely upon the floor in total defeat.",
+   "why": "Watching the villainous, arrogant noblewoman forced to beg for scraps and scrub floors as a servant is peak satisfying retribution.",
+   "hook_beat": "E47-B053",
+   "cliff_beat": "E47-B070",
+   "repaired": true,
+   "repairs": [
+    "start moved 95.5s -> 99.2s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "The former villain is forced to accept a life of servitude by the woman she wronged.",
+    "weakness": "The shift to the maid role happens very quickly without much resistance."
+   },
+   "spoiler": 1,
+   "final_score": 3.824,
+   "rank": 20,
+   "post_reason": "scroll-stopping hook (5/5); some spoiler risk, so held back; 35s is in the 30-45s sweet spot",
+   "episodes": [
+    47
+   ]
+  },
+  {
+   "id": "E34-C1",
+   "kind": "continuous",
+   "title": "Trial of the Healer",
+   "segments": [
+    {
+     "ep": 34,
+     "start": 0.0,
+     "end": 54.2,
+     "start_beat": "E34-B001",
+     "end_beat": "E34-B032",
+     "start_ts": "00:00.00",
+     "end_ts": "00:54.20",
+     "seconds": 54.2
+    }
+   ],
+   "duration": 54.2,
+   "hook": "Lady Juliana Ashcroft, you are accused of witchcraft.",
+   "cliffhanger": "Prudence breaks down sobbing and confirms the false accusation.",
+   "why": "Watching a noble heroine railroaded by a rigged court and a broken promise creates fierce injustice.",
+   "hook_beat": "E34-B002",
+   "cliff_beat": "E34-B032",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman stands trial for witchcraft and poisoning, while her witness is forced to betray her.",
+    "weakness": "The courtroom setup is generic and lacks visual flair."
+   },
+   "spoiler": 0,
+   "final_score": 3.731,
+   "rank": 21,
+   "post_reason": "scroll-stopping hook (4/5)",
+   "episodes": [
+    34
+   ]
+  },
+  {
+   "id": "E01-C2",
+   "kind": "stitched",
+   "title": "The Cruel Betrayal Revealed",
+   "segments": [
+    {
+     "ep": 1,
+     "start": 39.0,
+     "end": 60.0,
+     "start_beat": "E01-B026",
+     "end_beat": "E01-B038",
+     "start_ts": "00:39.00",
+     "end_ts": "01:00.00",
+     "seconds": 21.0
+    },
+    {
+     "ep": 1,
+     "start": 113.0,
+     "end": 138.0,
+     "start_beat": "E01-B078",
+     "end_beat": "E01-B095",
+     "start_ts": "01:53.00",
+     "end_ts": "02:18.00",
+     "seconds": 25.0
+    }
+   ],
+   "duration": 46.0,
+   "hook": "\"Because he is marrying me.\"",
+   "cliffhanger": "Juliana's shattering realization and silent fury as the string drone swells to black.",
+   "why": "Viewers will instantly root for Juliana and demand justice against her toxic family and ex-fiancé.",
+   "hook_beat": "E01-B027",
+   "cliff_beat": "E01-B095",
+   "repaired": true,
+   "repairs": [
+    "99s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana is publicly humiliated at her wedding by her sister and former groom.",
+    "weakness": "The pacing is slow and relies too heavily on repetitive reaction shots."
+   },
+   "spoiler": 0,
+   "final_score": 3.7,
+   "rank": 22,
+   "post_reason": "strong cliffhanger (4/5); starts in Ep 1, so a new viewer who clicks reaches the payoff quickly",
+   "episodes": [
+    1
+   ]
+  },
+  {
+   "id": "E10-C2",
+   "kind": "continuous",
+   "title": "Your Touch Is Medicine",
+   "segments": [
+    {
+     "ep": 10,
+     "start": 66.5,
+     "end": 94.0,
+     "start_beat": "E10-B050",
+     "end_beat": "E10-B060",
+     "start_ts": "01:06.50",
+     "end_ts": "01:34.00",
+     "seconds": 27.5
+    }
+   ],
+   "duration": 27.5,
+   "hook": "Because you are looking at me.",
+   "cliffhanger": "Alexander tells Juliana her touch is the only medicine that has ever eased his pain.",
+   "why": "Incredible romantic tension and vulnerability that delivers a massive emotional payoff.",
+   "hook_beat": "E10-B050",
+   "cliff_beat": "E10-B060",
+   "repaired": true,
+   "repairs": [
+    "start moved 54.0s -> 66.5s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana and her husband share an intimate, emotionally charged moment of connection.",
+    "weakness": "The dialogue is a bit cheesy for a serious romantic drama."
+   },
+   "spoiler": 0,
+   "final_score": 3.627,
+   "rank": 23,
+   "post_reason": "high emotional pull (5/5)",
+   "episodes": [
+    10
+   ]
+  },
+  {
+   "id": "E44-C1",
+   "kind": "stitched",
+   "title": "Choosing the True Bride",
+   "segments": [
+    {
+     "ep": 44,
+     "start": 3.3,
+     "end": 24.4,
+     "start_beat": "E44-B004",
+     "end_beat": "E44-B016",
+     "start_ts": "00:03.30",
+     "end_ts": "00:24.40",
+     "seconds": 21.1
+    },
+    {
+     "ep": 44,
+     "start": 44.2,
+     "end": 70.4,
+     "start_beat": "E44-B033",
+     "end_beat": "E44-B054",
+     "start_ts": "00:44.20",
+     "end_ts": "01:10.40",
+     "seconds": 26.2
+    }
+   ],
+   "duration": 47.3,
+   "hook": "Lord Henry Sterling, you are under arrest by order of the Crown.",
+   "cliffhanger": "Catherine gasps in utter disbelief as Alexander walks past her to Juliana.",
+   "why": "The sheer humiliation of the scheming villainess being rejected for the true heroine is intensely satisfying.",
+   "hook_beat": "E44-B004",
+   "cliff_beat": "E44-B054",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 3.3s to open on the hook",
+    "67s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "The usurper is arrested, and the hero rejects his former lover for the woman he truly loves.",
+    "weakness": "Catherine's sudden shift from villain to pleading lover feels slightly rushed."
+   },
+   "spoiler": 1,
+   "final_score": 3.499,
+   "rank": 24,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    44
+   ]
+  },
+  {
+   "id": "E31-C2",
+   "kind": "continuous",
+   "title": "The Branding Iron Threat",
+   "segments": [
+    {
+     "ep": 31,
+     "start": 130.8,
+     "end": 160.0,
+     "start_beat": "E31-B070",
+     "end_beat": "E31-B087",
+     "start_ts": "02:10.80",
+     "end_ts": "02:40.00",
+     "seconds": 29.2
+    }
+   ],
+   "duration": 29.2,
+   "hook": "Enough!",
+   "cliffhanger": "The red-hot iron stops inches from Juliana's weeping eye.",
+   "why": "The extreme physical danger and sadistic torture create immediate, heart-pounding suspense.",
+   "hook_beat": "E31-B071",
+   "cliff_beat": "E31-B087",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel noblewoman burns a prisoner's precious book and threatens her with a hot iron.",
+    "weakness": "The extreme close-up of the eye at the end is a bit jarring."
+   },
+   "spoiler": 2,
+   "final_score": 3.305,
+   "rank": 25,
+   "post_reason": "scroll-stopping hook (5/5); some spoiler risk, so held back",
+   "episodes": [
+    31
+   ]
+  },
+  {
+   "id": "E36-C1",
+   "kind": "stitched",
+   "title": "The Dead Duke Returns",
+   "segments": [
+    {
+     "ep": 36,
+     "start": 99.0,
+     "end": 119.3,
+     "start_beat": "E36-B061",
+     "end_beat": "E36-B072",
+     "start_ts": "01:39.00",
+     "end_ts": "01:59.30",
+     "seconds": 20.3
+    },
+    {
+     "ep": 36,
+     "start": 174.2,
+     "end": 200.75,
+     "start_beat": "E36-B108",
+     "end_beat": "E36-B120",
+     "start_ts": "02:54.20",
+     "end_ts": "03:20.75",
+     "seconds": 26.55
+    }
+   ],
+   "duration": 46.85,
+   "hook": "\"They arrested her! Rupert and Catherine accused her of poisoning me!\"",
+   "cliffhanger": "\"Before that wedding begins, their dead Duke is coming home.\"",
+   "why": "The ultimate revenge arc kicks off as the scarred warrior learns his innocent wife is sentenced to death.",
+   "hook_beat": "E36-B062",
+   "cliff_beat": "E36-B121",
+   "repaired": true,
+   "repairs": [
+    "102s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A man discovers his wife is imprisoned and vows to return as the Duke.",
+    "weakness": "The transition to the barn door is a bit abrupt."
+   },
+   "spoiler": 2,
+   "final_score": 3.264,
+   "rank": 26,
+   "post_reason": "scroll-stopping hook (5/5); some spoiler risk, so held back",
+   "episodes": [
+    36
+   ]
+  },
+  {
+   "id": "E35-C1",
+   "kind": "continuous",
+   "title": "Return of the Dead Duke",
+   "segments": [
+    {
+     "ep": 35,
+     "start": 37.0,
+     "end": 97.0,
+     "start_beat": "E35-B020",
+     "end_beat": "E35-B044",
+     "start_ts": "00:37.00",
+     "end_ts": "01:37.00",
+     "seconds": 60.0
+    }
+   ],
+   "duration": 60.0,
+   "hook": "Alexander!",
+   "cliffhanger": "We were close to finding him... Then came the ambush.",
+   "why": "The emotional shock of a mother finding her presumed-dead son alive is instantly gripping.",
+   "hook_beat": "E35-B020",
+   "cliff_beat": "E35-B044",
+   "repaired": true,
+   "repairs": [
+    "start moved 27.5s -> 37.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A long-lost son returns to his mother, revealing he survived a military betrayal.",
+    "weakness": "The exposition about the Iberian front is dry and slows the emotional momentum."
+   },
+   "spoiler": 0,
+   "final_score": 3.222,
+   "rank": 27,
+   "post_reason": "scroll-stopping hook (4/5)",
+   "episodes": [
+    35
+   ]
+  },
+  {
+   "id": "E08-C2",
+   "kind": "continuous",
+   "title": "Not Yet",
+   "segments": [
+    {
+     "ep": 8,
+     "start": 33.2,
+     "end": 62.8,
+     "start_beat": "E08-B028",
+     "end_beat": "E08-B051",
+     "start_ts": "00:33.20",
+     "end_ts": "01:02.80",
+     "seconds": 29.6
+    }
+   ],
+   "duration": 29.6,
+   "hook": "Not yet.",
+   "cliffhanger": "Juliana asks if his facial scars came from the war.",
+   "why": "The growing intimacy and mystery behind Alexander's past make viewers want to uncover his true identity.",
+   "hook_beat": "E08-B029",
+   "cliff_beat": "E08-B051",
+   "repaired": true,
+   "repairs": [
+    "start moved 24.3s -> 33.2s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana and Alexander share a tender moment, hinting at growing romantic feelings.",
+    "weakness": "The dialogue is overly sentimental and lacks real stakes."
+   },
+   "spoiler": 0,
+   "final_score": 3.143,
+   "rank": 28,
+   "post_reason": "high emotional pull (4/5)",
+   "episodes": [
+    8
+   ]
+  },
+  {
+   "id": "E18-C2",
+   "kind": "continuous",
+   "title": "Vengeance for Our Home",
+   "segments": [
+    {
+     "ep": 18,
+     "start": 171.8,
+     "end": 192.0,
+     "start_beat": "E18-B078",
+     "end_beat": "E18-B081",
+     "start_ts": "02:51.80",
+     "end_ts": "03:12.00",
+     "seconds": 20.2
+    }
+   ],
+   "duration": 20.2,
+   "hook": "They took our home. I will not let them take anything else now.",
+   "cliffhanger": "Alexander stares into the inferno with unshakeable resolve.",
+   "why": "The hero swears dark vengeance against the arsonists who destroyed their life.",
+   "hook_beat": "E18-B078",
+   "cliff_beat": "E18-B081",
+   "repaired": true,
+   "repairs": [
+    "start moved 155.0s -> 171.8s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "Alexander vows revenge after his home is destroyed by fire.",
+    "weakness": "The dialogue is generic and doesn't add much to the plot."
+   },
+   "spoiler": 0,
+   "final_score": 3.061,
+   "rank": 29,
+   "post_reason": "high emotional pull (4/5)",
+   "episodes": [
+    18
+   ]
+  },
+  {
+   "id": "E48-C1",
+   "kind": "continuous",
+   "title": "Ten Days is a Door",
+   "segments": [
+    {
+     "ep": 48,
+     "start": 0.0,
+     "end": 26.5,
+     "start_beat": "E48-B001",
+     "end_beat": "E48-B014",
+     "start_ts": "00:00.00",
+     "end_ts": "00:26.50",
+     "seconds": 26.5
+    }
+   ],
+   "duration": 26.5,
+   "hook": "Two words, and that healer's crown rolls right back into the gutter.",
+   "cliffhanger": "Ten days is not a wall, Alexander. It's a door, and doors can be closed.",
+   "why": "The villain vows bloody revenge and plots behind the scenes, creating instant suspense for what she will do next.",
+   "hook_beat": "E48-B003",
+   "cliff_beat": "E48-B014",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The defeated villain plots a dark, ten-day scheme to reclaim her lost status and power.",
+    "weakness": "The monologue is slightly static and relies heavily on the viewer knowing the stakes."
+   },
+   "spoiler": 1,
+   "final_score": 3.016,
+   "rank": 30,
+   "post_reason": "scroll-stopping hook (4/5); some spoiler risk, so held back",
+   "episodes": [
+    48
+   ]
+  },
+  {
+   "id": "E36-C2",
+   "kind": "continuous",
+   "title": "They Declared Me Dead",
+   "segments": [
+    {
+     "ep": 36,
+     "start": 39.1,
+     "end": 78.1,
+     "start_beat": "E36-B023",
+     "end_beat": "E36-B046",
+     "start_ts": "00:39.10",
+     "end_ts": "01:18.10",
+     "seconds": 39.0
+    }
+   ],
+   "duration": 39.0,
+   "hook": "\"They declared me dead. While the world mourned a dead heir.\"",
+   "cliffhanger": "\"She went into Ashbourne Manor to save you. She never came back.\"",
+   "why": "Viewers discover the hero was betrayed by his own family and left for dead.",
+   "hook_beat": "E36-B025",
+   "cliff_beat": "E36-B046",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A son comforts his mother while learning his wife was imprisoned for saving her.",
+    "weakness": "Too much talking; lacks the visual stakes of the other clips."
+   },
+   "spoiler": 0,
+   "final_score": 3.014,
+   "rank": 31,
+   "post_reason": "scroll-stopping hook (3/5); 39s is in the 30-45s sweet spot",
+   "episodes": [
+    36
+   ]
+  },
+  {
+   "id": "E33-C1",
+   "kind": "stitched",
+   "title": "The Coerced Maid",
+   "segments": [
+    {
+     "ep": 33,
+     "start": 0.0,
+     "end": 21.0,
+     "start_beat": "E33-B001",
+     "end_beat": "E33-B013",
+     "start_ts": "00:00.00",
+     "end_ts": "00:21.00",
+     "seconds": 21.0
+    },
+    {
+     "ep": 33,
+     "start": 44.8,
+     "end": 73.0,
+     "start_beat": "E33-B029",
+     "end_beat": "E33-B043",
+     "start_ts": "00:44.80",
+     "end_ts": "01:13.00",
+     "seconds": 28.2
+    }
+   ],
+   "duration": 49.2,
+   "hook": "Your brother is breathing again.",
+   "cliffhanger": "Please, my Lord... he is only seven!",
+   "why": "The ruthless emotional blackmail forces an innocent maid to betray the woman who saved her brother.",
+   "hook_beat": "E33-B002",
+   "cliff_beat": "E33-B043",
+   "repaired": true,
+   "repairs": [
+    "73s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A lord threatens a maid to force a confession about a secret healer.",
+    "weakness": "The maid's character is too passive, making the scene feel one-sided."
+   },
+   "spoiler": 0,
+   "final_score": 2.989,
+   "rank": 32,
+   "post_reason": "strong cliffhanger (4/5)",
+   "episodes": [
+    33
+   ]
+  },
+  {
+   "id": "E46-C2",
+   "kind": "continuous",
+   "title": "God Married Us",
+   "segments": [
+    {
+     "ep": 46,
+     "start": 58.2,
+     "end": 85.5,
+     "start_beat": "E46-B033",
+     "end_beat": "E46-B046",
+     "start_ts": "00:58.20",
+     "end_ts": "01:25.50",
+     "seconds": 27.3
+    }
+   ],
+   "duration": 27.3,
+   "hook": "I didn't ask this church for permission to survive, Father.",
+   "cliffhanger": "God married us, Father! You are just angry no one asked you first!",
+   "why": "The heroine stands up to an abusive religious authority with fierce, emotional defiance that makes viewers cheer.",
+   "hook_beat": "E46-B034",
+   "cliff_beat": "E46-B046",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman defiantly tells a priest that her love is valid despite his legalistic condemnation.",
+    "weakness": "The monologue is a bit repetitive in its defiance."
+   },
+   "spoiler": 1,
+   "final_score": 2.983,
+   "rank": 33,
+   "post_reason": "high emotional pull (5/5); some spoiler risk, so held back",
+   "episodes": [
+    46
+   ]
+  },
+  {
+   "id": "E41-C1",
+   "kind": "continuous",
+   "title": "Explosive Wedding Interruption",
+   "segments": [
+    {
+     "ep": 41,
+     "start": 26.8,
+     "end": 85.5,
+     "start_beat": "E41-B017",
+     "end_beat": "E41-B047",
+     "start_ts": "00:26.80",
+     "end_ts": "01:25.50",
+     "seconds": 58.7
+    }
+   ],
+   "duration": 58.7,
+   "hook": "There she is.",
+   "cliffhanger": "Ear-splitting detonation, shattering stone, wood splintering violently into kindling, followed by terrified screams of the congregation.",
+   "why": "Viewers will want to see who caused the explosive rescue at the ruined wedding.",
+   "hook_beat": "E41-B017",
+   "cliff_beat": "E41-B047",
+   "repaired": true,
+   "repairs": [
+    "start moved 15.5s -> 26.8s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 5,
+    "emotion": 4,
+    "cold_viewer_summary": "A disgraced woman in chains is mocked by her rival at a wedding, then the building explodes.",
+    "weakness": "The explosion is a bit jarring and lacks immediate context for the cause."
+   },
+   "spoiler": 2,
+   "final_score": 2.973,
+   "rank": 34,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    41
+   ]
+  },
+  {
+   "id": "E45-C1",
+   "kind": "stitched",
+   "title": "The High Priest's Decree",
+   "segments": [
+    {
+     "ep": 45,
+     "start": 7.4,
+     "end": 27.4,
+     "start_beat": "E45-B007",
+     "end_beat": "E45-B021",
+     "start_ts": "00:07.40",
+     "end_ts": "00:27.40",
+     "seconds": 20.0
+    },
+    {
+     "ep": 45,
+     "start": 93.2,
+     "end": 121.75,
+     "start_beat": "E45-B063",
+     "end_beat": "E45-B074",
+     "start_ts": "01:33.20",
+     "end_ts": "02:01.75",
+     "seconds": 28.55
+    }
+   ],
+   "duration": 48.55,
+   "hook": "Look at me.",
+   "cliffhanger": "Catherine smiles triumphantly as the High Priest invalidates Alexander and Juliana's marriage.",
+   "why": "Just when the heroes unite, a devastating ecclesiastical twist tears their victory away.",
+   "hook_beat": "E45-B007",
+   "cliff_beat": "E45-B074",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 7.4s to open on the hook",
+    "114s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "The hero frees his love, but a priest declares their marriage invalid, delighting the villainous rival.",
+    "weakness": "The High Priest's sudden appearance and authority feel like a convenient plot device."
+   },
+   "spoiler": 2,
+   "final_score": 2.891,
+   "rank": 35,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    45
+   ]
+  },
+  {
+   "id": "E25-C1",
+   "kind": "stitched",
+   "title": "Alexander Discovers the Wound",
+   "segments": [
+    {
+     "ep": 25,
+     "start": 24.0,
+     "end": 44.2,
+     "start_beat": "E25-B017",
+     "end_beat": "E25-B028",
+     "start_ts": "00:24.00",
+     "end_ts": "00:44.20",
+     "seconds": 20.2
+    },
+    {
+     "ep": 25,
+     "start": 57.5,
+     "end": 85.0,
+     "start_beat": "E25-B038",
+     "end_beat": "E25-B051",
+     "start_ts": "00:57.50",
+     "end_ts": "01:25.00",
+     "seconds": 27.5
+    }
+   ],
+   "duration": 47.7,
+   "hook": "Who did this?",
+   "cliffhanger": "Juliana reveals the horrifying truth that the Dowager Duchess is being slowly poisoned with arsenic.",
+   "why": "A fierce warrior discovers his beloved is secretly injured and uncovers a deadly aristocratic conspiracy.",
+   "hook_beat": "E25-B017",
+   "cliff_beat": "E25-B051",
+   "repaired": true,
+   "repairs": [
+    "start moved 18.8s -> 24.0s to open on the hook",
+    "61s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A man discovers that a maid was punished for uncovering a poisoning plot against the Dowager.",
+    "weakness": "Relies too heavily on exposition rather than showing the conflict."
+   },
+   "spoiler": 0,
+   "final_score": 2.804,
+   "rank": 36,
+   "post_reason": "scroll-stopping hook (3/5)",
+   "episodes": [
+    25
+   ]
+  },
+  {
+   "id": "E38-C1",
+   "kind": "continuous",
+   "title": "I Will Not Betray Him",
+   "segments": [
+    {
+     "ep": 38,
+     "start": 60.8,
+     "end": 87.91,
+     "start_beat": "E38-B040",
+     "end_beat": "E38-B056",
+     "start_ts": "01:00.80",
+     "end_ts": "01:27.91",
+     "seconds": 27.11
+    }
+   ],
+   "duration": 27.11,
+   "hook": "\"I will not give them my husband. I will not betray him.\"",
+   "cliffhanger": "Church bells toll as Juliana realizes her execution is next.",
+   "why": "Juliana's fierce loyalty to her hidden husband raises the emotional stakes to the max.",
+   "hook_beat": "E38-B040",
+   "cliff_beat": "E38-B057",
+   "repaired": true,
+   "repairs": [
+    "start moved 55.5s -> 60.8s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A prisoner hears wedding bells and realizes her execution is imminent, but remains hopeful.",
+    "weakness": "The shift from terror to a hopeful smile feels slightly unearned."
+   },
+   "spoiler": 2,
+   "final_score": 2.748,
+   "rank": 37,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    38
+   ]
+  },
+  {
+   "id": "E43-C1",
+   "kind": "stitched",
+   "title": "Exposing the Traitors",
+   "segments": [
+    {
+     "ep": 43,
+     "start": 8.0,
+     "end": 28.0,
+     "start_beat": "E43-B006",
+     "end_beat": "E43-B025",
+     "start_ts": "00:08.00",
+     "end_ts": "00:28.00",
+     "seconds": 20.0
+    },
+    {
+     "ep": 43,
+     "start": 88.6,
+     "end": 114.96,
+     "start_beat": "E43-B072",
+     "end_beat": "E43-B087",
+     "start_ts": "01:28.60",
+     "end_ts": "01:54.96",
+     "seconds": 26.36
+    }
+   ],
+   "duration": 46.36,
+   "hook": "I said arrest him!",
+   "cliffhanger": "Sterling's escape is completely cut off by a stern British Police Constable.",
+   "why": "The public reading of top-secret treason documents exposes the villains in real time.",
+   "hook_beat": "E43-B009",
+   "cliff_beat": "E43-B087",
+   "repaired": true,
+   "repairs": [
+    "107s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The rightful Duke returns to confront his usurper, leading to the arrest of a co-conspirator.",
+    "weakness": "The dialogue is a bit exposition-heavy regarding the legal status of the title."
+   },
+   "spoiler": 2,
+   "final_score": 2.707,
+   "rank": 38,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    43
+   ]
+  },
+  {
+   "id": "E37-C1",
+   "kind": "stitched",
+   "title": "A Feast For Our Guests",
+   "segments": [
+    {
+     "ep": 37,
+     "start": 23.8,
+     "end": 44.0,
+     "start_beat": "E37-B014",
+     "end_beat": "E37-B024",
+     "start_ts": "00:23.80",
+     "end_ts": "00:44.00",
+     "seconds": 20.2
+    },
+    {
+     "ep": 37,
+     "start": 62.0,
+     "end": 87.5,
+     "start_beat": "E37-B037",
+     "end_beat": "E37-B048",
+     "start_ts": "01:02.00",
+     "end_ts": "01:27.50",
+     "seconds": 25.5
+    }
+   ],
+   "duration": 45.7,
+   "hook": "\"Juliana's execution comes after the wedding. Perfect timing.\"",
+   "cliffhanger": "\"Juliana's ruin will be a lesson. And we will be there to watch.\"",
+   "why": "The villains' sadistic arrogance makes viewers desperately want someone to ruin their wedding.",
+   "hook_beat": "E37-B014",
+   "cliff_beat": "E37-B048",
+   "repaired": true,
+   "repairs": [
+    "start moved 18.8s -> 23.8s to open on the hook",
+    "64s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains invite the victim's family to a public execution as a warning.",
+    "weakness": "The scene feels like filler and lacks immediate tension."
+   },
+   "spoiler": 0,
+   "final_score": 2.706,
+   "rank": 39,
+   "post_reason": "scroll-stopping hook (3/5)",
+   "episodes": [
+    37
+   ]
+  },
+  {
+   "id": "E08-C1",
+   "kind": "continuous",
+   "title": "The Botanical Grimoire",
+   "segments": [
+    {
+     "ep": 8,
+     "start": 0.0,
+     "end": 24.2,
+     "start_beat": "E08-B001",
+     "end_beat": "E08-B021",
+     "start_ts": "00:00.00",
+     "end_ts": "00:24.20",
+     "seconds": 24.2
+    }
+   ],
+   "duration": 24.2,
+   "hook": "Some of the pages are ruined. Careful.",
+   "cliffhanger": "Alexander reveals his deep battlefield knowledge of wound-healing herbs.",
+   "why": "It subverts expectations of a rough soldier and builds quiet, tender chemistry between the leads.",
+   "hook_beat": "E08-B003",
+   "cliff_beat": "E08-B021",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana and Alexander bond over her mother's herbal book and his knowledge of healing.",
+    "weakness": "Too much exposition; the scene lacks the tension required for a microdrama ad."
+   },
+   "spoiler": 0,
+   "final_score": 2.693,
+   "rank": 40,
+   "post_reason": "scroll-stopping hook (3/5)",
+   "episodes": [
+    8
+   ]
+  },
+  {
+   "id": "E42-C1",
+   "kind": "stitched",
+   "title": "The Scarred Duke Returns",
+   "segments": [
+    {
+     "ep": 42,
+     "start": 12.8,
+     "end": 33.8,
+     "start_beat": "E42-B004",
+     "end_beat": "E42-B021",
+     "start_ts": "00:12.80",
+     "end_ts": "00:33.80",
+     "seconds": 21.0
+    },
+    {
+     "ep": 42,
+     "start": 49.2,
+     "end": 77.5,
+     "start_beat": "E42-B029",
+     "end_beat": "E42-B037",
+     "start_ts": "00:49.20",
+     "end_ts": "01:17.50",
+     "seconds": 28.3
+    }
+   ],
+   "duration": 49.3,
+   "hook": "You already know.",
+   "cliffhanger": "And now, Rupert... we settle what you stole.",
+   "why": "The presumed dead scarred warrior returns in full ducal regalia to reclaim his stolen throne.",
+   "hook_beat": "E42-B004",
+   "cliff_beat": "E42-B037",
+   "repaired": true,
+   "repairs": [
+    "start moved 0.0s -> 12.8s to open on the hook",
+    "65s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A man thought dead returns to reclaim his title, leaving the current usurper in terror.",
+    "weakness": "The transition between the confrontation and the mother's speech feels slightly disjointed."
+   },
+   "spoiler": 2,
+   "final_score": 2.665,
+   "rank": 41,
+   "post_reason": "high emotional pull (5/5); some spoiler risk, so held back",
+   "episodes": [
+    42
+   ]
+  },
+  {
+   "id": "E26-C1",
+   "kind": "stitched",
+   "title": "The Poisoned Duchess Discovers Truth",
+   "segments": [
+    {
+     "ep": 26,
+     "start": 55.8,
+     "end": 79.4,
+     "start_beat": "E26-B025",
+     "end_beat": "E26-B031",
+     "start_ts": "00:55.80",
+     "end_ts": "01:19.40",
+     "seconds": 23.6
+    },
+    {
+     "ep": 26,
+     "start": 95.0,
+     "end": 120.88,
+     "start_beat": "E26-B039",
+     "end_beat": "E26-B051",
+     "start_ts": "01:35.00",
+     "end_ts": "02:00.88",
+     "seconds": 25.88
+    }
+   ],
+   "duration": 49.48,
+   "hook": "Rupert and Catherine want me dead. They are poisoning me!",
+   "cliffhanger": "The Dowager Duchess desperately demands to know where Juliana got her signet ring.",
+   "why": "The dying matriarch realizes her own family is murdering her and stumbles upon the secret ring of her long-lost son, hooking the viewer instantly.",
+   "hook_beat": "E26-B026",
+   "cliff_beat": "E26-B051",
+   "repaired": true,
+   "repairs": [
+    "65s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The Duchess realizes she is being poisoned and recognizes a mysterious ring on the maid.",
+    "weakness": "The transition between the poisoning realization and the ring discovery feels slightly disjointed."
+   },
+   "spoiler": 2,
+   "final_score": 2.546,
+   "rank": 42,
+   "post_reason": "strong cliffhanger (5/5); some spoiler risk, so held back",
+   "episodes": [
+    26
+   ]
+  },
+  {
+   "id": "E06-C2",
+   "kind": "continuous",
+   "title": "Finding Peace In The Storm",
+   "segments": [
+    {
+     "ep": 6,
+     "start": 94.2,
+     "end": 115.0,
+     "start_beat": "E06-B083",
+     "end_beat": "E06-B096",
+     "start_ts": "01:34.20",
+     "end_ts": "01:55.00",
+     "seconds": 20.8
+    }
+   ],
+   "duration": 20.8,
+   "hook": "It is enough for tonight.",
+   "cliffhanger": "Sitting here with him, I don't feel afraid as the fire fades to black.",
+   "why": "The contrast between her ruined wedding day and finding unexpected comfort with a scarred stranger is deeply compelling.",
+   "hook_beat": "E06-B083",
+   "cliff_beat": "E06-B097",
+   "repaired": true,
+   "repairs": [
+    "start moved 89.0s -> 94.2s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana finds comfort and safety with her new protector by the fireplace.",
+    "weakness": "Lacks conflict; it's a slow, atmospheric scene that kills the momentum of the ad."
+   },
+   "spoiler": 0,
+   "final_score": 2.409,
+   "rank": 43,
+   "post_reason": "clear to a first-time viewer (3/5)",
+   "episodes": [
+    6
+   ]
+  },
+  {
+   "id": "E49-C1",
+   "kind": "continuous",
+   "title": "Conspiracy in the Dark",
+   "segments": [
+    {
+     "ep": 49,
+     "start": 5.2,
+     "end": 46.5,
+     "start_beat": "E49-B004",
+     "end_beat": "E49-B020",
+     "start_ts": "00:05.20",
+     "end_ts": "00:46.50",
+     "seconds": 41.3
+    }
+   ],
+   "duration": 41.3,
+   "hook": "You took your time.",
+   "cliffhanger": "No one in this house so much as suspects your face belongs to that morning.",
+   "why": "A disgraced bride and a corrupt priest meeting secretly in a derelict wing oozes scandalous forbidden tension.",
+   "hook_beat": "E49-B005",
+   "cliff_beat": "E49-B020",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A disgraced bride meets a priest secretly to discuss their ongoing, dangerous conspiracy.",
+    "weakness": "Lacks a clear immediate threat or action to maintain high tension."
+   },
+   "spoiler": 1,
+   "final_score": 2.308,
+   "rank": 44,
+   "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back; 41s is in the 30-45s sweet spot",
+   "episodes": [
+    49
+   ]
+  },
+  {
+   "id": "E31-C1",
+   "kind": "stitched",
+   "title": "Chained But Unbroken",
+   "segments": [
+    {
+     "ep": 31,
+     "start": 4.2,
+     "end": 24.5,
+     "start_beat": "E31-B005",
+     "end_beat": "E31-B014",
+     "start_ts": "00:04.20",
+     "end_ts": "00:24.50",
+     "seconds": 20.3
+    },
+    {
+     "ep": 31,
+     "start": 39.2,
+     "end": 65.3,
+     "start_beat": "E31-B023",
+     "end_beat": "E31-B036",
+     "start_ts": "00:39.20",
+     "end_ts": "01:05.30",
+     "seconds": 26.1
+    }
+   ],
+   "duration": 46.4,
+   "hook": "Look at you.",
+   "cliffhanger": "I chose myself.",
+   "why": "Juliana's unyielding dignity while chained in a dungeon against her cruel tormentor makes viewers instantly root for her survival.",
+   "hook_beat": "E31-B006",
+   "cliff_beat": "E31-B036",
+   "repaired": true,
+   "repairs": [
+    "61s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A noblewoman taunts a shackled prisoner about her past failures and lost marriage.",
+    "weakness": "The dialogue about the altar rejection feels repetitive for the genre."
+   },
+   "spoiler": 2,
+   "final_score": 2.305,
+   "rank": 45,
+   "post_reason": "scroll-stopping hook (4/5); some spoiler risk, so held back",
+   "episodes": [
+    31
+   ]
+  },
+  {
+   "id": "E20-C1",
+   "kind": "continuous",
+   "title": "Conspiring to Steal the Seat",
+   "segments": [
+    {
+     "ep": 20,
+     "start": 30.2,
+     "end": 56.5,
+     "start_beat": "E20-B020",
+     "end_beat": "E20-B032",
+     "start_ts": "00:30.20",
+     "end_ts": "00:56.50",
+     "seconds": 26.3
+    }
+   ],
+   "duration": 26.3,
+   "hook": "Her health fails more each day. The physicians are baffled.",
+   "cliffhanger": "They call it a wasting of the lungs.",
+   "why": "Villains casually discuss poisoning the Dowager Duchess to usurp the throne.",
+   "hook_beat": "E20-B021",
+   "cliff_beat": "E20-B032",
+   "repaired": false,
+   "repairs": [],
+   "scores": {
+    "judged": true,
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Two villains plot the slow, fatal poisoning of a woman to seize a ducal crown.",
+    "weakness": "Lacks immediate stakes or a protagonist to root for; feels like a static scene."
+   },
+   "spoiler": 0,
+   "final_score": 2.295,
+   "rank": 46,
+   "post_reason": "clear to a first-time viewer (3/5)",
+   "episodes": [
+    20
+   ]
+  },
+  {
+   "id": "E46-C1",
+   "kind": "continuous",
+   "title": "The High Priest's Decree",
+   "segments": [
+    {
+     "ep": 46,
+     "start": 11.5,
+     "end": 58.0,
+     "start_beat": "E46-B008",
+     "end_beat": "E46-B032",
+     "start_ts": "00:11.50",
+     "end_ts": "00:58.00",
+     "seconds": 46.5
+    }
+   ],
+   "duration": 46.5,
+   "hook": "By Royal command, this sanctuary is placed under immediate Crown scesion.",
+   "cliffhanger": "Alexander Ashburton was already dead.",
+   "why": "A stranger gets dropped into high-stakes medieval legal warfare where a powerful church official invalidates a marriage by declaring the groom legally dead.",
+   "hook_beat": "E46-B008",
+   "cliff_beat": "E46-B032",
+   "repaired": true,
+   "repairs": [
+    "start moved 7.1s -> 11.5s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A High Priest uses legal technicalities to invalidate a Duke's marriage to a commoner.",
+    "weakness": "Too much legalistic dialogue slows down the emotional momentum."
+   },
+   "spoiler": 1,
+   "final_score": 2.033,
+   "rank": 47,
+   "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back",
+   "episodes": [
+    46
+   ]
+  },
+  {
+   "id": "E40-C1",
+   "kind": "continuous",
+   "title": "By Sunset Our Witch Will Be Dead",
+   "segments": [
+    {
+     "ep": 40,
+     "start": 74.8,
+     "end": 110.08,
+     "start_beat": "E40-B038",
+     "end_beat": "E40-B051",
+     "start_ts": "01:14.80",
+     "end_ts": "01:50.08",
+     "seconds": 35.28
+    }
+   ],
+   "duration": 35.28,
+   "hook": "\"By sunset, Ashburgh will have its new Duke and Duchess. And its witch will be dead.\"",
+   "cliffhanger": "Rupert and Catherine exchange triumphant smiles at the altar.",
+   "why": "The villains feel completely untouchable just moments before their world comes crashing down.",
+   "hook_beat": "E40-B038",
+   "cliff_beat": "E40-B051",
+   "repaired": true,
+   "repairs": [
+    "start moved 58.2s -> 74.8s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 3,
+    "cold_viewer_summary": "A wedding ceremony between an aristocratic couple is interrupted by a mysterious, smug exchange.",
+    "weakness": "Lacks a clear conflict or stakes to hook a casual viewer."
+   },
+   "spoiler": 2,
+   "final_score": 2.032,
+   "rank": 48,
+   "post_reason": "clear to a first-time viewer (4/5); some spoiler risk, so held back; 35s is in the 30-45s sweet spot",
+   "episodes": [
+    40
+   ]
+  },
+  {
+   "id": "E37-C2",
+   "kind": "continuous",
+   "title": "They Cannot Take Who I Am",
+   "segments": [
+    {
+     "ep": 37,
+     "start": 96.0,
+     "end": 116.2,
+     "start_beat": "E37-B054",
+     "end_beat": "E37-B063",
+     "start_ts": "01:36.00",
+     "end_ts": "01:56.20",
+     "seconds": 20.2
+    }
+   ],
+   "duration": 20.2,
+   "hook": "\"They think hunger will make me surrender. I will not!\"",
+   "cliffhanger": "\"They cannot take who I am!\"",
+   "why": "Juliana's unbreakable defiance in a filthy dungeon inspires instant respect.",
+   "hook_beat": "E37-B054",
+   "cliff_beat": "E37-B063",
+   "repaired": true,
+   "repairs": [
+    "start moved 88.0s -> 96.0s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A starving prisoner finds inner strength and refuses to break under torture.",
+    "weakness": "The physical struggle is a bit repetitive without a clear external threat in this specific clip."
+   },
+   "spoiler": 2,
+   "final_score": 2.006,
+   "rank": 49,
+   "post_reason": "scroll-stopping hook (4/5); some spoiler risk, so held back",
+   "episodes": [
+    37
+   ]
+  },
+  {
+   "id": "E32-C1",
+   "kind": "stitched",
+   "title": "Burn The Ledger",
+   "segments": [
+    {
+     "ep": 32,
+     "start": 20.2,
+     "end": 42.8,
+     "start_beat": "E32-B017",
+     "end_beat": "E32-B031",
+     "start_ts": "00:20.20",
+     "end_ts": "00:42.80",
+     "seconds": 22.6
+    },
+    {
+     "ep": 32,
+     "start": 54.6,
+     "end": 82.0,
+     "start_beat": "E32-B044",
+     "end_beat": "E32-B062",
+     "start_ts": "00:54.60",
+     "end_ts": "01:22.00",
+     "seconds": 27.4
+    }
+   ],
+   "duration": 50.0,
+   "hook": "Burn it.",
+   "cliffhanger": "My husband.",
+   "why": "Juliana completely turns the tables psychologically on her torturer with fierce emotional resilience.",
+   "hook_beat": "E32-B017",
+   "cliff_beat": "E32-B062",
+   "repaired": true,
+   "repairs": [
+    "start moved 17.0s -> 20.2s to open on the hook",
+    "62s window condensed to the hook opening plus the run-up to the cliffhanger"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A prisoner defies her captor, claiming her spirit and husband's love are untouchable.",
+    "weakness": "The dialogue is overly theatrical and lacks natural flow."
+   },
+   "spoiler": 2,
+   "final_score": 1.997,
+   "rank": 50,
+   "post_reason": "clear to a first-time viewer (4/5); some spoiler risk, so held back",
+   "episodes": [
+    32
+   ]
+  },
+  {
+   "id": "E30-C1",
+   "kind": "continuous",
+   "title": "Conspiring to Hang a Witch",
+   "segments": [
+    {
+     "ep": 30,
+     "start": 125.5,
+     "end": 151.21,
+     "start_beat": "E30-B063",
+     "end_beat": "E30-B070",
+     "start_ts": "02:05.50",
+     "end_ts": "02:31.21",
+     "seconds": 25.71
+    }
+   ],
+   "duration": 25.71,
+   "hook": "She will hang. A perfect solution.",
+   "cliffhanger": "Juliana shivers in the flooded cell, looking upward in dread and fragile hope.",
+   "why": "The villains finalize their conspiracy to manufacture a capital witchcraft trial, leaving our heroine facing imminent execution.",
+   "hook_beat": "E30-B063",
+   "cliff_beat": "E30-B071",
+   "repaired": true,
+   "repairs": [
+    "start moved 122.4s -> 125.5s to open on the hook"
+   ],
+   "scores": {
+    "judged": true,
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains plot to execute a woman as a witch while she suffers in a dungeon.",
+    "weakness": "Lacks a strong active beat; it's mostly setup for future events."
+   },
+   "spoiler": 2,
+   "final_score": 1.563,
+   "rank": 51,
+   "post_reason": "scroll-stopping hook (3/5); some spoiler risk, so held back",
+   "episodes": [
+    30
+   ]
+  }
+ ]
+}

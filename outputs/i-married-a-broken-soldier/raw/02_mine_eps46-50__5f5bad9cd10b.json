@@ -1,0 +1,175 @@
+{
+ "tag": "02_mine_eps46-50",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146112.300856,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 40475,
+ "user_sha256": "287c510f6615b49ae1d3305b51778120bb5edf68d71c7991f0404709d8fe9f9b",
+ "response_text": "{\n  \"episodes\": [\n    {\n      \"episode\": 46,\n      \"candidates\": [\n        {\n          \"title\": \"The High Priest's Decree\",\n          \"start_beat\": \"E46-B005\",\n          \"end_beat\": \"E46-B032\",\n          \"hook_beat\": \"E46-B008\",\n          \"cliff_beat\": \"E46-B032\",\n          \"hook\": \"By Royal command, this sanctuary is placed under immediate Crown scesion.\",\n          \"cliffhanger\": \"Alexander Ashburton was already dead.\",\n          \"why\": \"A stranger gets dropped into high-stakes medieval legal warfare where a powerful church official invalidates a marriage by declaring the groom legally dead.\",\n          \"context_needed\": \"Alexander is a secret Duke whose marriage is being attacked.\"\n        },\n        {\n          \"title\": \"God Married Us\",\n          \"start_beat\": \"E46-B033\",\n          \"end_beat\": \"E46-B046\",\n          \"hook_beat\": \"E46-B034\",\n          \"cliff_beat\": \"E46-B046\",\n          \"hook\": \"I didn't ask this church for permission to survive, Father.\",\n          \"cliffhanger\": \"God married us, Father! You are just angry no one asked you first!\",\n          \"why\": \"The heroine stands up to an abusive religious authority with fierce, emotional defiance that makes viewers cheer.\",\n          \"context_needed\": \"\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E46-B008\",\n          \"type\": \"hook\",\n          \"note\": \"Sanctuary placed under immediate Crown seizure by marching armed guards.\"\n        },\n        {\n          \"beat\": \"E46-B032\",\n          \"type\": \"cliff\",\n          \"note\": \"High Priest reveals the groom was legally dead in the royal register.\"\n        },\n        {\n          \"beat\": \"E46-B046\",\n          \"type\": \"cliff\",\n          \"note\": \"Juliana yells triumphantly that God married them.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 47,\n      \"candidates\": [\n        {\n          \"title\": \"Scullery Maid Punishment\",\n          \"start_beat\": \"E47-B050\",\n          \"end_beat\": \"E47-B070\",\n          \"hook_beat\": \"E47-B053\",\n          \"cliff_beat\": \"E47-B070\",\n          \"hook\": \"As a scullery maid.\",\n          \"cliffhanger\": \"Catherine prostrates herself entirely upon the floor in total defeat.\",\n          \"why\": \"Watching the villainous, arrogant noblewoman forced to beg for scraps and scrub floors as a servant is peak satisfying retribution.\",\n          \"context_needed\": \"Catherine tried to destroy Juliana and is now destitute.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E47-B053\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana forces Catherine to choose between exile and scrubbing floors.\"\n        },\n        {\n          \"beat\": \"E47-B070\",\n          \"type\": \"cliff\",\n          \"note\": \"Catherine completely prostrates herself on the stone floor.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 48,\n      \"candidates\": [\n        {\n          \"title\": \"Ten Days is a Door\",\n          \"start_beat\": \"E48-B001\",\n          \"end_beat\": \"E48-B014\",\n          \"hook_beat\": \"E48-B003\",\n          \"cliff_beat\": \"E48-B014\",\n          \"hook\": \"Two words, and that healer's crown rolls right back into the gutter.\",\n          \"cliffhanger\": \"Ten days is not a wall, Alexander. It's a door, and doors can be closed.\",\n          \"why\": \"The villain vows bloody revenge and plots behind the scenes, creating instant suspense for what she will do next.\",\n          \"context_needed\": \"Catherine was just humiliated and is planning her counter-attack.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E48-B003\",\n          \"type\": \"hook\",\n          \"note\": \"Catherine vows with venomous malice to take back the crown.\"\n        },\n        {\n          \"beat\": \"E48-B014\",\n          \"type\": \"cliff\",\n          \"note\": \"Catherine chillingly states doors can be closed from the other side.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 49,\n      \"candidates\": [\n        {\n          \"title\": \"Conspiracy in the Dark\",\n          \"start_beat\": \"E49-B004\",\n          \"end_beat\": \"E49-B020\",\n          \"hook_beat\": \"E49-B005\",\n          \"cliff_beat\": \"E49-B020\",\n          \"hook\": \"You took your time.\",\n          \"cliffhanger\": \"No one in this house so much as suspects your face belongs to that morning.\",\n          \"why\": \"A disgraced bride and a corrupt priest meeting secretly in a derelict wing oozes scandalous forbidden tension.\",\n          \"context_needed\": \"Catherine is secretly plotting with a priest to ruin the Duke.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E49-B005\",\n          \"type\": \"hook\",\n          \"note\": \"Catherine chastises the hooded priest meeting her before dawn.\"\n        },\n        {\n          \"beat\": \"E49-B020\",\n          \"type\": \"cliff\",\n          \"note\": \"Catherine issues a stern warning to keep their treason secret.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 50,\n      \"candidates\": [\n        {\n          \"title\": \"Caught in the Act\",\n          \"start_beat\": \"E50-B031\",\n          \"end_beat\": \"E50-B040\",\n          \"hook_beat\": \"E50-B036\",\n          \"cliff_beat\": \"E50-B040\",\n          \"hook\": \"Through the crack of the door, Agnes sees Catherine and the shirtless priest...\",\n          \"cliffhanger\": \"Frantic backward tracking close-up on Agnes stumbling back into the shadows, horrified.\",\n          \"why\": \"Walking in on the villain and a holy man in bed is the ultimate scandalous exposure cliffhanger that demands immediate resolution.\",\n          \"context_needed\": \"Catherine is secretly conspiring and sleeping with Father Thomas.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E50-B036\",\n          \"type\": \"hook\",\n          \"note\": \"Agnes catches Catherine and the shirtless priest in a passionate embrace.\"\n        },\n        {\n          \"beat\": \"E50-B040\",\n          \"type\": \"cliff\",\n          \"note\": \"Agnes stumbles back into the hallway terrified by the lethal secret.\"\n        }\n      ]\n    }\n  ]\n}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 46,
+    "candidates": [
+     {
+      "title": "The High Priest's Decree",
+      "start_beat": "E46-B005",
+      "end_beat": "E46-B032",
+      "hook_beat": "E46-B008",
+      "cliff_beat": "E46-B032",
+      "hook": "By Royal command, this sanctuary is placed under immediate Crown scesion.",
+      "cliffhanger": "Alexander Ashburton was already dead.",
+      "why": "A stranger gets dropped into high-stakes medieval legal warfare where a powerful church official invalidates a marriage by declaring the groom legally dead.",
+      "context_needed": "Alexander is a secret Duke whose marriage is being attacked."
+     },
+     {
+      "title": "God Married Us",
+      "start_beat": "E46-B033",
+      "end_beat": "E46-B046",
+      "hook_beat": "E46-B034",
+      "cliff_beat": "E46-B046",
+      "hook": "I didn't ask this church for permission to survive, Father.",
+      "cliffhanger": "God married us, Father! You are just angry no one asked you first!",
+      "why": "The heroine stands up to an abusive religious authority with fierce, emotional defiance that makes viewers cheer.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E46-B008",
+      "type": "hook",
+      "note": "Sanctuary placed under immediate Crown seizure by marching armed guards."
+     },
+     {
+      "beat": "E46-B032",
+      "type": "cliff",
+      "note": "High Priest reveals the groom was legally dead in the royal register."
+     },
+     {
+      "beat": "E46-B046",
+      "type": "cliff",
+      "note": "Juliana yells triumphantly that God married them."
+     }
+    ]
+   },
+   {
+    "episode": 47,
+    "candidates": [
+     {
+      "title": "Scullery Maid Punishment",
+      "start_beat": "E47-B050",
+      "end_beat": "E47-B070",
+      "hook_beat": "E47-B053",
+      "cliff_beat": "E47-B070",
+      "hook": "As a scullery maid.",
+      "cliffhanger": "Catherine prostrates herself entirely upon the floor in total defeat.",
+      "why": "Watching the villainous, arrogant noblewoman forced to beg for scraps and scrub floors as a servant is peak satisfying retribution.",
+      "context_needed": "Catherine tried to destroy Juliana and is now destitute."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E47-B053",
+      "type": "hook",
+      "note": "Juliana forces Catherine to choose between exile and scrubbing floors."
+     },
+     {
+      "beat": "E47-B070",
+      "type": "cliff",
+      "note": "Catherine completely prostrates herself on the stone floor."
+     }
+    ]
+   },
+   {
+    "episode": 48,
+    "candidates": [
+     {
+      "title": "Ten Days is a Door",
+      "start_beat": "E48-B001",
+      "end_beat": "E48-B014",
+      "hook_beat": "E48-B003",
+      "cliff_beat": "E48-B014",
+      "hook": "Two words, and that healer's crown rolls right back into the gutter.",
+      "cliffhanger": "Ten days is not a wall, Alexander. It's a door, and doors can be closed.",
+      "why": "The villain vows bloody revenge and plots behind the scenes, creating instant suspense for what she will do next.",
+      "context_needed": "Catherine was just humiliated and is planning her counter-attack."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E48-B003",
+      "type": "hook",
+      "note": "Catherine vows with venomous malice to take back the crown."
+     },
+     {
+      "beat": "E48-B014",
+      "type": "cliff",
+      "note": "Catherine chillingly states doors can be closed from the other side."
+     }
+    ]
+   },
+   {
+    "episode": 49,
+    "candidates": [
+     {
+      "title": "Conspiracy in the Dark",
+      "start_beat": "E49-B004",
+      "end_beat": "E49-B020",
+      "hook_beat": "E49-B005",
+      "cliff_beat": "E49-B020",
+      "hook": "You took your time.",
+      "cliffhanger": "No one in this house so much as suspects your face belongs to that morning.",
+      "why": "A disgraced bride and a corrupt priest meeting secretly in a derelict wing oozes scandalous forbidden tension.",
+      "context_needed": "Catherine is secretly plotting with a priest to ruin the Duke."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E49-B005",
+      "type": "hook",
+      "note": "Catherine chastises the hooded priest meeting her before dawn."
+     },
+     {
+      "beat": "E49-B020",
+      "type": "cliff",
+      "note": "Catherine issues a stern warning to keep their treason secret."
+     }
+    ]
+   },
+   {
+    "episode": 50,
+    "candidates": [
+     {
+      "title": "Caught in the Act",
+      "start_beat": "E50-B031",
+      "end_beat": "E50-B040",
+      "hook_beat": "E50-B036",
+      "cliff_beat": "E50-B040",
+      "hook": "Through the crack of the door, Agnes sees Catherine and the shirtless priest...",
+      "cliffhanger": "Frantic backward tracking close-up on Agnes stumbling back into the shadows, horrified.",
+      "why": "Walking in on the villain and a holy man in bed is the ultimate scandalous exposure cliffhanger that demands immediate resolution.",
+      "context_needed": "Catherine is secretly conspiring and sleeping with Father Thomas."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E50-B036",
+      "type": "hook",
+      "note": "Agnes catches Catherine and the shirtless priest in a passionate embrace."
+     },
+     {
+      "beat": "E50-B040",
+      "type": "cliff",
+      "note": "Agnes stumbles back into the hallway terrified by the lethal secret."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 15974,
+  "completion_tokens": 1726
+ }
+}

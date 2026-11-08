@@ -1,0 +1,118 @@
+{
+ "tag": "04_judge_002",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146395.43716,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 25815,
+ "user_sha256": "a5b1982f835c3a966719106212ea8f7fb4f85203c3777141a1bbeacfd5e3c751",
+ "response_text": "{\"scores\": [\n  {\"id\": \"E40-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 4, \"emotion\": 3, \"cold_viewer_summary\": \"A wedding ceremony between an aristocratic couple is interrupted by a mysterious, smug exchange.\", \"weakness\": \"Lacks a clear conflict or stakes to hook a casual viewer.\"},\n  {\"id\": \"E41-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 5, \"emotion\": 4, \"cold_viewer_summary\": \"A disgraced woman in chains is mocked by her rival at a wedding, then the building explodes.\", \"weakness\": \"The explosion is a bit jarring and lacks immediate context for the cause.\"},\n  {\"id\": \"E42-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A man thought dead returns to reclaim his title, leaving the current usurper in terror.\", \"weakness\": \"The transition between the confrontation and the mother's speech feels slightly disjointed.\"},\n  {\"id\": \"E43-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"The rightful Duke returns to confront his usurper, leading to the arrest of a co-conspirator.\", \"weakness\": \"The dialogue is a bit exposition-heavy regarding the legal status of the title.\"},\n  {\"id\": \"E44-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"The usurper is arrested, and the hero rejects his former lover for the woman he truly loves.\", \"weakness\": \"Catherine's sudden shift from villain to pleading lover feels slightly rushed.\"},\n  {\"id\": \"E45-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"The hero frees his love, but a priest declares their marriage invalid, delighting the villainous rival.\", \"weakness\": \"The High Priest's sudden appearance and authority feel like a convenient plot device.\"},\n  {\"id\": \"E46-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A High Priest uses legal technicalities to invalidate a Duke's marriage to a commoner.\", \"weakness\": \"Too much legalistic dialogue slows down the emotional momentum.\"},\n  {\"id\": \"E46-C2\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A woman defiantly tells a priest that her love is valid despite his legalistic condemnation.\", \"weakness\": \"The monologue is a bit repetitive in its defiance.\"},\n  {\"id\": \"E47-C1\", \"hook\": 5, \"cliff\": 3, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"The former villain is forced to accept a life of servitude by the woman she wronged.\", \"weakness\": \"The shift to the maid role happens very quickly without much resistance.\"},\n  {\"id\": \"E48-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"The defeated villain plots a dark, ten-day scheme to reclaim her lost status and power.\", \"weakness\": \"The monologue is slightly static and relies heavily on the viewer knowing the stakes.\"},\n  {\"id\": \"E49-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A disgraced bride meets a priest secretly to discuss their ongoing, dangerous conspiracy.\", \"weakness\": \"Lacks a clear immediate threat or action to maintain high tension.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "E40-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 3,
+    "cold_viewer_summary": "A wedding ceremony between an aristocratic couple is interrupted by a mysterious, smug exchange.",
+    "weakness": "Lacks a clear conflict or stakes to hook a casual viewer."
+   },
+   {
+    "id": "E41-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 5,
+    "emotion": 4,
+    "cold_viewer_summary": "A disgraced woman in chains is mocked by her rival at a wedding, then the building explodes.",
+    "weakness": "The explosion is a bit jarring and lacks immediate context for the cause."
+   },
+   {
+    "id": "E42-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A man thought dead returns to reclaim his title, leaving the current usurper in terror.",
+    "weakness": "The transition between the confrontation and the mother's speech feels slightly disjointed."
+   },
+   {
+    "id": "E43-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The rightful Duke returns to confront his usurper, leading to the arrest of a co-conspirator.",
+    "weakness": "The dialogue is a bit exposition-heavy regarding the legal status of the title."
+   },
+   {
+    "id": "E44-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "The usurper is arrested, and the hero rejects his former lover for the woman he truly loves.",
+    "weakness": "Catherine's sudden shift from villain to pleading lover feels slightly rushed."
+   },
+   {
+    "id": "E45-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "The hero frees his love, but a priest declares their marriage invalid, delighting the villainous rival.",
+    "weakness": "The High Priest's sudden appearance and authority feel like a convenient plot device."
+   },
+   {
+    "id": "E46-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A High Priest uses legal technicalities to invalidate a Duke's marriage to a commoner.",
+    "weakness": "Too much legalistic dialogue slows down the emotional momentum."
+   },
+   {
+    "id": "E46-C2",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman defiantly tells a priest that her love is valid despite his legalistic condemnation.",
+    "weakness": "The monologue is a bit repetitive in its defiance."
+   },
+   {
+    "id": "E47-C1",
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "The former villain is forced to accept a life of servitude by the woman she wronged.",
+    "weakness": "The shift to the maid role happens very quickly without much resistance."
+   },
+   {
+    "id": "E48-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The defeated villain plots a dark, ten-day scheme to reclaim her lost status and power.",
+    "weakness": "The monologue is slightly static and relies heavily on the viewer knowing the stakes."
+   },
+   {
+    "id": "E49-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A disgraced bride meets a priest secretly to discuss their ongoing, dangerous conspiracy.",
+    "weakness": "Lacks a clear immediate threat or action to maintain high tension."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 7614,
+  "completion_tokens": 911
+ }
+}

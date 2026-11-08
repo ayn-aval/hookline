@@ -1,0 +1,179 @@
+{
+ "tag": "02_mine_eps41-45",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146106.35423,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 39638,
+ "user_sha256": "7e6659802a662f1a6aa13fa21a58ec8ff18217dff3b8230a756dc81c53fc9673",
+ "response_text": "{\"episodes\": [\n  {\n    \"episode\": 41,\n    \"candidates\": [\n      {\n        \"title\": \"Chained Bride Paraded in Chapel\",\n        \"start_beat\": \"E41-B011\",\n        \"end_beat\": \"E41-B047\",\n        \"hook_beat\": \"E41-B017\",\n        \"cliff_beat\": \"E41-B047\",\n        \"hook\": \"There she is.\",\n        \"cliffhanger\": \"Ear-splitting detonation, shattering stone, wood splintering violently into kindling, followed by terrified screams of the congregation.\",\n        \"why\": \"Viewers will want to see who caused the explosive rescue at the ruined wedding.\",\n        \"context_needed\": \"Juliana was framed and chained by her cruel enemies.\",\n        \"title\": \"Explosive Wedding Interruption\"\n      }\n    ],\n    \"moments\": [\n      {\n        \"beat\": \"E41-B017\",\n        \"type\": \"hook\",\n        \"note\": \"Catherine gloatingly presents the chained Juliana.\"\n      },\n      {\n        \"beat\": \"E41-B034\",\n        \"type\": \"hook\",\n        \"note\": \"Juliana defies Catherine despite her heavy chains.\"\n      },\n      {\n        \"beat\": \"E41-B047\",\n        \"type\": \"cliff\",\n        \"note\": \"Cathedral entrance explodes into a massive fireball.\"\n      }\n    ]\n  },\n  {\n    \"episode\": 42,\n    \"candidates\": [\n      {\n        \"title\": \"Return of the Rightful Duke\",\n        \"start_beat\": \"E42-B001\",\n        \"end_beat\": \"E42-B037\",\n        \"hook_beat\": \"E42-B004\",\n        \"cliff_beat\": \"E42-B037\",\n        \"hook\": \"You already know.\",\n        \"cliffhanger\": \"And now, Rupert... we settle what you stole.\",\n        \"why\": \"The presumed dead scarred warrior returns in full ducal regalia to reclaim his stolen throne.\",\n        \"context_needed\": \"Alexander was believed dead after his unit was betrayed.\",\n        \"title\": \"The Scarred Duke Returns\"\n      }\n    ],\n    \"moments\": [\n      {\n        \"beat\": \"E42-B004\",\n        \"type\": \"hook\",\n        \"note\": \"Alexander steps through the smoke in full ducal regalia.\"\n      },\n      {\n        \"beat\": \"E42-B034\",\n        \"type\": \"cliff\",\n        \"note\": \"Mother proclaims Alexander the rightful Duke of Ashburn.\"\n      }\n    ]\n  },\n  {\n    \"episode\": 43,\n    \"candidates\": [\n      {\n        \"title\": \"Treason Dossier Read Aloud\",\n        \"start_beat\": \"E43-B006\",\n        \"end_beat\": \"E43-B087\",\n        \"hook_beat\": \"E43-B009\",\n        \"cliff_beat\": \"E43-B087\",\n        \"hook\": \"I said arrest him!\",\n        \"cliffhanger\": \"Sterling's escape is completely cut off by a stern British Police Constable.\",\n        \"why\": \"The public reading of top-secret treason documents exposes the villains in real time.\",\n        \"context_needed\": \"Rupert and Lord Sterling usurped Alexander's title.\",\n        \"title\": \"Exposing the Traitors\"\n      }\n    ],\n    \"moments\": [\n      {\n        \"beat\": \"E43-B009\",\n        \"type\": \"hook\",\n        \"note\": \"Rupert panics and orders guards to arrest the true Duke.\"\n      },\n      {\n        \"beat\": \"E43-B057\",\n        \"type\": \"hook\",\n        \"note\": \"Alexander accuses Rupert of selling his men to the enemy.\"\n      },\n      {\n        \"beat\": \"E43-B087\",\n        \"type\": \"cliff\",\n        \"note\": \"Lord Sterling's escape is blocked by the police.\"\n      }\n    ]\n  },\n  {\n    \"episode\": 44,\n    \"candidates\": [\n      {\n        \"title\": \"Catherine's Rejected Plea\",\n        \"start_beat\": \"E44-B001\",\n        \"end_beat\": \"E44-B054\",\n        \"hook_beat\": \"E44-B004\",\n        \"cliff_beat\": \"E44-B054\",\n        \"hook\": \"Lord Henry Sterling, you are under arrest by order of the Crown.\",\n        \"cliffhanger\": \"Catherine gasps in utter disbelief as Alexander walks past her to Juliana.\",\n        \"why\": \"The sheer humiliation of the scheming villainess being rejected for the true heroine is intensely satisfying.\",\n        \"context_needed\": \"Catherine tried to marry Rupert after abandoning Alexander.\",\n        \"title\": \"Choosing the True Bride\"\n      }\n    ],\n    \"moments\": [\n      {\n        \"beat\": \"E44-B004\",\n        \"type\": \"hook\",\n        \"note\": \"Lord Sterling is placed under arrest by the Crown.\"\n      },\n      {\n        \"beat\": \"E44-B037\",\n        \"type\": \"hook\",\n        \"note\": \"Alexander coldly rejects Catherine's desperate romantic plea.\"\n      },\n      {\n        \"beat\": \"E44-B054\",\n        \"type\": \"cliff\",\n        \"note\": \"Catherine gasps in shock as Alexander walks to Juliana.\"\n      }\n    ]\n  },\n  {\n    \"episode\": 45,\n    \"candidates\": [\n      {\n        \"title\": \"Invalid Marriage Shock\",\n        \"start_beat\": \"E45-B001\",\n        \"end_beat\": \"E45-B074\",\n        \"hook_beat\": \"E45-B007\",\n        \"cliff_beat\": \"E45-B074\",\n        \"hook\": \"Look at me.\",\n        \"cliffhanger\": \"Catherine smiles triumphantly as the High Priest invalidates Alexander and Juliana's marriage.\",\n        \"why\": \"Just when the heroes unite, a devastating ecclesiastical twist tears their victory away.\",\n        \"context_needed\": \"Alexander just proclaimed Juliana his lawful Duchess.\",\n        \"title\": \"The High Priest's Decree\"\n      }\n    ],\n    \"moments\": [\n      {\n        \"beat\": \"E45-B007\",\n        \"type\": \"hook\",\n        \"note\": \"Alexander kneels to free Juliana from her iron shackles.\"\n      },\n      {\n        \"beat\": \"E45-B053\",\n        \"type\": \"hook\",\n        \"note\": \"Alexander proudly presents Juliana as Duchess of Ashburton.\"\n      },\n      {\n        \"beat\": \"E45-B074\",\n        \"type\": \"cliff\",\n        \"note\": \"Catherine smirks as the High Priest invalidates the marriage.\"\n      }\n    ]\n  }\n]}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 41,
+    "candidates": [
+     {
+      "title": "Explosive Wedding Interruption",
+      "start_beat": "E41-B011",
+      "end_beat": "E41-B047",
+      "hook_beat": "E41-B017",
+      "cliff_beat": "E41-B047",
+      "hook": "There she is.",
+      "cliffhanger": "Ear-splitting detonation, shattering stone, wood splintering violently into kindling, followed by terrified screams of the congregation.",
+      "why": "Viewers will want to see who caused the explosive rescue at the ruined wedding.",
+      "context_needed": "Juliana was framed and chained by her cruel enemies."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E41-B017",
+      "type": "hook",
+      "note": "Catherine gloatingly presents the chained Juliana."
+     },
+     {
+      "beat": "E41-B034",
+      "type": "hook",
+      "note": "Juliana defies Catherine despite her heavy chains."
+     },
+     {
+      "beat": "E41-B047",
+      "type": "cliff",
+      "note": "Cathedral entrance explodes into a massive fireball."
+     }
+    ]
+   },
+   {
+    "episode": 42,
+    "candidates": [
+     {
+      "title": "The Scarred Duke Returns",
+      "start_beat": "E42-B001",
+      "end_beat": "E42-B037",
+      "hook_beat": "E42-B004",
+      "cliff_beat": "E42-B037",
+      "hook": "You already know.",
+      "cliffhanger": "And now, Rupert... we settle what you stole.",
+      "why": "The presumed dead scarred warrior returns in full ducal regalia to reclaim his stolen throne.",
+      "context_needed": "Alexander was believed dead after his unit was betrayed."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E42-B004",
+      "type": "hook",
+      "note": "Alexander steps through the smoke in full ducal regalia."
+     },
+     {
+      "beat": "E42-B034",
+      "type": "cliff",
+      "note": "Mother proclaims Alexander the rightful Duke of Ashburn."
+     }
+    ]
+   },
+   {
+    "episode": 43,
+    "candidates": [
+     {
+      "title": "Exposing the Traitors",
+      "start_beat": "E43-B006",
+      "end_beat": "E43-B087",
+      "hook_beat": "E43-B009",
+      "cliff_beat": "E43-B087",
+      "hook": "I said arrest him!",
+      "cliffhanger": "Sterling's escape is completely cut off by a stern British Police Constable.",
+      "why": "The public reading of top-secret treason documents exposes the villains in real time.",
+      "context_needed": "Rupert and Lord Sterling usurped Alexander's title."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E43-B009",
+      "type": "hook",
+      "note": "Rupert panics and orders guards to arrest the true Duke."
+     },
+     {
+      "beat": "E43-B057",
+      "type": "hook",
+      "note": "Alexander accuses Rupert of selling his men to the enemy."
+     },
+     {
+      "beat": "E43-B087",
+      "type": "cliff",
+      "note": "Lord Sterling's escape is blocked by the police."
+     }
+    ]
+   },
+   {
+    "episode": 44,
+    "candidates": [
+     {
+      "title": "Choosing the True Bride",
+      "start_beat": "E44-B001",
+      "end_beat": "E44-B054",
+      "hook_beat": "E44-B004",
+      "cliff_beat": "E44-B054",
+      "hook": "Lord Henry Sterling, you are under arrest by order of the Crown.",
+      "cliffhanger": "Catherine gasps in utter disbelief as Alexander walks past her to Juliana.",
+      "why": "The sheer humiliation of the scheming villainess being rejected for the true heroine is intensely satisfying.",
+      "context_needed": "Catherine tried to marry Rupert after abandoning Alexander."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E44-B004",
+      "type": "hook",
+      "note": "Lord Sterling is placed under arrest by the Crown."
+     },
+     {
+      "beat": "E44-B037",
+      "type": "hook",
+      "note": "Alexander coldly rejects Catherine's desperate romantic plea."
+     },
+     {
+      "beat": "E44-B054",
+      "type": "cliff",
+      "note": "Catherine gasps in shock as Alexander walks to Juliana."
+     }
+    ]
+   },
+   {
+    "episode": 45,
+    "candidates": [
+     {
+      "title": "The High Priest's Decree",
+      "start_beat": "E45-B001",
+      "end_beat": "E45-B074",
+      "hook_beat": "E45-B007",
+      "cliff_beat": "E45-B074",
+      "hook": "Look at me.",
+      "cliffhanger": "Catherine smiles triumphantly as the High Priest invalidates Alexander and Juliana's marriage.",
+      "why": "Just when the heroes unite, a devastating ecclesiastical twist tears their victory away.",
+      "context_needed": "Alexander just proclaimed Juliana his lawful Duchess."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E45-B007",
+      "type": "hook",
+      "note": "Alexander kneels to free Juliana from her iron shackles."
+     },
+     {
+      "beat": "E45-B053",
+      "type": "hook",
+      "note": "Alexander proudly presents Juliana as Duchess of Ashburton."
+     },
+     {
+      "beat": "E45-B074",
+      "type": "cliff",
+      "note": "Catherine smirks as the High Priest invalidates the marriage."
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 16028,
+  "completion_tokens": 1690
+ }
+}

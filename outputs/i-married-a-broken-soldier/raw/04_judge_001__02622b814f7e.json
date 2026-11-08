@@ -1,0 +1,154 @@
+{
+ "tag": "04_judge_001",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146122.201175,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 28862,
+ "user_sha256": "800f57beae71950a736d730231a4a2ddd38e7a7939e1556921154d63264c01da",
+ "response_text": "{\"scores\": [\n  {\"id\": \"E30-C1\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A woman is framed as a witch and imprisoned in a dungeon by cruel nobles.\", \"weakness\": \"The dialogue is a bit too exposition-heavy for a 26-second ad.\"},\n  {\"id\": \"E31-C2\", \"hook\": 5, \"cliff\": 5, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"A cruel woman burns a prisoner's sentimental book and threatens her with a red-hot iron.\", \"weakness\": \"The branding iron threat is a bit cliché for this genre.\"},\n  {\"id\": \"E34-C1\", \"hook\": 2, \"cliff\": 4, \"standalone\": 4, \"emotion\": 3, \"cold_viewer_summary\": \"A lady stands trial for witchcraft and healing, while her maid is forced to testify against her.\", \"weakness\": \"Too much talking, lacks the immediate visceral punch of the dungeon scenes.\"},\n  {\"id\": \"E35-C1\", \"hook\": 4, \"cliff\": 2, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A mother is reunited with her son who was presumed dead in a military mission.\", \"weakness\": \"The pacing is too slow for a microdrama hook.\"},\n  {\"id\": \"E36-C2\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A man reveals to his mother that he was declared dead so others could steal his estate.\", \"weakness\": \"Relies too heavily on previous context not shown in the clip.\"},\n  {\"id\": \"E37-C2\", \"hook\": 4, \"cliff\": 3, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"An imprisoned woman refuses to break despite torture and starvation.\", \"weakness\": \"A bit repetitive with the 'I will not' dialogue.\"},\n  {\"id\": \"E38-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"A prisoner realizes her husband's wedding to another woman is starting and she is next to die.\", \"weakness\": \"The transition to the wedding bells is a bit abrupt.\"},\n  {\"id\": \"E39-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A presumed-dead Duke returns in splendor to reclaim his house and save his wife.\", \"weakness\": \"The transition from barn to snow is a bit jarring.\"},\n  {\"id\": \"E40-C1\", \"hook\": 3, \"cliff\": 2, \"standalone\": 4, \"emotion\": 3, \"cold_viewer_summary\": \"A villainous couple celebrates their wedding, unaware of the impending threat.\", \"weakness\": \"Lacks a strong emotional anchor compared to the prisoner clips.\"},\n  {\"id\": \"E41-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A prisoner is brought to her husband's wedding to be humiliated, but the chapel is bombed.\", \"weakness\": \"The explosion effect feels a bit low-budget compared to the drama.\"},\n  {\"id\": \"E46-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"The church declares a Duke's marriage invalid because he was legally dead.\", \"weakness\": \"Too much legalistic dialogue that slows down the momentum.\"},\n  {\"id\": \"E46-C2\", \"hook\": 5, \"cliff\": 3, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"A woman defies the church, claiming her marriage to a Duke is valid before God.\", \"weakness\": \"The dialogue feels a bit melodramatic even for this genre.\"},\n  {\"id\": \"E47-C1\", \"hook\": 5, \"cliff\": 2, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A former noblewoman is forced to scrub floors by the woman she once oppressed.\", \"weakness\": \"The resolution is satisfying but lacks a cliffhanger.\"},\n  {\"id\": \"E48-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A villain plots to undo a decree within ten days to destroy her rival.\", \"weakness\": \"A bit too much 'villain monologue' without enough action.\"},\n  {\"id\": \"E49-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A woman meets a priest in secret to plot further schemes against her enemies.\", \"weakness\": \"Lacks visual stakes; it's just two people talking in a room.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "E30-C1",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman is framed as a witch and imprisoned in a dungeon by cruel nobles.",
+    "weakness": "The dialogue is a bit too exposition-heavy for a 26-second ad."
+   },
+   {
+    "id": "E31-C2",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel woman burns a prisoner's sentimental book and threatens her with a red-hot iron.",
+    "weakness": "The branding iron threat is a bit cliché for this genre."
+   },
+   {
+    "id": "E34-C1",
+    "hook": 2,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 3,
+    "cold_viewer_summary": "A lady stands trial for witchcraft and healing, while her maid is forced to testify against her.",
+    "weakness": "Too much talking, lacks the immediate visceral punch of the dungeon scenes."
+   },
+   {
+    "id": "E35-C1",
+    "hook": 4,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A mother is reunited with her son who was presumed dead in a military mission.",
+    "weakness": "The pacing is too slow for a microdrama hook."
+   },
+   {
+    "id": "E36-C2",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A man reveals to his mother that he was declared dead so others could steal his estate.",
+    "weakness": "Relies too heavily on previous context not shown in the clip."
+   },
+   {
+    "id": "E37-C2",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "An imprisoned woman refuses to break despite torture and starvation.",
+    "weakness": "A bit repetitive with the 'I will not' dialogue."
+   },
+   {
+    "id": "E38-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "A prisoner realizes her husband's wedding to another woman is starting and she is next to die.",
+    "weakness": "The transition to the wedding bells is a bit abrupt."
+   },
+   {
+    "id": "E39-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A presumed-dead Duke returns in splendor to reclaim his house and save his wife.",
+    "weakness": "The transition from barn to snow is a bit jarring."
+   },
+   {
+    "id": "E40-C1",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 4,
+    "emotion": 3,
+    "cold_viewer_summary": "A villainous couple celebrates their wedding, unaware of the impending threat.",
+    "weakness": "Lacks a strong emotional anchor compared to the prisoner clips."
+   },
+   {
+    "id": "E41-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A prisoner is brought to her husband's wedding to be humiliated, but the chapel is bombed.",
+    "weakness": "The explosion effect feels a bit low-budget compared to the drama."
+   },
+   {
+    "id": "E46-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "The church declares a Duke's marriage invalid because he was legally dead.",
+    "weakness": "Too much legalistic dialogue that slows down the momentum."
+   },
+   {
+    "id": "E46-C2",
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman defies the church, claiming her marriage to a Duke is valid before God.",
+    "weakness": "The dialogue feels a bit melodramatic even for this genre."
+   },
+   {
+    "id": "E47-C1",
+    "hook": 5,
+    "cliff": 2,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A former noblewoman is forced to scrub floors by the woman she once oppressed.",
+    "weakness": "The resolution is satisfying but lacks a cliffhanger."
+   },
+   {
+    "id": "E48-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A villain plots to undo a decree within ten days to destroy her rival.",
+    "weakness": "A bit too much 'villain monologue' without enough action."
+   },
+   {
+    "id": "E49-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A woman meets a priest in secret to plot further schemes against her enemies.",
+    "weakness": "Lacks visual stakes; it's just two people talking in a room."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 8432,
+  "completion_tokens": 1196
+ }
+}

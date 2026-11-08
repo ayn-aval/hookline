@@ -1,0 +1,199 @@
+{
+ "tag": "04_judge_001",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146391.64367,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 42903,
+ "user_sha256": "9219e1fc1dd8ab09c5ad5a932eb12cc258937f253317375907105b18cf76f5f9",
+ "response_text": "{\"scores\": [\n  {\"id\": \"E20-C1\", \"hook\": 2, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Two villains plot the slow, fatal poisoning of a woman to seize a ducal crown.\", \"weakness\": \"Lacks immediate stakes or a protagonist to root for; feels like a static scene.\"},\n  {\"id\": \"E23-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A woman tries to save a poisoned Duchess, but is interrupted by approaching enemies.\", \"weakness\": \"The pacing slows down too much during the apothecary preparation sequence.\"},\n  {\"id\": \"E24-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A noblewoman brutally humiliates a maid, but the maid secretly plots her revenge.\", \"weakness\": \"The scene is slightly too long; the middle section drags before the defiant payoff.\"},\n  {\"id\": \"E25-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A man discovers that a maid was punished for uncovering a poisoning plot against the Dowager.\", \"weakness\": \"Relies too heavily on exposition rather than showing the conflict.\"},\n  {\"id\": \"E26-C1\", \"hook\": 3, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"The Duchess realizes she is being poisoned and recognizes a mysterious ring on the maid.\", \"weakness\": \"The transition between the poisoning realization and the ring discovery feels slightly disjointed.\"},\n  {\"id\": \"E27-C2\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A maid is framed for poisoning the Duchess and dragged away by guards.\", \"weakness\": \"The villain's dialogue is a bit cliché and lacks subtlety.\"},\n  {\"id\": \"E28-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A cruel noblewoman mocks a disgraced Lady, threatening her with the gallows.\", \"weakness\": \"The villain's monologue is overly long, reducing the tension of the physical threat.\"},\n  {\"id\": \"E30-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Villains plot to execute a woman as a witch while she suffers in a dungeon.\", \"weakness\": \"Lacks a strong active beat; it's mostly setup for future events.\"},\n  {\"id\": \"E31-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A noblewoman taunts a shackled prisoner about her past failures and lost marriage.\", \"weakness\": \"The dialogue about the altar rejection feels repetitive for the genre.\"},\n  {\"id\": \"E31-C2\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A cruel noblewoman burns a prisoner's precious book and threatens her with a hot iron.\", \"weakness\": \"The extreme close-up of the eye at the end is a bit jarring.\"},\n  {\"id\": \"E32-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A prisoner defies her captor, claiming her spirit and husband's love are untouchable.\", \"weakness\": \"The dialogue is overly theatrical and lacks natural flow.\"},\n  {\"id\": \"E33-C1\", \"hook\": 3, \"cliff\": 4, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A lord threatens a maid to force a confession about a secret healer.\", \"weakness\": \"The maid's character is too passive, making the scene feel one-sided.\"},\n  {\"id\": \"E34-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A woman stands trial for witchcraft and poisoning, while her witness is forced to betray her.\", \"weakness\": \"The courtroom setup is generic and lacks visual flair.\"},\n  {\"id\": \"E35-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A long-lost son returns to his mother, revealing he survived a military betrayal.\", \"weakness\": \"The exposition about the Iberian front is dry and slows the emotional momentum.\"},\n  {\"id\": \"E36-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A man discovers his wife is imprisoned and vows to return as the Duke.\", \"weakness\": \"The transition to the barn door is a bit abrupt.\"},\n  {\"id\": \"E36-C2\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A son comforts his mother while learning his wife was imprisoned for saving her.\", \"weakness\": \"Too much talking; lacks the visual stakes of the other clips.\"},\n  {\"id\": \"E37-C1\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Villains invite the victim's family to a public execution as a warning.\", \"weakness\": \"The scene feels like filler and lacks immediate tension.\"},\n  {\"id\": \"E37-C2\", \"hook\": 4, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A starving prisoner finds inner strength and refuses to break under torture.\", \"weakness\": \"The physical struggle is a bit repetitive without a clear external threat in this specific clip.\"},\n  {\"id\": \"E38-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A prisoner hears wedding bells and realizes her execution is imminent, but remains hopeful.\", \"weakness\": \"The shift from terror to a hopeful smile feels slightly unearned.\"},\n  {\"id\": \"E39-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"The Duke returns in full regalia to reclaim his home and save his wife.\", \"weakness\": \"The military salute feels a bit out of place in this period setting.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "E20-C1",
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Two villains plot the slow, fatal poisoning of a woman to seize a ducal crown.",
+    "weakness": "Lacks immediate stakes or a protagonist to root for; feels like a static scene."
+   },
+   {
+    "id": "E23-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman tries to save a poisoned Duchess, but is interrupted by approaching enemies.",
+    "weakness": "The pacing slows down too much during the apothecary preparation sequence."
+   },
+   {
+    "id": "E24-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A noblewoman brutally humiliates a maid, but the maid secretly plots her revenge.",
+    "weakness": "The scene is slightly too long; the middle section drags before the defiant payoff."
+   },
+   {
+    "id": "E25-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A man discovers that a maid was punished for uncovering a poisoning plot against the Dowager.",
+    "weakness": "Relies too heavily on exposition rather than showing the conflict."
+   },
+   {
+    "id": "E26-C1",
+    "hook": 3,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The Duchess realizes she is being poisoned and recognizes a mysterious ring on the maid.",
+    "weakness": "The transition between the poisoning realization and the ring discovery feels slightly disjointed."
+   },
+   {
+    "id": "E27-C2",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A maid is framed for poisoning the Duchess and dragged away by guards.",
+    "weakness": "The villain's dialogue is a bit cliché and lacks subtlety."
+   },
+   {
+    "id": "E28-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel noblewoman mocks a disgraced Lady, threatening her with the gallows.",
+    "weakness": "The villain's monologue is overly long, reducing the tension of the physical threat."
+   },
+   {
+    "id": "E30-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains plot to execute a woman as a witch while she suffers in a dungeon.",
+    "weakness": "Lacks a strong active beat; it's mostly setup for future events."
+   },
+   {
+    "id": "E31-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A noblewoman taunts a shackled prisoner about her past failures and lost marriage.",
+    "weakness": "The dialogue about the altar rejection feels repetitive for the genre."
+   },
+   {
+    "id": "E31-C2",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel noblewoman burns a prisoner's precious book and threatens her with a hot iron.",
+    "weakness": "The extreme close-up of the eye at the end is a bit jarring."
+   },
+   {
+    "id": "E32-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A prisoner defies her captor, claiming her spirit and husband's love are untouchable.",
+    "weakness": "The dialogue is overly theatrical and lacks natural flow."
+   },
+   {
+    "id": "E33-C1",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A lord threatens a maid to force a confession about a secret healer.",
+    "weakness": "The maid's character is too passive, making the scene feel one-sided."
+   },
+   {
+    "id": "E34-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman stands trial for witchcraft and poisoning, while her witness is forced to betray her.",
+    "weakness": "The courtroom setup is generic and lacks visual flair."
+   },
+   {
+    "id": "E35-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A long-lost son returns to his mother, revealing he survived a military betrayal.",
+    "weakness": "The exposition about the Iberian front is dry and slows the emotional momentum."
+   },
+   {
+    "id": "E36-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A man discovers his wife is imprisoned and vows to return as the Duke.",
+    "weakness": "The transition to the barn door is a bit abrupt."
+   },
+   {
+    "id": "E36-C2",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A son comforts his mother while learning his wife was imprisoned for saving her.",
+    "weakness": "Too much talking; lacks the visual stakes of the other clips."
+   },
+   {
+    "id": "E37-C1",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Villains invite the victim's family to a public execution as a warning.",
+    "weakness": "The scene feels like filler and lacks immediate tension."
+   },
+   {
+    "id": "E37-C2",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A starving prisoner finds inner strength and refuses to break under torture.",
+    "weakness": "The physical struggle is a bit repetitive without a clear external threat in this specific clip."
+   },
+   {
+    "id": "E38-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A prisoner hears wedding bells and realizes her execution is imminent, but remains hopeful.",
+    "weakness": "The shift from terror to a hopeful smile feels slightly unearned."
+   },
+   {
+    "id": "E39-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "The Duke returns in full regalia to reclaim his home and save his wife.",
+    "weakness": "The military salute feels a bit out of place in this period setting."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 12705,
+  "completion_tokens": 1609
+ }
+}

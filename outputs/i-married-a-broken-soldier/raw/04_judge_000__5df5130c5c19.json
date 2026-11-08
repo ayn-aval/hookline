@@ -1,0 +1,199 @@
+{
+ "tag": "04_judge_000",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146121.9658298,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 41037,
+ "user_sha256": "bb91f025efd6189d59aa5e1d6144b79cc5bc92f379aec1c91415324fa2fb94a1",
+ "response_text": "{\"scores\": [{\"id\": \"E01-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A bride is humiliated at the altar when her groom marries her sister instead.\", \"weakness\": \"The dialogue is a bit melodramatic and predictable for the genre.\"}, {\"id\": \"E02-C1\", \"hook\": 3, \"cliff\": 2, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"The jilted bride delivers a powerful, dignified public rebuke to her unfaithful groom.\", \"weakness\": \"Lacks a high-stakes visual hook; it is mostly just a monologue.\"}, {\"id\": \"E04-C1\", \"hook\": 4, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A bride is disowned by her family and leaves with a mysterious warrior.\", \"weakness\": \"The transition from wedding to 'disowned' feels slightly rushed.\"}, {\"id\": \"E06-C2\", \"hook\": 2, \"cliff\": 1, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A displaced noblewoman finds comfort and safety with a scarred, mysterious man.\", \"weakness\": \"Too slow; lacks the conflict needed to stop a scroll.\"}, {\"id\": \"E07-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A disgraced noblewoman defends her humble life against her arrogant, mocking ex-fiancé.\", \"weakness\": \"The villain's dialogue is cartoonishly evil.\"}, {\"id\": \"E07-C2\", \"hook\": 5, \"cliff\": 2, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"A scarred man scares off an arrogant nobleman without saying a single word.\", \"weakness\": \"The resolution is too easy; lacks lasting tension.\"}, {\"id\": \"E08-C1\", \"hook\": 2, \"cliff\": 2, \"standalone\": 3, \"emotion\": 2, \"cold_viewer_summary\": \"A woman and a mysterious man bond over her mother's botanical book.\", \"weakness\": \"Very low stakes; boring for a fast-paced ad.\"}, {\"id\": \"E08-C2\", \"hook\": 3, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A couple shares an intimate, teasing moment while studying medicinal herbs.\", \"weakness\": \"Lacks any narrative hook or conflict.\"}, {\"id\": \"E10-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A woman discovers her protector is severely wounded and tends to his scars.\", \"weakness\": \"The 'it's just a scratch' trope is overused.\"}, {\"id\": \"E10-C2\", \"hook\": 4, \"cliff\": 2, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A wounded man and a woman share an intimate, emotionally charged moment.\", \"weakness\": \"Too much focus on slow dialogue rather than plot progression.\"}, {\"id\": \"E11-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A man is framed for theft when a watch is planted in his coat.\", \"weakness\": \"The frame-up is too obvious to the viewer.\"}, {\"id\": \"E12-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A cruel sister forces a woman to retrieve a ring from thorns to save her husband.\", \"weakness\": \"The villain's motivation is purely sadistic without clear logic.\"}, {\"id\": \"E13-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A woman bloodies her hands in thorns to find a ring and save her husband.\", \"weakness\": \"The gore is a bit excessive for a general audience.\"}, {\"id\": \"E18-C1\", \"hook\": 5, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"A man saves a woman from a collapsing, burning building.\", \"weakness\": \"The CGI/action feels low-budget.\"}, {\"id\": \"E18-C2\", \"hook\": 3, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"A man vows revenge after his home is destroyed by his enemies.\", \"weakness\": \"Generic dialogue that doesn't advance the story.\"}, {\"id\": \"E20-C1\", \"hook\": 4, \"cliff\": 2, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"Villains plot to kill a woman by poisoning her slowly.\", \"weakness\": \"The villains are too one-dimensional.\"}, {\"id\": \"E23-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A woman tries to save a poisoned Duchess while intruders approach the door.\", \"weakness\": \"The pacing of the 'intruder' reveal is a bit slow.\"}, {\"id\": \"E24-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A noblewoman forces a disgraced lady to scrub floors as punishment.\", \"weakness\": \"The humiliation trope is pushed to an uncomfortable extreme.\"}, {\"id\": \"E27-C2\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A woman is framed for poisoning and dragged away by guards.\", \"weakness\": \"The 'framed' plot point is a bit repetitive in this series.\"}, {\"id\": \"E28-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A villain reveals the heroine's past and sends her to the gallows.\", \"weakness\": \"The villain's monologue is too long.\"}]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "E01-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A bride is humiliated at the altar when her groom marries her sister instead.",
+    "weakness": "The dialogue is a bit melodramatic and predictable for the genre."
+   },
+   {
+    "id": "E02-C1",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The jilted bride delivers a powerful, dignified public rebuke to her unfaithful groom.",
+    "weakness": "Lacks a high-stakes visual hook; it is mostly just a monologue."
+   },
+   {
+    "id": "E04-C1",
+    "hook": 4,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A bride is disowned by her family and leaves with a mysterious warrior.",
+    "weakness": "The transition from wedding to 'disowned' feels slightly rushed."
+   },
+   {
+    "id": "E06-C2",
+    "hook": 2,
+    "cliff": 1,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A displaced noblewoman finds comfort and safety with a scarred, mysterious man.",
+    "weakness": "Too slow; lacks the conflict needed to stop a scroll."
+   },
+   {
+    "id": "E07-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A disgraced noblewoman defends her humble life against her arrogant, mocking ex-fiancé.",
+    "weakness": "The villain's dialogue is cartoonishly evil."
+   },
+   {
+    "id": "E07-C2",
+    "hook": 5,
+    "cliff": 2,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "A scarred man scares off an arrogant nobleman without saying a single word.",
+    "weakness": "The resolution is too easy; lacks lasting tension."
+   },
+   {
+    "id": "E08-C1",
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 2,
+    "cold_viewer_summary": "A woman and a mysterious man bond over her mother's botanical book.",
+    "weakness": "Very low stakes; boring for a fast-paced ad."
+   },
+   {
+    "id": "E08-C2",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A couple shares an intimate, teasing moment while studying medicinal herbs.",
+    "weakness": "Lacks any narrative hook or conflict."
+   },
+   {
+    "id": "E10-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A woman discovers her protector is severely wounded and tends to his scars.",
+    "weakness": "The 'it's just a scratch' trope is overused."
+   },
+   {
+    "id": "E10-C2",
+    "hook": 4,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A wounded man and a woman share an intimate, emotionally charged moment.",
+    "weakness": "Too much focus on slow dialogue rather than plot progression."
+   },
+   {
+    "id": "E11-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A man is framed for theft when a watch is planted in his coat.",
+    "weakness": "The frame-up is too obvious to the viewer."
+   },
+   {
+    "id": "E12-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A cruel sister forces a woman to retrieve a ring from thorns to save her husband.",
+    "weakness": "The villain's motivation is purely sadistic without clear logic."
+   },
+   {
+    "id": "E13-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman bloodies her hands in thorns to find a ring and save her husband.",
+    "weakness": "The gore is a bit excessive for a general audience."
+   },
+   {
+    "id": "E18-C1",
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "A man saves a woman from a collapsing, burning building.",
+    "weakness": "The CGI/action feels low-budget."
+   },
+   {
+    "id": "E18-C2",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "A man vows revenge after his home is destroyed by his enemies.",
+    "weakness": "Generic dialogue that doesn't advance the story."
+   },
+   {
+    "id": "E20-C1",
+    "hook": 4,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "Villains plot to kill a woman by poisoning her slowly.",
+    "weakness": "The villains are too one-dimensional."
+   },
+   {
+    "id": "E23-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman tries to save a poisoned Duchess while intruders approach the door.",
+    "weakness": "The pacing of the 'intruder' reveal is a bit slow."
+   },
+   {
+    "id": "E24-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A noblewoman forces a disgraced lady to scrub floors as punishment.",
+    "weakness": "The humiliation trope is pushed to an uncomfortable extreme."
+   },
+   {
+    "id": "E27-C2",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A woman is framed for poisoning and dragged away by guards.",
+    "weakness": "The 'framed' plot point is a bit repetitive in this series."
+   },
+   {
+    "id": "E28-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A villain reveals the heroine's past and sends her to the gallows.",
+    "weakness": "The villain's monologue is too long."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 12064,
+  "completion_tokens": 1483
+ }
+}

@@ -1,0 +1,145 @@
+{
+ "show_premise": "After being abandoned at the altar by her fiancé, a humiliated noblewoman marries a mysterious scarred warrior who is secretly the rightful Duke reclaiming his stolen throne.",
+ "characters": [
+  {
+   "name": "Lady Juliana",
+   "aliases": [
+    "JULIANA",
+    "LADY JULIANA",
+    "LADY IN GOLD GOWN"
+   ],
+   "role": "The resilient heroine abandoned at the altar who fights for justice using her late mother's herbal remedies."
+  },
+  {
+   "name": "Alexander",
+   "aliases": [
+    "ALEXANDER",
+    "MYSTERIOUS BEARDED MAN",
+    "THE BEARDED STRANGER",
+    "SCARRED BEARDED MAN"
+   ],
+   "role": "The scarred, rugged warrior and rightful Duke who marries Juliana and reclaims his birthright."
+  },
+  {
+   "name": "Gerald",
+   "aliases": [
+    "GERALD",
+    "THE FORMER GROOM",
+    "BLOND NOBLEMAN"
+   ],
+   "role": "Juliana's cruel ex-fiancé who abandons her for her sister Clarissa and conspires against her."
+  },
+  {
+   "name": "Clarissa",
+   "aliases": [
+    "CLARISSA",
+    "LADY CLARISSA"
+   ],
+   "role": "Juliana's spiteful sister who marries Gerald and torments Juliana."
+  },
+  {
+   "name": "Catherine",
+   "aliases": [
+    "CATHERINE",
+    "LADY CATHERINE"
+   ],
+   "role": "The treacherous noblewoman who conspires to poison the Dowager Duchess and steal the ducal seat."
+  },
+  {
+   "name": "Rupert",
+   "aliases": [
+    "RUPERT"
+   ],
+   "role": "Catherine's co-conspirator in usurping the ducal throne and framing Juliana."
+  },
+  {
+   "name": "Dowager Duchess",
+   "aliases": [
+    "DOWAGER DUCHESS",
+    "ALEXANDER'S MOTHER",
+    "NOBLE MATRIARCH",
+    "MATRIARCH"
+   ],
+   "role": "Alexander's poisoned mother whose life Juliana secretly tries to save."
+  }
+ ],
+ "arcs": [
+  "Juliana is abandoned at the altar by Gerald and Clarissa, then rescued and married by a mysterious scarred stranger.",
+  "Juliana and Alexander build a peaceful life in a woodland cottage while facing repeated harassment and arson from Gerald and his thugs.",
+  "Juliana infiltrates Ashbury Manor to treat the poisoned Dowager Duchess, only to be framed for witchcraft and poisoning by Rupert and Catherine.",
+  "Alexander discovers his mother and learns of the treasonous coup, returning from the dead to storm Catherine and Rupert's wedding.",
+  "Alexander reclaims his ducal title and exposes the conspirators, though an ecclesiastical challenge briefly threatens his marriage to Juliana."
+ ],
+ "reveals": [
+  {
+   "reveal": "Juliana is abandoned at the altar by her fiancé Gerald for her sister Clarissa.",
+   "episode": 1,
+   "ad_safe": true,
+   "keywords": [
+    "abandoned at the altar",
+    "fiancé gerald",
+    "sister clarissa"
+   ]
+  },
+  {
+   "reveal": "The mysterious scarred warrior Alexander marries Juliana in exile.",
+   "episode": 4,
+   "ad_safe": true,
+   "keywords": [
+    "solemn proposal",
+    "officially wed",
+    "scarred warrior"
+   ]
+  },
+  {
+   "reveal": "Gerald Harrington is behind the violent thugs attacking Juliana's medicinal garden.",
+   "episode": 16,
+   "ad_safe": false,
+   "keywords": [
+    "gerald harrington",
+    "mastermind",
+    "hired thugs"
+   ]
+  },
+  {
+   "reveal": "Rupert and Catherine are systematically poisoning the Dowager Duchess with arsenic to seize the ducal seat.",
+   "episode": 23,
+   "ad_safe": false,
+   "keywords": [
+    "poisoned with arsenic",
+    "dowager duchess",
+    "rupert and catherine"
+   ]
+  },
+  {
+   "reveal": "Rupert and Catherine frame Juliana for witchcraft and send her to the dungeon.",
+   "episode": 28,
+   "ad_safe": false,
+   "keywords": [
+    "witchcraft charge",
+    "dungeon",
+    "frame juliana"
+   ]
+  },
+  {
+   "reveal": "Alexander is revealed to be the true Duke of Ashburn whose throne was usurped.",
+   "episode": 42,
+   "ad_safe": false,
+   "keywords": [
+    "ducal regalia",
+    "rightful duke",
+    "ashburn"
+   ]
+  },
+  {
+   "reveal": "The High Priest invalidates Alexander and Juliana's wedding due to a lack of a royal license.",
+   "episode": 46,
+   "ad_safe": false,
+   "keywords": [
+    "ecclesiastical authority",
+    "invalidates marriage",
+    "royal license"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "tag": "01_bible",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146060.304107,
+ "system_prompt": "You are a story editor at a vertical microdrama studio (shows like those on ReelShort and DramaBox: 1-2 minute episodes, US audience).\n\nYou will receive, for every episode of ONE show, its episode number, logline and continuity notes, plus the list of speaker labels used in the screenplays with how often each appears.\n\nBuild a compact \"series bible\" that later steps will use to understand who is who and which twists must not be spoiled in ads.\n\nReturn ONLY a JSON object with exactly these keys:\n\n{\n  \"show_premise\": \"one sentence a stranger understands, the kind of line an ad would use\",\n  \"characters\": [\n    {\"name\": \"canonical name\", \"aliases\": [\"every speaker label / nickname used for them, e.g. LADY IN GOLD GOWN\"], \"role\": \"one short line: who they are to the lead\"}\n  ],\n  \"arcs\": [\"3-6 one-line major story arcs, in order\"],\n  \"reveals\": [\n    {\"reveal\": \"a twist or secret revealed during the series\", \"episode\": <first episode where the audience learns it>,\n     \"ad_safe\": true/false,\n     \"keywords\": [\"2-4 lowercase words/phrases that would appear in a line that gives it away\"]}\n  ]\n}\n\nRules:\n- Map anonymous labels (e.g. \"LADY IN GOLD GOWN\", \"THE FORMER GROOM\", \"MYSTERIOUS BEARDED MAN\") to the canonical character when the loglines make it clear; leave them out if unsure.\n- \"ad_safe\": true for reveals that are the show's premise or are given away by the show title itself (ads routinely use these as the hook). false for later twists whose surprise would be ruined for a new viewer.\n- 5-12 reveals, most important first. Be factual: only use what the loglines/notes say.\n",
+ "user_chars": 22487,
+ "user_sha256": "160ccbf5042fdf94b1b6efd2780932803207232136221d27c5953f432d261fde",
+ "response_text": "{\n  \"show_premise\": \"After being abandoned at the altar by her fiancé, a humiliated noblewoman marries a mysterious scarred warrior who is secretly the rightful Duke reclaiming his stolen throne.\",\n  \"characters\": [\n    {\"name\": \"Lady Juliana\", \"aliases\": [\"JULIANA\", \"LADY JULIANA\", \"LADY IN GOLD GOWN\"], \"role\": \"The resilient heroine abandoned at the altar who fights for justice using her late mother's herbal remedies.\"},\n    {\"name\": \"Alexander\", \"aliases\": [\"ALEXANDER\", \"MYSTERIOUS BEARDED MAN\", \"THE BEARDED STRANGER\", \"SCARRED BEARDED MAN\"], \"role\": \"The scarred, rugged warrior and rightful Duke who marries Juliana and reclaims his birthright.\"},\n    {\"name\": \"Gerald\", \"aliases\": [\"GERALD\", \"THE FORMER GROOM\", \"BLOND NOBLEMAN\"], \"role\": \"Juliana's cruel ex-fiancé who abandons her for her sister Clarissa and conspires against her.\"},\n    {\"name\": \"Clarissa\", \"aliases\": [\"CLARISSA\", \"LADY CLARISSA\"], \"role\": \"Juliana's spiteful sister who marries Gerald and torments Juliana.\"},\n    {\"name\": \"Catherine\", \"aliases\": [\"CATHERINE\", \"LADY CATHERINE\"], \"role\": \"The treacherous noblewoman who conspires to poison the Dowager Duchess and steal the ducal seat.\"},\n    {\"name\": \"Rupert\", \"aliases\": [\"RUPERT\"], \"role\": \"Catherine's co-conspirator in usurping the ducal throne and framing Juliana.\"},\n    {\"name\": \"Dowager Duchess\", \"aliases\": [\"DOWAGER DUCHESS\", \"ALEXANDER'S MOTHER\", \"NOBLE MATRIARCH\", \"MATRIARCH\"], \"role\": \"Alexander's poisoned mother whose life Juliana secretly tries to save.\"}\n  ],\n  \"arcs\": [\n    \"Juliana is abandoned at the altar by Gerald and Clarissa, then rescued and married by a mysterious scarred stranger.\",\n    \"Juliana and Alexander build a peaceful life in a woodland cottage while facing repeated harassment and arson from Gerald and his thugs.\",\n    \"Juliana infiltrates Ashbury Manor to treat the poisoned Dowager Duchess, only to be framed for witchcraft and poisoning by Rupert and Catherine.\",\n    \"Alexander discovers his mother and learns of the treasonous coup, returning from the dead to storm Catherine and Rupert's wedding.\",\n    \"Alexander reclaims his ducal title and exposes the conspirators, though an ecclesiastical challenge briefly threatens his marriage to Juliana.\"\n  ],\n  \"reveals\": [\n    {\n      \"reveal\": \"Juliana is abandoned at the altar by her fiancé Gerald for her sister Clarissa.\",\n      \"episode\": 1,\n      \"ad_safe\": true,\n      \"keywords\": [\"abandoned at the altar\", \"fiancé gerald\", \"sister clarissa\"]\n    },\n    {\n      \"reveal\": \"The mysterious scarred warrior Alexander marries Juliana in exile.\",\n      \"episode\": 4,\n      \"ad_safe\": true,\n      \"keywords\": [\"solemn proposal\", \"officially wed\", \"scarred warrior\"]\n    },\n    {\n      \"reveal\": \"Gerald Harrington is behind the violent thugs attacking Juliana's medicinal garden.\",\n      \"episode\": 16,\n      \"ad_safe\": false,\n      \"keywords\": [\"gerald harrington\", \"mastermind\", \"hired thugs\"]\n    },\n    {\n      \"reveal\": \"Rupert and Catherine are systematically poisoning the Dowager Duchess with arsenic to seize the ducal seat.\",\n      \"episode\": 23,\n      \"ad_safe\": false,\n      \"keywords\": [\"poisoned with arsenic\", \"dowager duchess\", \"rupert and catherine\"]\n    },\n    {\n      \"reveal\": \"Rupert and Catherine frame Juliana for witchcraft and send her to the dungeon.\",\n      \"episode\": 28,\n      \"ad_safe\": false,\n      \"keywords\": [\"witchcraft charge\", \"dungeon\", \"frame juliana\"]\n    },\n    {\n      \"reveal\": \"Alexander is revealed to be the true Duke of Ashburn whose throne was usurped.\",\n      \"episode\": 42,\n      \"ad_safe\": false,\n      \"keywords\": [\"ducal regalia\", \"rightful duke\", \"ashburn\"]\n    },\n    {\n      \"reveal\": \"The High Priest invalidates Alexander and Juliana's wedding due to a lack of a royal license.\",\n      \"episode\": 46,\n      \"ad_safe\": false,\n      \"keywords\": [\"ecclesiastical authority\", \"invalidates marriage\", \"royal license\"]\n    }\n  ]\n}",
+ "parsed": {
+  "show_premise": "After being abandoned at the altar by her fiancé, a humiliated noblewoman marries a mysterious scarred warrior who is secretly the rightful Duke reclaiming his stolen throne.",
+  "characters": [
+   {
+    "name": "Lady Juliana",
+    "aliases": [
+     "JULIANA",
+     "LADY JULIANA",
+     "LADY IN GOLD GOWN"
+    ],
+    "role": "The resilient heroine abandoned at the altar who fights for justice using her late mother's herbal remedies."
+   },
+   {
+    "name": "Alexander",
+    "aliases": [
+     "ALEXANDER",
+     "MYSTERIOUS BEARDED MAN",
+     "THE BEARDED STRANGER",
+     "SCARRED BEARDED MAN"
+    ],
+    "role": "The scarred, rugged warrior and rightful Duke who marries Juliana and reclaims his birthright."
+   },
+   {
+    "name": "Gerald",
+    "aliases": [
+     "GERALD",
+     "THE FORMER GROOM",
+     "BLOND NOBLEMAN"
+    ],
+    "role": "Juliana's cruel ex-fiancé who abandons her for her sister Clarissa and conspires against her."
+   },
+   {
+    "name": "Clarissa",
+    "aliases": [
+     "CLARISSA",
+     "LADY CLARISSA"
+    ],
+    "role": "Juliana's spiteful sister who marries Gerald and torments Juliana."
+   },
+   {
+    "name": "Catherine",
+    "aliases": [
+     "CATHERINE",
+     "LADY CATHERINE"
+    ],
+    "role": "The treacherous noblewoman who conspires to poison the Dowager Duchess and steal the ducal seat."
+   },
+   {
+    "name": "Rupert",
+    "aliases": [
+     "RUPERT"
+    ],
+    "role": "Catherine's co-conspirator in usurping the ducal throne and framing Juliana."
+   },
+   {
+    "name": "Dowager Duchess",
+    "aliases": [
+     "DOWAGER DUCHESS",
+     "ALEXANDER'S MOTHER",
+     "NOBLE MATRIARCH",
+     "MATRIARCH"
+    ],
+    "role": "Alexander's poisoned mother whose life Juliana secretly tries to save."
+   }
+  ],
+  "arcs": [
+   "Juliana is abandoned at the altar by Gerald and Clarissa, then rescued and married by a mysterious scarred stranger.",
+   "Juliana and Alexander build a peaceful life in a woodland cottage while facing repeated harassment and arson from Gerald and his thugs.",
+   "Juliana infiltrates Ashbury Manor to treat the poisoned Dowager Duchess, only to be framed for witchcraft and poisoning by Rupert and Catherine.",
+   "Alexander discovers his mother and learns of the treasonous coup, returning from the dead to storm Catherine and Rupert's wedding.",
+   "Alexander reclaims his ducal title and exposes the conspirators, though an ecclesiastical challenge briefly threatens his marriage to Juliana."
+  ],
+  "reveals": [
+   {
+    "reveal": "Juliana is abandoned at the altar by her fiancé Gerald for her sister Clarissa.",
+    "episode": 1,
+    "ad_safe": true,
+    "keywords": [
+     "abandoned at the altar",
+     "fiancé gerald",
+     "sister clarissa"
+    ]
+   },
+   {
+    "reveal": "The mysterious scarred warrior Alexander marries Juliana in exile.",
+    "episode": 4,
+    "ad_safe": true,
+    "keywords": [
+     "solemn proposal",
+     "officially wed",
+     "scarred warrior"
+    ]
+   },
+   {
+    "reveal": "Gerald Harrington is behind the violent thugs attacking Juliana's medicinal garden.",
+    "episode": 16,
+    "ad_safe": false,
+    "keywords": [
+     "gerald harrington",
+     "mastermind",
+     "hired thugs"
+    ]
+   },
+   {
+    "reveal": "Rupert and Catherine are systematically poisoning the Dowager Duchess with arsenic to seize the ducal seat.",
+    "episode": 23,
+    "ad_safe": false,
+    "keywords": [
+     "poisoned with arsenic",
+     "dowager duchess",
+     "rupert and catherine"
+    ]
+   },
+   {
+    "reveal": "Rupert and Catherine frame Juliana for witchcraft and send her to the dungeon.",
+    "episode": 28,
+    "ad_safe": false,
+    "keywords": [
+     "witchcraft charge",
+     "dungeon",
+     "frame juliana"
+    ]
+   },
+   {
+    "reveal": "Alexander is revealed to be the true Duke of Ashburn whose throne was usurped.",
+    "episode": 42,
+    "ad_safe": false,
+    "keywords": [
+     "ducal regalia",
+     "rightful duke",
+     "ashburn"
+    ]
+   },
+   {
+    "reveal": "The High Priest invalidates Alexander and Juliana's wedding due to a lack of a royal license.",
+    "episode": 46,
+    "ad_safe": false,
+    "keywords": [
+     "ecclesiastical authority",
+     "invalidates marriage",
+     "royal license"
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 5196,
+  "completion_tokens": 1041
+ }
+}

@@ -1,0 +1,199 @@
+{
+ "tag": "04_judge_000",
+ "provider": "gemini",
+ "model": "gemini-3.1-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146391.2718358,
+ "system_prompt": "You are a tough, impatient social-media viewer AND a performance-marketing analyst for vertical microdrama ads. You have NEVER seen this show. You will be shown several candidate ad clips as plain screenplay text: each beat has its time offset from the start of the clip (+S.s), its kind (CAM = camera direction, ACT = action, SFX = sound, otherwise the speaker), and its text. Segments of a stitched clip are separated by \"--- CUT ---\".\n\nJudge each clip ONLY from what is in that clip. Score each 1-5 (5 = best, use the full range, be harsh; a 5 should be rare):\n- \"hook\": do the first 3 seconds (+0.0 to +3.0) contain something that would stop you scrolling? (1 = scenery/neutral setup, 5 = slap/shocking line/public humiliation right away)\n- \"cliff\": does it end on an unresolved moment that makes you NEED the next part? (1 = ends calm/resolved, 5 = cut right before a huge payoff)\n- \"standalone\": as a stranger, do you understand who is who and what is at stake? (1 = confusing, 5 = instantly clear)\n- \"emotion\": raw emotional/trope pull for this genre's audience (betrayal, humiliation, revenge, hidden identity, forbidden romance, protective hero). (1 = flat, 5 = intense)\n\nAlso give:\n- \"cold_viewer_summary\": what a stranger understands from the clip, in <= 20 words;\n- \"weakness\": the single biggest problem with this clip as an ad, in <= 15 words.\n\nReturn ONLY JSON: {\"scores\": [{\"id\": \"<clip id>\", \"hook\": n, \"cliff\": n, \"standalone\": n, \"emotion\": n, \"cold_viewer_summary\": \"\", \"weakness\": \"\"}]}\nInclude every clip id exactly once.\n",
+ "user_chars": 44112,
+ "user_sha256": "d514ac06b44383934e8c5ab1d3f38ac748d3d99f51c703fa57fcf6338fd92b6b",
+ "response_text": "{\"scores\": [\n  {\"id\": \"E01-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 5, \"emotion\": 5, \"cold_viewer_summary\": \"A bride is humiliated at the altar when her groom chooses her sister instead.\", \"weakness\": \"The dialogue is a bit too melodramatic and cliché for a modern audience.\"},\n  {\"id\": \"E01-C2\", \"hook\": 3, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana is publicly humiliated at her wedding by her sister and former groom.\", \"weakness\": \"The pacing is slow and relies too heavily on repetitive reaction shots.\"},\n  {\"id\": \"E02-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana regains her dignity and rebukes her ex-groom in front of the wedding guests.\", \"weakness\": \"The monologue is overly long and feels more like a stage play than a drama.\"},\n  {\"id\": \"E03-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"A mysterious stranger interrupts a wedding, defeats guards, and proposes to the humiliated bride.\", \"weakness\": \"The transition from fighting to a proposal is jarring and lacks narrative buildup.\"},\n  {\"id\": \"E04-C1\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana marries a mysterious stranger and is disowned by her family.\", \"weakness\": \"The emotional stakes of being disowned are undermined by the quick pacing.\"},\n  {\"id\": \"E06-C2\", \"hook\": 2, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Juliana finds comfort and safety with her new protector by the fireplace.\", \"weakness\": \"Lacks conflict; it's a slow, atmospheric scene that kills the momentum of the ad.\"},\n  {\"id\": \"E07-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana's ex-groom visits her new humble home to mock her, but she stands her ground.\", \"weakness\": \"The dialogue feels repetitive, re-treading the same 'you're poor now' insults.\"},\n  {\"id\": \"E07-C2\", \"hook\": 4, \"cliff\": 3, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"The mysterious husband intimidates the ex-groom into fleeing, showing his silent power.\", \"weakness\": \"The ex-groom's sudden cowardice feels unearned and cartoonish.\"},\n  {\"id\": \"E08-C1\", \"hook\": 3, \"cliff\": 2, \"standalone\": 3, \"emotion\": 3, \"cold_viewer_summary\": \"Juliana and Alexander bond over her mother's herbal book and his knowledge of healing.\", \"weakness\": \"Too much exposition; the scene lacks the tension required for a microdrama ad.\"},\n  {\"id\": \"E08-C2\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana and Alexander share a tender moment, hinting at growing romantic feelings.\", \"weakness\": \"The dialogue is overly sentimental and lacks real stakes.\"},\n  {\"id\": \"E09-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 4, \"cold_viewer_summary\": \"Juliana saves a sick child, but her husband warns that her fame is dangerous.\", \"weakness\": \"The threat of 'gossip' feels weak compared to the previous physical conflicts.\"},\n  {\"id\": \"E10-C1\", \"hook\": 5, \"cliff\": 3, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana discovers her husband's horrific battle scars while tending to his wounds.\", \"weakness\": \"The scene is a bit too long; the reveal of the scars takes too long.\"},\n  {\"id\": \"E10-C2\", \"hook\": 4, \"cliff\": 3, \"standalone\": 3, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana and her husband share an intimate, emotionally charged moment of connection.\", \"weakness\": \"The dialogue is a bit cheesy for a serious romantic drama.\"},\n  {\"id\": \"E11-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana is framed for theft when a watch is found in her husband's coat.\", \"weakness\": \"The setup of the frame-up is too convenient and lacks subtlety.\"},\n  {\"id\": \"E12-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Clarissa forces Juliana to retrieve a ring from thorns or her husband will hang.\", \"weakness\": \"The villain's motivation is cartoonishly evil, bordering on parody.\"},\n  {\"id\": \"E13-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Juliana suffers through thorns to retrieve a ring and save her husband.\", \"weakness\": \"The gore is a bit excessive and might alienate some viewers.\"},\n  {\"id\": \"E14-C1\", \"hook\": 4, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Alexander rescues a wounded Juliana, vowing to protect her after her sacrifice.\", \"weakness\": \"The pacing is a bit slow after the high intensity of the previous scene.\"},\n  {\"id\": \"E15-C1\", \"hook\": 5, \"cliff\": 5, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Thugs destroy Juliana's herbs, but Alexander arrives to confront them.\", \"weakness\": \"The thugs are generic 'bad guy' archetypes with no depth.\"},\n  {\"id\": \"E18-C1\", \"hook\": 5, \"cliff\": 4, \"standalone\": 4, \"emotion\": 5, \"cold_viewer_summary\": \"Alexander saves Juliana from a collapsing, burning building.\", \"weakness\": \"The action is a bit chaotic and hard to follow in short form.\"},\n  {\"id\": \"E18-C2\", \"hook\": 3, \"cliff\": 3, \"standalone\": 3, \"emotion\": 4, \"cold_viewer_summary\": \"Alexander vows revenge after his home is destroyed by fire.\", \"weakness\": \"The dialogue is generic and doesn't add much to the plot.\"}\n]}",
+ "parsed": {
+  "scores": [
+   {
+    "id": "E01-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 5,
+    "emotion": 5,
+    "cold_viewer_summary": "A bride is humiliated at the altar when her groom chooses her sister instead.",
+    "weakness": "The dialogue is a bit too melodramatic and cliché for a modern audience."
+   },
+   {
+    "id": "E01-C2",
+    "hook": 3,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana is publicly humiliated at her wedding by her sister and former groom.",
+    "weakness": "The pacing is slow and relies too heavily on repetitive reaction shots."
+   },
+   {
+    "id": "E02-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana regains her dignity and rebukes her ex-groom in front of the wedding guests.",
+    "weakness": "The monologue is overly long and feels more like a stage play than a drama."
+   },
+   {
+    "id": "E03-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "A mysterious stranger interrupts a wedding, defeats guards, and proposes to the humiliated bride.",
+    "weakness": "The transition from fighting to a proposal is jarring and lacks narrative buildup."
+   },
+   {
+    "id": "E04-C1",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana marries a mysterious stranger and is disowned by her family.",
+    "weakness": "The emotional stakes of being disowned are undermined by the quick pacing."
+   },
+   {
+    "id": "E06-C2",
+    "hook": 2,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana finds comfort and safety with her new protector by the fireplace.",
+    "weakness": "Lacks conflict; it's a slow, atmospheric scene that kills the momentum of the ad."
+   },
+   {
+    "id": "E07-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana's ex-groom visits her new humble home to mock her, but she stands her ground.",
+    "weakness": "The dialogue feels repetitive, re-treading the same 'you're poor now' insults."
+   },
+   {
+    "id": "E07-C2",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "The mysterious husband intimidates the ex-groom into fleeing, showing his silent power.",
+    "weakness": "The ex-groom's sudden cowardice feels unearned and cartoonish."
+   },
+   {
+    "id": "E08-C1",
+    "hook": 3,
+    "cliff": 2,
+    "standalone": 3,
+    "emotion": 3,
+    "cold_viewer_summary": "Juliana and Alexander bond over her mother's herbal book and his knowledge of healing.",
+    "weakness": "Too much exposition; the scene lacks the tension required for a microdrama ad."
+   },
+   {
+    "id": "E08-C2",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana and Alexander share a tender moment, hinting at growing romantic feelings.",
+    "weakness": "The dialogue is overly sentimental and lacks real stakes."
+   },
+   {
+    "id": "E09-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 4,
+    "cold_viewer_summary": "Juliana saves a sick child, but her husband warns that her fame is dangerous.",
+    "weakness": "The threat of 'gossip' feels weak compared to the previous physical conflicts."
+   },
+   {
+    "id": "E10-C1",
+    "hook": 5,
+    "cliff": 3,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana discovers her husband's horrific battle scars while tending to his wounds.",
+    "weakness": "The scene is a bit too long; the reveal of the scars takes too long."
+   },
+   {
+    "id": "E10-C2",
+    "hook": 4,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana and her husband share an intimate, emotionally charged moment of connection.",
+    "weakness": "The dialogue is a bit cheesy for a serious romantic drama."
+   },
+   {
+    "id": "E11-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana is framed for theft when a watch is found in her husband's coat.",
+    "weakness": "The setup of the frame-up is too convenient and lacks subtlety."
+   },
+   {
+    "id": "E12-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Clarissa forces Juliana to retrieve a ring from thorns or her husband will hang.",
+    "weakness": "The villain's motivation is cartoonishly evil, bordering on parody."
+   },
+   {
+    "id": "E13-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Juliana suffers through thorns to retrieve a ring and save her husband.",
+    "weakness": "The gore is a bit excessive and might alienate some viewers."
+   },
+   {
+    "id": "E14-C1",
+    "hook": 4,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Alexander rescues a wounded Juliana, vowing to protect her after her sacrifice.",
+    "weakness": "The pacing is a bit slow after the high intensity of the previous scene."
+   },
+   {
+    "id": "E15-C1",
+    "hook": 5,
+    "cliff": 5,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Thugs destroy Juliana's herbs, but Alexander arrives to confront them.",
+    "weakness": "The thugs are generic 'bad guy' archetypes with no depth."
+   },
+   {
+    "id": "E18-C1",
+    "hook": 5,
+    "cliff": 4,
+    "standalone": 4,
+    "emotion": 5,
+    "cold_viewer_summary": "Alexander saves Juliana from a collapsing, burning building.",
+    "weakness": "The action is a bit chaotic and hard to follow in short form."
+   },
+   {
+    "id": "E18-C2",
+    "hook": 3,
+    "cliff": 3,
+    "standalone": 3,
+    "emotion": 4,
+    "cold_viewer_summary": "Alexander vows revenge after his home is destroyed by fire.",
+    "weakness": "The dialogue is generic and doesn't add much to the plot."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 12841,
+  "completion_tokens": 1618
+ }
+}

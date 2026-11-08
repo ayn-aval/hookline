@@ -1,0 +1,145 @@
+{
+ "tag": "03_stitch",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146117.418897,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (ReelShort / DramaBox style ads). Besides single continuous clips, the best-performing ads often STITCH 2-3 short moments together, e.g.:\n- cold open: the most shocking moment first (a slap, \"he's a Duke\"), then the setup that explains it, then a cliffhanger;\n- escalation: humiliation -> turning point -> threat;\n- promise of payoff: the heroine wronged -> the moment the tables start to turn -> cut before the payoff.\n\nYou will receive the series bible and a catalogue of the show's strongest moments across all episodes. Each moment is shown with a few neighbouring beats so you can choose segment boundaries:\n[BEAT_ID start-end KIND] text\n(start/end are MM:SS.s within that beat's episode; the episode is the number after \"E\" in the ID.)\n\nCreate 6-10 stitched promos. Each:\n- has 2-3 \"segments\" in PLAY ORDER; each segment is a contiguous range {\"start_beat\", \"end_beat\"} from ONE episode, typically 6-25 seconds long;\n- segments may come from the same or different episodes, and may play out of story order (cold open);\n- total length (sum of segment lengths, end of end_beat minus start of start_beat) MUST be 20-60 seconds — compute it;\n- the FIRST segment must open on its hook: \"hook_beat\" is in segment 1 and starts within 3 seconds of segment 1's start;\n- the LAST segment must end on the cliffhanger: \"cliff_beat\" is the last segment's end_beat;\n- must make sense to a stranger: the segments together set up who is wronged and what is at stake;\n- avoid giving away twists marked \"ad_safe\": false in the bible.\n\nReturn ONLY JSON:\n{\"promos\": [{\"title\": \"3-6 words\", \"segments\": [{\"start_beat\": \"\", \"end_beat\": \"\"}], \"hook_beat\": \"\", \"cliff_beat\": \"\",\n             \"hook\": \"<= 15 words\", \"cliffhanger\": \"<= 15 words\", \"why\": \"one line: why this combination works\"}]}\n\nUse ONLY beat IDs shown in the catalogue. Never invent IDs or timestamps.\n",
+ "user_chars": 205314,
+ "user_sha256": "1d0e0eaa950e0b67098408eefe5f81110b649d6f5c527e1508ca1b8df7093b57",
+ "response_text": "{\"promos\": [{\"title\": \"Left at the Altar\", \"segments\": [{\"start_beat\": \"E01-B001\", \"end_beat\": \"E01-B013\"}, {\"start_beat\": \"E01-B039\", \"end_beat\": \"E01-B043\"}], \"hook_beat\": \"E01-B008\", \"cliff_beat\": \"E01-B041\", \"hook\": \"You should turn around, Juliana.\", \"cliffhanger\": \"I changed my mind.\", \"why\": \"Opens with the chilling altar warning and ends on the brutal rejection.\"}, {\"title\": \"The Scorned Bride\", \"segments\": [{\"start_beat\": \"E02-B001\", \"end_beat\": \"E02-B003\"}, {\"start_beat\": \"E02-B053\", \"end_beat\": \"E02-B073\"}], \"hook_beat\": \"E02-B002\", \"cliff_beat\": \"E02-B073\", \"hook\": \"I cannot marry you, Juliana.\", \"cliffhanger\": \"I will not leave it believing I was the one who should be ashamed.\", \"why\": \"Transitions from public humiliation to a powerful, defiant declaration of self-worth.\"}, {\"title\": \"The Stranger's Proposal\", \"segments\": [{\"start_beat\": \"E03-B046\", \"end_beat\": \"E03-B050\"}, {\"start_beat\": \"E03-B111\", \"end_beat\": \"E03-B118\"}], \"hook_beat\": \"E03-B047\", \"cliff_beat\": \"E03-B116\", \"hook\": \"Guards! Remove her!\", \"cliffhanger\": \"Lady Juliana... accept my hand.\", \"why\": \"Combines her ruthless ejection by guards with a shocking society-shattering proposal.\"}, {\"title\": \"The Mud-Slinging Cruelty\", \"segments\": [{\"start_beat\": \"E05-B031\", \"end_beat\": \"E05-B034\"}, {\"start_beat\": \"E05-B054\", \"end_beat\": \"E05-B059\"}], \"hook_beat\": \"E05-B033\", \"cliff_beat\": \"E05-B058\", \"hook\": \"Barbara, don't!\", \"cliffhanger\": \"Choose your next words carefully.\", \"why\": \"Pairs her family's vicious destruction of her mother's ledger with a lethal warning from her new husband.\"}, {\"title\": \"The Stolen Pocket Watch\", \"segments\": [{\"start_beat\": \"E11-B075\", \"end_beat\": \"E11-B078\"}, {\"start_beat\": \"E11-B082\", \"end_beat\": \"E11-B085\"}], \"hook_beat\": \"E11-B078\", \"cliff_beat\": \"E11-B085\", \"hook\": \"That is his coat!\", \"cliffhanger\": \"The gold watch sways as the frame-up succeeds.\", \"why\": \"Presents a tightly wound frame-up and ends on the devastating dangling evidence.\"}, {\"title\": \"Crawling Through Thorns\", \"segments\": [{\"start_beat\": \"E13-B043\", \"end_beat\": \"E13-B048\"}, {\"start_beat\": \"E13-B070\", \"end_beat\": \"E13-B075\"}], \"hook_beat\": \"E13-B046\", \"cliff_beat\": \"E13-B075\", \"hook\": \"Sickening crunch and scrape of thorns slicing through flesh.\", \"cliffhanger\": \"Juliana grasps the signet ring with bloody hands.\", \"why\": \"Captures extreme physical sacrifice and emotional torment for her husband's freedom.\"}, {\"title\": \"The Exploding Cathedral\", \"segments\": [{\"start_beat\": \"E41-B012\", \"end_beat\": \"E41-B017\"}, {\"start_beat\": \"E41-B046\", \"end_beat\": \"E41-B048\"}], \"hook_beat\": \"E41-B017\", \"cliff_beat\": \"E41-B047\", \"hook\": \"There she is.\", \"cliffhanger\": \"Ear-splitting detonation, shattering stone, wood splintering violently into kindling.\", \"why\": \"Juxstaposes her public shaming in chains with a massive, explosive rescue assault.\"}]}",
+ "parsed": {
+  "promos": [
+   {
+    "title": "Left at the Altar",
+    "segments": [
+     {
+      "start_beat": "E01-B001",
+      "end_beat": "E01-B013"
+     },
+     {
+      "start_beat": "E01-B039",
+      "end_beat": "E01-B043"
+     }
+    ],
+    "hook_beat": "E01-B008",
+    "cliff_beat": "E01-B041",
+    "hook": "You should turn around, Juliana.",
+    "cliffhanger": "I changed my mind.",
+    "why": "Opens with the chilling altar warning and ends on the brutal rejection."
+   },
+   {
+    "title": "The Scorned Bride",
+    "segments": [
+     {
+      "start_beat": "E02-B001",
+      "end_beat": "E02-B003"
+     },
+     {
+      "start_beat": "E02-B053",
+      "end_beat": "E02-B073"
+     }
+    ],
+    "hook_beat": "E02-B002",
+    "cliff_beat": "E02-B073",
+    "hook": "I cannot marry you, Juliana.",
+    "cliffhanger": "I will not leave it believing I was the one who should be ashamed.",
+    "why": "Transitions from public humiliation to a powerful, defiant declaration of self-worth."
+   },
+   {
+    "title": "The Stranger's Proposal",
+    "segments": [
+     {
+      "start_beat": "E03-B046",
+      "end_beat": "E03-B050"
+     },
+     {
+      "start_beat": "E03-B111",
+      "end_beat": "E03-B118"
+     }
+    ],
+    "hook_beat": "E03-B047",
+    "cliff_beat": "E03-B116",
+    "hook": "Guards! Remove her!",
+    "cliffhanger": "Lady Juliana... accept my hand.",
+    "why": "Combines her ruthless ejection by guards with a shocking society-shattering proposal."
+   },
+   {
+    "title": "The Mud-Slinging Cruelty",
+    "segments": [
+     {
+      "start_beat": "E05-B031",
+      "end_beat": "E05-B034"
+     },
+     {
+      "start_beat": "E05-B054",
+      "end_beat": "E05-B059"
+     }
+    ],
+    "hook_beat": "E05-B033",
+    "cliff_beat": "E05-B058",
+    "hook": "Barbara, don't!",
+    "cliffhanger": "Choose your next words carefully.",
+    "why": "Pairs her family's vicious destruction of her mother's ledger with a lethal warning from her new husband."
+   },
+   {
+    "title": "The Stolen Pocket Watch",
+    "segments": [
+     {
+      "start_beat": "E11-B075",
+      "end_beat": "E11-B078"
+     },
+     {
+      "start_beat": "E11-B082",
+      "end_beat": "E11-B085"
+     }
+    ],
+    "hook_beat": "E11-B078",
+    "cliff_beat": "E11-B085",
+    "hook": "That is his coat!",
+    "cliffhanger": "The gold watch sways as the frame-up succeeds.",
+    "why": "Presents a tightly wound frame-up and ends on the devastating dangling evidence."
+   },
+   {
+    "title": "Crawling Through Thorns",
+    "segments": [
+     {
+      "start_beat": "E13-B043",
+      "end_beat": "E13-B048"
+     },
+     {
+      "start_beat": "E13-B070",
+      "end_beat": "E13-B075"
+     }
+    ],
+    "hook_beat": "E13-B046",
+    "cliff_beat": "E13-B075",
+    "hook": "Sickening crunch and scrape of thorns slicing through flesh.",
+    "cliffhanger": "Juliana grasps the signet ring with bloody hands.",
+    "why": "Captures extreme physical sacrifice and emotional torment for her husband's freedom."
+   },
+   {
+    "title": "The Exploding Cathedral",
+    "segments": [
+     {
+      "start_beat": "E41-B012",
+      "end_beat": "E41-B017"
+     },
+     {
+      "start_beat": "E41-B046",
+      "end_beat": "E41-B048"
+     }
+    ],
+    "hook_beat": "E41-B017",
+    "cliff_beat": "E41-B047",
+    "hook": "There she is.",
+    "cliffhanger": "Ear-splitting detonation, shattering stone, wood splintering violently into kindling.",
+    "why": "Juxstaposes her public shaming in chains with a massive, explosive rescue assault."
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 83795,
+  "completion_tokens": 1060
+ }
+}

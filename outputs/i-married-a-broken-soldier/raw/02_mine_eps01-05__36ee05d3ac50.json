@@ -1,0 +1,200 @@
+{
+ "tag": "02_mine_eps01-05",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "temperature": 0.4,
+ "ts": 1794146066.293369,
+ "system_prompt": "You are the promo editor for a vertical microdrama app (think ReelShort / DramaBox ads on TikTok, Instagram Reels and YouTube Shorts). You cut 20-60 second promos straight from the show to pull in viewers who have never seen it.\n\nA great promo:\n1. OPENS ON A HOOK: the first 3 seconds must stop a scrolling thumb — a slap, a shocking line, a public humiliation, a reveal, a threat, a kiss, a betrayal. Never open on scenery, walking, or a calm establishing shot.\n2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.\n3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.\n\nYou will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line \"EPISODE <number>\":\n[BEAT_ID start-end KIND] text\nKIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.\n\nDo the following for EACH episode separately (a promo window never crosses episodes):\n\nA) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:\n   - \"start_beat\": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.\n   - \"end_beat\": the beat the clip ends on. Pick the cliffhanger beat itself.\n   - \"hook_beat\": the beat that is the hook (prefer the dialogue line or action that IS the shock).\n   - \"cliff_beat\": the cliffhanger beat (usually the same as end_beat).\n   - The window from start_beat's start to end_beat's end MUST be 20-60 seconds (aim for 30-45). Compute it from the timestamps.\n   - \"hook\": quote or describe the hook in <= 15 words. \"cliffhanger\": the unresolved moment in <= 15 words.\n   - \"why\": ONE line on why a stranger would stop and then need the next episode.\n   - \"context_needed\": what (if anything) a stranger would miss; \"\" if none.\n   - \"title\": a 3-6 word internal label.\n   Windows should not mostly overlap each other. If the episode genuinely has only one strong window, return one.\n\nB) List \"moments\": the episode's 2-5 strongest standalone beats, each typed \"hook\" (would work as the first 3 seconds of an ad) or \"cliff\" (would work as the last beat of an ad), with a <= 12 word \"note\". These are used later to stitch multi-moment promos across episodes.\n\nReturn ONLY JSON, with one entry per episode you received:\n{\"episodes\": [\n  {\"episode\": <number>,\n   \"candidates\": [{\"title\": \"\", \"start_beat\": \"\", \"end_beat\": \"\", \"hook_beat\": \"\", \"cliff_beat\": \"\", \"hook\": \"\", \"cliffhanger\": \"\", \"why\": \"\", \"context_needed\": \"\"}],\n   \"moments\": [{\"beat\": \"\", \"type\": \"hook|cliff\", \"note\": \"\"}]}\n]}\n\nUse ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.\n",
+ "user_chars": 55265,
+ "user_sha256": "6a80898f9c84308035ae7381c784ccade41866b379b3678ec7722e6c8e99e875",
+ "response_text": "{\n  \"episodes\": [\n    {\n      \"episode\": 1,\n      \"candidates\": [\n        {\n          \"title\": \"Gerald Abandons Juliana at Altar\",\n          \"start_beat\": \"E01-B007\",\n          \"end_beat\": \"E01-B043\",\n          \"hook_beat\": \"E01-B008\",\n          \"cliff_beat\": \"E01-B043\",\n          \"hook\": \"\\\"You should turn around, Juliana.\\\"\",\n          \"cliffhanger\": \"\\\"You swore you loved me!\\\"\",\n          \"why\": \"The public humiliation of walking down the aisle only to find your fiancé marrying your sister is a masterclass in instant heartbreak and outrage.\",\n          \"context_needed\": \"\"\n        },\n        {\n          \"title\": \"The Cruel Betrayal Revealed\",\n          \"start_beat\": \"E01-B026\",\n          \"end_beat\": \"E01-B095\",\n          \"hook_beat\": \"E01-B027\",\n          \"cliff_beat\": \"E01-B095\",\n          \"hook\": \"\\\"Because he is marrying me.\\\"\",\n          \"cliffhanger\": \"Juliana's shattering realization and silent fury as the string drone swells to black.\",\n          \"why\": \"Viewers will instantly root for Juliana and demand justice against her toxic family and ex-fiancé.\",\n          \"context_needed\": \"\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E01-B008\",\n          \"type\": \"hook\",\n          \"note\": \"Cold warning from the Matriarch stops the viewer instantly.\"\n        },\n        {\n          \"beat\": \"E01-B027\",\n          \"type\": \"hook\",\n          \"note\": \"Sister smugly announces she is marrying Gerald.\"\n        },\n        {\n          \"beat\": \"E01-B041\",\n          \"type\": \"cliff\",\n          \"note\": \"Gerald's callous 'I changed my mind.'\"\n        },\n        {\n          \"beat\": \"E01-B094\",\n          \"type\": \"cliff\",\n          \"note\": \"Ominous string drone cuts to black on Juliana's burning rage.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 2,\n      \"candidates\": [\n        {\n          \"title\": \"Juliana Turns the Tables\",\n          \"start_beat\": \"E02-B051\",\n          \"end_beat\": \"E02-B074\",\n          \"hook_beat\": \"E02-B055\",\n          \"cliff_beat\": \"E02-B074\",\n          \"hook\": \"\\\"Dignity? You abandoned a woman who trusted you...\\\"\",\n          \"cliffhanger\": \"Juliana proclaims her triumphant spirit as the score swells.\",\n          \"why\": \"Watching a humiliated protagonist find her voice and publicly flay her abusers gives an incredible rush of empowerment.\",\n          \"context_needed\": \"Juliana was just dumped at the altar by her fiancé for her sister.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E02-B002\",\n          \"type\": \"hook\",\n          \"note\": \"Gerald's cold dismissal at the altar.\"\n        },\n        {\n          \"beat\": \"E02-B055\",\n          \"type\": \"hook\",\n          \"note\": \"Juliana fires back with ice in her veins.\"\n        },\n        {\n          \"beat\": \"E02-B073\",\n          \"type\": \"cliff\",\n          \"note\": \"Unyielding declaration of self-worth.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 3,\n      \"candidates\": [\n        {\n          \"title\": \"The Scarred Stranger's Proposal\",\n          \"start_beat\": \"E03-B048\",\n          \"end_beat\": \"E03-B118\",\n          \"hook_beat\": \"E03-B059\",\n          \"cliff_beat\": \"E03-B118\",\n          \"hook\": \"\\\"Take your hands off her.\\\"\",\n          \"cliffhanger\": \"The mysterious scarred warrior drops to one knee with a ring.\",\n          \"why\": \"A powerful stranger stepping out of the crowd to violently defend the outcast bride and offer a wedding ring is peak vertical microdrama wish-fulfillment.\",\n          \"context_needed\": \"Juliana's family is having her dragged out of the church after abandoning her.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E03-B047\",\n          \"type\": \"hook\",\n          \"note\": \"Matriarch orders guards to remove her.\"\n        },\n        {\n          \"beat\": \"E03-B059\",\n          \"type\": \"hook\",\n          \"note\": \"The stranger's thunderous intervention.\"\n        },\n        {\n          \"beat\": \"E03-B116\",\n          \"type\": \"cliff\",\n          \"note\": \"Kneeling down to offer a ring to high society's shock.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 4,\n      \"candidates\": [\n        {\n          \"title\": \"A Royal Wedding in Exile\",\n          \"start_beat\": \"E04-B081\",\n          \"end_beat\": \"E04-B110\",\n          \"hook_beat\": \"E04-B084\",\n          \"cliff_beat\": \"E04-B110\",\n          \"hook\": \"\\\"By the authority entrusted to me, I now pronounce you... husband and wife!\\\"\",\n          \"cliffhanger\": \"Juliana and her scarred husband walk hand-in-hand through the doors into the sunlight.\",\n          \"why\": \"The ultimate middle finger to the toxic family as the underdog gets legally married on the spot to a mysterious protector.\",\n          \"context_needed\": \"Juliana accepted a sudden marriage proposal from a scarred stranger right in front of her ex-fiancé.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E04-B084\",\n          \"type\": \"hook\",\n          \"note\": \"The priest pronounces them husband and wife.\"\n        },\n        {\n          \"beat\": \"E04-B099\",\n          \"type\": \"hook\",\n          \"note\": \"Stepmother furiously disowns her.\"\n        },\n        {\n          \"beat\": \"E04-B109\",\n          \"type\": \"cliff\",\n          \"note\": \"Walking out into the bright sunlight together.\"\n        }\n      ]\n    },\n    {\n      \"episode\": 5,\n      \"candidates\": [\n        {\n          \"title\": \"Ledger in the Mud\",\n          \"start_beat\": \"E05-B028\",\n          \"end_beat\": \"E05-B062\",\n          \"hook_beat\": \"E05-B033\",\n          \"cliff_beat\": \"E05-B102\",\n          \"hook\": \"\\\"Barbara, don't!\\\"\",\n          \"cliffhanger\": \"The scarred husband warns Gerald with lethal coldness as Juliana clutches her rescued book.\",\n          \"why\": \"Cruel family members throwing a dead mother's heirloom into the mud creates instant boiling rage in the viewer, satisfied immediately by the husband's protective dominance.\",\n          \"context_needed\": \"Juliana has just married a stranger and been disowned by her father.\"\n        }\n      ],\n      \"moments\": [\n        {\n          \"beat\": \"E05-B033\",\n          \"type\": \"hook\",\n          \"note\": \"Stepmother throws mother's ledger into the mud.\"\n        },\n        {\n          \"beat\": \"E05-B042\",\n          \"type\": \"hook\",\n          \"note\": \"The husband kneels in the mud to retrieve it for her.\"\n        },\n        {\n          \"beat\": \"E05-B058\",\n          \"type\": \"cliff\",\n          \"note\": \"Lethal warning to Gerald: 'Choose your next words carefully.'\"\n        }\n      ]\n    }\n  ]\n}",
+ "parsed": {
+  "episodes": [
+   {
+    "episode": 1,
+    "candidates": [
+     {
+      "title": "Gerald Abandons Juliana at Altar",
+      "start_beat": "E01-B007",
+      "end_beat": "E01-B043",
+      "hook_beat": "E01-B008",
+      "cliff_beat": "E01-B043",
+      "hook": "\"You should turn around, Juliana.\"",
+      "cliffhanger": "\"You swore you loved me!\"",
+      "why": "The public humiliation of walking down the aisle only to find your fiancé marrying your sister is a masterclass in instant heartbreak and outrage.",
+      "context_needed": ""
+     },
+     {
+      "title": "The Cruel Betrayal Revealed",
+      "start_beat": "E01-B026",
+      "end_beat": "E01-B095",
+      "hook_beat": "E01-B027",
+      "cliff_beat": "E01-B095",
+      "hook": "\"Because he is marrying me.\"",
+      "cliffhanger": "Juliana's shattering realization and silent fury as the string drone swells to black.",
+      "why": "Viewers will instantly root for Juliana and demand justice against her toxic family and ex-fiancé.",
+      "context_needed": ""
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E01-B008",
+      "type": "hook",
+      "note": "Cold warning from the Matriarch stops the viewer instantly."
+     },
+     {
+      "beat": "E01-B027",
+      "type": "hook",
+      "note": "Sister smugly announces she is marrying Gerald."
+     },
+     {
+      "beat": "E01-B041",
+      "type": "cliff",
+      "note": "Gerald's callous 'I changed my mind.'"
+     },
+     {
+      "beat": "E01-B094",
+      "type": "cliff",
+      "note": "Ominous string drone cuts to black on Juliana's burning rage."
+     }
+    ]
+   },
+   {
+    "episode": 2,
+    "candidates": [
+     {
+      "title": "Juliana Turns the Tables",
+      "start_beat": "E02-B051",
+      "end_beat": "E02-B074",
+      "hook_beat": "E02-B055",
+      "cliff_beat": "E02-B074",
+      "hook": "\"Dignity? You abandoned a woman who trusted you...\"",
+      "cliffhanger": "Juliana proclaims her triumphant spirit as the score swells.",
+      "why": "Watching a humiliated protagonist find her voice and publicly flay her abusers gives an incredible rush of empowerment.",
+      "context_needed": "Juliana was just dumped at the altar by her fiancé for her sister."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E02-B002",
+      "type": "hook",
+      "note": "Gerald's cold dismissal at the altar."
+     },
+     {
+      "beat": "E02-B055",
+      "type": "hook",
+      "note": "Juliana fires back with ice in her veins."
+     },
+     {
+      "beat": "E02-B073",
+      "type": "cliff",
+      "note": "Unyielding declaration of self-worth."
+     }
+    ]
+   },
+   {
+    "episode": 3,
+    "candidates": [
+     {
+      "title": "The Scarred Stranger's Proposal",
+      "start_beat": "E03-B048",
+      "end_beat": "E03-B118",
+      "hook_beat": "E03-B059",
+      "cliff_beat": "E03-B118",
+      "hook": "\"Take your hands off her.\"",
+      "cliffhanger": "The mysterious scarred warrior drops to one knee with a ring.",
+      "why": "A powerful stranger stepping out of the crowd to violently defend the outcast bride and offer a wedding ring is peak vertical microdrama wish-fulfillment.",
+      "context_needed": "Juliana's family is having her dragged out of the church after abandoning her."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E03-B047",
+      "type": "hook",
+      "note": "Matriarch orders guards to remove her."
+     },
+     {
+      "beat": "E03-B059",
+      "type": "hook",
+      "note": "The stranger's thunderous intervention."
+     },
+     {
+      "beat": "E03-B116",
+      "type": "cliff",
+      "note": "Kneeling down to offer a ring to high society's shock."
+     }
+    ]
+   },
+   {
+    "episode": 4,
+    "candidates": [
+     {
+      "title": "A Royal Wedding in Exile",
+      "start_beat": "E04-B081",
+      "end_beat": "E04-B110",
+      "hook_beat": "E04-B084",
+      "cliff_beat": "E04-B110",
+      "hook": "\"By the authority entrusted to me, I now pronounce you... husband and wife!\"",
+      "cliffhanger": "Juliana and her scarred husband walk hand-in-hand through the doors into the sunlight.",
+      "why": "The ultimate middle finger to the toxic family as the underdog gets legally married on the spot to a mysterious protector.",
+      "context_needed": "Juliana accepted a sudden marriage proposal from a scarred stranger right in front of her ex-fiancé."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E04-B084",
+      "type": "hook",
+      "note": "The priest pronounces them husband and wife."
+     },
+     {
+      "beat": "E04-B099",
+      "type": "hook",
+      "note": "Stepmother furiously disowns her."
+     },
+     {
+      "beat": "E04-B109",
+      "type": "cliff",
+      "note": "Walking out into the bright sunlight together."
+     }
+    ]
+   },
+   {
+    "episode": 5,
+    "candidates": [
+     {
+      "title": "Ledger in the Mud",
+      "start_beat": "E05-B028",
+      "end_beat": "E05-B062",
+      "hook_beat": "E05-B033",
+      "cliff_beat": "E05-B102",
+      "hook": "\"Barbara, don't!\"",
+      "cliffhanger": "The scarred husband warns Gerald with lethal coldness as Juliana clutches her rescued book.",
+      "why": "Cruel family members throwing a dead mother's heirloom into the mud creates instant boiling rage in the viewer, satisfied immediately by the husband's protective dominance.",
+      "context_needed": "Juliana has just married a stranger and been disowned by her father."
+     }
+    ],
+    "moments": [
+     {
+      "beat": "E05-B033",
+      "type": "hook",
+      "note": "Stepmother throws mother's ledger into the mud."
+     },
+     {
+      "beat": "E05-B042",
+      "type": "hook",
+      "note": "The husband kneels in the mud to retrieve it for her."
+     },
+     {
+      "beat": "E05-B058",
+      "type": "cliff",
+      "note": "Lethal warning to Gerald: 'Choose your next words carefully.'"
+     }
+    ]
+   }
+  ]
+ },
+ "usage": {
+  "prompt_tokens": 23208,
+  "completion_tokens": 1953
+ }
+}
