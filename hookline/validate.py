@@ -110,7 +110,7 @@ def validate_candidate(c: Candidate, index: dict[str, Beat],
     return promo, notes + [f"{c.id}: repaired — {r}" for r in repairs]
 
 
-def _overlap(a: Promo, b: Promo) -> float:
+def overlap(a: Promo, b: Promo) -> float:
     inter = 0.0
     for sa in a.segments:
         for sb in b.segments:
@@ -124,6 +124,6 @@ def dedupe(promos: list[Promo], iou: float = DEDUPE_IOU) -> list[Promo]:
     """Drop promos that mostly repeat an earlier one (list order = priority)."""
     kept: list[Promo] = []
     for p in promos:
-        if all(_overlap(p, k) <= iou for k in kept):
+        if all(overlap(p, k) <= iou for k in kept):
             kept.append(p)
     return kept

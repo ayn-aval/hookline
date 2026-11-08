@@ -5,6 +5,7 @@ Committed outputs carry timestamps + short hook/cliffhanger quotes only, never t
 from __future__ import annotations
 
 import csv
+import io
 import json
 from pathlib import Path
 
@@ -25,16 +26,22 @@ def promo_dict(p: Promo) -> dict:
     return d
 
 
+def promos_csv(promos: list[Promo]) -> str:
+    """One row per segment, so an editor can cut directly from the sheet."""
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(CSV_COLS)
+    for p in promos:
+        for n, s in enumerate(p.segments, 1):
+            writer.writerow([p.rank, p.id, p.kind, p.title, p.duration, n, s.ep, fmt_ts(s.start), fmt_ts(s.end),
+                             round(s.end - s.start, 2), p.hook, p.cliffhanger, p.why, p.post_reason,
+                             p.final_score, p.scores.get("hook"), p.scores.get("cliff"),
+                             p.scores.get("standalone"), p.scores.get("emotion"), p.spoiler, p.repaired])
+    return buffer.getvalue()
+
+
 def write_csv(promos: list[Promo], path: Path) -> None:
-    with path.open("w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(CSV_COLS)
-        for p in promos:
-            for n, s in enumerate(p.segments, 1):
-                w.writerow([p.rank, p.id, p.kind, p.title, p.duration, n, s.ep, fmt_ts(s.start), fmt_ts(s.end),
-                            round(s.end - s.start, 2), p.hook, p.cliffhanger, p.why, p.post_reason, p.final_score,
-                            p.scores.get("hook"), p.scores.get("cliff"), p.scores.get("standalone"),
-                            p.scores.get("emotion"), p.spoiler, p.repaired])
+    path.write_text(promos_csv(promos))
 
 
 def promo_markdown(p: Promo) -> str:
@@ -101,3 +108,10 @@ def write_outputs(result, show: ParseResult, out_dir: Path) -> None:
     (out_dir / "run_meta.json").write_text(json.dumps(result.meta, indent=1, ensure_ascii=False))
     write_csv(result.promos, out_dir / "promos.csv")
     write_report(result.promos, result.bible, result.meta, out_dir / "report.md")
+
+
+def load_run(out_dir: Path) -> tuple[list[Promo], dict, dict]:
+    """Read a run written by write_outputs: (ranked promos, bible, meta)."""
+    data = json.loads((Path(out_dir) / "promos.json").read_text())
+    promos = [Promo.model_validate(p) for p in data["promos"]]
+    return promos, data.get("bible", {}), data.get("meta", {})

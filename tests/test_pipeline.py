@@ -48,7 +48,7 @@ class FakeLLM:
                                                             {"start_beat": "E01-B009", "end_beat": "E01-B011"}],
                                 "hook_beat": "E02-B001", "cliff_beat": "E01-B011", "hook": "h", "cliffhanger": "c",
                                 "why": "w"}]}
-        if tag.startswith("04_judge"):
+        if "judge" in tag:
             ids = [l.split("CLIP ")[1].split(" ")[0] for l in user.splitlines() if l.startswith("=== CLIP ")]
             return {"scores": [{"id": i, "hook": 4, "cliff": 4, "standalone": 4, "emotion": 4,
                                 "cold_viewer_summary": "s", "weakness": "w"} for i in ids]}
@@ -100,7 +100,7 @@ class ForgetfulJudgeLLM(FakeLLM):
 
     def json(self, system, user, tag):
         out = super().json(system, user, tag)
-        if tag.startswith("04_judge"):
+        if "judge" in tag:
             self.judge_calls += 1
             if self.judge_calls == 1 and len(out["scores"]) > 1:
                 out["scores"] = out["scores"][1:]
@@ -117,7 +117,7 @@ def test_judge_rescores_clips_the_model_skipped(tmp_path):
 
 class BrokenJudgeLLM(FakeLLM):
     def json(self, system, user, tag):
-        if tag.startswith("04_judge"):
+        if "judge" in tag:
             return {"scores": []}
         return super().json(system, user, tag)
 
