@@ -14,6 +14,7 @@ from typing import Optional
 
 from .llm import LLM, PROVIDERS, LLMConfig
 from .parse import load_show
+from .pipeline import DEFAULT_EPISODES_PER_CALL
 
 
 def parse_episodes(spec: Optional[str]) -> Optional[list[int]]:
@@ -48,6 +49,10 @@ def _add_common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--model", default=None)
     p.add_argument("--base-url", default=None, help="any OpenAI-compatible endpoint")
     p.add_argument("--temperature", type=float, default=None)
+    p.add_argument("--judge-model", default=None,
+                   help="model for the cold-viewer judge (default: the provider's judge model, else --model)")
+    p.add_argument("--episodes-per-call", type=int, default=DEFAULT_EPISODES_PER_CALL,
+                   help="episodes mined per LLM call (1 = best quality, higher = fewer requests)")
     p.add_argument("--workers", type=int, default=4, help="parallel LLM calls")
     p.add_argument("--episodes", default=None, help="subset, e.g. 1-3 or 1,5,9")
     p.add_argument("--env-file", default=None, help="file with GEMINI_API_KEY / HOOKLINE_* variables")
@@ -76,6 +81,12 @@ def _llm(args, cache_dir: Path, **overrides) -> LLM:
     return LLM(cfg, cache_dir=cache_dir)
 
 
+def _judge_llm(args, cache_dir: Path) -> LLM:
+    generator = LLMConfig.from_env(provider=args.provider, model=args.model)
+    model = args.judge_model or PROVIDERS[generator.provider].get("judge_model") or generator.model
+    return _llm(args, cache_dir, model=model)
+
+
 def _log(message: str) -> None:
     print(message, file=sys.stderr)
 
@@ -85,9 +96,10 @@ def cmd_run(args, show) -> int:
     from .report import write_outputs
 
     out = Path(args.out)
-    llm = _llm(args, out / "raw")
-    _log(f"Hookline · {len(show.episodes)} episodes · {llm.cfg.provider}/{llm.cfg.model}")
-    result = run_pipeline(show, llm, max_workers=args.workers, episodes=parse_episodes(args.episodes),
+    llm, judge = _llm(args, out / "raw"), _judge_llm(args, out / "raw")
+    _log(f"Hookline · {len(show.episodes)} episodes · {llm.cfg.provider}/{llm.cfg.model} · judge {judge.cfg.model}")
+    result = run_pipeline(show, llm, judge_llm=judge, max_workers=args.workers,
+                          episodes=parse_episodes(args.episodes), episodes_per_call=args.episodes_per_call,
                           progress=lambda m, f: _log(f"[{f:4.0%}] {m}"))
     write_outputs(result, show, out)
     c = result.meta["candidates"]
@@ -100,11 +112,12 @@ def cmd_eval(args, show) -> int:
     from .evaluate import evaluate
 
     out = Path(args.out)
-    llm = _llm(args, out / "raw")
+    llm, judge = _llm(args, out / "raw"), _judge_llm(args, out / "raw")
     alt = (_llm(args, out / "raw_alt", model=args.alt_model) if args.alt_model
            else _llm(args, out / "raw_alt", temperature=0.9))
-    report = evaluate(out, show, llm, alt_llm=alt, eval_dir=Path(args.eval_dir) if args.eval_dir else None,
-                      workers=args.workers, stability_episodes=parse_episodes(args.episodes))
+    report = evaluate(out, show, llm, alt_llm=alt, judge_llm=judge,
+                      eval_dir=Path(args.eval_dir) if args.eval_dir else None, workers=args.workers,
+                      stability_episodes=parse_episodes(args.episodes), episodes_per_call=args.episodes_per_call)
     print(report["markdown"])
     return 0
 

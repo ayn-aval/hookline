@@ -13,7 +13,7 @@ from ..prompts import load_prompt
 from ..render import clip_block
 from ..schemas import ParseResult, Promo
 
-BATCH_SIZE = 8
+BATCH_SIZE = 20
 SCORE_KEYS = ("hook", "cliff", "standalone", "emotion")
 TEXT_KEYS = ("cold_viewer_summary", "weakness")
 
@@ -40,9 +40,10 @@ def _apply(p: Promo, row: dict) -> None:
 
 
 def judge_promos(promos: list[Promo], show: ParseResult, llm, tag_prefix: str = "04_judge",
-                 max_workers: int = 4, progress: Optional[Callable[[str, float], None]] = None) -> None:
+                 max_workers: int = 4, progress: Optional[Callable[[str, float], None]] = None,
+                 batch_size: int = BATCH_SIZE) -> None:
     ordered = sorted(promos, key=lambda p: p.id)
-    batches = [ordered[i:i + BATCH_SIZE] for i in range(0, len(ordered), BATCH_SIZE)]
+    batches = [ordered[i:i + batch_size] for i in range(0, len(ordered), batch_size)]
     finished = [0]
 
     def run(numbered: tuple[int, list[Promo]]) -> None:

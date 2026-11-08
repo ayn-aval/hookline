@@ -11,7 +11,8 @@ from typing import Optional
 
 PROVIDERS: dict[str, dict[str, str]] = {
     "gemini": {"base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
-               "default_model": "gemini-3.5-flash", "key_env": "GEMINI_API_KEY"},
+               "default_model": "gemini-3.5-flash-lite", "judge_model": "gemini-3.1-flash-lite",
+               "key_env": "GEMINI_API_KEY"},
     "openai": {"base_url": "https://api.openai.com/v1/",
                "default_model": "gpt-5-mini", "key_env": "OPENAI_API_KEY"},
     "anthropic": {"base_url": "https://api.anthropic.com/v1/",

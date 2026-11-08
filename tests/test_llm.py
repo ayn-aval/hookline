@@ -51,7 +51,7 @@ def test_strip_code_fences():
 def test_providers_have_base_urls():
     for name in ["gemini", "openai", "anthropic", "groq", "openrouter", "ollama"]:
         assert PROVIDERS[name]["base_url"].startswith("http")
-    assert LLMConfig(provider="gemini").model == "gemini-3.5-flash"
+    assert LLMConfig(provider="gemini").model == "gemini-3.5-flash-lite"
 
 
 def test_from_env(monkeypatch):
@@ -71,3 +71,25 @@ def test_cache_file_never_stores_user_content(tmp_path):
     blob = next(tmp_path.glob("t__*.json")).read_text()
     assert "SECRET SCREENPLAY LINE" not in blob
     assert '"response_text"' in blob
+
+
+class QuotaError(Exception):
+    status_code = 429
+
+
+class DailyQuotaClient(FakeClient):
+    def _create(self, **kw):
+        self.calls.append(kw)
+        raise QuotaError("Quota exceeded: Generate content requests per day limit exceeded on Free Tier")
+
+
+def test_daily_quota_fails_fast_without_retrying(tmp_path):
+    import pytest
+
+    from hookline.llm import LLMError
+
+    fake = DailyQuotaClient([])
+    llm = LLM(cfg(), cache_dir=tmp_path, client=fake)
+    with pytest.raises(LLMError, match="daily quota"):
+        llm.json("s", "u", tag="t")
+    assert len(fake.calls) == 1

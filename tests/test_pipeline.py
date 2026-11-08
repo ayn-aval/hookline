@@ -17,6 +17,20 @@ def make_ep(n: int) -> str:
     return "\n".join(lines)
 
 
+MINED = {
+    1: {"candidates": [
+        {"title": "good", "start_beat": "E01-B002", "end_beat": "E01-B008", "hook_beat": "E01-B002",
+         "cliff_beat": "E01-B008", "hook": "h", "cliffhanger": "c", "why": "w"},
+        {"title": "invented", "start_beat": "E01-B002", "end_beat": "E01-B099", "hook_beat": "E01-B002",
+         "cliff_beat": "E01-B099", "hook": "h", "cliffhanger": "c", "why": "w"}],
+        "moments": [{"beat": "E01-B003", "type": "hook", "note": "n"}]},
+    2: {"candidates": [
+        {"title": "spoiler", "start_beat": "E02-B005", "end_beat": "E02-B011", "hook_beat": "E02-B005",
+         "cliff_beat": "E02-B011", "hook": "h", "cliffhanger": "c", "why": "w"}],
+        "moments": [{"beat": "E02-B009", "type": "cliff", "note": "n"}]},
+}
+
+
 class FakeLLM:
     """Replies by tag prefix; records the user prompts it saw."""
 
@@ -31,18 +45,9 @@ class FakeLLM:
         if tag.startswith("01_bible"):
             return {"show_premise": "A jilted bride.", "characters": [], "arcs": [],
                     "reveals": [{"reveal": "x", "episode": 2, "ad_safe": False, "keywords": ["line 11 of episode 2"]}]}
-        if tag.startswith("02_mine_ep01"):
-            return {"candidates": [
-                {"title": "good", "start_beat": "E01-B002", "end_beat": "E01-B008", "hook_beat": "E01-B002",
-                 "cliff_beat": "E01-B008", "hook": "h", "cliffhanger": "c", "why": "w"},
-                {"title": "invented", "start_beat": "E01-B002", "end_beat": "E01-B099", "hook_beat": "E01-B002",
-                 "cliff_beat": "E01-B099", "hook": "h", "cliffhanger": "c", "why": "w"}],
-                "moments": [{"beat": "E01-B003", "type": "hook", "note": "n"}]}
-        if tag.startswith("02_mine_ep02"):
-            return {"candidates": [
-                {"title": "spoiler", "start_beat": "E02-B005", "end_beat": "E02-B011", "hook_beat": "E02-B005",
-                 "cliff_beat": "E02-B011", "hook": "h", "cliffhanger": "c", "why": "w"}],
-                "moments": [{"beat": "E02-B009", "type": "cliff", "note": "n"}]}
+        if tag.startswith("02_mine_eps"):
+            nums = [int(line.split()[1]) for line in user.splitlines() if line.startswith("EPISODE ")]
+            return {"episodes": [{"episode": n, **MINED.get(n, {"candidates": [], "moments": []})} for n in nums]}
         if tag.startswith("03_stitch"):
             return {"promos": [{"title": "st", "segments": [{"start_beat": "E02-B001", "end_beat": "E02-B002"},
                                                             {"start_beat": "E01-B009", "end_beat": "E01-B011"}],
@@ -127,3 +132,14 @@ def test_unjudged_promo_is_flagged_not_scored_zero(tmp_path):
     result = run_pipeline(show, BrokenJudgeLLM(), max_workers=1)
     assert all(p.scores.get("judged") is False for p in result.promos)
     assert all("not scored" in p.post_reason for p in result.promos)
+
+
+def test_episodes_per_call_batches_mining_and_judge_uses_its_own_model(tmp_path):
+    show = load_show([("1.txt", make_ep(1)), ("2.txt", make_ep(2))])
+    gen, judge = FakeLLM(), FakeLLM()
+    result = run_pipeline(show, gen, judge_llm=judge, max_workers=1, episodes_per_call=2)
+    assert {p.id for p in result.promos} == {"E01-C1", "E02-C1", "S01"}
+    assert [t for t in gen.seen if t.startswith("02_mine_eps")] == ["02_mine_eps01-02"]
+    assert not any("judge" in t for t in gen.seen)
+    assert any("judge" in t for t in judge.seen)
+    assert result.meta["judge_model"] == "fake-1"

@@ -17,7 +17,8 @@ from .baseline import baseline_promos
 from .report import load_run
 from .rules import JUDGE_WEIGHTS
 from .schemas import ParseResult, Promo
-from .stages import judge_promos, mine_episode, mined_candidates
+from .pipeline import DEFAULT_EPISODES_PER_CALL
+from .stages import judge_promos, mine_episodes, mined_candidates
 from .validate import dedupe, dialogue_by_episode, overlap, validate_candidate
 
 TOP_N = 15
@@ -47,21 +48,24 @@ def top_overlap(main: list[Promo], alt: list[Promo], iou: float = STABILITY_IOU)
     return round(found / len(main), 3)
 
 
-def remine(show: ParseResult, bible: dict, llm, episodes: Optional[list[int]], workers: int) -> list[Promo]:
+def remine(show: ParseResult, bible: dict, llm, episodes: Optional[list[int]], workers: int,
+           episodes_per_call: int = DEFAULT_EPISODES_PER_CALL) -> list[Promo]:
     selected = [e for e in show.episodes if not episodes or e.num in set(episodes)]
+    batches = [selected[i:i + episodes_per_call] for i in range(0, len(selected), episodes_per_call)]
     index = show.beat_index()
     dialogue = dialogue_by_episode(index)
 
-    def mine(ep) -> list[Promo]:
+    def mine(batch) -> list[Promo]:
         try:
-            raw = mine_episode(ep, bible, llm)
-        except Exception:  # noqa: BLE001 - a failed episode simply contributes nothing
+            mined = mine_episodes(batch, bible, llm)
+        except Exception:  # noqa: BLE001 - a failed batch simply contributes nothing
             return []
-        promos = [validate_candidate(c, index, dialogue)[0] for c in mined_candidates(ep.num, raw)]
+        promos = [validate_candidate(c, index, dialogue)[0]
+                  for n, raw in mined.items() for c in mined_candidates(n, raw)]
         return [p for p in promos if p]
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        return dedupe([p for batch in pool.map(mine, selected) for p in batch])
+        return dedupe([p for found in pool.map(mine, batches) for p in found])
 
 
 def _markdown(results: dict) -> str:
@@ -86,20 +90,22 @@ def _markdown(results: dict) -> str:
     return "\n".join(lines)
 
 
-def evaluate(out_dir: Path, show: ParseResult, llm, alt_llm=None, eval_dir: Optional[Path] = None,
-             workers: int = 4, stability_episodes: Optional[list[int]] = None) -> dict:
+def evaluate(out_dir: Path, show: ParseResult, llm, alt_llm=None, judge_llm=None, eval_dir: Optional[Path] = None,
+             workers: int = 4, stability_episodes: Optional[list[int]] = None,
+             episodes_per_call: int = DEFAULT_EPISODES_PER_CALL) -> dict:
+    """`llm` judges the baseline (pass the run's judge model); `alt_llm` re-mines for stability."""
     out_dir = Path(out_dir)
     eval_dir = Path(eval_dir) if eval_dir else out_dir / "eval"
     eval_dir.mkdir(parents=True, exist_ok=True)
     promos, bible, meta = load_run(out_dir)
 
     baseline = baseline_promos(show)
-    judge_promos(baseline, show, llm, tag_prefix="05_baseline_judge", max_workers=workers)
+    judge_promos(baseline, show, judge_llm or llm, tag_prefix="05_baseline_judge", max_workers=workers)
     ranked = sorted(promos, key=lambda p: p.rank or 10**6)
 
     stability = {}
     if alt_llm is not None:
-        alt = remine(show, bible, alt_llm, stability_episodes, workers)
+        alt = remine(show, bible, alt_llm, stability_episodes, workers, episodes_per_call)
         main_top = [p for p in ranked if p.kind == "continuous"][:STABILITY_TOP]
         stability = {"alt_model": f"{alt_llm.cfg.model} (temperature {alt_llm.cfg.temperature})",
                      "episodes": len(stability_episodes or show.episodes),
@@ -112,7 +118,8 @@ def evaluate(out_dir: Path, show: ParseResult, llm, alt_llm=None, eval_dir: Opti
         "hookline_top": score_summary(ranked[:TOP_N]),
         "stability": stability,
         "constraints": meta.get("candidates", {}),
-        "llm_usage": dict(llm.usage),
+        "judge_model": getattr((judge_llm or llm).cfg, "model", "?"),
+        "llm_usage": dict((judge_llm or llm).usage),
     }
     (eval_dir / "results.json").write_text(json.dumps(results, indent=1, ensure_ascii=False))
     markdown = _markdown(results)

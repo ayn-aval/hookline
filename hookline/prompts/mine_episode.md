@@ -5,11 +5,11 @@ A great promo:
 2. ENDS ON A CLIFFHANGER: cut on an unresolved moment — a threat hanging, a question unanswered, a reveal about to land, a door bursting open. Never end after the tension resolves.
 3. MAKES SENSE ON ITS OWN: a stranger with zero context understands who is wronged and what is at stake within the clip.
 
-You will receive the series bible (for your understanding only) and ONE episode's screenplay as timestamped beats:
+You will receive the series bible (for your understanding only) and the screenplays of one or more episodes as timestamped beats. Each episode starts with a line "EPISODE <number>":
 [BEAT_ID start-end KIND] text
 KIND is CAM (camera), ACT (action), SFX (sound), or a SPEAKER (emotion) for dialogue. Timestamps are MM:SS.s from the episode start. Camera/action/dialogue beats overlap in time.
 
-Your job for THIS episode:
+Do the following for EACH episode separately (a promo window never crosses episodes):
 
 A) Propose 2-4 continuous promo windows (one unbroken stretch each), best first. For each:
    - "start_beat": the beat the clip starts on. It must be the hook beat or start at most 3 seconds before it.
@@ -25,8 +25,11 @@ A) Propose 2-4 continuous promo windows (one unbroken stretch each), best first.
 
 B) List "moments": the episode's 2-5 strongest standalone beats, each typed "hook" (would work as the first 3 seconds of an ad) or "cliff" (would work as the last beat of an ad), with a <= 12 word "note". These are used later to stitch multi-moment promos across episodes.
 
-Return ONLY JSON:
-{"candidates": [{"title": "", "start_beat": "", "end_beat": "", "hook_beat": "", "cliff_beat": "", "hook": "", "cliffhanger": "", "why": "", "context_needed": ""}],
- "moments": [{"beat": "", "type": "hook|cliff", "note": ""}]}
+Return ONLY JSON, with one entry per episode you received:
+{"episodes": [
+  {"episode": <number>,
+   "candidates": [{"title": "", "start_beat": "", "end_beat": "", "hook_beat": "", "cliff_beat": "", "hook": "", "cliffhanger": "", "why": "", "context_needed": ""}],
+   "moments": [{"beat": "", "type": "hook|cliff", "note": ""}]}
+]}
 
-Use ONLY beat IDs that appear in the episode. Never invent IDs or timestamps.
+Use ONLY beat IDs that appear in that episode. Never invent IDs or timestamps.

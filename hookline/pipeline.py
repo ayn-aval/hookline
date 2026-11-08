@@ -10,7 +10,7 @@ from .prompts import prompts_sha
 from .rank import rank_promos
 from .rules import PRICE_PER_M_INPUT, PRICE_PER_M_OUTPUT
 from .schemas import Candidate, ParseResult, Promo
-from .stages import judge_promos, make_bible, mine_episode, mined_candidates, spoiler_level, stitch
+from .stages import judge_promos, make_bible, mine_episodes, mined_candidates, spoiler_level, stitch
 from .validate import dedupe, dialogue_by_episode, validate_candidate
 
 Progress = Optional[Callable[[str, float], None]]
@@ -23,19 +23,24 @@ class RunResult:
     meta: dict = field(default_factory=dict)
 
 
-def _mine_all(show: ParseResult, bible: dict, llm, max_workers: int, say) -> dict[int, dict]:
-    mined: dict[int, dict] = {}
-    total = len(show.episodes)
+DEFAULT_EPISODES_PER_CALL = 5
 
-    def mine(ep) -> None:
+
+def _mine_all(show: ParseResult, bible: dict, llm, max_workers: int, episodes_per_call: int,
+              say) -> dict[int, dict]:
+    eps = show.episodes
+    batches = [eps[i:i + episodes_per_call] for i in range(0, len(eps), episodes_per_call)]
+    mined: dict[int, dict] = {}
+
+    def mine(batch) -> None:
         try:
-            mined[ep.num] = mine_episode(ep, bible, llm)
-        except Exception as exc:  # noqa: BLE001 - one failed episode must not stop the run
-            mined[ep.num] = {"candidates": [], "moments": [], "error": str(exc)[:300]}
-        say(f"Mined {len(mined)}/{total} episodes", 0.05 + 0.6 * len(mined) / total)
+            mined.update(mine_episodes(batch, bible, llm))
+        except Exception as exc:  # noqa: BLE001 - one failed batch must not stop the run
+            mined.update({ep.num: {"candidates": [], "moments": [], "error": str(exc)[:300]} for ep in batch})
+        say(f"Mined {len(mined)}/{len(eps)} episodes", 0.05 + 0.6 * len(mined) / len(eps))
 
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
-        list(pool.map(mine, show.episodes))
+        list(pool.map(mine, batches))
     return mined
 
 
@@ -53,8 +58,18 @@ def _validate_all(candidates: list[Candidate], show: ParseResult) -> tuple[list[
     return valid, rejections, repaired
 
 
-def run_pipeline(show: ParseResult, llm, progress: Progress = None, max_workers: int = 4,
-                 episodes: Optional[list[int]] = None) -> RunResult:
+def _combined_usage(llm, judge_llm) -> dict:
+    usage = dict(llm.usage)
+    if judge_llm is not llm:
+        for k, v in judge_llm.usage.items():
+            usage[k] = usage.get(k, 0) + v
+    return usage
+
+
+def run_pipeline(show: ParseResult, llm, judge_llm=None, progress: Progress = None, max_workers: int = 4,
+                 episodes: Optional[list[int]] = None,
+                 episodes_per_call: int = DEFAULT_EPISODES_PER_CALL) -> RunResult:
+    """Run every stage. `judge_llm` defaults to `llm`; a different model reduces self-grading bias."""
     started = time.time()
     say = progress or (lambda message, fraction: None)
     if episodes:
@@ -65,7 +80,8 @@ def run_pipeline(show: ParseResult, llm, progress: Progress = None, max_workers:
 
     say("Building series bible", 0.02)
     bible = make_bible(show, llm)
-    mined = _mine_all(show, bible, llm, max_workers, say)
+    judge_llm = judge_llm or llm
+    mined = _mine_all(show, bible, llm, max_workers, max(1, episodes_per_call), say)
 
     candidates = [c for n in sorted(mined) for c in mined_candidates(n, mined[n])]
     say("Stitching multi-moment promos", 0.68)
@@ -79,16 +95,18 @@ def run_pipeline(show: ParseResult, llm, progress: Progress = None, max_workers:
     unique = dedupe(valid)
 
     say("Judging promos as a cold viewer", 0.72)
-    judge_promos(unique, show, llm, max_workers=max_workers, progress=lambda m, f: say(m, 0.72 + 0.25 * f))
+    judge_promos(unique, show, judge_llm, max_workers=max_workers, progress=lambda m, f: say(m, 0.72 + 0.25 * f))
     for p in unique:
         p.spoiler = spoiler_level(p, show, bible)
     ranked = rank_promos(unique, n_episodes=max(e.num for e in show.episodes))
 
-    usage = dict(llm.usage)
+    usage = _combined_usage(llm, judge_llm)
     meta = {
         "show_episodes": [e.num for e in show.episodes],
         "provider": getattr(llm.cfg, "provider", "?"),
         "model": getattr(llm.cfg, "model", "?"),
+        "judge_model": getattr(judge_llm.cfg, "model", "?"),
+        "episodes_per_call": episodes_per_call,
         "temperature": getattr(llm.cfg, "temperature", None),
         "prompts_sha": prompts_sha(),
         "candidates": {

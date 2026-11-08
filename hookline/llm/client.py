@@ -19,6 +19,7 @@ from .jsonparse import parse_json_text
 from .providers import LLMConfig
 
 RETRYABLE_STATUS = {408, 409, 429, 500, 502, 503, 504}
+DAILY_QUOTA_MARKERS = ("per day", "perday")
 
 
 class LLMError(RuntimeError):
@@ -108,6 +109,9 @@ class LLM:
                 if status == 400 and json_mode and "response_format" in str(exc).lower():
                     json_mode = False  # provider lacks JSON mode; the prompt still asks for JSON
                     continue
+                if status == 429 and any(m in str(exc).lower() for m in DAILY_QUOTA_MARKERS):
+                    raise LLMError(f"{self.cfg.provider}/{self.cfg.model}: daily quota exhausted; "
+                                   "switch model or provider, or wait for the quota to reset") from exc
                 retryable = status in RETRYABLE_STATUS or status is None
                 if not retryable or attempt == self.max_retries:
                     raise LLMError(f"{self.cfg.provider}/{self.cfg.model} failed: {str(exc)[:300]}") from exc
