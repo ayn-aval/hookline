@@ -2,7 +2,7 @@
 
 **Show premise (from series bible):** After being abandoned at the altar by her fiancé, a humiliated noblewoman marries a mysterious scarred warrior who is secretly the rightful Duke reclaiming his stolen throne.
 
-Episodes 1–50 · model `gemini/gemini-3.5-flash-lite` · prompts `5bd0239b49` · 4.8s · LLM calls 1 (cached 14)
+Episodes 1–50 · model `gemini/gemini-3.5-flash-lite`, judge `gemini-3.1-flash-lite` · prompts `5bd0239b49` · LLM calls 15 (15 served from cache)
 
 Candidates proposed 71 (64 continuous, 7 stitched) → valid 57 (auto-repaired 41, rejected 14) → after de-duplication **56 promos**.
 

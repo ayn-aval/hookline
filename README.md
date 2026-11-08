@@ -106,8 +106,8 @@ screenplays -> 1 Parse (code) -> 2 Series bible (LLM) -> 3 Mine each episode (LL
 |---|---|
 | Timestamps are real | The model can only cite beat IDs. Unknown IDs reject the candidate. |
 | 20 to 60 seconds | Total of all segments. An over-long window is condensed to the hook opening plus the run-up to the cliffhanger. A short stitched promo gets a longer run-up. Anything else out of range is rejected. |
-| Hook in the first 3 seconds | If the hook starts later, the start moves to the hook. A promo that is slightly short may open up to 3 s before the hook. |
-| Ends on the cliffhanger | If the clip runs past the cliffhanger, the end moves back to it. |
+| Hook in the first 3 seconds | The start moves onto the hook beat, earlier or later as needed. A promo that is slightly short may open up to 3 s before the hook. |
+| Ends on the cliffhanger | The end moves onto the cliffhanger beat (within 1 s), earlier or later as needed. |
 | No cut mid-sentence | A cut that lands inside a spoken line is widened to the whole line. |
 
 The thresholds and ranking weights live in [`hookline/rules.py`](hookline/rules.py).
@@ -130,13 +130,14 @@ Each run folder contains:
 hookline/
   parse.py         screenplay text -> beats with IDs and timestamps
   schemas.py       Beat, Episode, Candidate, Segment, Promo
-  llm/             provider presets, cached and retrying OpenAI-compatible client, JSON parsing
+  llm/             provider presets, the JSONModel protocol, cached and retrying OpenAI-compatible client
   prompts/         versioned prompt templates (Markdown)
   stages/          bible, mine, stitch, judge, spoilers: the LLM-backed steps
   render.py        text renderings of beats and clips for prompts and the UI
   validate.py      promo rules, snapping, de-duplication
   rank.py          posting order
   rules.py         thresholds and weights
+  batching.py      splitting work into LLM-call-sized batches
   pipeline.py      orchestration of one run
   report.py        writing and reading run outputs
   baseline.py      naive "last 45 seconds" baseline
@@ -173,7 +174,9 @@ The tests use a fake model, so they run offline in about a second. They cover th
 
 ## Data and confidentiality
 
-The input pack is Kuku's confidential content. It is not in this repository (`data/` is git-ignored) and the hosted app does not contain it. Committed outputs contain timestamps and short hook and cliffhanger quotes only. The cached replies in `raw/` store the model's answer and a hash of the prompt, never the screenplay text that was sent.
+The input pack is Kuku's confidential content. It is not in this repository (`data/` is git-ignored) and the hosted app does not contain it. - The cached replies in `raw/` store the model's answer and a hash of the prompt, never the screenplay text that was sent.
+- Committed outputs contain timestamps, short hook and cliffhanger quotes, and model-written descriptions.
+- One exception: the series bible (`bible.json`) and the judge's one-line summaries describe the plot. They are kept because the brief asks for unedited raw outputs on the full pack. If Kuku prefers otherwise, the repository can be made private, or `bible.json` and `raw/01_bible*` can be removed, without affecting anything else.
 
 ## Limitations
 

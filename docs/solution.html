@@ -69,7 +69,7 @@
 <p><b>Models used for the committed run.</b> <code>gemini-3.5-flash-lite</code> finds the promos and <code>gemini-3.1-flash-lite</code> judges them, both through Gemini's OpenAI-compatible API. Any OpenAI-compatible model is one flag away (<code>--provider/--model/--base-url</code>, or the app sidebar). I planned to use <code>gemini-3.5-flash</code>, but the free tier allows 20 requests per model per day, and my first per-episode design used them up while testing (see "AI tools" below).</p>
 
 <h2>Results on the input pack (50 episodes)</h2>
-<p>71 proposals were reduced to <b>56 promos</b> (35 continuous, 21 stitched): 41 were auto-repaired, 14 rejected (mostly too short), and 1 duplicate dropped. They cover 42 of the 50 episodes, with lengths of 20–60 s (median 43 s). The first three to post:</p>
+<p>71 proposals were reduced to <b>56 promos</b> (35 continuous, 21 stitched): 41 were auto-repaired, 14 rejected (mostly too short), and 1 duplicate dropped. They cover 42 of the 50 episodes, with lengths of 20–60 s (median 43 s). Cross-episode stitching is supported, but in this run the lite model only stitched moments within one episode. The first three to post:</p>
 <table>
   <tr><th>#</th><th>Segments</th><th>Hook (first 3 s)</th><th>Cliffhanger</th><th>Why it works</th></tr>
   <tr><td>1</td><td>Ep 12 00:44.00–01:27.21</td><td>"I want to see you crawl, sister."</td><td>Juliana agrees to dig through frozen thorns to save her husband from the gallows</td><td>Cruel ultimatum, stakes spelled out in 40 s</td></tr>

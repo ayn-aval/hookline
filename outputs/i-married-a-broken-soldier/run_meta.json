@@ -86,8 +86,8 @@
  ],
  "errors": {},
  "llm_usage": {
-  "calls": 1,
-  "cached": 14,
+  "calls": 0,
+  "cached": 15,
   "prompt_tokens": 316468,
   "completion_tokens": 25770,
   "retries": 0
@@ -97,6 +97,6 @@
   "input": 0.3,
   "output": 2.5
  },
- "seconds": 4.8,
+ "seconds": 0.0,
  "parse_warnings": []
 }

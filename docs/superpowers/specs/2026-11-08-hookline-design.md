@@ -202,3 +202,11 @@ hookline/
 - a Gemini API key from aistudio.google.com
 - a one-time browser approval for the `aynaval` `gh` login and the Streamlit Cloud sign-in
 - reviewing and editing the solution doc in her own words: the brief says the decisions must be hers, and she'll be asked about them in the interview
+
+
+## 14. Changes made during the build (recorded after the fact)
+
+- **Models.** The free Gemini tier allows about 20 requests per model per day, and `gemini-3.5-flash` ran out during testing. The committed run therefore uses `gemini-3.5-flash-lite` as the generator and `gemini-3.1-flash-lite` as the judge. A separate judge model also avoids a model grading its own picks.
+- **Batched mining.** Mining batches 5 episodes per call (`--episodes-per-call`), and the judge scores 20 clips per call. A full show is about 15 calls.
+- **More repairs.** The validator repairs more than originally planned: over-long windows are condensed into two segments, short stitched promos get a longer run-up, and short promos may open up to 3 s before the hook. The lite model's window lengths ranged from 6 to 114 s.
+- **Confidentiality exception.** The series bible and the judge summaries (plot descriptions) are committed as part of the raw outputs the brief requires. See the README.
