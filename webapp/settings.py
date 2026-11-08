@@ -8,12 +8,13 @@ from typing import Optional
 
 import streamlit as st
 
-from hookline.llm import DEFAULT_PROVIDER, PROVIDERS, LLMConfig
+from hookline.llm import DEFAULT_PROVIDER, PROVIDERS, SUGGESTED_MODELS, LLMConfig
 
 # The shared demo key is on Gemini's free tier (about 20 requests per model per day), so the
 # budget is global across all visitors, not per browser session.
 DEMO_RUNS_PER_DAY = 3
 DEMO_MAX_EPISODES = 10
+OTHER_MODEL = "Other (type a name)"
 
 
 @dataclass
@@ -51,6 +52,21 @@ def _secret(name: str) -> Optional[str]:
         return None
 
 
+def _model_picker(label: str, provider: str, default: str, disabled: bool, help: Optional[str] = None) -> str:
+    """Pick from known model names to avoid typos; 'Other' still allows any name the provider serves."""
+    options = list(SUGGESTED_MODELS.get(provider, []))
+    if not options:
+        return st.sidebar.text_input(label, value=default, disabled=disabled, help=help).strip()
+    if default not in options:
+        options.insert(0, default)
+    choice = st.sidebar.selectbox(label, options + [OTHER_MODEL], index=options.index(default),
+                                  disabled=disabled, help=help, key=f"{label}-{provider}")
+    if choice != OTHER_MODEL:
+        return choice
+    return st.sidebar.text_input(f"{label} name", disabled=disabled, key=f"{label}-{provider}-typed",
+                                 help="Exact model ID as the provider lists it.").strip()
+
+
 def model_sidebar() -> ModelChoice:
     st.sidebar.header("Model")
     key = st.sidebar.text_input("API key", type="password",
@@ -62,10 +78,10 @@ def model_sidebar() -> ModelChoice:
                                     disabled=using_demo,
                                     help="Any OpenAI-compatible API. Use 'custom' for your own endpoint.")
     preset = PROVIDERS[provider]
-    model = st.sidebar.text_input("Model", value=preset["default_model"], disabled=using_demo)
-    judge_model = st.sidebar.text_input("Judge model", value=preset.get("judge_model") or model,
-                                        disabled=using_demo,
-                                        help="Scores the promos. A different model avoids grading its own picks.")
+    model = _model_picker("Model", provider, preset["default_model"], using_demo,
+                          help="Finds the promos.")
+    judge_model = _model_picker("Judge model", provider, preset.get("judge_model") or preset["default_model"],
+                                using_demo, help="Scores the promos. A different model avoids grading its own picks.")
     base_url = st.sidebar.text_input("Base URL", value=preset["base_url"]) if provider == "custom" else None
     if using_demo:
         st.sidebar.caption(f"Using the shared free-tier demo key: {demo_budget().remaining()} of "

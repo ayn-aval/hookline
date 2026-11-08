@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SAMPLE_RUN = ROOT / "outputs" / "i-married-a-broken-soldier"
 EVAL_DIR = ROOT / "eval"
 CACHE_ROOT = Path(tempfile.gettempdir()) / "hookline-cache"
+RAW_OUTPUTS_URL = "https://github.com/ayn-aval/hookline/tree/main/outputs/i-married-a-broken-soldier"
 JOB_KEY = "run_job"
 
 
@@ -35,7 +36,8 @@ def sample_results() -> None:
     st.markdown(f"**Premise (series bible):** {bible.get('show_premise', '')}")
     run_summary(meta)
     st.caption("Script lines are not shown here: the screenplays are confidential and are not published with "
-               "this demo. Upload scripts under 'Run on a new show' to see each promo's lines.")
+               "this demo. Upload scripts under 'Run on a new show' to see each promo's lines. "
+               f"Unedited raw outputs of this run: [GitHub folder]({RAW_OUTPUTS_URL}).")
     shown = filter_promos(promos, key="sample")
     approved_export(promos, key="sample", file_name="approved_promos.csv")
     for p in shown:

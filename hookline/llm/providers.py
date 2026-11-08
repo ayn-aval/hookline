@@ -29,6 +29,18 @@ PROVIDERS: dict[str, dict[str, str]] = {
 
 DEFAULT_PROVIDER = "gemini"
 
+# Models offered in the app's dropdown (default first). Any other name can still be typed in.
+SUGGESTED_MODELS: dict[str, list[str]] = {
+    "gemini": ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3-flash-preview",
+               "gemini-3.1-pro-preview", "gemini-2.5-flash-lite"],
+    "openai": ["gpt-5-mini"],
+    "anthropic": ["claude-sonnet-5-5", "claude-haiku-5-5", "claude-opus-5-5"],
+    "groq": ["llama-3.3-70b-versatile"],
+    "openrouter": ["openrouter/auto"],
+    "ollama": ["qwen3:8b"],
+    "custom": [],
+}
+
 
 @dataclass
 class LLMConfig:

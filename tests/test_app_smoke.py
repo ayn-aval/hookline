@@ -35,8 +35,19 @@ def test_demo_key_locks_model_fields():
     at.secrets["GEMINI_API_KEY"] = "demo"
     at.run()
     assert not at.exception
-    model = next(t for t in at.sidebar.text_input if t.label == "Model")
+    model = next(t for t in at.sidebar.selectbox if t.label == "Model")
     assert model.disabled and model.value == "gemini-3.5-flash-lite"
+
+
+def test_model_is_picked_from_a_list_with_a_typed_fallback():
+    at = AppTest.from_file(str(ROOT / "app.py"), default_timeout=30).run()
+    model = next(s for s in at.sidebar.selectbox if s.label == "Model")
+    assert "gemini-3.5-flash" in model.options and model.options[-1].startswith("Other")
+    assert not any(t.label == "Model name" for t in at.sidebar.text_input)
+    model.select(model.options[-1]).run()
+    typed = next(t for t in at.sidebar.text_input if t.label == "Model name")
+    typed.input("gemini-3.8-flash").run()
+    assert not at.exception
 
 
 def test_background_job_keeps_result_in_session_state(monkeypatch):

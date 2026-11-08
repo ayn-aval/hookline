@@ -119,6 +119,12 @@ class LLM:
                     self._quota_error = (f"{self.cfg.provider}/{self.cfg.model}: daily quota exhausted; "
                                          "switch model or provider, or wait for the quota to reset")
                     raise LLMError(self._quota_error) from exc
+                if status == 404:
+                    raise LLMError(f"{self.cfg.provider}: model {self.cfg.model!r} was not found. Check the "
+                                   "spelling, or that this key can use it.") from exc
+                if status in (401, 403):
+                    raise LLMError(f"{self.cfg.provider}: the API key was rejected ({status}). "
+                                   "Check the key and that it belongs to this provider.") from exc
                 retryable = status in RETRYABLE_STATUS or status is None
                 if not retryable or attempt == self.max_retries:
                     raise LLMError(f"{self.cfg.provider}/{self.cfg.model} failed: {str(exc)[:300]}") from exc

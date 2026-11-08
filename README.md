@@ -63,7 +63,7 @@ Useful flags:
 
 ## Swapping the model
 
-Every supported provider speaks the OpenAI chat-completions protocol, so the model is a setting, not code. Use flags, environment variables or the app sidebar.
+Every supported provider speaks the OpenAI chat-completions protocol, so the model is a setting, not code. Use flags, environment variables or the app sidebar (pick a listed model, or choose "Other" to type any model ID the provider serves; a misspelled name fails on the first call with a clear message).
 
 | Provider | `--provider` | Key variable | Default model |
 |---|---|---|---|

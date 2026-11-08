@@ -102,3 +102,50 @@ def test_cached_calls_still_count_tokens_for_cost(tmp_path):
     again.json("s", "u", tag="t")
     assert again.usage["calls"] == 0 and again.usage["cached"] == 1
     assert again.usage["prompt_tokens"] == 10 and again.usage["completion_tokens"] == 5
+
+
+class StatusError(Exception):
+    def __init__(self, status_code, message):
+        super().__init__(message)
+        self.status_code = status_code
+
+
+class FailingClient(FakeClient):
+    def __init__(self, exc):
+        super().__init__([])
+        self.exc = exc
+
+    def _create(self, **kw):
+        self.calls.append(kw)
+        raise self.exc
+
+
+def test_unknown_model_fails_fast_with_a_clear_message():
+    import pytest
+
+    from hookline.llm import LLMError
+
+    fake = FailingClient(StatusError(404, "models/gemni-flash is not found for API version v1beta"))
+    llm = LLM(LLMConfig(provider="gemini", model="gemni-flash", api_key="k"), client=fake)
+    with pytest.raises(LLMError, match="model 'gemni-flash' was not found"):
+        llm.json("sys", "user", tag="t")
+    assert len(fake.calls) == 1
+
+
+def test_rejected_key_gets_a_clear_message():
+    import pytest
+
+    from hookline.llm import LLMError
+
+    llm = LLM(cfg(), client=FailingClient(StatusError(401, "API key not valid")))
+    with pytest.raises(LLMError, match="API key was rejected"):
+        llm.json("sys", "user", tag="t")
+
+
+def test_every_provider_suggests_its_default_model():
+    from hookline.llm import SUGGESTED_MODELS
+
+    for name, preset in PROVIDERS.items():
+        if preset["default_model"]:
+            assert SUGGESTED_MODELS[name][0] == preset["default_model"]
+    assert PROVIDERS["gemini"]["judge_model"] in SUGGESTED_MODELS["gemini"]

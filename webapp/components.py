@@ -54,7 +54,7 @@ def promo_card(p: Promo, key: str, show: Optional[ParseResult] = None) -> None:
                       f"{p.kind} · {p.duration:.1f}s · episodes {', '.join(map(str, p.episodes))} · "
                       f"score {p.final_score}")
         decision.checkbox("Approve", key=_approve_key(key, p))
-        st.dataframe(_segments_table(p), hide_index=True, use_container_width=True)
+        st.dataframe(_segments_table(p), hide_index=True, width="stretch")
         st.markdown(f"**Hook:** {p.hook}  \n**Cliffhanger:** {p.cliffhanger}  \n**Why it works:** {p.why}  \n"
                     f"**Why post at #{p.rank}:** {p.post_reason}")
         scores = " · ".join(f"{label} {p.scores.get(k, '-')}/5" for k, label in SCORE_LABELS.items())
